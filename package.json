@@ -1,0 +1,65 @@
+{
+  "name": "guseyn.com",
+  "version": "1.0.0",
+  "description": "My blog.",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "node test-executor",
+    "build-local": "NODE_ENV=local node server/app/build",
+    "build-dev": "NODE_ENV=dev node server/app/build",
+    "build-test": "NODE_ENV=test node server/app/build",
+    "build-stage": "NODE_ENV=stage node server/app/build",
+    "build-prod": "NODE_ENV=prod node server/app/build",
+    "run-local": "NODE_ENV=local node server/app/run",
+    "run-dev": "NODE_ENV=dev node server/app/run",
+    "run-test": "NODE_ENV=test node server/app/run",
+    "run-stage": "NODE_ENV=stage node server/app/run",
+    "run-prod": "NODE_ENV=prod node server/app/run"
+  },
+  "author": "guseyn",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@cuties/assert": "^1.2.0",
+    "@cuties/buffer": "^1.2.0",
+    "@cuties/cluster": "^1.1.0",
+    "@cuties/cutie": "^1.7.0",
+    "@cuties/fs": "^1.2.0",
+    "@cuties/http": "^1.3.0",
+    "@cuties/https": "^1.1.0",
+    "@cuties/if-else": "^1.1.0",
+    "@cuties/is": "^1.1.0",
+    "@cuties/json": "^1.1.0",
+    "@cuties/path": "^1.1.0",
+    "@cuties/rest": "^1.2.1",
+    "@cuties/scripts": "^1.1.0",
+    "@cuties/wall": "^1.1.0",
+    "@page-libs/ajax": "^1.1.3",
+    "@page-libs/cutie": "^1.1.1",
+    "@page-libs/dom": "^1.0.2",
+    "@page-libs/md2html": "^1.1.1",
+    "@page-libs/static-generator": "^1.1.1",
+    "@page-libs/unit": "^1.1.1",
+    "test-executor": "^1.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "eslint": "^5.11.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "grunt": "^1.0.3",
+    "grunt-babel": "^8.0.0",
+    "grunt-browserify": "^5.3.0",
+    "grunt-contrib-uglify-es": "^3.3.0",
+    "load-grunt-tasks": "^4.0.0"
+  }
+}
