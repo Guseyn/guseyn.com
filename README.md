@@ -1,5 +1,5 @@
-#guseyn.com
-My blog.
+# guseyn.com
 
-![gaa1](https://github.com/Guseyn/guseyn.com/blob/master/output.png)
-![gaa1](https://github.com/Guseyn/guseyn.com/blob/master/logo.png)
+My blog. Based on [Page].
+
+<img src="https://github.com/Guseyn/guseyn.com/blob/master/logo.png" width="150" height="150">
