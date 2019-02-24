@@ -1,0 +1,19 @@
+.base {
+  width: 100%;
+  height: auto;
+  min-height: 280px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding-bottom: 13px;
+  overflow: hidden;
+}
+
+@media only screen and (min-width: 700px) {
+  .base {
+    width: 700px;
+  }
+}
+
+@media only screen and (min-width: 450px) and (max-width: 700px) {
+
+}
