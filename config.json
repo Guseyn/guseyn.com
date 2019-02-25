@@ -12,6 +12,7 @@
   "templates": "./templates",
   "staticHtml": "./static/html",
   "staticJs": "./static/js/es6",
+  "mdFiles": "./static/md/",
   "outStaticJs": "./static/js/out",
   "bundle": "./static/js/bundle.js",
   "bundleHref": "/../js/bundle.js",

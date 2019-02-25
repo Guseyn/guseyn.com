@@ -71,11 +71,19 @@ new ParsedJSON(
             )
           ).after(
             new WatcherWithEventTypeAndFilenameListener(
-              new Value(as('config'), 'staticJs'),
+              new Value(as('config'), 'mdFiles'),
               { persistent: true, recursive: true, encoding: 'utf8' },
-              new OnPageStaticJsFilesChangeEvent(
+              new OnTemplatesChangeEvent(
+                new Value(as('config'), 'staticGenerators')
+              )
+            ).after(
+              new WatcherWithEventTypeAndFilenameListener(
                 new Value(as('config'), 'staticJs'),
-                new Value(as('config'), 'bundleJs')
+                { persistent: true, recursive: true, encoding: 'utf8' },
+                new OnPageStaticJsFilesChangeEvent(
+                  new Value(as('config'), 'staticJs'),
+                  new Value(as('config'), 'bundleJs')
+                )
               )
             )
           )
