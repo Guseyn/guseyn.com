@@ -1,0 +1,63 @@
+/**
+ * GitHub Gist Theme (Night variation)
+ */
+
+.night .hljs {
+  color: #dedede;
+  background-color: #252525; 
+}
+
+.night .hljs-comment,
+.night .hljs-meta {
+  color: #969896;
+}
+
+.night .hljs-string,
+.night .hljs-variable,
+.night .hljs-template-variable,
+.night .hljs-strong,
+.night .hljs-emphasis,
+.night .hljs-quote {
+  color: #ff782d;
+}
+
+.night .hljs-keyword,
+.night .hljs-selector-tag,
+.night .hljs-type {
+  color: #dc3582;
+}
+
+.night .hljs-literal,
+.night .hljs-symbol,
+.night .hljs-bullet,
+.night .hljs-attribute {
+  color: #00bfff;
+}
+
+.night .hljs-section,
+.night .hljs-name {
+  color: #92bf8d;
+}
+
+.night .hljs-tag {
+  color: #dedede;
+}
+
+.night .hljs-title,
+.night .hljs-attr,
+.night .hljs-selector-id,
+.night .hljs-selector-class,
+.night .hljs-selector-attr,
+.night .hljs-selector-pseudo {
+  color: #a18ebf;
+}
+
+.night .hljs-addition {
+  color: #55a532;
+  background-color: #eaffea;
+}
+
+.night .hljs-deletion {
+  color: #bd2c00;
+  background-color: #ffecec;
+}

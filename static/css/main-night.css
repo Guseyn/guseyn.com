@@ -1,0 +1,40 @@
+.night body {
+  background: #191919;
+  color: #dedede;
+}
+
+/* Track */
+.night::-webkit-scrollbar-track {
+    background: #242424; 
+}
+
+/* Handle */
+.night::-webkit-scrollbar-thumb {
+    background: #f5f5f5;
+}
+
+/* Handle on hover */
+.night::-webkit-scrollbar-thumb:hover {
+    background: #dedede; 
+}
+
+.night .day-night {
+  background: #ffffff;
+}
+
+.night .menu a, .night .subscribe a, .night .dot {
+  color: #dedede;
+}
+
+.night .menu a:hover, .night .subscribe a:hover {
+  color: #fefefe;
+}
+
+.night .date {
+  color: #cccccc;
+}
+
+.night pre {
+  border: 1px solid #333333;
+  background: #252525;
+}

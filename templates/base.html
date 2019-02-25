@@ -1,20 +1,23 @@
 <div class="base">
 	<div class="menu">
-		<a href="/about">about</a>
-		<a href="/projects">projects</a>
-		<a href="/posts">posts</a>
-		<a href="/slides">slides</a>
-		<a href="/papers">papers</a>
-		<a href="/videos">videos</a>
-		<a href="/podcasts">podcasts</a>
+		<a href="/about">About</a>
+		<a href="/projects">Projects</a>
+		<a href="/posts">Posts</a>
+		<a href="/slides">Slides</a>
+		<a href="/papers">Papers</a>
+		<a href="/videos">Videos</a>
+		<a href="/podcasts">Podcasts</a>
 	</div>
 	<div class="subscribe">
-		<span>•</span>
+		<span class="dot">•</span>
 		<a href="/subscribe">subscribe</a>
-		<span>•</span>
+		<span class="dot">•</span>
 	</div>
-	<div class="day-night"></div>
+	<div class="day-night" id="day-night"></div>
 	<div class="content">
 		{content}
 	</div>
+	<script>
+		hljs.initHighlightingOnLoad()
+	</script>
 </div>
