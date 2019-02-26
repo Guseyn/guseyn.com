@@ -47,6 +47,7 @@
     "@page-libs/md2html": "^1.1.1",
     "@page-libs/static-generator": "^1.1.1",
     "@page-libs/unit": "^1.1.1",
+    "cheerio": "^1.0.0-rc.2",
     "showdown": "^1.9.0",
     "test-executor": "^1.2.0"
   },
