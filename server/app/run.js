@@ -15,6 +15,7 @@ const OnStaticGeneratorsChangeEvent = require('./../OnStaticGeneratorsChangeEven
 const OnTemplatesChangeEvent = require('./../OnTemplatesChangeEvent')
 const ReloadedBackendOnFailedWorkerEvent = require('./../ReloadedBackendOnFailedWorkerEvent')
 const UrlToFSPathMapper = require('./../UrlToFSPathMapper')
+const CuteUrlToFSPathForHtmlMapper = require('./../CuteUrlToFSPathForHtmlMapper')
 const PrintedToConsolePageLogo = require('./../PrintedToConsolePageLogo')
 
 const numCPUs = require('os').cpus().length
@@ -34,6 +35,13 @@ const launchedBackend = new Backend(
       new RegExp(/^\/(css|html|image|js|txt)/),
       new UrlToFSPathMapper(
         new Value(as('config'), 'static')
+      ),
+      new CustomNotFoundEndpoint(new RegExp(/^\/not-found/))
+    ),
+    new CreatedServingFilesEndpoint(
+      new RegExp(/^\/(posts|previews|stuff|tags)/),
+      new CuteUrlToFSPathForHtmlMapper(
+        new Value(as('config'), 'staticHtml')
       ),
       new CustomNotFoundEndpoint(new RegExp(/^\/not-found/))
     ),
