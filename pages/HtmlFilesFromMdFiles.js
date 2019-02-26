@@ -1,3 +1,5 @@
+'use strict'
+
 const { AsyncObject } = require('@cuties/cutie')
 const showdown = require('showdown')
 const path = require('path')

@@ -1,3 +1,5 @@
+'use strict'
+
 const { AsyncObject } = require('@cuties/cutie')
 const { PrettyPage, Page, Head, Meta, Body, Script, Style, Link, TemplateWithParams } = require('@page-libs/static-generator')
 const { TheSameObjectWithValue } = require('@cuties/object')

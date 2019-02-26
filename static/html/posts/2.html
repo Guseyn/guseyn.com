@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i|Source+Sans+Pro:400,400i,700,700i" rel="stylesheet">
+    <link rel="stylesheet" href="/../css/normalize.css" type="text/css">
+    <link rel="stylesheet" href="/../css/main.css" type="text/css">
+    <link rel="stylesheet" href="/../css/main-night.css" type="text/css">
+    <link rel="stylesheet" href="/../css/github-gist.css" type="text/css">
+    <link rel="stylesheet" href="/../css/github-gist-night.css" type="text/css">
+    <script src="/../js/bundle.min.js" type="text/javascript"></script>
+    <script src="/../js/highlight.pack.js" type="text/javascript"></script>
+  </head>
+
+  <body class="main">
+    <div class="base">
+      <div class="menu">
+        <a href="/about">About</a>
+        <a href="/projects">Projects</a>
+        <a href="/posts">Posts</a>
+        <a href="/slides">Slides</a>
+        <a href="/papers">Papers</a>
+        <a href="/videos">Videos</a>
+        <a href="/podcasts">Podcasts</a>
+      </div>
+      <div class="subscribe">
+        <span class="dot">•</span>
+        <a href="/subscribe">subscribe</a>
+        <span class="dot">•</span>
+      </div>
+      <div class="day-night" id="day-night"></div>
+      <div class="content">
+        <h1 id="articlename3">Article name 3</h1>
+        <div class="date">20 February 2019</div>
+        <p>Although there are a lot of libraries doing such simple things like drag&amp;drop and drag&amp;resize, sometimes we need to do specific functional interfaces where it's important to understand how these things really work. If you are begginer in js or just curious programmer, this article would be very useful for you (you will learn some tricks in event driven js system and how it works in the whole).
+          Let's start with drag&amp;drop. Consider we have an element in another one where it could be dragged and drop. We would have something like the following html code:</p>
+        <pre><code class="html language-html">&lt;div id="wrapElm"&gt;
+    &lt;div id="elm"&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+        <p>You may notice that wrapElm and elm have absolute positions. But you can use default(static) positions for elements, in that case you have to use css margin properties instead of top and left properties for declaring position of the dragged element. I prefer work with absolute positionated elements, it's just easier and more convenient.</p>
+        <pre><code class="json language-json">"local": {
+  "protocol": "http",
+  "port": 8000,
+  "host": "127.0.0.1",
+  "clusterMode": true
+},
+"dev": {
+  "protocol": "http",
+  "port": 8000,
+  "host": "127.0.0.1",
+  "clusterMode": true
+},
+"test": {
+  "protocol": "http",
+  "port": 8000,
+  "host": "127.0.0.1",
+  "clusterMode": true
+},
+"stage": {
+  "protocol": "http",
+  "port": 8000,
+  "host": "127.0.0.1",
+  "clusterMode": true
+},
+"prod": {
+  "protocol": "http",
+  "port": 8000,
+  "host": "127.0.0.1",
+  "clusterMode": true
+}
+</code></pre>
+        <pre><code class="js language-js">// server/app/build.js
+
+const { as } = require('@cuties/cutie')
+const { ParsedJSON, Value } = require('@cuties/json')
+const { ExecutedScripts } = require('@cuties/scripts')
+const { ReadDataByPath } = require('@cuties/fs')
+const PrintedToConsolePageLogo = require('./../PrintedToConsolePageLogo')
+const { ExecutedLint, ExecutedTestCoverage, ExecutedTestCoverageCheck } = require('@cuties/wall')
+const ExecutedGruntBuild = require('./../ExecutedGruntBuild')
+const env = process.env.NODE_ENV || 'local'
+
+new ParsedJSON(
+  new ReadDataByPath('./config.json')
+).as('config').after(
+  new PrintedToConsolePageLogo(
+    new ReadDataByPath(
+      new Value(as('config'), 'page.logoText')
+    ),
+    new Value(as('config'), 'page.version'),
+    `BUILD (${env})`
+  ).after(
+    new ExecutedLint(process, './server', './static/js/es6', './test').after(
+      new ExecutedTestCoverageCheck(
+        new ExecutedTestCoverage(process, './test-executor.js'),
+        { 'lines': 100, 'functions': 100, 'branches': 100 }
+      ).after(
+        new ExecutedGruntBuild(process).after(
+          new ExecutedScripts(
+            new Value(as('config'), 'staticGenerators')
+          )
+        )
+      )
+    )
+  )
+).call()
+</code></pre>
+      </div>
+      <script>
+        hljs.initHighlightingOnLoad()
+      </script>
+    </div>
+  </body>
+
+</html>

@@ -57,7 +57,11 @@ new ParsedJSON(
               new Value(
                 as('config'),
                 'htmlPostPreviews'
-              ), 2
+              ),
+              new Value(
+                as('config'),
+                'postPreviewsPerPage'
+              )
             ),
             new BaseTemplateWrapper(
               as('baseTemplate')

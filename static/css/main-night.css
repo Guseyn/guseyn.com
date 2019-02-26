@@ -1,6 +1,6 @@
 .night body {
   background: #191919;
-  color: #dedede;
+  color: #eeeeee;
 }
 
 /* Track */
@@ -22,7 +22,12 @@
   background: #ffffff;
 }
 
-.night .menu a, .night .subscribe a, .night .dot, .night h1 a {
+.night .menu a,
+.night .subscribe a,
+.night .dot,
+.night h1 a,
+.night .continue,
+.night .pagination a {
   color: #dedede;
 }
 
