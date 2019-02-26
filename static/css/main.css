@@ -94,6 +94,17 @@ p {
   cursor: pointer;
 }
 
+h1 a {
+  text-decoration: none;
+  color: #111111;
+}
+
+.date {
+  font-size: 0.8721em;
+  color: #656565;
+  margin-top: -12px;
+}
+
 .content {
   width: 100%;
   background: transparent;
@@ -102,12 +113,6 @@ p {
   padding: 15px 30px 30px 30px;
   font-family: 'PT Serif', serif;
   word-wrap: break-word;
-}
-
-.date {
-  font-size: 0.8721em;
-  color: #656565;
-  margin-top: -12px;
 }
 
 pre {

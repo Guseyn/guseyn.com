@@ -22,7 +22,7 @@
   background: #ffffff;
 }
 
-.night .menu a, .night .subscribe a, .night .dot {
+.night .menu a, .night .subscribe a, .night .dot, .night h1 a {
   color: #dedede;
 }
 
