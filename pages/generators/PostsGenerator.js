@@ -82,6 +82,38 @@ new ParsedJSON(
                 as('baseTemplate')
               )
             ), { flag: 'w' }
+          ).after(
+            new ReadFilesOfDirectory(
+              new Value(
+                as('config'),
+                'mdStuff'
+              )
+            ).as('stuffFileNames').after(
+              new WrittenDataToFiles(
+                new ProcessedObject(
+                  new HtmlFilesFromMdFiles(
+                    new ReadDataFromFiles(
+                      new Mapped(
+                        as('stuffFileNames'),
+                        new JoinedPathMapper(
+                          new Value(
+                            as('config'), 'mdStuff'
+                          )
+                        )
+                      ),
+                      { encoding: 'utf8' }
+                    ),
+                    new Value(
+                      as('config'), 'htmlStuff'
+                    ),
+                    as('stuffFileNames')
+                  ),
+                  new BaseTemplateWrapper(
+                    as('baseTemplate')
+                  )
+                ), { flag: 'w' }
+              )
+            )
           )
         )
       )
