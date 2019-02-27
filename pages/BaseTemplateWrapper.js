@@ -29,7 +29,8 @@ class BaseTemplateWrapper extends AsyncObject {
                 new Style('/../css/github-gist.css', 'type="text/css"'),
                 new Style('/../css/github-gist-night.css', 'type="text/css"'),
                 new Script('/../js/bundle.min.js', 'type="text/javascript"'),
-                new Script('/../js/highlight.pack.js', 'type="text/javascript"')
+                new Script('/../js/highlight.pack.js', 'type="text/javascript"'),
+                new Script('/../js/youtube.js', 'type="text/javascript"')
               ),
               new Body(
                 'class="main"',

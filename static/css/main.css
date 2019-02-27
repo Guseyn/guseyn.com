@@ -189,7 +189,34 @@ code {
 }
 
 code::-webkit-scrollbar {
-    height: 2px;
+  height: 2px;
+}
+
+.youtube-video {
+  position: relative;
+  width: 100%;
+  margin-top: 24px;
+  cursor: pointer;
+  opacity: 0.8;
+  clear: both;
+}
+
+.youtube-video:hover {
+  opacity: 1.0;
+}
+
+.youtube-video-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 64px;
+  height: 64px;
+  margin-top: -32px;
+  margin-left: -32px;
+}
+
+iframe {
+  border: 0;
 }
 
 @media only screen and (min-width: 700px) {
