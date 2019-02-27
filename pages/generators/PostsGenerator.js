@@ -10,6 +10,7 @@ const HtmlFilesFromMdFiles = require('./../HtmlFilesFromMdFiles')
 const BaseTemplateWrapper = require('./../BaseTemplateWrapper')
 const JoinedPathMapper = require('./../JoinedPathMapper')
 const PreviewsFromPosts = require('./../PreviewsFromPosts')
+const TagsFromPosts = require('./../TagsFromPosts')
 
 new ParsedJSON(
   new ReadDataByPath('./config.json')
@@ -67,6 +68,21 @@ new ParsedJSON(
               as('baseTemplate')
             )
           ), { flag: 'w' }
+        ).after(
+          new WrittenDataToFiles(
+            new ProcessedObject(
+              new TagsFromPosts(
+                as('posts'),
+                new Value(
+                  as('config'),
+                  'tagPages'
+                )
+              ),
+              new BaseTemplateWrapper(
+                as('baseTemplate')
+              )
+            ), { flag: 'w' }
+          )
         )
       )
     )
