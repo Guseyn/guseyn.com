@@ -22,6 +22,7 @@ class BaseTemplateWrapper extends AsyncObject {
                 new Meta('charset="UTF-8"'),
                 new Meta('name="viewport" content="width=device-width, initial-scale=1"'),
                 new Link('href="https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i|Source+Sans+Pro:400,400i,700,700i" rel="stylesheet"'),
+                new Link('rel="shortcut icon" type="image/png" href="/../image/favicon.png"'),
                 new Style('/../css/normalize.css', 'type="text/css"'),
                 new Style('/../css/main.css', 'type="text/css"'),
                 new Style('/../css/main-night.css', 'type="text/css"'),
