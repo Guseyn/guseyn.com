@@ -27,7 +27,8 @@
 .night .dot,
 .night h1 a,
 .night .continue,
-.night .pagination a {
+.night .pagination a,
+.night .post-link a {
   color: #dedede;
 }
 
