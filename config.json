@@ -26,6 +26,8 @@
   "bundleHref": "/../js/bundle.js",
   "minBundle": "./static/js/bundle.min.js",
   "minBundleHref": "/../js/bundle.min.js",
+  "key": "./key.pem",
+  "cert": "./cert.pem",
   "local": {
     "protocol": "http",
     "port": 8000,
@@ -51,7 +53,7 @@
     "clusterMode": true
   },
   "prod": {
-    "protocol": "http",
+    "protocol": "https",
     "port": 80,
     "host": "5.187.7.231",
     "clusterMode": true
