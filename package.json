@@ -38,6 +38,7 @@
     "@cuties/json": "^1.1.0",
     "@cuties/object": "^1.1.4",
     "@cuties/path": "^1.1.0",
+    "@cuties/process": "^1.2.0",
     "@cuties/rest": "^1.2.1",
     "@cuties/scripts": "^1.1.0",
     "@cuties/wall": "^1.1.0",

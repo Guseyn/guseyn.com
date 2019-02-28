@@ -16,7 +16,7 @@ new ParsedJSON(
     new ReadDataByPath(
       new Value(as('config'), 'page.logoText')
     ),
-    new Value(as('config'), 'page.version'),
+    new Value(as('config'), 'version'),
     `BUILD (${env})`
   ).after(
     new ExecutedLint(process, './server', './static/js/es6', './test', './pages').after(
