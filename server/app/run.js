@@ -54,74 +54,78 @@ const launchedBackend = new Backend(
 new ParsedJSON(
   new ReadDataByPath('./config.json')
 ).as('config').after(
-  new If(
-    new IsMaster(cluster),
-    new KilledProcess(
-      new Pid(
-        new FoundProcessOnPort(
-          new Value(as('config'), `${env}.port`)
+  new ParsedJSON(
+    new ReadDataByPath('./package.json')
+  ).as('packageJson').after(
+    new If(
+      new IsMaster(cluster),
+      new KilledProcess(
+        new Pid(
+          new FoundProcessOnPort(
+            new Value(as('config'), `${env}.port`)
+          )
         )
-      )
-    ).after(
-      new PrintedToConsolePageLogo(
-        new ReadDataByPath(
-          new Value(as('config'), 'page.logoText')
-        ),
-        new Value(as('config'), 'version'),
-        `RUN (${env})`
       ).after(
-        new If(
-          devEnv,
-          new WatcherWithEventTypeAndFilenameListener(
-            new Value(as('config'), 'staticGenerators'),
-            { persistent: true, recursive: true, encoding: 'utf8' },
-            new OnStaticGeneratorsChangeEvent(
-              new Value(as('config'), 'staticGenerators')
-            )
-          ).after(
+        new PrintedToConsolePageLogo(
+          new ReadDataByPath(
+            new Value(as('config'), 'page.logoText')
+          ),
+          new Value(as('packageJson'), 'version'),
+          `RUN (${env})`
+        ).after(
+          new If(
+            devEnv,
             new WatcherWithEventTypeAndFilenameListener(
-              new Value(as('config'), 'templates'),
+              new Value(as('config'), 'staticGenerators'),
               { persistent: true, recursive: true, encoding: 'utf8' },
-              new OnTemplatesChangeEvent(
+              new OnStaticGeneratorsChangeEvent(
                 new Value(as('config'), 'staticGenerators')
               )
             ).after(
               new WatcherWithEventTypeAndFilenameListener(
-                new Value(as('config'), 'mdFiles'),
+                new Value(as('config'), 'templates'),
                 { persistent: true, recursive: true, encoding: 'utf8' },
                 new OnTemplatesChangeEvent(
                   new Value(as('config'), 'staticGenerators')
                 )
               ).after(
                 new WatcherWithEventTypeAndFilenameListener(
-                  new Value(as('config'), 'staticJs'),
+                  new Value(as('config'), 'mdFiles'),
                   { persistent: true, recursive: true, encoding: 'utf8' },
-                  new OnPageStaticJsFilesChangeEvent(
+                  new OnTemplatesChangeEvent(
+                    new Value(as('config'), 'staticGenerators')
+                  )
+                ).after(
+                  new WatcherWithEventTypeAndFilenameListener(
                     new Value(as('config'), 'staticJs'),
-                    new Value(as('config'), 'bundleJs')
+                    { persistent: true, recursive: true, encoding: 'utf8' },
+                    new OnPageStaticJsFilesChangeEvent(
+                      new Value(as('config'), 'staticJs'),
+                      new Value(as('config'), 'bundleJs')
+                    )
                   )
                 )
               )
             )
-          )
-        ).after(
-          new If(
-            new Value(as('config'), `${env}.clusterMode`),
-            new ClusterWithForkedWorkers(
-              new ClusterWithExitEvent(
-                cluster,
-                new ReloadedBackendOnFailedWorkerEvent(cluster)
-              ), numCPUs
-            ),
-            new Else(
-              launchedBackend
+          ).after(
+            new If(
+              new Value(as('config'), `${env}.clusterMode`),
+              new ClusterWithForkedWorkers(
+                new ClusterWithExitEvent(
+                  cluster,
+                  new ReloadedBackendOnFailedWorkerEvent(cluster)
+                ), numCPUs
+              ),
+              new Else(
+                launchedBackend
+              )
             )
           )
         )
+      ),
+      new Else(
+        launchedBackend
       )
-    ),
-    new Else(
-      launchedBackend
     )
   )
 ).call()
