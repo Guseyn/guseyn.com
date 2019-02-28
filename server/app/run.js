@@ -53,7 +53,9 @@ const launchedBackend = new Backend(
   new CreatedOptionsByProtocol(
     new Value(as('config'), `${env}.protocol`),
     new ReadDataByPath(
-      new Value(as('config'), 'key'),
+      new Value(as('config'), 'key')
+    ),
+    new ReadDataByPath(
       new Value(as('config'), 'cert')
     )
   )
