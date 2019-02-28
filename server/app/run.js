@@ -19,6 +19,8 @@ const UrlToFSPathMapper = require('./../UrlToFSPathMapper')
 const CuteUrlToFSPathForHtmlMapper = require('./../CuteUrlToFSPathForHtmlMapper')
 const PrintedToConsolePageLogo = require('./../PrintedToConsolePageLogo')
 const CreatedOptionsByProtocol = require('./../CreatedOptionsByProtocol')
+const CreatedRedirectEndpoint = require('./../CreatedRedirectEndpoint')
+const IsHttps = require('./../IsHttps')
 
 const numCPUs = require('os').cpus().length
 const env = process.env.NODE_ENV || 'local'
@@ -61,6 +63,18 @@ const launchedBackend = new Backend(
   )
 )
 
+const redirectBackendForProd = new Backend(
+  'http',
+  new Value(as('config'), `${env}.http.port`),
+  new Value(as('config'), `${env}.host`),
+  new RestApi(
+    new CreatedRedirectEndpoint(
+      new Value(as('config'), `${env}.http.port`),
+      new Value(as('config'), `${env}.port`)
+    )
+  )
+)
+
 new ParsedJSON(
   new ReadDataByPath('./config.json')
 ).as('config').after(
@@ -84,50 +98,57 @@ new ParsedJSON(
           `RUN (${env})`
         ).after(
           new If(
-            devEnv,
-            new WatcherWithEventTypeAndFilenameListener(
-              new Value(as('config'), 'staticGenerators'),
-              { persistent: true, recursive: true, encoding: 'utf8' },
-              new OnStaticGeneratorsChangeEvent(
-                new Value(as('config'), 'staticGenerators')
-              )
-            ).after(
+            new IsHttps(
+              new Value(as('config'), `${env}.protocol`)
+            ),
+            redirectBackendForProd
+          ).after(
+            new If(
+              devEnv,
               new WatcherWithEventTypeAndFilenameListener(
-                new Value(as('config'), 'templates'),
+                new Value(as('config'), 'staticGenerators'),
                 { persistent: true, recursive: true, encoding: 'utf8' },
-                new OnTemplatesChangeEvent(
+                new OnStaticGeneratorsChangeEvent(
                   new Value(as('config'), 'staticGenerators')
                 )
               ).after(
                 new WatcherWithEventTypeAndFilenameListener(
-                  new Value(as('config'), 'mdFiles'),
+                  new Value(as('config'), 'templates'),
                   { persistent: true, recursive: true, encoding: 'utf8' },
                   new OnTemplatesChangeEvent(
                     new Value(as('config'), 'staticGenerators')
                   )
                 ).after(
                   new WatcherWithEventTypeAndFilenameListener(
-                    new Value(as('config'), 'staticJs'),
+                    new Value(as('config'), 'mdFiles'),
                     { persistent: true, recursive: true, encoding: 'utf8' },
-                    new OnPageStaticJsFilesChangeEvent(
+                    new OnTemplatesChangeEvent(
+                      new Value(as('config'), 'staticGenerators')
+                    )
+                  ).after(
+                    new WatcherWithEventTypeAndFilenameListener(
                       new Value(as('config'), 'staticJs'),
-                      new Value(as('config'), 'bundleJs')
+                      { persistent: true, recursive: true, encoding: 'utf8' },
+                      new OnPageStaticJsFilesChangeEvent(
+                        new Value(as('config'), 'staticJs'),
+                        new Value(as('config'), 'bundleJs')
+                      )
                     )
                   )
                 )
               )
-            )
-          ).after(
-            new If(
-              new Value(as('config'), `${env}.clusterMode`),
-              new ClusterWithForkedWorkers(
-                new ClusterWithExitEvent(
-                  cluster,
-                  new ReloadedBackendOnFailedWorkerEvent(cluster)
-                ), numCPUs
-              ),
-              new Else(
-                launchedBackend
+            ).after(
+              new If(
+                new Value(as('config'), `${env}.clusterMode`),
+                new ClusterWithForkedWorkers(
+                  new ClusterWithExitEvent(
+                    cluster,
+                    new ReloadedBackendOnFailedWorkerEvent(cluster)
+                  ), numCPUs
+                ),
+                new Else(
+                  launchedBackend
+                )
               )
             )
           )
