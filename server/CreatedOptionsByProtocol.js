@@ -21,4 +21,4 @@ class CreatedOptionsByProtocol extends AsyncObject {
   }
 }
 
-module.exports = CreatedCustomIndexEndpoint
+module.exports = CreatedOptionsByProtocol
