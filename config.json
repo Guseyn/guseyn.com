@@ -41,10 +41,13 @@
     "clusterMode": true
   },
   "test": {
-    "protocol": "http",
-    "port": 8000,
+    "protocol": "https",
+    "port": 8001,
     "host": "127.0.0.1",
-    "clusterMode": true
+    "clusterMode": true,
+    "http": {
+      "port": 8000
+    }
   },
   "stage": {
     "protocol": "http",
@@ -56,6 +59,9 @@
     "protocol": "https",
     "port": 443,
     "host": "5.187.7.231",
-    "clusterMode": true
+    "clusterMode": true,
+    "http": {
+      "port": 80
+    }
   }
 }
