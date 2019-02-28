@@ -2,7 +2,7 @@
 ssh root@5.187.7.231 bash -c "'
 if [ ! -d guseyn.com ]
 then
-  git clone git@github.com:Guseyn/guseyn.com.git guseyn.com
+  git clone https://github.com/Guseyn/guseyn.com.git guseyn.com
 else
   cd guseyn.com
   git pull
