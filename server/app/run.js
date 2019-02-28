@@ -32,14 +32,14 @@ const launchedBackend = new Backend(
       new Value(as('config'), 'index'),
       new CustomNotFoundEndpoint(new RegExp(/^\/not-found/))
     ),
-    new CreatedServingFilesEndpoint(
+    new CreatedCachedServingFilesEndpoint(
       new RegExp(/^\/(css|html|image|js|txt)/),
       new UrlToFSPathMapper(
         new Value(as('config'), 'static')
       ),
       new CustomNotFoundEndpoint(new RegExp(/^\/not-found/))
     ),
-    new CreatedServingFilesEndpoint(
+    new CreatedCachedServingFilesEndpoint(
       new RegExp(/^\/(posts|previews|stuff|tags)/),
       new CuteUrlToFSPathForHtmlMapper(
         new Value(as('config'), 'staticHtml')
