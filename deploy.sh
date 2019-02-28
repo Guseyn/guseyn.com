@@ -11,5 +11,5 @@ fi
 npm install npm -g
 npm install @page-libs/cli -g
 npm install --no-optional
-page br prod
+page b prod
 '"

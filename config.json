@@ -53,7 +53,7 @@
   "prod": {
     "protocol": "http",
     "port": 80,
-    "host": "127.0.0.1",
+    "host": "5.187.7.231",
     "clusterMode": true
   }
 }
