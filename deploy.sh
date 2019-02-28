@@ -11,6 +11,5 @@ fi
 npm install npm -g
 npm install @page-libs/cli -g
 npm install --no-optional
-pkill -f node
-page br
+page br prod
 '"
