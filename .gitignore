@@ -69,4 +69,5 @@ static/js/bundle.min.js
 
 # keys
 deploy_rsa
-
+key.pem
+cert.pem

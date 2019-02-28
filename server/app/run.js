@@ -18,6 +18,7 @@ const ReloadedBackendOnFailedWorkerEvent = require('./../ReloadedBackendOnFailed
 const UrlToFSPathMapper = require('./../UrlToFSPathMapper')
 const CuteUrlToFSPathForHtmlMapper = require('./../CuteUrlToFSPathForHtmlMapper')
 const PrintedToConsolePageLogo = require('./../PrintedToConsolePageLogo')
+const CreatedOptionsByProtocol = require('./../CreatedOptionsByProtocol')
 
 const numCPUs = require('os').cpus().length
 const env = process.env.NODE_ENV || 'local'
@@ -48,6 +49,13 @@ const launchedBackend = new Backend(
     ),
     new CustomNotFoundEndpoint(new RegExp(/^\/not-found/)),
     new CustomInternalServerErrorEndpoint()
+  ),
+  new CreatedOptionsByProtocol(
+    new Value(as('config'), `${env}.protocol`),
+    new ReadDataByPath(
+      new Value(as('config'), 'key'),
+      new Value(as('config'), 'cert')
+    )
   )
 )
 
