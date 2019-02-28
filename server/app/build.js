@@ -12,21 +12,25 @@ const env = process.env.NODE_ENV || 'local'
 new ParsedJSON(
   new ReadDataByPath('./config.json')
 ).as('config').after(
-  new PrintedToConsolePageLogo(
-    new ReadDataByPath(
-      new Value(as('config'), 'page.logoText')
-    ),
-    new Value(as('config'), 'version'),
-    `BUILD (${env})`
-  ).after(
-    new ExecutedLint(process, './server', './static/js/es6', './test', './pages').after(
-      new ExecutedTestCoverageCheck(
-        new ExecutedTestCoverage(process, './test-executor.js'),
-        { 'lines': 100, 'functions': 100, 'branches': 100 }
-      ).after(
-        new ExecutedGruntBuild(process).after(
-          new ExecutedScripts(
-            'node', 'js', new Value(as('config'), 'staticGenerators')
+  new ParsedJSON(
+    new ReadDataByPath('./package.json')
+  ).as('packageJson').after(
+    new PrintedToConsolePageLogo(
+      new ReadDataByPath(
+        new Value(as('config'), 'page.logoText')
+      ),
+      new Value(as('packageJson'), 'version'),
+      `BUILD (${env})`
+    ).after(
+      new ExecutedLint(process, './server', './static/js/es6', './test', './pages').after(
+        new ExecutedTestCoverageCheck(
+          new ExecutedTestCoverage(process, './test-executor.js'),
+          { 'lines': 100, 'functions': 100, 'branches': 100 }
+        ).after(
+          new ExecutedGruntBuild(process).after(
+            new ExecutedScripts(
+              'node', 'js', new Value(as('config'), 'staticGenerators')
+            )
           )
         )
       )
