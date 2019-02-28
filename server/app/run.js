@@ -101,7 +101,15 @@ new ParsedJSON(
             new IsHttps(
               new Value(as('config'), `${env}.protocol`)
             ),
-            redirectBackendForProd
+            new KilledProcess(
+              new Pid(
+                new FoundProcessOnPort(
+                  new Value(as('config'), `${env}.http.port`)
+                )
+              )
+            ).after(
+              redirectBackendForProd
+            )
           ).after(
             new If(
               devEnv,
