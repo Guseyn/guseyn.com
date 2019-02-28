@@ -8,6 +8,7 @@ else
   cd guseyn.com
   git pull
 fi
+npm install npm -g
 npm install @page-libs/cli -g
 npm install
 pkill -f node
