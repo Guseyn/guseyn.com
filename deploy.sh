@@ -8,8 +8,10 @@ else
   cd guseyn.com
   git pull
 fi
-npm install npm -g
-npm install @page-libs/cli -g
 npm install --no-optional
 page b prod
 '"
+
+# if needed
+# npm install npm -g
+# npm install @page-libs/cli -g
