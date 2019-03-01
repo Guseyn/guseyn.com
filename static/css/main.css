@@ -156,7 +156,7 @@ h1 a, .pagination a {
 .tags a {
   background: #666666;
   color: #eeeeee;
-  font-family: sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   font-weight: bold;
   text-decoration: none;
   padding: 3px 6px;

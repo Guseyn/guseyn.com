@@ -1,18 +1,27 @@
 'use strict'
 
+const { CreatedReadStream } = require('@cuties/fs')
+const { ResponseWithStatusCode, ResponseWithHeader } = require('@cuties/http')
+const { PipedReadable } = require('@cuties/stream')
 const { NotFoundEndpoint } = require('@cuties/rest')
-const { EndedResponse, ResponseWithWrittenHead } = require('@cuties/http')
 
 class CustomNotFoundEndpoint extends NotFoundEndpoint {
-  constructor (regexpUrl) {
+  constructor (regexpUrl, page) {
     super(regexpUrl)
+    this.page = page
   }
 
   body (request, response) {
-    return new EndedResponse(
-      new ResponseWithWrittenHead(response, 301, {
-        'Location': `/../html/404.html`
-      })
+    return new PipedReadable(
+      new CreatedReadStream(
+        this.page
+      ),
+      new ResponseWithStatusCode(
+        new ResponseWithHeader(
+          response, 'Content-Type',
+          'text/html'
+        ), 404
+      )
     )
   }
 }

@@ -5,12 +5,12 @@ const { as } = require('@cuties/cutie')
 const { If, Else } = require('@cuties/if-else')
 const { IsMaster, ClusterWithForkedWorkers, ClusterWithExitEvent } = require('@cuties/cluster')
 const { ParsedJSON, Value } = require('@cuties/json')
-const { Backend, RestApi, CreatedCachedServingFilesEndpoint } = require('@cuties/rest')
+const { Backend, RestApi, CreatedCachedServingFilesEndpoint, CreatedServingFilesEndpoint } = require('@cuties/rest')
 const { ReadDataByPath, WatcherWithEventTypeAndFilenameListener } = require('@cuties/fs')
 const { FoundProcessOnPort, KilledProcess, Pid } = require('@cuties/process')
-const CustomNotFoundEndpoint = require('./../CustomNotFoundEndpoint')
-const CustomInternalServerErrorEndpoint = require('./../CustomInternalServerErrorEndpoint')
 const CreatedCustomIndexEndpoint = require('./../CreatedCustomIndexEndpoint')
+const CreatedCustomNotFoundEndpoint = require('./../CreatedCustomNotFoundEndpoint')
+const CustomInternalServerErrorEndpoint = require('./../CustomInternalServerErrorEndpoint')
 const OnPageStaticJsFilesChangeEvent = require('./../OnPageStaticJsFilesChangeEvent')
 const OnStaticGeneratorsChangeEvent = require('./../OnStaticGeneratorsChangeEvent')
 const OnTemplatesChangeEvent = require('./../OnTemplatesChangeEvent')
@@ -26,7 +26,13 @@ const numCPUs = require('os').cpus().length
 const env = process.env.NODE_ENV || 'local'
 const devEnv = env === 'local' || env === 'dev'
 
-const customNotFoundEndpoint = new CustomNotFoundEndpoint(new RegExp(/^\/not-found/))
+const customNotFoundEndpoint = new CreatedCustomNotFoundEndpoint(
+  new RegExp(/^\/not-found/),
+  new Value(
+    as('config'),
+    'notFoundPage'
+  )
+)
 
 const launchedBackend = new Backend(
   new Value(as('config'), `${env}.protocol`),
@@ -37,7 +43,7 @@ const launchedBackend = new Backend(
       new Value(as('config'), 'index'),
       customNotFoundEndpoint
     ),
-    new CreatedCachedServingFilesEndpoint(
+    new CreatedServingFilesEndpoint(
       new RegExp(/^\/(css|html|image|js|txt)/),
       new UrlToFSPathMapper(
         new Value(as('config'), 'static')

@@ -47,6 +47,7 @@ new ParsedJSON(
             as('postFileNames')
           ),
           new BaseTemplateWrapper(
+            as('config'),
             as('baseTemplate')
           )
         ).as('posts'), { flag: 'w' }
@@ -65,6 +66,7 @@ new ParsedJSON(
               )
             ),
             new BaseTemplateWrapper(
+              as('config'),
               as('baseTemplate')
             )
           ), { flag: 'w' }
@@ -79,6 +81,7 @@ new ParsedJSON(
                 )
               ),
               new BaseTemplateWrapper(
+                as('config'),
                 as('baseTemplate')
               )
             ), { flag: 'w' }
@@ -109,6 +112,7 @@ new ParsedJSON(
                     as('stuffFileNames')
                   ),
                   new BaseTemplateWrapper(
+                    as('config'),
                     as('baseTemplate')
                   )
                 ), { flag: 'w' }
