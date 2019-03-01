@@ -6,8 +6,7 @@ then
   cd guseyn.com
 else
   cd guseyn.com
-  git add --all
-  git commit -m "local changes"
+  git stash
   git pull
 fi
 npm install --no-optional
