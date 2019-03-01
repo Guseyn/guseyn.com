@@ -5,7 +5,7 @@ const { EndedResponse, ResponseWithWrittenHead } = require('@cuties/http')
 
 class RedirectEndpoint extends Endpoint {
   constructor (httpPort, httpsPort) {
-    super(new RegExp(/.*/), 'GET')
+    super(new RegExp(/.*/))
     this.httpPort = httpPort
     this.httpsPort = httpsPort
   }
