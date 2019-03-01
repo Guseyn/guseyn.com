@@ -71,6 +71,14 @@ input[type="button"]:active {
   background: #f2f2f2;
 }
 
+.night input[type="button"]:hover {
+  background: #dfdfdf;
+}
+
+.night input[type="button"]:active {
+  background: #cdcdcd;
+}
+
 .night input, .night textarea {
   background: #eeeeee;
 }

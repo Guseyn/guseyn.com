@@ -19,13 +19,6 @@ module.exports = function(grunt) {
             src: ['**/*.js'],
             dest: '<%= config.mainOutStaticJs %>',
             ext: '.js'
-          },
-          {
-            expand: true,
-            cwd: '<%= config.subscribeStaticJs %>',
-            src: ['**/*.js'],
-            dest: '<%= config.subscribeOutStaticJs %>',
-            ext: '.js'
           }
         ]
       }
@@ -33,8 +26,7 @@ module.exports = function(grunt) {
     browserify: {
       dist: {
         files: {
-          '<%= config.mainBundle %>': ['<%= config.mainOutStaticJs %>/**/*.js'],
-          '<%= config.subscribeBundle %>': ['<%= config.subscribeOutStaticJs %>/**/*.js']
+          '<%= config.mainBundle %>': ['<%= config.mainOutStaticJs %>/**/*.js']
         }
       }
     },
@@ -44,8 +36,7 @@ module.exports = function(grunt) {
       },
       my_target: {
         files: {
-          '<%= config.mainMinBundle %>': ['<%= config.mainBundle %>'],
-          '<%= config.subscribeMinBundle %>': ['<%= config.subscribeBundle %>']
+          '<%= config.mainMinBundle %>': ['<%= config.mainBundle %>']
         }
       }
     }

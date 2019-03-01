@@ -35,6 +35,12 @@
   "subscribeBundleHref": "/../js/subscribeBundle.js",
   "subscribeMinBundle": "./static/js/subscribeBundle.min.js",
   "subscribeMinBundleHref": "/../js/subscribeBundle.min.js",
+  "unsubscribeStaticJs": "./static/js/es6/unsubscribe",
+  "unsubscribeOutStaticJs": "./static/js/out/unsubscribe",
+  "unsubscribeBundle": "./static/js/unsubscribeBundle.js",
+  "unsubscribeBundleHref": "/../js/unsubscribeBundle.js",
+  "unsubscribeMinBundle": "./static/js/unsubscribeBundle.min.js",
+  "unsubscribeMinBundleHref": "/../js/unsubscribeBundle.min.js",
   "key": "./key.pem",
   "cert": "./cert.pem",
   "local": {

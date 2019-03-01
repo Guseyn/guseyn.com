@@ -1743,68 +1743,6 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 var _require = require('@page-libs/unit'),
     Unit = _require.Unit;
 
-var AboutInputUnit =
-/*#__PURE__*/
-function (_Unit) {
-  _inherits(AboutInputUnit, _Unit);
-
-  function AboutInputUnit(elm) {
-    _classCallCheck(this, AboutInputUnit);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(AboutInputUnit).call(this, elm));
-  }
-
-  _createClass(AboutInputUnit, [{
-    key: "value",
-    value: function value() {
-      return this.elm.value;
-    }
-  }, {
-    key: "onfocus",
-    value: function onfocus() {
-      this.noHighlight();
-    }
-  }, {
-    key: "highlightError",
-    value: function highlightError() {
-      this.elm.style['background'] = '#f4cccc';
-    }
-  }, {
-    key: "noHighlight",
-    value: function noHighlight() {
-      this.elm.style['background'] = null;
-    }
-  }]);
-
-  return AboutInputUnit;
-}(Unit);
-
-module.exports = AboutInputUnit;
-
-},{"@page-libs/unit":32}],35:[function(require,module,exports){
-"use strict";
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-var _require = require('@page-libs/unit'),
-    Unit = _require.Unit;
-
 var EmailInputUnit =
 /*#__PURE__*/
 function (_Unit) {
@@ -1843,7 +1781,7 @@ function (_Unit) {
 
 module.exports = EmailInputUnit;
 
-},{"@page-libs/unit":32}],36:[function(require,module,exports){
+},{"@page-libs/unit":32}],35:[function(require,module,exports){
 'use strict';
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -1867,18 +1805,18 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 var _require = require('@page-libs/cutie'),
     AsyncObject = _require.AsyncObject;
 
-var ShownResultOfSubscribtionAttempt =
+var ShownResultOfUnsubscribtionAttempt =
 /*#__PURE__*/
 function (_AsyncObject) {
-  _inherits(ShownResultOfSubscribtionAttempt, _AsyncObject);
+  _inherits(ShownResultOfUnsubscribtionAttempt, _AsyncObject);
 
-  function ShownResultOfSubscribtionAttempt(response, subscribeForm) {
-    _classCallCheck(this, ShownResultOfSubscribtionAttempt);
+  function ShownResultOfUnsubscribtionAttempt(response, subscribeForm) {
+    _classCallCheck(this, ShownResultOfUnsubscribtionAttempt);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(ShownResultOfSubscribtionAttempt).call(this, response, subscribeForm));
+    return _possibleConstructorReturn(this, _getPrototypeOf(ShownResultOfUnsubscribtionAttempt).call(this, response, subscribeForm));
   }
 
-  _createClass(ShownResultOfSubscribtionAttempt, [{
+  _createClass(ShownResultOfUnsubscribtionAttempt, [{
     key: "syncCall",
     value: function syncCall() {
       return function (response, subscribeForm) {
@@ -1891,12 +1829,12 @@ function (_AsyncObject) {
     }
   }]);
 
-  return ShownResultOfSubscribtionAttempt;
+  return ShownResultOfUnsubscribtionAttempt;
 }(AsyncObject);
 
-module.exports = ShownResultOfSubscribtionAttempt;
+module.exports = ShownResultOfUnsubscribtionAttempt;
 
-},{"@page-libs/cutie":30}],37:[function(require,module,exports){
+},{"@page-libs/cutie":30}],36:[function(require,module,exports){
 "use strict";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -1920,18 +1858,18 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 var _require = require('@page-libs/unit'),
     Unit = _require.Unit;
 
-var SubscribeButton =
+var UnsubscribeButtonUnit =
 /*#__PURE__*/
 function (_Unit) {
-  _inherits(SubscribeButton, _Unit);
+  _inherits(UnsubscribeButtonUnit, _Unit);
 
-  function SubscribeButton(elm) {
-    _classCallCheck(this, SubscribeButton);
+  function UnsubscribeButtonUnit(elm) {
+    _classCallCheck(this, UnsubscribeButtonUnit);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(SubscribeButton).call(this, elm));
+    return _possibleConstructorReturn(this, _getPrototypeOf(UnsubscribeButtonUnit).call(this, elm));
   }
 
-  _createClass(SubscribeButton, [{
+  _createClass(UnsubscribeButtonUnit, [{
     key: "onclick",
     value: function onclick() {
       /* it can be defined, but it also can be
@@ -1939,12 +1877,12 @@ function (_Unit) {
     }
   }]);
 
-  return SubscribeButton;
+  return UnsubscribeButtonUnit;
 }(Unit);
 
-module.exports = SubscribeButton;
+module.exports = UnsubscribeButtonUnit;
 
-},{"@page-libs/unit":32}],38:[function(require,module,exports){
+},{"@page-libs/unit":32}],37:[function(require,module,exports){
 'use strict';
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -1974,111 +1912,14 @@ var _require2 = require('@page-libs/ajax'),
 var _require3 = require('@cuties/json'),
     StringifiedJSON = _require3.StringifiedJSON;
 
-var ShownResultOfSubscribtionAttempt = require('./ShownResultOfSubscribtionAttempt');
-
-var SubscribeForm =
-/*#__PURE__*/
-function (_Unit) {
-  _inherits(SubscribeForm, _Unit);
-
-  function SubscribeForm(elm, emailInputUnit, aboutInputUnit, subscribeButtonUnit, errorMessage) {
-    var _this;
-
-    _classCallCheck(this, SubscribeForm);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(SubscribeForm).call(this, elm));
-    _this.emailInputUnit = emailInputUnit;
-    _this.aboutInputUnit = aboutInputUnit;
-    _this.subscribeButtonUnit = subscribeButtonUnit;
-    _this.errorMessage = errorMessage;
-
-    _this.override(_this.subscribeButtonUnit, 'onclick', _this.onsubmit);
-
-    return _this;
-  }
-
-  _createClass(SubscribeForm, [{
-    key: "onsubmit",
-    value: function onsubmit() {
-      if (this.emailInputUnit.value().trim() !== '' && this.aboutInputUnit.value().trim() !== '') {
-        var requestObj = {
-          'email': this.emailInputUnit.value(),
-          'about': this.aboutInputUnit.value()
-        };
-        new ShownResultOfSubscribtionAttempt(new ResponseFromAjaxRequest({
-          url: '/../subscribe',
-          method: 'POST'
-        }, new StringifiedJSON(requestObj)), this).call();
-      } else {
-        this.highlightError();
-      }
-    }
-  }, {
-    key: "showSuccessMessage",
-    value: function showSuccessMessage() {
-      window.location.replace('/../html/thanks.html');
-    }
-  }, {
-    key: "showErrorMessage",
-    value: function showErrorMessage() {
-      this.errorMessage.style['display'] = 'block';
-    }
-  }, {
-    key: "highlightError",
-    value: function highlightError() {
-      if (this.emailInputUnit.value().trim() === '') {
-        this.emailInputUnit.highlightError();
-      }
-
-      if (this.aboutInputUnit.value().trim() === '') {
-        this.aboutInputUnit.highlightError();
-      }
-    }
-  }]);
-
-  return SubscribeForm;
-}(Unit);
-
-module.exports = SubscribeForm;
-
-},{"./ShownResultOfSubscribtionAttempt":36,"@cuties/json":10,"@page-libs/ajax":20,"@page-libs/unit":32}],39:[function(require,module,exports){
-'use strict';
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-var _require = require('@page-libs/unit'),
-    Unit = _require.Unit;
-
-var _require2 = require('@page-libs/ajax'),
-    ResponseFromAjaxRequest = _require2.ResponseFromAjaxRequest;
-
-var _require3 = require('@cuties/json'),
-    StringifiedJSON = _require3.StringifiedJSON;
-
-var ShownResultOfSubscribtionAttempt = require('./ShownResultOfSubscribtionAttempt');
+var ShownResultOfUnsubscribtionAttempt = require('./ShownResultOfUnsubscribtionAttempt');
 
 var UnsubscribeForm =
 /*#__PURE__*/
 function (_Unit) {
   _inherits(UnsubscribeForm, _Unit);
 
-  function UnsubscribeForm(elm, emailInputUnit, unsubscribeButtonUnit) {
+  function UnsubscribeForm(elm, emailInputUnit, unsubscribeButtonUnit, errorMessage) {
     var _this;
 
     _classCallCheck(this, UnsubscribeForm);
@@ -2086,6 +1927,7 @@ function (_Unit) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(UnsubscribeForm).call(this, elm));
     _this.emailInputUnit = emailInputUnit;
     _this.unsubscribeButtonUnit = unsubscribeButtonUnit;
+    _this.errorMessage = errorMessage;
 
     _this.override(_this.unsubscribeButtonUnit, 'onclick', _this.onsubmit);
 
@@ -2099,7 +1941,7 @@ function (_Unit) {
         var requestObj = {
           'email': this.emailInputUnit.value()
         };
-        new ShownResultOfSubscribtionAttempt(new ResponseFromAjaxRequest({
+        new ShownResultOfUnsubscribtionAttempt(new ResponseFromAjaxRequest({
           url: '/../unsubscribe',
           method: 'POST'
         }, new StringifiedJSON(requestObj)), this).call();
@@ -2115,7 +1957,7 @@ function (_Unit) {
   }, {
     key: "showErrorMessage",
     value: function showErrorMessage() {
-      this.elm.innerHTML += '<div class="text">Something went wrong.</div>';
+      this.errorMessage.style['display'] = 'block';
     }
   }, {
     key: "highlightError",
@@ -2131,16 +1973,14 @@ function (_Unit) {
 
 module.exports = UnsubscribeForm;
 
-},{"./ShownResultOfSubscribtionAttempt":36,"@cuties/json":10,"@page-libs/ajax":20,"@page-libs/unit":32}],40:[function(require,module,exports){
+},{"./ShownResultOfUnsubscribtionAttempt":35,"@cuties/json":10,"@page-libs/ajax":20,"@page-libs/unit":32}],38:[function(require,module,exports){
 'use strict';
 
-var SubscribeForm = require('./SubscribeForm');
+var UnsubscribeForm = require('./UnsubscribeForm');
 
 var EmailInputUnit = require('./EmailInputUnit');
 
-var AboutInputUnit = require('./AboutInputUnit');
-
-var SubscribeButtonUnit = require('./SubscribeButtonUnit');
+var UnsubscribeButtonUnit = require('./UnsubscribeButtonUnit');
 /* eslint-disable no-new */
 
 
@@ -2151,7 +1991,7 @@ window.onload = function () {
     document.documentElement.classList.toggle('night');
   }
 
-  new SubscribeForm(document.getElementById('subscribe-form'), new EmailInputUnit(document.getElementById('email-input')), new AboutInputUnit(document.getElementById('about-input')), new SubscribeButtonUnit(document.getElementById('subscribe-button')), document.getElementById('error-message'));
+  new UnsubscribeForm(document.getElementById('unsubscribe-form'), new EmailInputUnit(document.getElementById('email-input')), new UnsubscribeButtonUnit(document.getElementById('unsubscribe-button')), document.getElementById('error-message'));
 };
 
-},{"./AboutInputUnit":34,"./EmailInputUnit":35,"./SubscribeButtonUnit":37,"./SubscribeForm":38}]},{},[34,35,36,40,37,38,39]);
+},{"./EmailInputUnit":34,"./UnsubscribeButtonUnit":36,"./UnsubscribeForm":37}]},{},[34,35,38,36,37]);
