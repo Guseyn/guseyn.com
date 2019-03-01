@@ -1,14 +1,9 @@
-// Thanks to:
-// https://github.com/babel/grunt-babel/issues/5,
-// https://stackoverflow.com/questions/29293083/grunt-with-babel-and-browserify
-
 module.exports = function(grunt) {
 
   require('load-grunt-tasks')(grunt);
   require('grunt-browserify')(grunt);
   require('grunt-contrib-uglify-es')(grunt);
 
-  // Project configuration.
   grunt.initConfig({
     config: grunt.file.readJSON('config.json'),
     babel: {
@@ -17,19 +12,29 @@ module.exports = function(grunt) {
         presets: ['@babel/preset-env']
       },
       dist: {
-        files: [{
-          expand: true,
-          cwd: '<%= config.staticJs %>',
-          src: ['**/*.js'],
-          dest: '<%= config.outStaticJs %>',
-          ext: '.js'
-        }]
+        files: [
+          {
+            expand: true,
+            cwd: '<%= config.mainStaticJs %>',
+            src: ['**/*.js'],
+            dest: '<%= config.mainOutStaticJs %>',
+            ext: '.js'
+          },
+          {
+            expand: true,
+            cwd: '<%= config.subscribeStaticJs %>',
+            src: ['**/*.js'],
+            dest: '<%= config.subscribeOutStaticJs %>',
+            ext: '.js'
+          }
+        ]
       }
     },
     browserify: {
       dist: {
         files: {
-          '<%= config.bundle %>': ['<%= config.outStaticJs %>/**/*.js']
+          '<%= config.mainBundle %>': ['<%= config.mainOutStaticJs %>/**/*.js'],
+          '<%= config.subscribeBundle %>': ['<%= config.subscribeOutStaticJs %>/**/*.js']
         }
       }
     },
@@ -39,7 +44,8 @@ module.exports = function(grunt) {
       },
       my_target: {
         files: {
-          '<%= config.minBundle %>': ['<%= config.bundle %>']
+          '<%= config.mainMinBundle %>': ['<%= config.mainBundle %>'],
+          '<%= config.subscribeMinBundle %>': ['<%= config.subscribeBundle %>']
         }
       }
     }

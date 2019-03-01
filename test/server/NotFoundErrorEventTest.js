@@ -24,7 +24,10 @@ new Assertion(
   new Is(
     new InvokedNotFoundErrorEvent(
       new NotFoundErrorEvent(
-        new CustomNotFoundEndpoint(new RegExp(/^\/not-found/)),
+        new CustomNotFoundEndpoint(
+          new RegExp(/^\/not-found/),
+          './test/server/files/404.html'
+        ),
         new CustomStream(),
         new CustomStream()
       )
