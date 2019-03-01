@@ -31,6 +31,10 @@ class CustomStream extends Duplex {
   setHeader (name, value) {
     this.headers.push({ name: value })
   }
+
+  writeHead (...args) {
+
+  }
 }
 
 class InvokedEndpoint extends AsyncObject {

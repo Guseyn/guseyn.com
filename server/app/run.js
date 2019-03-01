@@ -26,6 +26,8 @@ const numCPUs = require('os').cpus().length
 const env = process.env.NODE_ENV || 'local'
 const devEnv = env === 'local' || env === 'dev'
 
+const customNotFoundEndpoint = new CustomNotFoundEndpoint(new RegExp(/^\/not-found/))
+
 const launchedBackend = new Backend(
   new Value(as('config'), `${env}.protocol`),
   new Value(as('config'), `${env}.port`),
@@ -33,23 +35,23 @@ const launchedBackend = new Backend(
   new RestApi(
     new CreatedCustomIndexEndpoint(
       new Value(as('config'), 'index'),
-      new CustomNotFoundEndpoint(new RegExp(/^\/not-found/))
+      customNotFoundEndpoint
     ),
     new CreatedCachedServingFilesEndpoint(
       new RegExp(/^\/(css|html|image|js|txt)/),
       new UrlToFSPathMapper(
         new Value(as('config'), 'static')
       ),
-      new CustomNotFoundEndpoint(new RegExp(/^\/not-found/))
+      customNotFoundEndpoint
     ),
     new CreatedCachedServingFilesEndpoint(
       new RegExp(/^\/(posts|previews|stuff|tags)/),
       new CuteUrlToFSPathForHtmlMapper(
         new Value(as('config'), 'staticHtml')
       ),
-      new CustomNotFoundEndpoint(new RegExp(/^\/not-found/))
+      customNotFoundEndpoint
     ),
-    new CustomNotFoundEndpoint(new RegExp(/^\/not-found/)),
+    customNotFoundEndpoint,
     new CustomInternalServerErrorEndpoint()
   ),
   new CreatedOptionsByProtocol(
