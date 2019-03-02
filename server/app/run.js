@@ -22,7 +22,7 @@ const CreatedOptionsByProtocol = require('./../CreatedOptionsByProtocol')
 const CreatedRedirectEndpoint = require('./../CreatedRedirectEndpoint')
 const IsHttps = require('./../IsHttps')
 
-const numCPUs = 1 // require('os').cpus().length
+const numCPUs = require('os').cpus().length
 const env = process.env.NODE_ENV || 'local'
 const devEnv = env === 'local' || env === 'dev'
 
