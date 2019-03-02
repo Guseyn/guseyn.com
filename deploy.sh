@@ -1,5 +1,5 @@
 #!/bin/bash
-ssh root@5.187.7.231 bash -c "'
+ssh bitnami@3.9.27.159 bash -c "'
 if [ ! -d guseyn.com ]
 then
   git clone https://github.com/Guseyn/guseyn.com.git guseyn.com
