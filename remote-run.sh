@@ -1,5 +1,5 @@
 #!/bin/bash
-ssh -i deploy_rsa bitnami@3.9.27.159 bash -c "'
+ssh -i deploy_rsa ubuntu@3.8.214.2 bash -c "'
 cd guseyn.com
 page r prod
 '"
