@@ -73,7 +73,7 @@
   "prod": {
     "protocol": "https",
     "port": 443,
-    "host": "5.187.7.231",
+    "host": "3.9.27.159",
     "clusterMode": true,
     "http": {
       "port": 80
