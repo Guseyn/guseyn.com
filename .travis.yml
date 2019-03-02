@@ -15,7 +15,7 @@ branches:
   only:
   - master
 addons:
-  ssh_known_hosts: 3.8.218.230
+  ssh_known_hosts: 209.97.128.89
 before_deploy: |-
   log=$(git log $TRAVIS_COMMIT_RANGE --oneline)
   export TAG=$'v'$TRAVIS_COMMIT_MESSAGE
