@@ -1,5 +1,5 @@
 #!/bin/bash
-ssh ubuntu@3.8.214.2 bash -c "'
+ssh ubuntu@3.8.218.230 bash -c "'
 if [ ! -d guseyn.com ]
 then
   git clone https://github.com/Guseyn/guseyn.com.git guseyn.com
