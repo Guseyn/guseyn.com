@@ -7,11 +7,9 @@ then
   cd guseyn.com
 else
   cd guseyn.com
-  git stash
   git pull
 fi
 npm install --no-optional
-page b prod
 '"
 
 # if needed
