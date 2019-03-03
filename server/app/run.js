@@ -19,7 +19,6 @@ const UrlToFSPathMapper = require('./../UrlToFSPathMapper')
 const CuteUrlToFSPathForHtmlMapper = require('./../CuteUrlToFSPathForHtmlMapper')
 const PrintedToConsolePageLogo = require('./../PrintedToConsolePageLogo')
 const CreatedOptionsByProtocol = require('./../CreatedOptionsByProtocol')
-const CreatedRedirectEndpoint = require('./../CreatedRedirectEndpoint')
 const IsHttps = require('./../IsHttps')
 
 const numCPUs = require('os').cpus().length
@@ -34,32 +33,41 @@ const customNotFoundEndpoint = new CreatedCustomNotFoundEndpoint(
   )
 )
 
-const launchedBackend = new Backend(
-  new Value(as('config'), `${env}.protocol`),
+const restApi = new RestApi(
+  new CreatedCustomIndexEndpoint(
+    new Value(as('config'), 'index'),
+    customNotFoundEndpoint
+  ),
+  new CreatedServingFilesEndpoint(
+    new RegExp(/^\/(css|html|image|js|txt)/),
+    new UrlToFSPathMapper(
+      new Value(as('config'), 'static')
+    ),
+    customNotFoundEndpoint
+  ),
+  new CreatedCachedServingFilesEndpoint(
+    new RegExp(/^\/(posts|previews|stuff|tags)/),
+    new CuteUrlToFSPathForHtmlMapper(
+      new Value(as('config'), 'staticHtml')
+    ),
+    customNotFoundEndpoint
+  ),
+  customNotFoundEndpoint,
+  new CustomInternalServerErrorEndpoint()
+)
+
+const launchedHttpBackend = new Backend(
+  'http',
   new Value(as('config'), `${env}.port`),
   new Value(as('config'), `${env}.host`),
-  new RestApi(
-    new CreatedCustomIndexEndpoint(
-      new Value(as('config'), 'index'),
-      customNotFoundEndpoint
-    ),
-    new CreatedServingFilesEndpoint(
-      new RegExp(/^\/(css|html|image|js|txt)/),
-      new UrlToFSPathMapper(
-        new Value(as('config'), 'static')
-      ),
-      customNotFoundEndpoint
-    ),
-    new CreatedCachedServingFilesEndpoint(
-      new RegExp(/^\/(posts|previews|stuff|tags)/),
-      new CuteUrlToFSPathForHtmlMapper(
-        new Value(as('config'), 'staticHtml')
-      ),
-      customNotFoundEndpoint
-    ),
-    customNotFoundEndpoint,
-    new CustomInternalServerErrorEndpoint()
-  ),
+  restApi
+)
+
+const launchedHttpsBackend = new Backend(
+  'https',
+  new Value(as('config'), `${env}.port`),
+  new Value(as('config'), `${env}.host`),
+  restApi,
   new CreatedOptionsByProtocol(
     new Value(as('config'), `${env}.protocol`),
     new ReadDataByPath(
@@ -67,18 +75,6 @@ const launchedBackend = new Backend(
     ),
     new ReadDataByPath(
       new Value(as('config'), 'cert')
-    )
-  )
-)
-
-const redirectBackendForProd = new Backend(
-  'http',
-  new Value(as('config'), `${env}.http.port`),
-  new Value(as('config'), `${env}.host`),
-  new RestApi(
-    new CreatedRedirectEndpoint(
-      new Value(as('config'), `${env}.http.port`),
-      new Value(as('config'), `${env}.port`)
     )
   )
 )
@@ -106,72 +102,69 @@ new ParsedJSON(
           `RUN (${env})`
         ).after(
           new If(
-            new IsHttps(
-              new Value(as('config'), `${env}.protocol`)
-            ),
-            new KilledProcess(
-              new Pid(
-                new FoundProcessOnPort(
-                  new Value(as('config'), `${env}.http.port`)
-                )
+            devEnv,
+            new WatcherWithEventTypeAndFilenameListener(
+              new Value(as('config'), 'staticGenerators'),
+              { persistent: true, recursive: true, encoding: 'utf8' },
+              new OnStaticGeneratorsChangeEvent(
+                new Value(as('config'), 'staticGenerators')
               )
             ).after(
-              redirectBackendForProd
-            )
-          ).after(
-            new If(
-              devEnv,
               new WatcherWithEventTypeAndFilenameListener(
-                new Value(as('config'), 'staticGenerators'),
+                new Value(as('config'), 'templates'),
                 { persistent: true, recursive: true, encoding: 'utf8' },
-                new OnStaticGeneratorsChangeEvent(
+                new OnTemplatesChangeEvent(
                   new Value(as('config'), 'staticGenerators')
                 )
               ).after(
                 new WatcherWithEventTypeAndFilenameListener(
-                  new Value(as('config'), 'templates'),
+                  new Value(as('config'), 'mdFiles'),
                   { persistent: true, recursive: true, encoding: 'utf8' },
                   new OnTemplatesChangeEvent(
                     new Value(as('config'), 'staticGenerators')
                   )
                 ).after(
                   new WatcherWithEventTypeAndFilenameListener(
-                    new Value(as('config'), 'mdFiles'),
+                    new Value(as('config'), 'staticJs'),
                     { persistent: true, recursive: true, encoding: 'utf8' },
-                    new OnTemplatesChangeEvent(
-                      new Value(as('config'), 'staticGenerators')
-                    )
-                  ).after(
-                    new WatcherWithEventTypeAndFilenameListener(
+                    new OnPageStaticJsFilesChangeEvent(
                       new Value(as('config'), 'staticJs'),
-                      { persistent: true, recursive: true, encoding: 'utf8' },
-                      new OnPageStaticJsFilesChangeEvent(
-                        new Value(as('config'), 'staticJs'),
-                        new Value(as('config'), 'bundleJs')
-                      )
+                      new Value(as('config'), 'bundleJs')
                     )
                   )
                 )
               )
-            ).after(
+            )
+          ).after(
+            new If(
+              new Value(as('config'), `${env}.clusterMode`),
+              new ClusterWithForkedWorkers(
+                new ClusterWithExitEvent(
+                  cluster,
+                  new ReloadedBackendOnFailedWorkerEvent(cluster)
+                ), numCPUs
+              ),
               new If(
-                new Value(as('config'), `${env}.clusterMode`),
-                new ClusterWithForkedWorkers(
-                  new ClusterWithExitEvent(
-                    cluster,
-                    new ReloadedBackendOnFailedWorkerEvent(cluster)
-                  ), numCPUs
+                new IsHttps(
+                  new Value(as('config'), `${env}.protocol`)
                 ),
+                launchedHttpsBackend,
                 new Else(
-                  launchedBackend
+                  launchedHttpBackend
                 )
               )
             )
           )
         )
       ),
-      new Else(
-        launchedBackend
+      new If(
+        new IsHttps(
+          new Value(as('config'), `${env}.protocol`)
+        ),
+        launchedHttpsBackend,
+        new Else(
+          launchedHttpBackend
+        )
       )
     )
   )
