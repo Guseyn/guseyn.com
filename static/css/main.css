@@ -46,7 +46,7 @@ p {
 .menu {
   text-align: center;
   padding-top: 16px;
-  font-size: 1em;
+  font-size: 1.14em;
   line-height: 152%;
 }
 
@@ -132,7 +132,7 @@ h1 a, .pagination a {
 .content {
   width: 100%;
   background: transparent;
-  font-size: 1em;
+  font-size: 1.14em;
   line-height: 152%;
   padding: 15px 30px 30px 30px;
   font-family: 'PT Serif', serif;
@@ -173,7 +173,7 @@ pre {
   overflow: auto;
   margin-top: 24px;
   padding-left: 4px;
-  font-size: 0.6em;
+  font-size: 0.7em;
   background: white;
   border: 1px solid #ededed;
   border-radius: 3px;

@@ -7,7 +7,7 @@ const { IsMaster, ClusterWithForkedWorkers, ClusterWithExitEvent } = require('@c
 const { ParsedJSON, Value } = require('@cuties/json')
 const { Backend, RestApi, CreatedCachedServingFilesEndpoint, CreatedServingFilesEndpoint } = require('@cuties/rest')
 const { ReadDataByPath, WatcherWithEventTypeAndFilenameListener } = require('@cuties/fs')
-const { FoundProcessOnPort, KilledProcess, Pid } = require('@cuties/process')
+const { FoundProcessOnPort, KilledProcess, Pid, ProcessWithUncaughtExceptionEvent } = require('@cuties/process')
 const CreatedCustomIndexEndpoint = require('./../CreatedCustomIndexEndpoint')
 const CreatedCustomNotFoundEndpoint = require('./../CreatedCustomNotFoundEndpoint')
 const CustomInternalServerErrorEndpoint = require('./../CustomInternalServerErrorEndpoint')
@@ -15,6 +15,7 @@ const OnPageStaticJsFilesChangeEvent = require('./../OnPageStaticJsFilesChangeEv
 const OnStaticGeneratorsChangeEvent = require('./../OnStaticGeneratorsChangeEvent')
 const OnTemplatesChangeEvent = require('./../OnTemplatesChangeEvent')
 const ReloadedBackendOnFailedWorkerEvent = require('./../ReloadedBackendOnFailedWorkerEvent')
+const LoggedAndThrownErrorEvent = require('./../LoggedAndThrownErrorEvent')
 const UrlToFSPathMapper = require('./../UrlToFSPathMapper')
 const CuteUrlToFSPathForHtmlMapper = require('./../CuteUrlToFSPathForHtmlMapper')
 const PrintedToConsolePageLogo = require('./../PrintedToConsolePageLogo')
@@ -85,85 +86,91 @@ new ParsedJSON(
   new ParsedJSON(
     new ReadDataByPath('./package.json')
   ).as('packageJson').after(
-    new If(
-      new IsMaster(cluster),
-      new KilledProcess(
-        new Pid(
-          new FoundProcessOnPort(
-            new Value(as('config'), `${env}.port`)
+    new ProcessWithUncaughtExceptionEvent(
+      process, new LoggedAndThrownErrorEvent(
+        new Value(as('config'), 'logs')
+      )
+    ).after(
+      new If(
+        new IsMaster(cluster),
+        new KilledProcess(
+          new Pid(
+            new FoundProcessOnPort(
+              new Value(as('config'), `${env}.port`)
+            )
           )
-        )
-      ).after(
-        new PrintedToConsolePageLogo(
-          new ReadDataByPath(
-            new Value(as('config'), 'page.logoText')
-          ),
-          new Value(as('packageJson'), 'version'),
-          `RUN (${env})`
         ).after(
-          new If(
-            devEnv,
-            new WatcherWithEventTypeAndFilenameListener(
-              new Value(as('config'), 'staticGenerators'),
-              { persistent: true, recursive: true, encoding: 'utf8' },
-              new OnStaticGeneratorsChangeEvent(
-                new Value(as('config'), 'staticGenerators')
-              )
-            ).after(
+          new PrintedToConsolePageLogo(
+            new ReadDataByPath(
+              new Value(as('config'), 'page.logoText')
+            ),
+            new Value(as('packageJson'), 'version'),
+            `RUN (${env})`
+          ).after(
+            new If(
+              devEnv,
               new WatcherWithEventTypeAndFilenameListener(
-                new Value(as('config'), 'templates'),
+                new Value(as('config'), 'staticGenerators'),
                 { persistent: true, recursive: true, encoding: 'utf8' },
-                new OnTemplatesChangeEvent(
+                new OnStaticGeneratorsChangeEvent(
                   new Value(as('config'), 'staticGenerators')
                 )
               ).after(
                 new WatcherWithEventTypeAndFilenameListener(
-                  new Value(as('config'), 'mdFiles'),
+                  new Value(as('config'), 'templates'),
                   { persistent: true, recursive: true, encoding: 'utf8' },
                   new OnTemplatesChangeEvent(
                     new Value(as('config'), 'staticGenerators')
                   )
                 ).after(
                   new WatcherWithEventTypeAndFilenameListener(
-                    new Value(as('config'), 'staticJs'),
+                    new Value(as('config'), 'mdFiles'),
                     { persistent: true, recursive: true, encoding: 'utf8' },
-                    new OnPageStaticJsFilesChangeEvent(
+                    new OnTemplatesChangeEvent(
+                      new Value(as('config'), 'staticGenerators')
+                    )
+                  ).after(
+                    new WatcherWithEventTypeAndFilenameListener(
                       new Value(as('config'), 'staticJs'),
-                      new Value(as('config'), 'bundleJs')
+                      { persistent: true, recursive: true, encoding: 'utf8' },
+                      new OnPageStaticJsFilesChangeEvent(
+                        new Value(as('config'), 'staticJs'),
+                        new Value(as('config'), 'bundleJs')
+                      )
                     )
                   )
                 )
               )
-            )
-          ).after(
-            new If(
-              new Value(as('config'), `${env}.clusterMode`),
-              new ClusterWithForkedWorkers(
-                new ClusterWithExitEvent(
-                  cluster,
-                  new ReloadedBackendOnFailedWorkerEvent(cluster)
-                ), numCPUs
-              ),
+            ).after(
               new If(
-                new IsHttps(
-                  new Value(as('config'), `${env}.protocol`)
+                new Value(as('config'), `${env}.clusterMode`),
+                new ClusterWithForkedWorkers(
+                  new ClusterWithExitEvent(
+                    cluster,
+                    new ReloadedBackendOnFailedWorkerEvent(cluster)
+                  ), numCPUs
                 ),
-                launchedHttpsBackend,
-                new Else(
-                  launchedHttpBackend
+                new If(
+                  new IsHttps(
+                    new Value(as('config'), `${env}.protocol`)
+                  ),
+                  launchedHttpsBackend,
+                  new Else(
+                    launchedHttpBackend
+                  )
                 )
               )
             )
           )
-        )
-      ),
-      new If(
-        new IsHttps(
-          new Value(as('config'), `${env}.protocol`)
         ),
-        launchedHttpsBackend,
-        new Else(
-          launchedHttpBackend
+        new If(
+          new IsHttps(
+            new Value(as('config'), `${env}.protocol`)
+          ),
+          launchedHttpsBackend,
+          new Else(
+            launchedHttpBackend
+          )
         )
       )
     )
