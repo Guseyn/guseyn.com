@@ -22,6 +22,10 @@
   background: #ffffff;
 }
 
+.night a {
+  color: #dedede;
+}
+
 .night .menu a,
 .night .subscribe a,
 .night .dot,

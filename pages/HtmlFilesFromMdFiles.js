@@ -5,18 +5,18 @@ const showdown = require('showdown')
 const path = require('path')
 
 class HtmlFilesFromMdFiles extends AsyncObject {
-  constructor (mdFiles, htmlDir, fileNames) {
-    super(mdFiles, htmlDir, fileNames)
+  constructor (mdFiles, htmlDir) {
+    super(mdFiles, htmlDir)
   }
 
   syncCall () {
-    return (mdFiles, htmlDir, fileNames) => {
+    return (mdFiles, htmlDir) => {
       const htmlFiles = {}
       const converter = new showdown.Converter()
       Object.keys(mdFiles).forEach((mdPath, index) => {
         const mdContent = mdFiles[mdPath]
         const htmlContent = converter.makeHtml(mdContent)
-        htmlFiles[path.join(htmlDir, `${fileNames[index].split('.')[0]}.html`)] = htmlContent
+        htmlFiles[path.join(htmlDir, `${path.basename(mdPath, '.md')}.html`)] = htmlContent
       })
       return htmlFiles
     }

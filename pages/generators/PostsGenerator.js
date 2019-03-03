@@ -43,8 +43,7 @@ new ParsedJSON(
             ),
             new Value(
               as('config'), 'htmlPosts'
-            ),
-            as('postFileNames')
+            )
           ),
           new BaseTemplateWrapper(
             as('config'),
@@ -108,8 +107,7 @@ new ParsedJSON(
                     ),
                     new Value(
                       as('config'), 'htmlStuff'
-                    ),
-                    as('stuffFileNames')
+                    )
                   ),
                   new BaseTemplateWrapper(
                     as('config'),
