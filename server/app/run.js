@@ -5,11 +5,12 @@ const { as } = require('@cuties/cutie')
 const { If, Else } = require('@cuties/if-else')
 const { IsMaster, ClusterWithForkedWorkers, ClusterWithExitEvent } = require('@cuties/cluster')
 const { ParsedJSON, Value } = require('@cuties/json')
-const { Backend, RestApi, CreatedCachedServingFilesEndpoint, CreatedServingFilesEndpoint } = require('@cuties/rest')
+const { Backend, RestApi } = require('@cuties/rest')
 const { ReadDataByPath, WatcherWithEventTypeAndFilenameListener } = require('@cuties/fs')
 const { FoundProcessOnPort, KilledProcess, Pid, ProcessWithUncaughtExceptionEvent } = require('@cuties/process')
 const CreatedCustomIndexEndpoint = require('./../CreatedCustomIndexEndpoint')
 const CreatedCustomNotFoundEndpoint = require('./../CreatedCustomNotFoundEndpoint')
+const CreatedServingStaticFilesEndpoint = require('./../CreatedServingStaticFilesEndpoint')
 const CustomInternalServerErrorEndpoint = require('./../CustomInternalServerErrorEndpoint')
 const OnPageStaticJsFilesChangeEvent = require('./../OnPageStaticJsFilesChangeEvent')
 const OnStaticGeneratorsChangeEvent = require('./../OnStaticGeneratorsChangeEvent')
@@ -39,19 +40,33 @@ const restApi = new RestApi(
     new Value(as('config'), 'index'),
     customNotFoundEndpoint
   ),
-  new CreatedServingFilesEndpoint(
+  new CreatedServingStaticFilesEndpoint(
     new RegExp(/^\/(css|html|image|js|txt)/),
     new UrlToFSPathMapper(
       new Value(as('config'), 'static')
     ),
-    customNotFoundEndpoint
+    customNotFoundEndpoint,
+    env === 'prod'
   ),
-  new CreatedCachedServingFilesEndpoint(
+  new CreatedServingStaticFilesEndpoint(
     new RegExp(/^\/(posts|previews|stuff|tags)/),
     new CuteUrlToFSPathForHtmlMapper(
       new Value(as('config'), 'staticHtml')
     ),
-    customNotFoundEndpoint
+    customNotFoundEndpoint,
+    env === 'prod'
+  ),
+  new CreatedServingStaticFilesEndpoint(
+    new RegExp(/^\/(logs)/),
+    new UrlToFSPathMapper(),
+    customNotFoundEndpoint,
+    false
+  ),
+  new CreatedServingStaticFilesEndpoint(
+    new RegExp(/^\/package.json(\/|)$/),
+    new UrlToFSPathMapper(),
+    customNotFoundEndpoint,
+    false
   ),
   customNotFoundEndpoint,
   new CustomInternalServerErrorEndpoint()
