@@ -31,12 +31,16 @@ body {
 }
 
 p {
-  padding-top: 0.9em;
+  padding-top: 1em;
   clear: both;
 }
 
 a {
   color: #111111;
+}
+
+h2, h3 {
+  margin: 1em 0;
 }
 
 .base {
@@ -174,13 +178,17 @@ code {
   tab-size: 2;
 }
 
-.youtube-video {
+.youtube-video, iframe {
   position: relative;
   width: 100%;
   margin-top: 1em;
   cursor: pointer;
   opacity: 0.8;
   clear: both;
+}
+
+.youtube-video.no-mt, iframe.no-mt {
+  margin-top: 0.2em;
 }
 
 .youtube-video:hover {

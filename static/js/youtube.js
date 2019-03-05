@@ -4,7 +4,7 @@ function initYoutubeVideos() {
   var iframes = []
   for (var v = 0; v < youtubeVideos.length; v++) {
     youtubeVideos[v].style['height'] = youtubeVideos[v].offsetWidth / proportion + 'px'
-    youtubeVideos[v].style['background'] = 'url(http://i.ytimg.com/vi/' + youtubeVideos[v].getAttribute('id') + '/maxresdefault.jpg) no-repeat'
+    youtubeVideos[v].style['background'] = 'url(http://img.youtube.com/vi/' + youtubeVideos[v].getAttribute('id') + '/hqdefault.jpg) no-repeat'
     youtubeVideos[v].style['background-size'] = '100% 100%'
     const youtubeButton = document.createElement('img')
     youtubeButton.setAttribute('class', 'youtube-video-play')
@@ -17,12 +17,15 @@ function initYoutubeVideos() {
     youtubeVideos[v].onclick = function () {
       var videoId = this.id
       var videoIframe = document.createElement('iframe')
+      var className = this.getAttribute('class')
       videoIframe.width = this.offsetWidth
       videoIframe.height = this.offsetWidth / proportion
       videoIframe.frameBorder = 0
       videoIframe.allowfullscreen = true
       videoIframe.src = "https://www.youtube.com/embed/" + videoId + '?autoplay=1'
-      videoIframe.style['margin-top'] = '25px'
+      videoIframe.setAttribute('class', className)
+      videoIframe.setAttribute('allow', 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture')
+      videoIframe.setAttribute('allowfullscreen', true)
       iframes.push(videoIframe)
       this.parentElement.replaceChild(videoIframe, this)
     }
