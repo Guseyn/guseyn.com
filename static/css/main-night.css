@@ -22,10 +22,7 @@
   background: #ffffff;
 }
 
-.night a {
-  color: #dedede;
-}
-
+.night a,
 .night .menu a,
 .night .subscribe a,
 .night .dot,
@@ -33,7 +30,7 @@
 .night .continue,
 .night .pagination a,
 .night .post-link a {
-  color: #dedede;
+  color: #eeeeee;
 }
 
 .night .menu a:hover, .night .subscribe a:hover {
@@ -47,4 +44,8 @@
 .night pre {
   border: 1px solid #333333;
   background: #252525;
+}
+
+.night table, .night th, .night td {
+  border: 1px solid #dedede;
 }

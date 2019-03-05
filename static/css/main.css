@@ -31,7 +31,8 @@ body {
 }
 
 p {
-  padding-top: 24px;
+  padding-top: 0.9em;
+  clear: both;
 }
 
 a {
@@ -41,15 +42,16 @@ a {
 .base {
   width: 100%;
   height: auto;
+  clear: both;
   margin: 0 auto;
-  min-height: 280px;
-  padding-bottom: 13px;
+  padding-bottom: 4em;
   overflow: hidden;
 }
 
 .menu {
+  width: 100%;
   text-align: center;
-  padding: 16px 16px 4px 16px;
+  padding: 1em 1em 0.5em 1em;
   font-size: 1.14em;
   line-height: 152%;
 }
@@ -58,45 +60,25 @@ a {
   color: #676767;
   font-family: 'Source Sans Pro', sans-serif;
   text-decoration: none;
-  padding: 0px 3px 0px 3px;
+  padding: 0em 0.2em;
+  margin: 0em 0.2em;
 }
 
 .menu a:hover {
   color: #454545;
 }
 
-.subscribe {
-  text-align: center;
-  margin-top: 10px;
-  font-size: 0.875em;
-}
-
-.subscribe a {
-  color: #898989;
-  font-family: 'Source Sans Pro', sans-serif;
-  text-decoration: none;
-}
-
-.subscribe a:hover {
-  color: #676767;
-}
-
-.dot {
-  color: #898989;
-}
-
-.subscribe span {
-  color: #898989;
-  font-size: 0.75em;
-}
-
 .day-night {
-  width: 12px;
-  height: 12px;
+  width: 0.65em;
+  height: 0.65em;
   border-radius: 50%;
   background: #222222;
-  margin: 10px auto;
+  margin: 0.4em auto;
   cursor: pointer;
+}
+
+h1 {
+  clear: both;
 }
 
 h1 a, .pagination a {
@@ -111,11 +93,11 @@ h1 a, .pagination a {
 .posts-by-tag {
   font-weight: bold;
   font-size: 1.3em;
-  margin-top: 25px;
+  margin-top: 1em;
 }
 
 .post-link {
-  margin-top: 10px;
+  margin-top: 0.5em;
 }
 
 .post-link a {
@@ -130,31 +112,33 @@ h1 a, .pagination a {
 .date {
   font-size: 0.8721em;
   color: #656565;
-  margin-top: -12px;
+  margin-top: -0.8em;
 }
 
 .content {
   width: 100%;
+  height: auto;
+  clear: both;
   background: transparent;
   font-size: 1.14em;
   line-height: 152%;
-  padding: 15px 30px 30px 30px;
+  padding: 1em;
   font-family: 'PT Serif', serif;
   word-wrap: break-word;
 }
 
 .pagination {
-  margin-top: 25px;
+  margin-top: 1.4em;
   font-size: 1.2em;
   text-align: center;
 }
 
 .pagination a {
-  padding: 0px 15px 0px 15px;
+  padding: 0em 0.8em;
 }
 
 .tags {
-  margin-top: 25px;
+  margin-top: 1em;
 }
 
 .tags a {
@@ -163,8 +147,8 @@ h1 a, .pagination a {
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: bold;
   text-decoration: none;
-  padding: 3px 6px;
-  margin: 0px 2px;
+  padding: 0.2em 0.4em;
+  margin: 0em 0.1em;
   font-size: 0.8em;
   border-radius: 5px;
 }
@@ -175,7 +159,7 @@ h1 a, .pagination a {
 
 pre {
   overflow: auto;
-  margin-top: 24px;
+  margin-top: 1.2em;
   padding-left: 4px;
   font-size: 0.7em;
   background: white;
@@ -183,24 +167,17 @@ pre {
   border-radius: 3px;
 }
 
-pre::-webkit-scrollbar {
-  height: 2px;
-}
-
 code {
+  overflow: auto;
   background: transparent;
   font-family: Consolas, 'Liberation Mono', Courier, monospace;
   tab-size: 2;
 }
 
-code::-webkit-scrollbar {
-  height: 2px;
-}
-
 .youtube-video {
   position: relative;
   width: 100%;
-  margin-top: 24px;
+  margin-top: 1em;
   cursor: pointer;
   opacity: 0.8;
   clear: both;
@@ -214,14 +191,72 @@ code::-webkit-scrollbar {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 64px;
-  height: 64px;
-  margin-top: -32px;
-  margin-left: -32px;
+  width: 3.6em;
+  height: 3.6em;
+  margin-top: -1.8em;
+  margin-left: -1.8em;
 }
 
 iframe {
   border: 0;
+}
+
+.project-logo {
+  width: 120px;
+  height: 120px;
+  display: block;
+  margin-right: 4px;
+  margin-bottom: 15px;
+  clear: both;
+}
+
+details {
+  padding: 0px 8px;
+}
+
+details p {
+  padding: 4px;
+}
+
+details table {
+  margin-left: 15px; 
+}
+
+details, summary {
+  outline: none;
+  overflow: auto;
+  width: 100%;
+}
+
+summary {
+  cursor: pointer;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid #111111;
+}
+
+th, td {
+  padding: 0.5em;
+}
+
+td img {
+  vertical-align: middle;
+}
+
+pre::-webkit-scrollbar,
+code::-webkit-scrollbar,
+details::-webkit-scrollbar,
+summary::-webkit-scrollbar {
+  height: 2px;
+}
+
+#mypreviousprojects {
+  margin-top: 1.67em;
 }
 
 @media only screen and (min-width: 700px) {
@@ -231,12 +266,14 @@ iframe {
   .menu {
     font-size: 1.19em;
   }
-  .menu a {
-    margin: 0px 5px 0px 5px;
-    padding: 0px 3px 0px 3px;
-  }
   .content {
     font-size: 1.1875em;
+  }
+  .project-logo {
+    float: left;
+  }
+  .project-logo.right {
+    float: right;
   }
   pre {
     font-size: 0.734em;

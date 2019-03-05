@@ -35,7 +35,7 @@ class BaseTemplateWrapper extends AsyncObject {
                     config,
                     'mainMinBundleHref'
                   ),
-                  'type="text/javascript" async'
+                  'type="text/javascript"'
                 ),
                 new Script('/../js/highlight.pack.js', 'type="text/javascript"'),
                 new Script('/../js/youtube.js', 'type="text/javascript"')
