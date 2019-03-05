@@ -43,6 +43,14 @@ h2, h3 {
   margin: 1em 0;
 }
 
+ol {
+  padding: 0 1.14em;
+}
+
+li {
+  padding: 0 0.5em;
+}
+
 .base {
   width: 100%;
   height: auto;
@@ -213,6 +221,8 @@ iframe {
   width: 120px;
   height: 120px;
   display: block;
+  margin-left: 0em;
+  margin-bottom: 2em;
   vertical-align: middle;
   clear: both;
 }
@@ -279,7 +289,6 @@ summary::-webkit-scrollbar {
   .project-logo {
     float: right;
     margin-left: 2em;
-    margin-bottom: 2em;
   }
   .project-logo.right {
     float: right;
