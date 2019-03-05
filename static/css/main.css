@@ -126,7 +126,7 @@ h1 a, .pagination a {
   background: transparent;
   font-size: 1.14em;
   line-height: 152%;
-  padding: 1em;
+  padding: 1.16em;
   font-family: 'PT Serif', serif;
   word-wrap: break-word;
 }
@@ -213,13 +213,12 @@ iframe {
   width: 120px;
   height: 120px;
   display: block;
-  margin-right: 4px;
-  margin-bottom: 15px;
+  vertical-align: middle;
   clear: both;
 }
 
 details {
-  padding: 0px 8px;
+  padding: 0em 1em;
 }
 
 details p {
@@ -278,7 +277,9 @@ summary::-webkit-scrollbar {
     font-size: 1.1875em;
   }
   .project-logo {
-    float: left;
+    float: right;
+    margin-left: 2em;
+    margin-bottom: 2em;
   }
   .project-logo.right {
     float: right;
