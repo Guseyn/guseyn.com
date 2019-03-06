@@ -49,3 +49,11 @@
 .night table, .night th, .night td {
   border: 1px solid #dedede;
 }
+
+.night .quote-text, .night .refs {
+  color: #cccccc;
+}
+
+.night .quote-author {
+  color: #eeeeee;
+}
