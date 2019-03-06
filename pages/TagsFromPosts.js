@@ -20,7 +20,7 @@ class TagsFromPosts extends AsyncObject {
         const postLink = `/../posts/${path.basename(postPath).split('.')[0]}`
         $('a.tag').each((index, elm) => {
           const tagName = $(elm).text()
-          const key = path.join(dirToSave, `${tagName.replace(/ /g, '')}.html`)
+          const key = path.join(dirToSave, `${tagName.replace(/ /g, '').toLowerCase()}.html`)
           tags[key] = tags[key] || `<div class="posts-by-tag">0 posts about ${tagName}</div>`
           postCount[key] = postCount[key] || 0
           tags[key] += `<div class="post-link"><a href="${postLink}">${title}</a></div>`

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>fan of yours</title>
+    <link rel="shortcut icon" type="image/png" href="/../image/favicon.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i|Source+Sans+Pro:400,400i,700,700i" type="text/css">
+    <link rel="stylesheet" href="/../css/normalize.css" type="text/css">
+    <link rel="stylesheet" href="/../css/main.css" type="text/css">
+    <link rel="stylesheet" href="/../css/main-night.css" type="text/css">
+    <link rel="stylesheet" href="/../css/github-gist.css" type="text/css">
+    <link rel="stylesheet" href="/../css/github-gist-night.css" type="text/css">
+    <script src="/../js/mainBundle.min.js" type="text/javascript"></script>
+    <script src="/../js/highlight.pack.js" type="text/javascript"></script>
+    <script src="/../js/youtube.js" type="text/javascript"></script>
+  </head>
+
+  <body class="main">
+    <div class="base">
+      <div class="menu">
+        <a href="/../stuff/about">About</a>
+        <a href="/../stuff/projects">Projects</a>
+        <a href="/../previews/1">Posts</a>
+        <a href="/../stuff/slides">Slides</a>
+        <a href="/../stuff/papers">Papers</a>
+        <a href="/../stuff/talks">Talks</a>
+        <a href="/../stuff/podcasts">Podcasts</a>
+      </div>
+      <div class="day-night" id="day-night"></div>
+      <div class="content">
+        <h1 id="howicontrolqualityofnpmpackagesviatravisci">How I Control Quality of NPM Packages via TravisCI</h1>
+        <div class="date">6 March 2019</div>
+        <div class="tags">
+          <a class="tag" href="/../tags/npm">npm</a>
+          <a class="tag" href="/../tags/travisci">Travis CI</a>
+        </div>
+        <p>Let's say you want to create an open source JS library and publish it to <strong>npm</strong> and also release it to <strong>github</strong>. You can do it manually, but it's not convinient and you'll not be able to control quality of your project. I've created a solution that can help to automatize the whole process and allows to catch problems in code before it's released. In this article I'll share my variation of configuration that I use in <a href="https://travis-ci.org/">Travis CI</a> and try to explain in details how it works. You might find it very useful, especially if you use restricted master branch in your repo.</p>
+        <p>Let's consider following <em>git flow</em> that you can use for your project:</p>
+        <ol>
+          <li>
+            <p>Before making changes in your library you create <em>release branch</em> for your next release. It's better to name it in format <code>release-1.2.3</code> using next npm version of your library. Since that moment you work only in this branch, and your goal is to merge this branch into <code>master</code> when everything is ready.</p>
+          </li>
+          <li>
+            <p>Your commits in release branch can be devided into two groups: <em>regular commits</em> and <em>release commit</em>. The message of your <strong>release commit</strong> must be a number of your release, i.e. like <code>1.2.3</code>.</p>
+          </li>
+          <li>
+            <p>You need to use static analysis, unit tests and test coverage tool for controlling quality of your code. And you need to be able to build your package via one command such as <code>npm run build</code> which runs all checks. Your build must fail if any of these checks fails.</p>
+          </li>
+          <li>
+            <p>You have to add rules for your <code>master</code> branch in order to protect it from merging broken code. So, before being merged your code must pass all checks.</p>
+          </li>
+          <li>
+            <p>After <em>release commit</em> you have to create a pull request that triggers Travis CI to build your library.</p>
+          </li>
+          <li>
+            <p>If everything is ok, you can merge your code into <code>master</code>. If not, you have to fix the problems and create again release commit in the end.</p>
+          </li>
+          <li>
+            <p>After merging your code into master branch, Travis CI will be triggered again and will detect your release commit. It means that it must deploy your library to npm and create release in github.</p>
+          </li>
+        </ol>
+        <p>For js libraries I would recommend <a href="https://github.com/eslint/eslint">eslint</a> for static analysis, <a href="https://github.com/Guseyn/node-test-executor">test-executor</a> for running unit tests and <a href="https://github.com/istanbuljs/nyc">nyc</a> as a tool for test coverage.</p>
+        <p>So, for the <em>git flow</em> that has been described above I use a configuration (<em>.travis.yml</em> in the root of repo) with following sections: <code>language</code>, <code>install</code>, <code>script</code>, <code>branches</code>, <code>before_deploy</code>, and <code>deploy</code>.</p>
+        <p><strong>language</strong></p>
+        <p>Here we indicate that we use last version of node (you can specify the version).</p>
+        <pre><code class="bash language-bash">language: node_js
+node_js:
+- lts/*
+</code></pre>
+        <p><strong>install</strong></p>
+        <p>In this section, we install all dependencies of project and also <a href="https://github.com/codecov/codecov-node">codecov</a> module (we need it for badge with test coverage information).</p>
+        <pre><code class="bash language-bash">install: |-
+  npm ci
+  npm install -g codecov
+</code></pre>
+        <p><strong>script</strong></p>
+        <p>This section runs our build. If our build fails we terminate Travis CI process via command <code>travis_terminate 1</code>. It guarantees that if something is wrong in our build, Travis does not exit with success code <code>0</code>. Then we generate <code>nyc</code> report and invoke codecov to process the report. And finally, we get change log using Travis variable <code>$TRAVIS_COMMIT_RANGE</code>(we will use it as information for github release).</p>
+        <pre><code class="bash language-bash">script: |-
+  npm run build || travis_terminate 1
+  ./node_modules/.bin/nyc report --reporter lcovonly -- -R spec
+  codecov
+  log=$(git log $TRAVIS_COMMIT_RANGE --oneline)
+  echo $'**Change log:**&lt;br/&gt;'${log//$'\n'/&lt;br/&gt;}
+</code></pre>
+        <p><strong>branches</strong></p>
+        <p>Here we tell Travis to trigger only on changes in <code>master</code> branch. Also, you have to configure Travis to build pushed pull requests(in the settings of your project).</p>
+        <pre><code class="bash language-bash">branches:
+  only:
+    - master
+</code></pre>
+        <p><img style="max-width: 280px;" src="/../../image/build-pushed-pr.png"></p>
+        <p><strong>before_deploy</strong></p>
+        <p>Here we just export <code>tag</code> and <code>body</code> as changelog (all new commits in <code>master</code> branch) our future release in bash variables.</p>
+        <pre><code class="bash language-bash">before_deploy: |-
+  log=$(git log $TRAVIS_COMMIT_RANGE --oneline)
+  export TAG=$'v'$TRAVIS_COMMIT_MESSAGE
+  export BODY=$'**Change log:**&lt;br/&gt;'${log//$'\n'/&lt;br/&gt;}
+</code></pre>
+        <p>Notice that we have to replace all <code>'\n'</code> with <code>'&lt;br/&gt;'</code> in <code>body</code>. Otherwise, github wouldn't show it properly.</p>
+        <p><strong>deploy</strong></p>
+        <p>Use following commands to setup deploy for <strong>npm</strong> and <strong>github</strong> respectively:</p>
+        <pre><code class="bash language-bash">travis setup npm
+travis setup releases
+</code></pre>
+        <p>This is a deploy provider for github releases:</p>
+        <pre><code class="bash language-bash">deploy:
+  - provider: releases
+    skip_cleanup: true
+    api_key:
+      secure: &lt;your_encoded_key&gt;
+    file: README.md
+    name: Release $TRAVIS_COMMIT_MESSAGE
+    tag_name: $TAG
+    body: $BODY
+    on:
+      repo: &lt;your_repo_name&gt;
+      branch:
+        - master
+      condition: $TRAVIS_COMMIT_MESSAGE =~ ^([0-9]{1,3}).([0-9]{1,3}).([0-9]{1,3})$
+</code></pre>
+        <p>Remember that you deploy your package if only your master branch contains new release commit. Aslo, we create here new release tag.</p>
+        <p>And that's a deploy provider for npm:</p>
+        <pre><code class="bash language-bash">deploy:
+  - provider: npm
+      email: guseynism@gmail.com
+      api_key:
+        secure: &lt;your_encoded_key&gt;
+      on:
+        repo: Guseyn/cutie
+        branch:
+          - master
+        condition: $TRAVIS_COMMIT_MESSAGE =~ ^([0-9]{1,3}).([0-9]{1,3}).([0-9]{1,3})$
+</code></pre>
+        <p>You can use command <a href="https://docs.npmjs.com/cli/version.html"><code>npm version</code></a> for creating release commit.</p>
+        <p>As a result you get github releases that look something like this:</p>
+        <p><img src="/../../image/git-release.png" alt="git-release" /></p>
+        <p>You might ask, why don't I use git tags for deploying? Well, for some strange reason tags disappear after merging <code>release branch</code> into <code>master</code> and deployment does not run. I tried find out why this is happening, but with no results. If you have any ideas on this, please share in the comments.</p>
+        <p>So, that's it. I hope you found this article useful.</p>
+      </div>
+      <script>
+        hljs.initHighlightingOnLoad()
+        initYoutubeVideos()
+      </script>
+    </div>
+  </body>
+
+</html>
