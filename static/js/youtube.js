@@ -1,4 +1,4 @@
-function initYoutubeVideos() {
+function initYoutubeVideos () {
   var youtubeVideos = document.getElementsByClassName('youtube-video')
   var proportion = 1.78
   var iframes = []
@@ -24,8 +24,8 @@ function initYoutubeVideos() {
       videoIframe.allowfullscreen = true
       videoIframe.src = "https://www.youtube.com/embed/" + videoId + '?autoplay=1'
       videoIframe.setAttribute('class', className)
-      videoIframe.setAttribute('allow', 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture')
-      videoIframe.setAttribute('allowfullscreen', true)
+      videoIframe.setAttribute('allow', 'autoplay;')
+      // videoIframe.setAttribute('allowfullscreen', true)
       iframes.push(videoIframe)
       this.parentElement.replaceChild(videoIframe, this)
     }
@@ -34,11 +34,11 @@ function initYoutubeVideos() {
     for (var v = 0; v < youtubeVideos.length; v++) {
       youtubeVideos[v].style['height'] = youtubeVideos[v].offsetWidth / proportion + 'px'
     }
-    for (var i = 0; i < iframes.length; i++) {
+    /* for (var i = 0; i < iframes.length; i++) {
       if (iframes[i]) {
         iframes[i].width = iframes[i].parentElement.offsetWidth
         iframes[i].height = iframes[i].parentElement.offsetWidth / proportion
       }
-    }
+    } */
   }, { passive: true })
 }

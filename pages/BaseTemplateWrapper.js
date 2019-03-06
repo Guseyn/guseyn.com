@@ -38,7 +38,8 @@ class BaseTemplateWrapper extends AsyncObject {
                   'type="text/javascript"'
                 ),
                 new Script('/../js/highlight.pack.js', 'type="text/javascript"'),
-                new Script('/../js/youtube.js', 'type="text/javascript"')
+                new Script('/../js/youtube.js', 'type="text/javascript"'),
+                new Script('/../js/iframe.js', 'type="text/javascript"')
               ),
               new Body(
                 'class="main"',

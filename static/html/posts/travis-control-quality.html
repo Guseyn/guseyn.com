@@ -15,6 +15,7 @@
     <script src="/../js/mainBundle.min.js" type="text/javascript"></script>
     <script src="/../js/highlight.pack.js" type="text/javascript"></script>
     <script src="/../js/youtube.js" type="text/javascript"></script>
+    <script src="/../js/iframe.js" type="text/javascript"></script>
   </head>
 
   <body class="main">
@@ -26,7 +27,8 @@
         <a href="/../stuff/slides">Slides</a>
         <a href="/../stuff/papers">Papers</a>
         <a href="/../stuff/talks">Talks</a>
-        <a href="/../stuff/podcasts">Podcasts</a>
+        <a href="/../stuff/podcasts" style="display: none;">Podcasts</a>
+        <a href="/../stuff/covers">♫ Covers</a>
       </div>
       <div class="day-night" id="day-night"></div>
       <div class="content">
@@ -124,11 +126,11 @@ travis setup releases
         <p>And that's a deploy provider for npm:</p>
         <pre><code class="bash language-bash">deploy:
   - provider: npm
-      email: guseynism@gmail.com
+      email: &lt;your_email&gt;
       api_key:
         secure: &lt;your_encoded_key&gt;
       on:
-        repo: Guseyn/cutie
+        repo: &lt;your_repo_name&gt;
         branch:
           - master
         condition: $TRAVIS_COMMIT_MESSAGE =~ ^([0-9]{1,3}).([0-9]{1,3}).([0-9]{1,3})$
@@ -137,11 +139,13 @@ travis setup releases
         <p>As a result you get github releases that look something like this:</p>
         <p><img src="/../../image/git-release.png" alt="git-release" /></p>
         <p>You might ask, why don't I use git tags for deploying? Well, for some strange reason tags disappear after merging <code>release branch</code> into <code>master</code> and deployment does not run. I tried find out why this is happening, but with no results. If you have any ideas on this, please share in the comments.</p>
+        <p><a href="/../../yml/travis.yml">Here</a> is complete configuration.</p>
         <p>So, that's it. I hope you found this article useful.</p>
       </div>
       <script>
         hljs.initHighlightingOnLoad()
         initYoutubeVideos()
+        makeIframesResizable()
       </script>
     </div>
   </body>
