@@ -41,7 +41,7 @@ const restApi = new RestApi(
     customNotFoundEndpoint
   ),
   new CreatedServingStaticFilesEndpoint(
-    new RegExp(/^\/(css|html|md|image|js|txt|pdf)/),
+    new RegExp(/^\/(css|html|md|image|js|txt|yml|pdf)/),
     new UrlToFSPathMapper(
       new Value(as('config'), 'static')
     ),

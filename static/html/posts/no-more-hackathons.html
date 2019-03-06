@@ -15,6 +15,7 @@
     <script src="/../js/mainBundle.min.js" type="text/javascript"></script>
     <script src="/../js/highlight.pack.js" type="text/javascript"></script>
     <script src="/../js/youtube.js" type="text/javascript"></script>
+    <script src="/../js/iframe.js" type="text/javascript"></script>
   </head>
 
   <body class="main">
@@ -26,7 +27,8 @@
         <a href="/../stuff/slides">Slides</a>
         <a href="/../stuff/papers">Papers</a>
         <a href="/../stuff/talks">Talks</a>
-        <a href="/../stuff/podcasts">Podcasts</a>
+        <a href="/../stuff/podcasts" style="display: none;">Podcasts</a>
+        <a href="/../stuff/covers">♫ Covers</a>
       </div>
       <div class="day-night" id="day-night"></div>
       <div class="content">
@@ -61,6 +63,7 @@
       <script>
         hljs.initHighlightingOnLoad()
         initYoutubeVideos()
+        makeIframesResizable()
       </script>
     </div>
   </body>

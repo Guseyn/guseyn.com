@@ -15,6 +15,7 @@
     <script src="/../js/mainBundle.min.js" type="text/javascript"></script>
     <script src="/../js/highlight.pack.js" type="text/javascript"></script>
     <script src="/../js/youtube.js" type="text/javascript"></script>
+    <script src="/../js/iframe.js" type="text/javascript"></script>
   </head>
 
   <body class="main">
@@ -26,7 +27,8 @@
         <a href="/../stuff/slides">Slides</a>
         <a href="/../stuff/papers">Papers</a>
         <a href="/../stuff/talks">Talks</a>
-        <a href="/../stuff/podcasts">Podcasts</a>
+        <a href="/../stuff/podcasts" style="display: none;">Podcasts</a>
+        <a href="/../stuff/covers">♫ Covers</a>
       </div>
       <div class="day-night" id="day-night"></div>
       <div class="content">
@@ -64,11 +66,11 @@
         <h1 id="mypreviousprojects">My previous projects</h1>
         <ol>
           <li>
-            <p><img class="project-logo" style="width: 96px; height: 96px;" src="https://github.com/Guseyn/Lexicon-android-/blob/master/app/src/main/res/drawable/app_icon.png?raw=true">
+            <p><img class="project-logo" style="width: 96px; height: 96px;" src="/../../image/lexicon.png">
               <a href="https://github.com/Guseyn/Lexicon-android-">Lexicon</a> was a mobile app (Android) for storing, learning, and repeating foreign words. It allowed users to create dictionaries with different languages, add unlimited number of words and translate them using Google Translate API. Lexicon supported scheduled repetition technique (via push notifications), which proved itself being very effective for memorizing words. Also, users were able to cache words for offline usage.</p>
           </li>
           <li>
-            <p><img class="project-logo" style="width: 42px; height: 47px;" src="https://github.com/Guseyn/Paper-blog/blob/master/img/logo_v1.png?raw=true">
+            <p><img class="project-logo" style="width: 42px; height: 47px;" src="/../../image/pb.png">
               <a href="https://github.com/Guseyn/Paper-blog">Paper Blog</a> was a minimalistic platform for posting educational materials or some other interesting stuff with a convenient WYSIWYG editor. It had basic features like posting and editing articles, writing reviews, subscribing to user’s favorite authors and topics.</p>
           </li>
         </ol>
@@ -76,6 +78,7 @@
       <script>
         hljs.initHighlightingOnLoad()
         initYoutubeVideos()
+        makeIframesResizable()
       </script>
     </div>
   </body>

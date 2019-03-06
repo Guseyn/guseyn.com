@@ -121,11 +121,11 @@ And that's a deploy provider for npm:
 ```bash
 deploy:
   - provider: npm
-      email: guseynism@gmail.com
+      email: <your_email>
       api_key:
         secure: <your_encoded_key>
       on:
-        repo: Guseyn/cutie
+        repo: <your_repo_name>
         branch:
           - master
         condition: $TRAVIS_COMMIT_MESSAGE =~ ^([0-9]{1,3}).([0-9]{1,3}).([0-9]{1,3})$
@@ -139,5 +139,6 @@ As a result you get github releases that look something like this:
 
 You might ask, why don't I use git tags for deploying? Well, for some strange reason tags disappear after merging `release branch` into `master` and deployment does not run. I tried find out why this is happening, but with no results. If you have any ideas on this, please share in the comments.
 
-So, that's it. I hope you found this article useful.
+[Here](/../../yml/travis.yml) is complete configuration.
 
+So, that's it. I hope you found this article useful.

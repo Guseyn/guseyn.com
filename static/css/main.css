@@ -58,10 +58,77 @@ li {
   padding: 0 0.5em;
 }
 
-img:not(.project-logo) {
+img:not(.project-logo):not(.youtube-video-play) {
   margin: 1em 0;
   width: 100%;
   height: auto;
+}
+
+
+details {
+  padding: 0em 1em;
+}
+
+details p {
+  padding: 4px;
+}
+
+details table {
+  margin-left: 15px; 
+}
+
+details, summary {
+  outline: none;
+  overflow: auto;
+  width: 100%;
+}
+
+summary {
+  cursor: pointer;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid #111111;
+}
+
+th, td {
+  padding: 0.5em;
+}
+
+td img {
+  vertical-align: middle;
+}
+
+pre::-webkit-scrollbar,
+code::-webkit-scrollbar,
+details::-webkit-scrollbar,
+summary::-webkit-scrollbar {
+  height: 2px;
+}
+
+pre {
+  overflow: auto;
+  margin-top: 1.2em;
+  padding-left: 4px;
+  font-size: 0.7em;
+  background: white;
+  border: 1px solid #ededed;
+  border-radius: 3px;
+}
+
+code {
+  overflow: auto;
+  background: transparent;
+  font-family: Consolas, 'Liberation Mono', Courier, monospace;
+  tab-size: 2;
+}
+
+iframe {
+  border: 0;
 }
 
 .base {
@@ -142,7 +209,7 @@ img:not(.project-logo) {
   clear: both;
   background: transparent;
   font-size: 1.14em;
-  padding: 0.16em 1.16em 1.16em 1.16em;
+  padding: 1.16em;
   font-family: 'PT Serif', serif;
   word-wrap: break-word;
 }
@@ -177,23 +244,6 @@ img:not(.project-logo) {
   background: #555555;
 }
 
-pre {
-  overflow: auto;
-  margin-top: 1.2em;
-  padding-left: 4px;
-  font-size: 0.7em;
-  background: white;
-  border: 1px solid #ededed;
-  border-radius: 3px;
-}
-
-code {
-  overflow: auto;
-  background: transparent;
-  font-family: Consolas, 'Liberation Mono', Courier, monospace;
-  tab-size: 2;
-}
-
 .youtube-video, iframe {
   position: relative;
   width: 100%;
@@ -204,7 +254,7 @@ code {
 }
 
 .youtube-video.no-mt, iframe.no-mt {
-  margin-top: 0.2em;
+  margin-top: 0.4em;
 }
 
 .youtube-video:hover {
@@ -221,63 +271,14 @@ code {
   margin-left: -1.8em;
 }
 
-iframe {
-  border: 0;
-}
-
 .project-logo {
   width: 120px;
   height: 120px;
   display: block;
   margin-left: 0em;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
   vertical-align: middle;
   clear: both;
-}
-
-details {
-  padding: 0em 1em;
-}
-
-details p {
-  padding: 4px;
-}
-
-details table {
-  margin-left: 15px; 
-}
-
-details, summary {
-  outline: none;
-  overflow: auto;
-  width: 100%;
-}
-
-summary {
-  cursor: pointer;
-}
-
-table {
-  border-collapse: collapse;
-}
-
-table, th, td {
-  border: 1px solid #111111;
-}
-
-th, td {
-  padding: 0.5em;
-}
-
-td img {
-  vertical-align: middle;
-}
-
-pre::-webkit-scrollbar,
-code::-webkit-scrollbar,
-details::-webkit-scrollbar,
-summary::-webkit-scrollbar {
-  height: 2px;
 }
 
 #mypreviousprojects {
@@ -328,15 +329,11 @@ summary::-webkit-scrollbar {
   .project-logo.right {
     float: right;
   }
-  img:not(.project-logo) {
+  img:not(.project-logo):not(.youtube-video-play) {
     margin: 1em 3%;
     width: 94%;
   }
   pre {
     font-size: 0.734em;
   }
-}
-
-@media only screen and (min-width: 450px) and (max-width: 700px) {
-
 }

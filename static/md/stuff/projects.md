@@ -22,8 +22,8 @@ Set of libraries for [Page](https://github.com/Guseyn/cutie) framework. All of t
 
 # My previous projects
 
-1. <img class="project-logo" style="width: 96px; height: 96px;" src="https://github.com/Guseyn/Lexicon-android-/blob/master/app/src/main/res/drawable/app_icon.png?raw=true">
+1. <img class="project-logo" style="width: 96px; height: 96px;" src="/../../image/lexicon.png">
 [Lexicon](https://github.com/Guseyn/Lexicon-android-) was a mobile app (Android) for storing, learning, and repeating foreign words. It allowed users to create dictionaries with different languages, add unlimited number of words and translate them using Google Translate API. Lexicon supported scheduled repetition technique (via push notifications), which proved itself being very effective for memorizing words. Also, users were able to cache words for offline usage.
 
-2. <img class="project-logo" style="width: 42px; height: 47px;" src="https://github.com/Guseyn/Paper-blog/blob/master/img/logo_v1.png?raw=true">
+2. <img class="project-logo" style="width: 42px; height: 47px;" src="/../../image/pb.png">
 [Paper Blog](https://github.com/Guseyn/Paper-blog) was a minimalistic platform for posting educational materials or some other interesting stuff with a convenient WYSIWYG editor. It had basic features like posting and editing articles, writing reviews, subscribing to user’s favorite authors and topics.
