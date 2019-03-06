@@ -1,6 +1,11 @@
 # Async Objects instead of Async Calls
 <div class="date">26 January 2018</div>
 
+<div class="tags">
+  <a class="tag" href="/../tags/oop">OOP</a>
+  <a class="tag" href="/../tags/asyncobjects">async objects</a>
+</div>
+
 No secret, OOP in JS is not perfect. At least it's not so mature as it's in Java, for example. And actually I don't see that anybody from the JavaScript world would use this paradigm as the main concept of their applications. In the modern software development the ideas of the object-oriented programming (as itself) are becoming less and less popular and giving way to the ideas of functional programming. But I think we should not give up such a powerful and wonderful tool/mechanism that can simplify our complex systems. In this article I'll try to introduce the idea of **async objects** and show how they can help us to get rid of the main problem in asyncronious enviroment... Of course, I am talking about **callbacks**.
 
 Every library or driver in Node.js has <b>async calls</b>, and all the have similar signature:
@@ -237,3 +242,8 @@ I've called this conception as **Async Tree Pattern**. You can read more about i
 There is a lot of work to do, because **Cutie** is just basic library that provides abstraction: `AsyncObject`. So, my goal is now to make abstractions for most async calls in Node. For example, async objects for **fs** and **http** modules for begining would be great. If you liked this idea, you can also transform Node's static async methods into the beautiful async objects. 
 
 So, that's it. I do hope you enjoyed reading this article.
+
+<div class="refs">References</div>
+
+1. [Cutie on github](https://github.com/Guseyn/cutie)
+2. [Cutie on npm](https://www.npmjs.com/package/@guseyn/cutie)
