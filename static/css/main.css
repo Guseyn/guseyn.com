@@ -58,7 +58,7 @@ li {
   padding: 0 0.5em;
 }
 
-img {
+img:not(.project-logo) {
   margin: 1em 0;
   width: 100%;
   height: auto;
@@ -328,7 +328,7 @@ summary::-webkit-scrollbar {
   .project-logo.right {
     float: right;
   }
-  img {
+  img:not(.project-logo) {
     margin: 1em 3%;
     width: 94%;
   }

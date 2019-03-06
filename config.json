@@ -16,7 +16,7 @@
   "mdStuff": "./static/md/stuff",
   "htmlPosts": "./static/html/posts",
   "htmlPostPreviews": "./static/html/previews",
-  "postPreviewsPerPage": 1,
+  "postPreviewsPerPage": 12,
   "tagPages": "./static/html/tags",
   "htmlStuff": "./static/html/stuff",
   "templates": "./templates",
