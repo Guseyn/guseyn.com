@@ -50,7 +50,7 @@ h1 a {
   color: #111111;
 }
 
-ol {
+ol, ul {
   padding: 0 1.14em;
 }
 
@@ -58,7 +58,7 @@ li {
   padding: 0 0.5em;
 }
 
-img:not(.project-logo):not(.youtube-video-play) {
+img:not(.project-logo):not(.article-logo):not(.youtube-video-play) {
   margin: 1em 0;
   width: 100%;
   height: auto;
@@ -192,17 +192,6 @@ iframe {
   font-size: 1.2em;
 }
 
-.continue {
-  color: #111111;
-}
-
-.date {
-  font-size: 0.8721em;
-  color: #656565;
-  margin-top: -1.2em;
-  margin-bottom: 0.5em;
-}
-
 .content {
   width: 100%;
   height: auto;
@@ -212,6 +201,22 @@ iframe {
   padding: 1.16em;
   font-family: 'PT Serif', serif;
   word-wrap: break-word;
+}
+
+.continue {
+  display: block;
+  width: 6em;
+  clear: both;
+  padding-right: 1em;
+  margin-bottom: 3em;
+  color: #111111;
+}
+
+.date {
+  font-size: 0.8721em;
+  color: #656565;
+  margin-top: -1.2em;
+  margin-bottom: 0.5em;
 }
 
 .pagination {
@@ -225,7 +230,8 @@ iframe {
 }
 
 .tags {
-  margin-top: 1em;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
 }
 
 .tags a {
@@ -271,7 +277,7 @@ iframe {
   margin-left: -1.8em;
 }
 
-.project-logo {
+.project-logo, .article-logo {
   width: 120px;
   height: 120px;
   display: block;
@@ -325,11 +331,14 @@ iframe {
   .project-logo {
     float: right;
     margin-left: 2em;
+    margin-bottom: 0.5em;
   }
-  .project-logo.right {
-    float: right;
+  .article-logo {
+    float: left;
+    margin-right: 1em;
+    margin-bottom: 0;
   }
-  img:not(.project-logo):not(.youtube-video-play) {
+  img:not(.project-logo):not(.article-logo):not(.youtube-video-play) {
     margin: 1em 3%;
     width: 94%;
   }

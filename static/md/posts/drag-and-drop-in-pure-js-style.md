@@ -369,7 +369,7 @@ So, that's it. Hope, this article was useful for you. You can find demo [here](/
 
 <div class="refs">References</div>
 
-1. [Window coordinates](https://javascript.info/coordinates)
-2. [Event listeners](https://www.w3schools.com/js/js_htmldom_eventlistener.asp)
-3. [Demo](/../html/demo/drag-drop-resize.html)
-4. [Code](https://github.com/Guseyn/drag_drop_resize)
+* [Window Coordinates](https://javascript.info/coordinates)
+* [Event Listeners](https://www.w3schools.com/js/js_htmldom_eventlistener.asp)
+* [Demo](/../html/demo/drag-drop-resize.html)
+* [Code](https://github.com/Guseyn/drag_drop_resize)

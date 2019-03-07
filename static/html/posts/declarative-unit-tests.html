@@ -34,6 +34,51 @@
       <div class="content">
         <h1 id="declarativeunittesting">Declarative Unit Testing</h1>
         <div class="date">1 May 2018</div>
+        <div class="tags">
+          <a class="tag" href="/../tags/library">library</a>
+          <a class="tag" href="/../tags/unittesting">unit testing</a>
+          <a class="tag" href="/../tags/asyncobjects">Async Objects</a>
+        </div>
+        <p>It's amazing how easily and joyful unit testing can be if you write code in declarative style. I've just released my new library <a href="https://github.com/Guseyn/cutie-assert">cutie-assert</a>. It is a <a href="https://github.com/Guseyn/cutie">cutie</a> extension for <strong>assert</strong> module in Node. In this article, I want to show you the real power of this library.</p>
+        <p>Let's start with simple case.</p>
+        <pre><code class="js language-js">const { Assertion } = require('@cuties/assert')
+
+new Assertion(true).call()
+</code></pre>
+        <p>Here we just call <code>assert</code> function. Nothing interesting. Let's move on.</p>
+        <pre><code class="js language-js">const { DeepStrictEqualAssertion } = require('@cuties/assert')
+
+new DeepStrictEqualAssertion(
+  { a: 'a', b: 'b', c: 7 },
+  { a: 'a', b: 'b', c: 7 }
+).call()
+</code></pre>
+        <p><code>DeepStrictEqualAssertion</code> is a wrapper around <code>assert.deepStrictEqual</code>. So, here the first argument is actual object, and second one is expected object. As it's been said in <a href="/../async-objects-instead-of-async-calls">this article</a> composition of async objects is quite flexible. So, the following code also works.</p>
+        <pre><code class="js language-js">const { DeepStrictEqualAssertion } = require('@cuties/assert')
+const { ReadDataByPath } = require('@cuties/fs')
+const { ParsedJSON } = require('@cuties/json')
+
+new DeepStrictEqualAssertion(
+  new ParsedJSON(
+    new ReadDataByPath(
+      'file1.json',
+      { encoding: 'utf8' }
+    )
+  ),
+  new ParsedJSON(
+    new ReadDataByPath(
+      'file2.json',
+      { encoding: 'utf8' }
+    )
+  )
+).call()
+</code></pre>
+        <p>Each of <em>file1.json</em> and <em>file2.json</em> contains object <em>{ a: 'a', b: 'b', c: 7 }</em>. Here we read actual and expected objects from these files, parse them as json and then we make assertion that they are equal. So, we can build very complex assertions in very elegant way.</p>
+        <p>It's amazing, isn't? What do you think?</p>
+        <div class="refs">References</div>
+        <ul>
+          <li><a href="https://github.com/Guseyn/cutie-assert">cutie-assert on GitHub</a></li>
+        </ul>
       </div>
       <script>
         hljs.initHighlightingOnLoad()

@@ -1,4 +1,4 @@
-# How I Control Quality of NPM Packages via TravisCI
+# How I Control Quality of npm Packages via Travis CI
 <div class="date">6 March 2019</div>
 
 <div class="tags">
@@ -6,7 +6,7 @@
   <a class="tag" href="/../tags/travisci">Travis CI</a>
 </div>
 
-Let's say you want to create an open source JS library and publish it to **npm** and also release it to **github**. You can do it manually, but it's not convinient and you'll not be able to control quality of your project. I've created a solution that can help to automatize the whole process and allows to catch problems in code before it's released. In this article I'll share my variation of configuration that I use in [Travis CI](https://travis-ci.org/) and try to explain in details how it works. You might find it very useful, especially if you use restricted master branch in your repo.
+Let's say you want to create an open source JS library and publish it to **npm** and also release it to **GitHub**. You can do it manually, but it's not convinient and you'll not be able to control quality of your project. I've created a solution that can help to automatize the whole process and allows to catch problems in code before it's released. In this article I'll share my variation of configuration that I use in [Travis CI](https://travis-ci.org/) and try to explain in details how it works. You might find it very useful, especially if you use restricted master branch in your repo.
 
 Let's consider following *git flow* that you can use for your project:
 
@@ -22,7 +22,7 @@ Let's consider following *git flow* that you can use for your project:
 
 6. If everything is ok, you can merge your code into `master`. If not, you have to fix the problems and create again release commit in the end.
 
-7. After merging your code into master branch, Travis CI will be triggered again and will detect your release commit. It means that it must deploy your library to npm and create release in github.
+7. After merging your code into master branch, Travis CI will be triggered again and will detect your release commit. It means that it must deploy your library to npm and create release in GitHub.
 
 For js libraries I would recommend [eslint](https://github.com/eslint/eslint) for static analysis, [test-executor](https://github.com/Guseyn/node-test-executor) for running unit tests and [nyc](https://github.com/istanbuljs/nyc) as a tool for test coverage.
 
@@ -50,7 +50,7 @@ install: |-
 
 **script**
 
-This section runs our build. If our build fails we terminate Travis CI process via command `travis_terminate 1`. It guarantees that if something is wrong in our build, Travis does not exit with success code `0`. Then we generate `nyc` report and invoke codecov to process the report. And finally, we get change log using Travis variable `$TRAVIS_COMMIT_RANGE`(we will use it as information for github release).
+This section runs our build. If our build fails we terminate Travis CI process via command `travis_terminate 1`. It guarantees that if something is wrong in our build, Travis does not exit with success code `0`. Then we generate `nyc` report and invoke codecov to process the report. And finally, we get change log using Travis variable `$TRAVIS_COMMIT_RANGE`(we will use it as information for GitHub release).
 
 ```bash
 script: |-
@@ -84,18 +84,18 @@ before_deploy: |-
   export BODY=$'**Change log:**<br/>'${log//$'\n'/<br/>}
 ```
 
-Notice that we have to replace all `'\n'` with `'<br/>'` in `body`. Otherwise, github wouldn't show it properly.
+Notice that we have to replace all `'\n'` with `'<br/>'` in `body`. Otherwise, GitHub wouldn't show it properly.
 
 **deploy**
 
-Use following commands to setup deploy for **npm** and **github** respectively:
+Use following commands to setup deploy for **npm** and **GitHub** respectively:
 
 ```bash
 travis setup npm
 travis setup releases
 ```
 
-This is a deploy provider for github releases:
+This is a deploy provider for GitHub releases:
 
 ```bash
 deploy:
@@ -133,12 +133,16 @@ deploy:
 
 You can use command [`npm version`](https://docs.npmjs.com/cli/version.html) for creating release commit.
 
-As a result you get github releases that look something like this:
+As a result you get GitHub releases that look something like this:
 
 ![git-release](/../../image/git-release.png)
 
-You might ask, why don't I use git tags for deploying? Well, for some strange reason tags disappear after merging `release branch` into `master` and deployment does not run. I tried find out why this is happening, but with no results. If you have any ideas on this, please share in the comments.
+You might ask *"Why don't I use git tags for deploying?"*. Well, for some strange reason tags disappear after merging `release branch` into `master` and deployment does not run. I tried find out why this is happening, but with no results. If you have any ideas on this, please share in the comments.
 
 [Here](/../../yml/travis.yml) is complete configuration.
 
 So, that's it. I hope you found this article useful.
+
+<div class="refs">References</div>
+
+* [Travis CI Docs on npm Releasing](https://docs.travis-ci.com/user/deployment/npm/)
