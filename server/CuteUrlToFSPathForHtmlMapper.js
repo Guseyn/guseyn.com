@@ -11,7 +11,8 @@ class CuteUrlToFSPathForHtmlMapper extends AsyncObject {
   syncCall () {
     return (staticHtmlDirectory) => {
       return (url) => {
-        url += '.html'
+        // without version of file
+        url = `${url.replace(/\?v=([0-9]{1,3}).([0-9]{1,3}).([0-9]{1,3})$/, '')}.html`
         return path.join(staticHtmlDirectory, ...url.split('/').filter(path => path !== ''))
       }
     }

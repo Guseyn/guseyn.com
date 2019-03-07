@@ -37,11 +37,11 @@ const customNotFoundEndpoint = new CreatedCustomNotFoundEndpoint(
 
 const restApi = new RestApi(
   new CreatedCustomIndexEndpoint(
-    new Value(as('config'), 'index'),
-    customNotFoundEndpoint
+    new Value(as('config'), 'indexUrl'),
+    new Value(as('packageJSON'), 'version')
   ),
   new CreatedServingStaticFilesEndpoint(
-    new RegExp(/^\/(css|md|image|js|txt|yml|pdf)/),
+    new RegExp(/^\/(html|css|md|image|js|txt|yml|pdf)/),
     new UrlToFSPathMapper(
       new Value(as('config'), 'static')
     ),
@@ -54,7 +54,7 @@ const restApi = new RestApi(
     new CuteUrlToFSPathForHtmlMapper(
       new Value(as('config'), 'staticHtml')
     ),
-    {},
+    { 'Cache-Control': 'cache, public, max-age=31536000' },
     customNotFoundEndpoint,
     env === 'prod'
   ),

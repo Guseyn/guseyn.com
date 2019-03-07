@@ -1,33 +1,28 @@
 'use strict'
 
-const { CreatedReadStream } = require('@cuties/fs')
-const { ResponseWithStatusCode, ResponseWithHeader } = require('@cuties/http')
-const { PipedReadable, ReadableWithErrorEvent } = require('@cuties/stream')
 const { IndexEndpoint } = require('@cuties/rest')
-const NotFoundErrorEvent = require('./NotFoundErrorEvent')
+const { ResponseWithWrittenHead, CreatedOptions, EndedResponse } = require('@cuties/http')
+const UrlWithVersion = require('./UrlWithVersion')
 
 class CustomIndexEndpoint extends IndexEndpoint {
-  constructor (page, notFoundEndpoint) {
+  constructor (indexUrl, version) {
     super()
-    this.page = page
-    this.notFoundEndpoint = notFoundEndpoint
+    this.indexUrl = indexUrl
+    this.version = version
   }
 
   body (request, response) {
-    return new PipedReadable(
-      new ReadableWithErrorEvent(
-        new CreatedReadStream(
-          this.page
-        ),
-        new NotFoundErrorEvent(
-          this.notFoundEndpoint, request, response
+    return new EndedResponse(
+      new ResponseWithWrittenHead(
+        response,
+        301,
+        new CreatedOptions(
+          'Location',
+          new UrlWithVersion(
+            this.indexUrl,
+            this.version
+          )
         )
-      ),
-      new ResponseWithStatusCode(
-        new ResponseWithHeader(
-          response, 'Content-Type',
-          'text/html'
-        ), 200
       )
     )
   }

@@ -6,6 +6,7 @@
     "logoImageSrc": "/../image/logo.png"
   },
   "index": "./static/html/previews/1.html",
+  "indexUrl": "/previews/1",
   "notFoundPage": "./static/html/404.html",
   "indexHref": "/../previews/1",
   "notFoundHref": "/../html/404.html",
