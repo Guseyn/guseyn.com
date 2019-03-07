@@ -5,19 +5,19 @@ const cheerio = require('cheerio')
 const path = require('path')
 
 class TagsFromPosts extends AsyncObject {
-  constructor (posts, dirToSave) {
-    super(posts, dirToSave)
+  constructor (posts, dirToSave, version) {
+    super(posts, dirToSave, version)
   }
 
   syncCall () {
-    return (posts, dirToSave) => {
+    return (posts, dirToSave, version) => {
       const tags = {}
       const postCount = {}
       Object.keys(posts).forEach((postPath) => {
         const postContent = posts[postPath]
         const $ = cheerio.load(postContent)
         const title = $('h1').first().text()
-        const postLink = `/../posts/${path.basename(postPath).split('.')[0]}`
+        const postLink = `/../posts/${path.basename(postPath).split('.')[0]}?v=${version}`
         $('a.tag').each((index, elm) => {
           const tagName = $(elm).text()
           const key = path.join(dirToSave, `${tagName.replace(/ /g, '').toLowerCase()}.html`)

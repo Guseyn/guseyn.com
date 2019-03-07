@@ -66,6 +66,10 @@ new ParsedJSON(
                 new Value(
                   as('config'),
                   'postPreviewsPerPage'
+                ),
+                new Value(
+                  as('packageJSON'),
+                  'version'
                 )
               ),
               new BaseTemplateWrapper(
@@ -82,6 +86,10 @@ new ParsedJSON(
                   new Value(
                     as('config'),
                     'tagPages'
+                  ),
+                  new Value(
+                    as('packageJSON'),
+                    'version'
                   )
                 ),
                 new BaseTemplateWrapper(

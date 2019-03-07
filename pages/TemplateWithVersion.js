@@ -9,7 +9,7 @@ class TemplateWithVersion extends AsyncObject {
 
   syncCall () {
     return (template, version) => {
-      return template.replace(/\{version\}/g, version)
+      return template.replace(/\?v=\{version\}/g, `?v=${version}`)
     }
   }
 }

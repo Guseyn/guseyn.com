@@ -5,12 +5,12 @@ const cheerio = require('cheerio')
 const path = require('path')
 
 class PreviewsFromPosts extends AsyncObject {
-  constructor (posts, dirToSave, bundleSize) {
-    super(posts, dirToSave, bundleSize)
+  constructor (posts, dirToSave, bundleSize, version) {
+    super(posts, dirToSave, bundleSize, version)
   }
 
   syncCall () {
-    return (posts, dirToSave, bundleSize) => {
+    return (posts, dirToSave, bundleSize, version) => {
       const previews = {}
       const postsLen = Object.keys(posts).length
       const totalPreviewPagesNumber = Math.ceil(postsLen / bundleSize)
@@ -18,7 +18,7 @@ class PreviewsFromPosts extends AsyncObject {
       let previewsCount = 1
       this.sortedPostPathsByDate(posts).forEach((postPath, index) => {
         const postContent = posts[postPath]
-        const postLink = `/../posts/${path.basename(postPath).split('.')[0]}`
+        const postLink = `/../posts/${path.basename(postPath).split('.')[0]}?v=${version}`
         const contentDiv = this.contentDiv(postContent)
         const key = path.join(dirToSave, `${previewsCount}.html`)
         previews[key] = previews[key] || ''
