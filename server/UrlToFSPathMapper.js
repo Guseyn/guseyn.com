@@ -12,6 +12,8 @@ class UrlToFSPathMapper extends AsyncObject {
     return (staticDirectory) => {
       return (url) => {
         let fileLocation
+        // without version of file
+        url = url.replace(/\?v=([0-9]{1,3}).([0-9]{1,3}).([0-9]{1,3})$/, '')
         if (staticDirectory) {
           fileLocation = path.join(staticDirectory, ...url.split('/').filter(path => path !== ''))
         } else {

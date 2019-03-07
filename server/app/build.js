@@ -14,12 +14,12 @@ new ParsedJSON(
 ).as('config').after(
   new ParsedJSON(
     new ReadDataByPath('./package.json')
-  ).as('packageJson').after(
+  ).as('packageJSON').after(
     new PrintedToConsolePageLogo(
       new ReadDataByPath(
         new Value(as('config'), 'page.logoText')
       ),
-      new Value(as('packageJson'), 'version'),
+      new Value(as('packageJSON'), 'version'),
       `BUILD (${env})`
     ).after(
       new ExecutedLint(process, './server', './static/js/es6', './test', './pages').after(

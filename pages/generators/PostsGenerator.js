@@ -15,105 +15,113 @@ const TagsFromPosts = require('./../TagsFromPosts')
 new ParsedJSON(
   new ReadDataByPath('./config.json')
 ).as('config').after(
-  new ReadFilesOfDirectory(
-    new Value(
-      as('config'),
-      'mdPosts'
-    )
-  ).as('postFileNames').after(
-    new Template(
+  new ParsedJSON(
+    new ReadDataByPath('./package.json')
+  ).as('packageJSON').after(
+    new ReadFilesOfDirectory(
       new Value(
         as('config'),
-        'baseTemplate'
+        'mdPosts'
       )
-    ).as('baseTemplate').after(
-      new WrittenDataToFiles(
-        new ProcessedObject(
-          new HtmlFilesFromMdFiles(
-            new ReadDataFromFiles(
-              new Mapped(
-                as('postFileNames'),
-                new JoinedPathMapper(
-                  new Value(
-                    as('config'), 'mdPosts'
-                  )
-                )
-              ),
-              { encoding: 'utf8' }
-            ),
-            new Value(
-              as('config'), 'htmlPosts'
-            )
-          ),
-          new BaseTemplateWrapper(
-            as('config'),
-            as('baseTemplate')
-          )
-        ).as('posts'), { flag: 'w' }
-      ).after(
+    ).as('postFileNames').after(
+      new Template(
+        new Value(
+          as('config'),
+          'baseTemplate'
+        )
+      ).as('baseTemplate').after(
         new WrittenDataToFiles(
           new ProcessedObject(
-            new PreviewsFromPosts(
-              as('posts'),
-              new Value(
-                as('config'),
-                'htmlPostPreviews'
+            new HtmlFilesFromMdFiles(
+              new ReadDataFromFiles(
+                new Mapped(
+                  as('postFileNames'),
+                  new JoinedPathMapper(
+                    new Value(
+                      as('config'), 'mdPosts'
+                    )
+                  )
+                ),
+                { encoding: 'utf8' }
               ),
               new Value(
-                as('config'),
-                'postPreviewsPerPage'
+                as('config'), 'htmlPosts'
               )
             ),
             new BaseTemplateWrapper(
               as('config'),
+              as('packageJSON'),
               as('baseTemplate')
             )
-          ), { flag: 'w' }
+          ).as('posts'), { flag: 'w' }
         ).after(
           new WrittenDataToFiles(
             new ProcessedObject(
-              new TagsFromPosts(
+              new PreviewsFromPosts(
                 as('posts'),
                 new Value(
                   as('config'),
-                  'tagPages'
+                  'htmlPostPreviews'
+                ),
+                new Value(
+                  as('config'),
+                  'postPreviewsPerPage'
                 )
               ),
               new BaseTemplateWrapper(
                 as('config'),
+                as('packageJSON'),
                 as('baseTemplate')
               )
             ), { flag: 'w' }
           ).after(
-            new ReadFilesOfDirectory(
-              new Value(
-                as('config'),
-                'mdStuff'
-              )
-            ).as('stuffFileNames').after(
-              new WrittenDataToFiles(
-                new ProcessedObject(
-                  new HtmlFilesFromMdFiles(
-                    new ReadDataFromFiles(
-                      new Mapped(
-                        as('stuffFileNames'),
-                        new JoinedPathMapper(
-                          new Value(
-                            as('config'), 'mdStuff'
-                          )
-                        )
-                      ),
-                      { encoding: 'utf8' }
-                    ),
-                    new Value(
-                      as('config'), 'htmlStuff'
-                    )
-                  ),
-                  new BaseTemplateWrapper(
+            new WrittenDataToFiles(
+              new ProcessedObject(
+                new TagsFromPosts(
+                  as('posts'),
+                  new Value(
                     as('config'),
-                    as('baseTemplate')
+                    'tagPages'
                   )
-                ), { flag: 'w' }
+                ),
+                new BaseTemplateWrapper(
+                  as('config'),
+                  as('packageJSON'),
+                  as('baseTemplate')
+                )
+              ), { flag: 'w' }
+            ).after(
+              new ReadFilesOfDirectory(
+                new Value(
+                  as('config'),
+                  'mdStuff'
+                )
+              ).as('stuffFileNames').after(
+                new WrittenDataToFiles(
+                  new ProcessedObject(
+                    new HtmlFilesFromMdFiles(
+                      new ReadDataFromFiles(
+                        new Mapped(
+                          as('stuffFileNames'),
+                          new JoinedPathMapper(
+                            new Value(
+                              as('config'), 'mdStuff'
+                            )
+                          )
+                        ),
+                        { encoding: 'utf8' }
+                      ),
+                      new Value(
+                        as('config'), 'htmlStuff'
+                      )
+                    ),
+                    new BaseTemplateWrapper(
+                      as('config'),
+                      as('packageJSON'),
+                      as('baseTemplate')
+                    )
+                  ), { flag: 'w' }
+                )
               )
             )
           )
