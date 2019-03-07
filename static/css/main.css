@@ -58,7 +58,7 @@ li {
   padding: 0 0.5em;
 }
 
-img:not(.project-logo):not(.article-logo):not(.youtube-video-play) {
+img:not(.project-logo):not(.article-logo):not(.youtube-video-play):not(.left-to-link) {
   margin: 1em 0;
   width: 100%;
   height: auto;
@@ -287,6 +287,12 @@ iframe {
   clear: both;
 }
 
+.left-to-link {
+  width: 48px;
+  height: 48px;
+  vertical-align: middle;
+}
+
 #mypreviousprojects {
   margin-top: 1.67em;
 }
@@ -338,7 +344,7 @@ iframe {
     margin-right: 1em;
     margin-bottom: 0;
   }
-  img:not(.project-logo):not(.article-logo):not(.youtube-video-play) {
+  img:not(.project-logo):not(.article-logo):not(.youtube-video-play):not(.left-to-link) {
     margin: 1em 3%;
     width: 94%;
   }
