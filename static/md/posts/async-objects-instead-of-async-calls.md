@@ -112,7 +112,7 @@ Then the sequence of the calls is
 
 ```
 
-You might ask *"What if I need to use the result that is represented by `A1`, how can I do that?*. Well, it's very simple: you just wrap it with another async object that process `A1` and invoke method `call` of new async object instead of `A1`.
+You might ask *"What if I need to use the result that is represented by `A1`, how can I do that?"*. Well, it's very simple: you just wrap it with another async object that processes `A1` and invokes method `call` of new async object instead of `A1`.
 
 It means that it's not possible to combine this approach with callbacks, Promises and async/await abstractions. Mostly because all these abstractions are procedural, and async object that described above is pure object-oriented abstraction.
 
@@ -245,5 +245,5 @@ So, that's it. I do hope you enjoyed reading this article.
 
 <div class="refs">References</div>
 
-1. [Cutie on github](https://github.com/Guseyn/cutie)
-2. [Cutie on npm](https://www.npmjs.com/package/@guseyn/cutie)
+* [Cutie on GitHub](https://github.com/Guseyn/cutie)
+* [Cutie on npm](https://www.npmjs.com/package/@guseyn/cutie)

@@ -34,11 +34,5 @@ function initYoutubeVideos () {
     for (var v = 0; v < youtubeVideos.length; v++) {
       youtubeVideos[v].style['height'] = youtubeVideos[v].offsetWidth / proportion + 'px'
     }
-    /* for (var i = 0; i < iframes.length; i++) {
-      if (iframes[i]) {
-        iframes[i].width = iframes[i].parentElement.offsetWidth
-        iframes[i].height = iframes[i].parentElement.offsetWidth / proportion
-      }
-    } */
   }, { passive: true })
 }
