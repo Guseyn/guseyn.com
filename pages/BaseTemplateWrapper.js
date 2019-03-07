@@ -113,7 +113,12 @@ class BaseTemplateWrapper extends AsyncObject {
                       packageJSON, 'version'
                     )
                   ),
-                  content
+                  new TemplateWithVersion(
+                    content,
+                    new Value(
+                      packageJSON, 'version'
+                    )
+                  )
                 )
               )
             )

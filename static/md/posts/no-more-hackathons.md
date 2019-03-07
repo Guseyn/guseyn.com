@@ -2,8 +2,8 @@
 <div class="date">2 November 2017</div>
 
 <div class="tags">
-  <a class="tag" href="/../tags/hate">hate</a>
-  <a class="tag" href="/../tags/itculture">IT culture</a>
+  <a class="tag" href="/../tags/hate?v={version}">hate</a>
+  <a class="tag" href="/../tags/itculture?v={version}">IT culture</a>
 </div>
 
 <div class="quote">

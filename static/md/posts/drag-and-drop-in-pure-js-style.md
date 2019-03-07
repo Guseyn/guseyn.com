@@ -2,7 +2,7 @@
 <div class="date">20 December 2017</div>
 
 <div class="tags">
-  <a class="tag" href="/../tags/js">JS</a>
+  <a class="tag" href="/../tags/js?v={version}">JS</a>
 </div>
 
 Although there are a lot of libraries doing such simple things like *drag&drop* and *drag&resize*, sometimes we need to do specific functional interfaces where it's important to understand how these things really work. If you are begginer in js or just curious programmer, this article would be very useful for you (you will learn some tricks in event driven js system and how it works in the whole).
