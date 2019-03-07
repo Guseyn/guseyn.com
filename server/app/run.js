@@ -41,10 +41,11 @@ const restApi = new RestApi(
     customNotFoundEndpoint
   ),
   new CreatedServingStaticFilesEndpoint(
-    new RegExp(/^\/(css|html|md|image|js|txt|yml|pdf)/),
+    new RegExp(/^\/(css|md|image|js|txt|yml|pdf)/),
     new UrlToFSPathMapper(
       new Value(as('config'), 'static')
     ),
+    { 'Cache-Control': 'cache, public, max-age=31536000' },
     customNotFoundEndpoint,
     env === 'prod'
   ),
@@ -53,18 +54,21 @@ const restApi = new RestApi(
     new CuteUrlToFSPathForHtmlMapper(
       new Value(as('config'), 'staticHtml')
     ),
+    {},
     customNotFoundEndpoint,
     env === 'prod'
   ),
   new CreatedServingStaticFilesEndpoint(
     new RegExp(/^\/(logs)/),
     new UrlToFSPathMapper(),
+    {},
     customNotFoundEndpoint,
     false
   ),
   new CreatedServingStaticFilesEndpoint(
     new RegExp(/^\/package.json(\/|)$/),
     new UrlToFSPathMapper(),
+    {},
     customNotFoundEndpoint,
     false
   ),
@@ -100,7 +104,7 @@ new ParsedJSON(
 ).as('config').after(
   new ParsedJSON(
     new ReadDataByPath('./package.json')
-  ).as('packageJson').after(
+  ).as('packageJSON').after(
     new ProcessWithUncaughtExceptionEvent(
       process, new LoggedAndThrownErrorEvent(
         new Value(as('config'), 'logs')
@@ -119,7 +123,7 @@ new ParsedJSON(
             new ReadDataByPath(
               new Value(as('config'), 'page.logoText')
             ),
-            new Value(as('packageJson'), 'version'),
+            new Value(as('packageJSON'), 'version'),
             `RUN (${env})`
           ).after(
             new If(

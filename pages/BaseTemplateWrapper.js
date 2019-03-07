@@ -4,14 +4,15 @@ const { AsyncObject } = require('@cuties/cutie')
 const { PrettyPage, Page, Head, Title, Meta, Body, Script, Style, Link, TemplateWithParams } = require('@page-libs/static-generator')
 const { TheSameObjectWithValue } = require('@cuties/object')
 const { Value } = require('@cuties/json')
+const UrlWithVersion = require('./UrlWithVersion')
 
 class BaseTemplateWrapper extends AsyncObject {
-  constructor (config, baseTemplate) {
-    super(config, baseTemplate)
+  constructor (config, packageJSON, baseTemplate) {
+    super(config, packageJSON, baseTemplate)
   }
 
   syncCall () {
-    return (config, baseTemplate) => {
+    return (config, packageJSON, baseTemplate) => {
       return (htmlFile, path, content) => {
         new TheSameObjectWithValue(
           htmlFile,
@@ -25,21 +26,82 @@ class BaseTemplateWrapper extends AsyncObject {
                 new Title('fan of yours'),
                 new Link('rel="shortcut icon" type="image/png" href="/../image/favicon.png"'),
                 new Style('https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i|Source+Sans+Pro:400,400i,700,700i', 'type="text/css"'),
-                new Style('/../css/normalize.css', 'type="text/css"'),
-                new Style('/../css/main.css', 'type="text/css"'),
-                new Style('/../css/main-night.css', 'type="text/css"'),
-                new Style('/../css/github-gist.css', 'type="text/css"'),
-                new Style('/../css/github-gist-night.css', 'type="text/css"'),
-                new Script(
-                  new Value(
-                    config,
-                    'mainMinBundleHref'
+                new Style(
+                  new UrlWithVersion(
+                    '/../css/normalize.css',
+                    new Value(
+                      packageJSON, 'version'
+                    )
                   ),
-                  'type="text/javascript"'
+                  'type="text/css"'
                 ),
-                new Script('/../js/highlight.pack.js', 'type="text/javascript"'),
-                new Script('/../js/youtube.js', 'type="text/javascript"'),
-                new Script('/../js/iframe.js', 'type="text/javascript"')
+                new Style(
+                  new UrlWithVersion(
+                    '/../css/main.css',
+                    new Value(
+                      packageJSON, 'version'
+                    )
+                  ), 'type="text/css"'
+                ),
+                new Style(
+                  new UrlWithVersion(
+                    '/../css/main-night.css',
+                    new Value(
+                      packageJSON, 'version'
+                    )
+                  ), 'type="text/css"'
+                ),
+                new Style(
+                  new UrlWithVersion(
+                    '/../css/github-gist.css',
+                    new Value(
+                      packageJSON, 'version'
+                    )
+                  ), 'type="text/css"'
+                ),
+                new Style(
+                  new UrlWithVersion(
+                    '/../css/github-gist-night.css',
+                    new Value(
+                      packageJSON, 'version'
+                    )
+                  ), 'type="text/css"'
+                ),
+                new Script(
+                  new UrlWithVersion(
+                    new Value(
+                      config,
+                      'mainMinBundleHref'
+                    ),
+                    new Value(
+                      packageJSON, 'version'
+                    )
+                  ), 'type="text/javascript"'
+                ),
+                new Script(
+                  new UrlWithVersion(
+                    '/../js/highlight.pack.js',
+                    new Value(
+                      packageJSON, 'version'
+                    )
+                  ), 'type="text/javascript"'
+                ),
+                new Script(
+                  new UrlWithVersion(
+                    '/../js/youtube.js',
+                    new Value(
+                      packageJSON, 'version'
+                    )
+                  ), 'type="text/javascript"'
+                ),
+                new Script(
+                  new UrlWithVersion(
+                    '/../js/iframe.js',
+                    new Value(
+                      packageJSON, 'version'
+                    )
+                  ), 'type="text/javascript"'
+                )
               ),
               new Body(
                 'class="main"',

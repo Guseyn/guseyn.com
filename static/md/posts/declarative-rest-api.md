@@ -208,8 +208,8 @@ new Backend(
     new CustomIndexEndpoint(),
     new SimpleResponseOnGETRequest(new RegExp(/^\/get/), 'GET'),
     new SimpleResponseOnPOSTRequest(new RegExp(/^\/post/), 'POST'),
-    new CreatedServingFilesEndpoint(new RegExp(/^\/files/), mapper, notFoundEndpoint),
-    new CreatedCachedServingFilesEndpoint(new RegExp(/^\/cached/), cacheMapper, notFoundEndpoint),
+    new CreatedServingFilesEndpoint(new RegExp(/^\/files/), mapper, {}, notFoundEndpoint),
+    new CreatedCachedServingFilesEndpoint(new RegExp(/^\/cached/), cacheMapper, {}, notFoundEndpoint),
     notFoundEndpoint,
     internalServerErrorEndpoint
   )
@@ -232,22 +232,22 @@ Represents request-response listener. Declares endpoints of api.
 Reads body of request in `body(request, response)` method of `Endpoint` implementation.
 
 <br/>
-**`ServingFilesEndpoint(regexpUrl, mapper, notFoundEndpoint)`**
+**`ServingFilesEndpoint(regexpUrl, mapper, headers, notFoundEndpoint)`**
 
-Extends `Endpoint` and serves files on url that mathes `regexpUrl` with `mapper` function that gets location of a file on a disk by the url of incoming request. Also it's required to declare `notFoundEndpoint` that handles the cases when a file is not found.
+Extends `Endpoint` and serves files on url that mathes `regexpUrl` with `mapper` function that gets location of a file on a disk by the url of incoming request. Also it's required to declare `notFoundEndpoint` that handles the cases when a file is not found. You also can specify headers in response(no need to specify the `'Content-Type'`, library makes it for you).
 
 <br/>
-**`CachedServingFilesEndpoint(regexpUrl, mapper, notFoundEndpoint)`**
+**`CachedServingFilesEndpoint(regexpUrl, mapper, headers, notFoundEndpoint)`**
 
 Does the same that `ServingFilesEndpoint` does and caches files for increasing speed of serving them.
 
 <br/>
-**`CreatedServingFilesEndpoint(regexpUrl, mapper, notFoundEndpoint)`**
+**`CreatedServingFilesEndpoint(regexpUrl, mapper, headers, notFoundEndpoint)`**
 
 It's an `AsyncObject` that represents `ServingFilesEndpoint`. So, you can use its arguments as async objects.
 
 <br/>
-**`CreatedServingFilesEndpoint(regexpUrl, mapper, notFoundEndpoint)`**
+**`CreatedServingFilesEndpoint(regexpUrl, mapper, headers, notFoundEndpoint)`**
 
 It's an `AsyncObject` that represents `CachedServingFilesEndpoint`. So, you can use its arguments as async objects.
 

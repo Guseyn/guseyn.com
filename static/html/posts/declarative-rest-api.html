@@ -7,15 +7,15 @@
     <title>fan of yours</title>
     <link rel="shortcut icon" type="image/png" href="/../image/favicon.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i|Source+Sans+Pro:400,400i,700,700i" type="text/css">
-    <link rel="stylesheet" href="/../css/normalize.css" type="text/css">
-    <link rel="stylesheet" href="/../css/main.css" type="text/css">
-    <link rel="stylesheet" href="/../css/main-night.css" type="text/css">
-    <link rel="stylesheet" href="/../css/github-gist.css" type="text/css">
-    <link rel="stylesheet" href="/../css/github-gist-night.css" type="text/css">
-    <script src="/../js/mainBundle.min.js" type="text/javascript"></script>
-    <script src="/../js/highlight.pack.js" type="text/javascript"></script>
-    <script src="/../js/youtube.js" type="text/javascript"></script>
-    <script src="/../js/iframe.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="/../css/normalize.css?v=1.0.43" type="text/css">
+    <link rel="stylesheet" href="/../css/main.css?v=1.0.43" type="text/css">
+    <link rel="stylesheet" href="/../css/main-night.css?v=1.0.43" type="text/css">
+    <link rel="stylesheet" href="/../css/github-gist.css?v=1.0.43" type="text/css">
+    <link rel="stylesheet" href="/../css/github-gist-night.css?v=1.0.43" type="text/css">
+    <script src="/../js/mainBundle.min.js?v=1.0.43" type="text/javascript"></script>
+    <script src="/../js/highlight.pack.js?v=1.0.43" type="text/javascript"></script>
+    <script src="/../js/youtube.js?v=1.0.43" type="text/javascript"></script>
+    <script src="/../js/iframe.js?v=1.0.43" type="text/javascript"></script>
   </head>
 
   <body class="main">
@@ -211,8 +211,8 @@ new Backend(
     new CustomIndexEndpoint(),
     new SimpleResponseOnGETRequest(new RegExp(/^\/get/), 'GET'),
     new SimpleResponseOnPOSTRequest(new RegExp(/^\/post/), 'POST'),
-    new CreatedServingFilesEndpoint(new RegExp(/^\/files/), mapper, notFoundEndpoint),
-    new CreatedCachedServingFilesEndpoint(new RegExp(/^\/cached/), cacheMapper, notFoundEndpoint),
+    new CreatedServingFilesEndpoint(new RegExp(/^\/files/), mapper, {}, notFoundEndpoint),
+    new CreatedCachedServingFilesEndpoint(new RegExp(/^\/cached/), cacheMapper, {}, notFoundEndpoint),
     notFoundEndpoint,
     internalServerErrorEndpoint
   )
@@ -228,16 +228,16 @@ new Backend(
           <strong><code>RequestBody(request)</code></strong></p>
         <p>Reads body of request in <code>body(request, response)</code> method of <code>Endpoint</code> implementation.</p>
         <p><br />
-          <strong><code>ServingFilesEndpoint(regexpUrl, mapper, notFoundEndpoint)</code></strong></p>
-        <p>Extends <code>Endpoint</code> and serves files on url that mathes <code>regexpUrl</code> with <code>mapper</code> function that gets location of a file on a disk by the url of incoming request. Also it's required to declare <code>notFoundEndpoint</code> that handles the cases when a file is not found.</p>
+          <strong><code>ServingFilesEndpoint(regexpUrl, mapper, headers, notFoundEndpoint)</code></strong></p>
+        <p>Extends <code>Endpoint</code> and serves files on url that mathes <code>regexpUrl</code> with <code>mapper</code> function that gets location of a file on a disk by the url of incoming request. Also it's required to declare <code>notFoundEndpoint</code> that handles the cases when a file is not found. You also can specify headers in response(no need to specify the <code>'Content-Type'</code>, library makes it for you).</p>
         <p><br />
-          <strong><code>CachedServingFilesEndpoint(regexpUrl, mapper, notFoundEndpoint)</code></strong></p>
+          <strong><code>CachedServingFilesEndpoint(regexpUrl, mapper, headers, notFoundEndpoint)</code></strong></p>
         <p>Does the same that <code>ServingFilesEndpoint</code> does and caches files for increasing speed of serving them.</p>
         <p><br />
-          <strong><code>CreatedServingFilesEndpoint(regexpUrl, mapper, notFoundEndpoint)</code></strong></p>
+          <strong><code>CreatedServingFilesEndpoint(regexpUrl, mapper, headers, notFoundEndpoint)</code></strong></p>
         <p>It's an <code>AsyncObject</code> that represents <code>ServingFilesEndpoint</code>. So, you can use its arguments as async objects.</p>
         <p><br />
-          <strong><code>CreatedServingFilesEndpoint(regexpUrl, mapper, notFoundEndpoint)</code></strong></p>
+          <strong><code>CreatedServingFilesEndpoint(regexpUrl, mapper, headers, notFoundEndpoint)</code></strong></p>
         <p>It's an <code>AsyncObject</code> that represents <code>CachedServingFilesEndpoint</code>. So, you can use its arguments as async objects.</p>
         <p>Let's see how endpoints are implemented.</p>
         <p><br />
