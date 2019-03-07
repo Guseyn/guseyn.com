@@ -4,6 +4,8 @@
 
 <div class="tags">
   <a class="tag" href="/../tags/library">library</a>
+  <a class="tag" href="/../tags/oop">OOP</a>
+  <a class="tag" href="/../tags/node">Node</a>
   <a class="tag" href="/../tags/asyncobjects">Async Objects</a>
 </div>
 
