@@ -18,7 +18,7 @@ class PreviewsFromPosts extends AsyncObject {
       let previewsCount = 1
       this.sortedPostPathsByDate(posts).forEach((postPath, index) => {
         const postContent = posts[postPath]
-        const postLink = `/../posts/${path.basename(postPath).split('.')[0]}?v=${version}`
+        const postLink = `/../posts/${path.basename(postPath, '.html')}?v=${version}`
         const contentDiv = this.contentDiv(postContent)
         const key = path.join(dirToSave, `${previewsCount}.html`)
         previews[key] = previews[key] || ''
