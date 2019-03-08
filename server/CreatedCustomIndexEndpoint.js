@@ -4,13 +4,13 @@ const { AsyncObject } = require('@cuties/cutie')
 const CustomIndexEndpoint = require('./CustomIndexEndpoint')
 
 class CreatedCustomIndexEndpoint extends AsyncObject {
-  constructor (page, notFoundEndpoint) {
-    super(page, notFoundEndpoint)
+  constructor (indexUrl, version) {
+    super(indexUrl, version)
   }
 
   syncCall () {
-    return (page, notFoundEndpoint) => {
-      return new CustomIndexEndpoint(page, notFoundEndpoint)
+    return (indexUrl, version) => {
+      return new CustomIndexEndpoint(indexUrl, version)
     }
   }
 }
