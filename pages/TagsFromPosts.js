@@ -17,7 +17,7 @@ class TagsFromPosts extends AsyncObject {
         const postContent = posts[postPath]
         const $ = cheerio.load(postContent)
         const title = $('h1').first().text()
-        const postLink = `/../posts/${path.basename(postPath).split('.')[0]}?v=${version}`
+        const postLink = `/../posts/${path.basename(postPath, '.html')}?v=${version}`
         $('a.tag').each((index, elm) => {
           const tagName = $(elm).text()
           const key = path.join(dirToSave, `${tagName.replace(/ /g, '').toLowerCase()}.html`)
