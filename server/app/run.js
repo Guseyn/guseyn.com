@@ -45,7 +45,7 @@ const restApi = new RestApi(
     new UrlToFSPathMapper(
       new Value(as('config'), 'static')
     ),
-    { 'Cache-Control': 'cache, public, max-age=86400' },
+    env === 'prod' ? { 'Cache-Control': 'cache, public, max-age=86400' } : {},
     customNotFoundEndpoint,
     env === 'prod'
   ),
@@ -54,7 +54,7 @@ const restApi = new RestApi(
     new CuteUrlToFSPathForHtmlMapper(
       new Value(as('config'), 'staticHtml')
     ),
-    { 'Cache-Control': 'cache, public, max-age=86400' },
+    env === 'prod' ? { 'Cache-Control': 'cache, public, max-age=86400' } : {},
     customNotFoundEndpoint,
     env === 'prod'
   ),

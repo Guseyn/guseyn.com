@@ -1,10 +1,10 @@
 function initYoutubeVideos () {
   var youtubeVideos = document.getElementsByClassName('youtube-video')
-  var proportion = 1.78
+  var proportion = 1.7777
   var iframes = []
   for (var v = 0; v < youtubeVideos.length; v++) {
     youtubeVideos[v].style['height'] = youtubeVideos[v].offsetWidth / proportion + 'px'
-    youtubeVideos[v].style['background'] = 'url(http://img.youtube.com/vi/' + youtubeVideos[v].getAttribute('id') + '/hqdefault.jpg) no-repeat'
+    youtubeVideos[v].style['background'] = 'url(http://i.ytimg.com/vi/' + youtubeVideos[v].getAttribute('id') + '/hqdefault.jpg) no-repeat'
     youtubeVideos[v].style['background-size'] = '100% 100%'
     const youtubeButton = document.createElement('img')
     youtubeButton.setAttribute('class', 'youtube-video-play')
@@ -25,14 +25,17 @@ function initYoutubeVideos () {
       videoIframe.src = "https://www.youtube.com/embed/" + videoId + '?autoplay=1'
       videoIframe.setAttribute('class', className)
       videoIframe.setAttribute('allow', 'autoplay;')
-      // videoIframe.setAttribute('allowfullscreen', true)
+      videoIframe.setAttribute('allowfullscreen', true)
       iframes.push(videoIframe)
       this.parentElement.replaceChild(videoIframe, this)
     }
   }
   window.addEventListener('resize', function(event) {
     for (var v = 0; v < youtubeVideos.length; v++) {
-      youtubeVideos[v].style['height'] = youtubeVideos[v].offsetWidth / proportion + 'px'
+      var youtubeVideo = document.getElementById(youtubeVideos[v].getAttribute('id'))
+      if (youtubeVideo) {
+        youtubeVideo.style['height'] = youtubeVideo.offsetWidth / proportion + 'px'
+      }
     }
   }, { passive: true })
 }
