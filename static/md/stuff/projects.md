@@ -17,7 +17,7 @@ Set of [Cutie](https://github.com/Guseyn/cutie) extensions for different modules
 Set of libraries for [Page](https://github.com/Guseyn/cutie) framework. All of them are based on [Async Tree Pattern](https://github.com/Guseyn/async-tree-patern/blob/master/Async_Tree_Pattern.pdf).
 <details  id="page-libs-details"></details>
 
-6. [My blog](https://guseyn.com). Based on [Page](https://github.com/Guseyn/page).
+6. [My blog](https://github.com/Guseyn/guseyn.com). Based on [Page](https://github.com/Guseyn/page).
 
 # My previous projects
 

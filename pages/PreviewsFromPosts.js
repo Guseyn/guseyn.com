@@ -56,7 +56,7 @@ class PreviewsFromPosts extends AsyncObject {
 
   title (contentDiv, postLink) {
     const title = contentDiv.find('h1').first()
-    title.html(`<a href="${postLink}">${title.text()}</a>`)
+    title.html(`<a href="${postLink}">${title.html()}</a>`)
     return title
   }
 
