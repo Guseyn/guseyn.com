@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>fan of yours</title>
+    <link rel="shortcut icon" type="image/png" href="/../image/favicon.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i|Source+Sans+Pro:400,400i,700,700i" type="text/css">
+    <link rel="stylesheet" href="/../css/normalize.css?v=1.0.51" type="text/css">
+    <link rel="stylesheet" href="/../css/main.css?v=1.0.51" type="text/css">
+    <link rel="stylesheet" href="/../css/main-night.css?v=1.0.51" type="text/css">
+    <link rel="stylesheet" href="/../css/github-gist.css?v=1.0.51" type="text/css">
+    <link rel="stylesheet" href="/../css/github-gist-night.css?v=1.0.51" type="text/css">
+    <script src="/../js/mainBundle.min.js?v=1.0.51" type="text/javascript"></script>
+    <script src="/../js/highlight.pack.js?v=1.0.51" type="text/javascript"></script>
+    <script src="/../js/youtube.js?v=1.0.51" type="text/javascript"></script>
+    <script src="/../js/iframe.js?v=1.0.51" type="text/javascript"></script>
+  </head>
+
+  <body class="main">
+    <div class="base">
+      <div class="menu">
+        <a href="/../stuff/about?v=1.0.51">About</a>
+        <a href="/../stuff/projects?v=1.0.51">Projects</a>
+        <a href="/../previews/1?v=1.0.51">Posts</a>
+        <a href="/../stuff/slides?v=1.0.51">Slides</a>
+        <a href="/../stuff/papers?v=1.0.51">Papers</a>
+        <a href="/../stuff/talks?v=1.0.51">Talks</a>
+        <a href="/../stuff/podcasts?v=1.0.51" style="display: none;">Podcasts</a>
+        <a href="/../stuff/covers?v=1.0.51">♫ Covers</a>
+      </div>
+      <div class="day-night" id="day-night"></div>
+      <div class="content">
+        <h1 id="declarativeevents">Declarative events</h1>
+        <div class="date">5 April 2018</div>
+        <div class="tags">
+          <a class="tag" href="/../tags/oop?v=1.0.51">OOP</a>
+          <a class="tag" href="/../tags/node?v=1.0.51">Node</a>
+          <a class="tag" href="/../tags/asyncobjects?v=1.0.51">Async Objects</a>
+        </div>
+        <p>There is another abstraction in Node that must be considered. And this is <em>events</em>.</p>
+        <p>Let's look at the most popular example in Node:</p>
+        <pre><code class="js language-js">http.createServer((request, response) =&gt; {
+    // send back a response every time you get a request
+}).listen(8080, '127.0.0.1', () =&gt; {
+    'server is listening on 127.0.0.1:8080'
+})
+</code></pre>
+        <p>Here method <code>createServer</code> uses <em>request listener</em> as argument, which actually works like an event: on every <code>request</code> it provides a <code>response</code>. Unlike simple async call, event is never finished and it's being invoked every time when it's needed.</p>
+        <p>It can be rewritten in the following declarative way:</p>
+        <pre><code class="js language-js">new LoggedListeningServer(
+  new ListeningServer(
+    new CreatedServer(
+      new RequestResponseEvent()
+    ), 8080, '127.0.0.1'
+  ), 'server is listening on 127.0.0.1:8080'
+).call()
+</code></pre>
+        <p>As you can see, <code>RequestResponseEvent</code> is a node of the async tree that represents request listener, but it's not a simple argument or async object. <code>RequestResponseEvent</code> implements <code>Event</code> interface and it needs to be treated in a special way, so it requires more flexibility of the whole system. But we also can create <code>Event</code> via <code>AsyncObject</code>.</p>
+        <p>Basically, <code>Event</code> is an interface that provides only one method: <code>body(...args)</code> that must be implemented by the extended classes. The main purpose of this interface is to replace functions of events(or listeners). <code>Event</code> is not an <code>AsyncObject</code>, but it represents function of some event. But you cannot use <code>AsyncObject</code> that represents some <code>Event</code> instead of the <code>Event</code>. In that case you can use <code>AsyncObject</code> that represents some function. Actually, you can use a function in the async composition instead of <code>Event</code>, but for readability it's better to use <code>Event</code>.</p>
+        <pre><code class="js language-js">  body (...args) {
+    throw new Error(
+      'Method body must be overridden'
+    )
+  }
+</code></pre>
+        <p><br />
+          <strong>How to create an Event</strong></p>
+        <p>Let's say we have a <code>ReadStream</code> and we need to be able to attach a <code>'open'</code> event to it. So, we need to create an async object <code>ReadStreamWithOpenEvent</code> that represents <code>ReadStream</code> with attached <code>'open'</code> event.</p>
+        <pre><code class="js language-js">// Represented result is a ReadStream
+class ReadStreamWithOpenEvent extends AsyncObject {
+  /*
+    event is an Event with body(fd)
+  */
+  constructor( readStream, event) {
+    super(readStream, event)
+  }
+
+  syncCall () {
+    return (readStream, event) =&gt; {
+      readStream.on('open', event)
+      return readStream
+    }
+  }
+}
+</code></pre>
+        <p>Actually <code>readStream</code> with <code>'open'</code> event has the following signature:</p>
+        <pre><code class="js language-js">readStream.on('open', (fd) =&gt; {
+  // here we work with fd  
+})
+</code></pre>
+        <p>So, <code>OpenEvent</code> would be:</p>
+        <pre><code class="js language-js">class OpenEvent extends Event {
+  constructor() {
+    super ()
+  }
+
+  body (fd) {
+    // here we work with fd
+  }
+}
+</code></pre>
+        <p>As you can see <code>body</code> use the same arguments as the event of the <code>readStream</code>. </p>
+        <p>So, in the composition it would look something like this:</p>
+        <p><code>
+new ReadStreamWithOpenEvent(
+  new CreatedSomeHowReadStream(), new OpenEvent()
+).call()
+</code></p>
+        <p>The main problem of <code>Event</code> is that it cannot encapsulate async objects, because it's being replaced by corresponding function (which is actually <code>body()</code>) in a moment of construction of the async tree that contains this event. So, if you want use an event that can be constructed by async objects you can simply create <code>AsyncObject</code> that represents a function that is the <code>body</code> of the event:</p>
+        <pre><code class="js language-js">class OpenEvent extends AsyncObject {
+  constructor (...asyncObjects) {
+    super(...asyncObjects)
+  }
+
+  syncCall () {
+    return (...resultsFromAsyncObjects) =&gt; {
+      // This is body of the event
+      return (fd) =&gt; {
+        /* now you can use here not only fd but also
+            ...resultsFromAsyncObjects */
+      }
+    }
+  }
+}
+</code></pre>
+        <p>And now the composition of objects would look something like this:</p>
+        <pre><code class="js language-js">new ReadStreamWithOpenEvent(
+  new CreatedSomeHowReadStream(),
+  new OpenEvent(
+    new SomeAsyncParameter()
+  )
+).call()
+</code></pre>
+        <div class="refs">References</div>
+        <ul>
+          <li><a href="https://github.com/Guseyn/cutie">Cutie on GitHub</a></li>
+        </ul>
+      </div>
+      <script>
+        hljs.initHighlightingOnLoad()
+        initYoutubeVideos()
+        makeIframesResizable()
+      </script>
+    </div>
+  </body>
+
+</html>

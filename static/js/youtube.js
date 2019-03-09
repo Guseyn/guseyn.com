@@ -4,7 +4,7 @@ function initYoutubeVideos () {
   var iframes = []
   for (var v = 0; v < youtubeVideos.length; v++) {
     youtubeVideos[v].style['height'] = youtubeVideos[v].offsetWidth / proportion + 'px'
-    youtubeVideos[v].style['background'] = 'url(https://i.ytimg.com/vi/' + youtubeVideos[v].getAttribute('id') + '/hqdefault.jpg) no-repeat'
+    youtubeVideos[v].style['background'] = 'url(https://img.youtube.com/vi/' + youtubeVideos[v].getAttribute('id') + '/maxresdefault.jpg) no-repeat'
     youtubeVideos[v].style['background-size'] = '100% 100%'
     const youtubeButton = document.createElement('img')
     youtubeButton.setAttribute('class', 'youtube-video-play')
