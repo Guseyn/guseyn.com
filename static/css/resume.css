@@ -1,0 +1,104 @@
+body {
+  background: #ffffff;
+  color: #111111;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  line-height: 1.4em;
+}
+
+a {
+  color: #111111;
+}
+
+.content {
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  clear: both;
+  margin: 0 auto;
+  padding: 2em;
+  overflow: hidden;
+  font-size: 1.14em;
+}
+
+.intro {
+  width: 100%;
+}
+
+.self-into {
+  width: 100%;
+}
+
+.photo {
+  width: 240px;
+  height: 240px;
+  border-radius: 16px;
+  display: block;
+  margin: 0 auto;
+}
+
+.name {
+  font-size: 2em;
+  text-align: center;
+}
+
+.basic-info {
+  margin: 1em auto;
+  text-align: center;
+}
+
+.social-links {
+  margin: 1em auto;
+  text-align: center;
+}
+
+.main {
+  width: 100%;
+  padding-top: 1em;
+  clear: both;
+}
+
+.title {
+  font-size: 1.34em;
+  font-weight: bold;
+}
+
+.info-box {
+  margin-top: 1em;
+}
+
+.list {
+  padding: 0.5em 0em 0em 1em;
+}
+
+.cert-badge {
+  width: 100px;
+}
+
+.smaller {
+  font-size: 0.9em;
+}
+
+@media only screen and (min-width: 700px) {
+  .intro {
+    float: left;
+  }
+  .photo {
+    float: left;
+  }
+  .name {
+    float: left;
+    margin-left: 0.8em;
+    text-align: left;
+  }
+  .basic-info, .social-links {
+    float: left;
+    margin: 0.5em 0em 0em 2em; 
+    text-align: left;
+  }
+}
