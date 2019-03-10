@@ -3,7 +3,7 @@
 
 I'm Guseyn Ismayylov, a programmer, active open source contributor, researcher, blogger, startupper, and just interesting person.
 
-**here is photo**
+<img src="/../../image/photo.jpg" class="photo">
 
 As a **programmer** and **active open source contributor**, I write in Java and JavaScript (Vanilla JS + Node.js). I consider myself as a [designer](https://www.yegor256.com/2014/10/26/hacker-vs-programmer-mentality.html) in software engineering, so I care about quality, transperency, and maintainablity of projects I work on. That's why I prefer pure object-oriented paradigm and declarative style of code. I care about the people who works with the code I write, so I try to cover every line of it with unit tests and write apprehensible documentation. You can check my [open source projects](/../stuff/projects) to make sure.
 
@@ -15,7 +15,7 @@ As a good **startupper**, I have a couple of [failed projects](/../stuff/project
 
 As an **interesting person**, I like plaing chess (you can challenge me on [liches](https://lichess.org/@/guseyn1245)). Also, I like music and making covers of popular songs on guitar and ukelele. [Here](/../stuff/covers) is some of them.
 
-I am available for hiring, here is my [resume](/../stuff/resume), [GitHub](http://github.com/Guseyn), and [StackOverflow](https://stackoverflow.com/users/8568641/guseyn-ismayylov).
+I am available for hiring, here is my [resume](/../html/resume.html?v={version}), [GitHub](http://github.com/Guseyn), and [StackOverflow](https://stackoverflow.com/users/8568641/guseyn-ismayylov).
 
 If you want to stay tuned with new materials on this blog, you can join [this telegram channel](https://t.me/guseyncom).
 

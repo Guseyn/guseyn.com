@@ -58,7 +58,7 @@ li {
   padding: 0 0.5em;
 }
 
-img:not(.project-logo):not(.article-logo):not(.youtube-video-play):not(.left-to-link) {
+img:not(.photo):not(.project-logo):not(.article-logo):not(.youtube-video-play):not(.left-to-link) {
   margin: 1em 0;
   width: 100%;
   height: auto;
@@ -138,6 +138,14 @@ iframe {
   margin: 0 auto;
   padding-bottom: 4em;
   overflow: hidden;
+}
+
+.photo {
+  width: 240px;
+  height: 240px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 16px;
 }
 
 .menu {
@@ -344,7 +352,7 @@ iframe {
     margin-right: 1em;
     margin-bottom: 0;
   }
-  img:not(.project-logo):not(.article-logo):not(.youtube-video-play):not(.left-to-link) {
+  img:not(.photo):not(.project-logo):not(.article-logo):not(.youtube-video-play):not(.left-to-link) {
     margin: 1em 3%;
     width: 94%;
   }

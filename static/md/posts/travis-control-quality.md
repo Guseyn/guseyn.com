@@ -50,7 +50,7 @@ install: |-
 
 **script**
 
-This section runs our build. If our build fails we terminate Travis CI process via command `travis_terminate 1`. It guarantees that if something is wrong in our build, Travis does not exit with success code `0`. Then we generate `nyc` report and invoke codecov to process the report. And finally, we get change log using Travis variable `$TRAVIS_COMMIT_RANGE`(we will use it as information for GitHub release).
+This section runs our build. If our build fails we terminate Travis CI process via command `travis_terminate 1`. It guarantees that if something is wrong in our build, Travis does not exit with success code `0`. Then we generate `nyc` report and invoke codecov to process the report. And finally, we get change log using Travis variable `$TRAVIS_COMMIT_RANGE` (we will use it as information for GitHub release).
 
 ```bash
 script: |-
@@ -75,7 +75,7 @@ branches:
 
 **before_deploy**
 
-Here we just export `tag` and `body` as changelog (all new commits in `master` branch) our future release in bash variables.
+Here we just export `tag` and `body` as changelog (all new commits in `master` branch) of our future release in bash variables.
 
 ```bash
 before_deploy: |-

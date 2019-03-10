@@ -78,7 +78,7 @@ node_js:
   npm install -g codecov
 </code></pre>
         <p><strong>script</strong></p>
-        <p>This section runs our build. If our build fails we terminate Travis CI process via command <code>travis_terminate 1</code>. It guarantees that if something is wrong in our build, Travis does not exit with success code <code>0</code>. Then we generate <code>nyc</code> report and invoke codecov to process the report. And finally, we get change log using Travis variable <code>$TRAVIS_COMMIT_RANGE</code>(we will use it as information for GitHub release).</p>
+        <p>This section runs our build. If our build fails we terminate Travis CI process via command <code>travis_terminate 1</code>. It guarantees that if something is wrong in our build, Travis does not exit with success code <code>0</code>. Then we generate <code>nyc</code> report and invoke codecov to process the report. And finally, we get change log using Travis variable <code>$TRAVIS_COMMIT_RANGE</code> (we will use it as information for GitHub release).</p>
         <pre><code class="bash language-bash">script: |-
   npm run build || travis_terminate 1
   ./node_modules/.bin/nyc report --reporter lcovonly -- -R spec
@@ -94,7 +94,7 @@ node_js:
 </code></pre>
         <p><img style="max-width: 280px;" src="/../../image/build-pushed-pr.png"></p>
         <p><strong>before_deploy</strong></p>
-        <p>Here we just export <code>tag</code> and <code>body</code> as changelog (all new commits in <code>master</code> branch) our future release in bash variables.</p>
+        <p>Here we just export <code>tag</code> and <code>body</code> as changelog (all new commits in <code>master</code> branch) of our future release in bash variables.</p>
         <pre><code class="bash language-bash">before_deploy: |-
   log=$(git log $TRAVIS_COMMIT_RANGE --oneline)
   export TAG=$'v'$TRAVIS_COMMIT_MESSAGE
