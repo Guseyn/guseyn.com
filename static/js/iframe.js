@@ -1,6 +1,5 @@
-function makeIframesResizable () {
-  var iframes = document.getElementsByTagName('iframe')
-  var proportion = 1.78
+function makeIframesResizable (className, proportion) {
+  var iframes = document.getElementsByClassName(className)
   window.addEventListener('resize', function(event) {
     for (var i = 0; i < iframes.length; i++) {
       if (iframes[i]) {
