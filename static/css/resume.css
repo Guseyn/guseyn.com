@@ -84,6 +84,12 @@ a {
   font-size: 0.9em;
 }
 
+.left-to-link {
+  width: 48px;
+  height: 48px;
+  vertical-align: middle;
+}
+
 @media only screen and (min-width: 700px) {
   .intro {
     float: left;
