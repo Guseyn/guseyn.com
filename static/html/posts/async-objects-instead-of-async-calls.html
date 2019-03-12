@@ -7,37 +7,37 @@
     <title>fan of yours</title>
     <link rel="shortcut icon" type="image/png" href="/../image/favicon.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i|Source+Sans+Pro:400,400i,700,700i" type="text/css">
-    <link rel="stylesheet" href="/../css/normalize.css?v=1.0.59" type="text/css">
-    <link rel="stylesheet" href="/../css/main.css?v=1.0.59" type="text/css">
-    <link rel="stylesheet" href="/../css/main-night.css?v=1.0.59" type="text/css">
-    <link rel="stylesheet" href="/../css/github-gist.css?v=1.0.59" type="text/css">
-    <link rel="stylesheet" href="/../css/github-gist-night.css?v=1.0.59" type="text/css">
-    <script src="/../js/mainBundle.min.js?v=1.0.59" type="text/javascript"></script>
-    <script src="/../js/highlight.pack.js?v=1.0.59" type="text/javascript"></script>
-    <script src="/../js/youtube.js?v=1.0.59" type="text/javascript"></script>
-    <script src="/../js/iframe.js?v=1.0.59" type="text/javascript"></script>
+    <link rel="stylesheet" href="/../css/normalize.css?v=1.0.60" type="text/css">
+    <link rel="stylesheet" href="/../css/main.css?v=1.0.60" type="text/css">
+    <link rel="stylesheet" href="/../css/main-night.css?v=1.0.60" type="text/css">
+    <link rel="stylesheet" href="/../css/github-gist.css?v=1.0.60" type="text/css">
+    <link rel="stylesheet" href="/../css/github-gist-night.css?v=1.0.60" type="text/css">
+    <script src="/../js/mainBundle.min.js?v=1.0.60" type="text/javascript"></script>
+    <script src="/../js/highlight.pack.js?v=1.0.60" type="text/javascript"></script>
+    <script src="/../js/youtube.js?v=1.0.60" type="text/javascript"></script>
+    <script src="/../js/iframe.js?v=1.0.60" type="text/javascript"></script>
   </head>
 
   <body class="main">
     <div class="base">
       <div class="menu">
-        <a href="/../stuff/about?v=1.0.59">About</a>
-        <a href="/../stuff/projects?v=1.0.59">Projects</a>
-        <a href="/../previews/1?v=1.0.59">Posts</a>
-        <a href="/../stuff/slides?v=1.0.59">Slides</a>
-        <a href="/../stuff/papers?v=1.0.59">Papers</a>
-        <a href="/../stuff/talks?v=1.0.59">Talks</a>
-        <a href="/../stuff/podcasts?v=1.0.59" style="display: none;">Podcasts</a>
-        <a href="/../stuff/covers?v=1.0.59">♫ Covers</a>
+        <a href="/../stuff/about?v=1.0.60">About</a>
+        <a href="/../stuff/projects?v=1.0.60">Projects</a>
+        <a href="/../previews/1?v=1.0.60">Posts</a>
+        <a href="/../stuff/slides?v=1.0.60">Slides</a>
+        <a href="/../stuff/papers?v=1.0.60">Papers</a>
+        <a href="/../stuff/talks?v=1.0.60">Talks</a>
+        <a href="/../stuff/podcasts?v=1.0.60" style="display: none;">Podcasts</a>
+        <a href="/../stuff/covers?v=1.0.60">♫ Covers</a>
       </div>
       <div class="day-night" id="day-night"></div>
       <div class="content">
         <h1 id="asyncobjectsinsteadofasynccalls">Async Objects instead of Async Calls</h1>
         <div class="date">26 January 2018</div>
         <div class="tags">
-          <a class="tag" href="/../tags/oop?v=1.0.59">OOP</a>
-          <a class="tag" href="/../tags/node?v=1.0.59">Node</a>
-          <a class="tag" href="/../tags/asyncobjects?v=1.0.59">Async Objects</a>
+          <a class="tag" href="/../tags/oop?v=1.0.60">OOP</a>
+          <a class="tag" href="/../tags/node?v=1.0.60">Node</a>
+          <a class="tag" href="/../tags/asyncobjects?v=1.0.60">Async Objects</a>
         </div>
         <p>No secret, OOP in JS is not perfect. At least it's not so mature as it's in Java, for example. And actually I don't see that anybody from the JavaScript world would use this paradigm as the main concept of their applications. In the modern software development the ideas of the object-oriented programming (as itself) are becoming less and less popular and giving way to the ideas of functional programming. But I think we should not give up such a powerful and wonderful tool/mechanism that can simplify our complex systems. In this article I'll try to introduce the idea of <strong>async objects</strong> and show how they can help us to get rid of the main problem in asyncronious enviroment… Of course, I am talking about <strong>callbacks</strong>.</p>
         <p>Every library or driver in Node.js has <b>async calls</b>, and all the have similar signature:</p>
