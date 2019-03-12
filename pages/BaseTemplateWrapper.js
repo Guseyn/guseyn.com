@@ -4,7 +4,7 @@ const { AsyncObject } = require('@cuties/cutie')
 const { PrettyPage, Page, Head, Title, Meta, Body, Script, Style, Link, TemplateWithParams } = require('@page-libs/static-generator')
 const { TheSameObjectWithValue } = require('@cuties/object')
 const { Value } = require('@cuties/json')
-const UrlWithVersion = require('./../server/UrlWithVersion')
+const UrlWithVersion = require('./../server/async/UrlWithVersion')
 const TemplateWithVersion = require('./TemplateWithVersion')
 
 class BaseTemplateWrapper extends AsyncObject {

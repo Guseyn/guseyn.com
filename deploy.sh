@@ -5,6 +5,7 @@ then
   git clone https://github.com/Guseyn/guseyn.com.git guseyn.com
   npm install @page-libs/cli -g
   cd guseyn.com
+  mkdir logs
 else
   cd guseyn.com
   git pull

@@ -8,20 +8,21 @@ const { ParsedJSON, Value } = require('@cuties/json')
 const { Backend, RestApi } = require('@cuties/rest')
 const { ReadDataByPath, WatcherWithEventTypeAndFilenameListener } = require('@cuties/fs')
 const { FoundProcessOnPort, KilledProcess, Pid, ProcessWithUncaughtExceptionEvent } = require('@cuties/process')
-const CreatedCustomIndexEndpoint = require('./../CreatedCustomIndexEndpoint')
-const CreatedCustomNotFoundEndpoint = require('./../CreatedCustomNotFoundEndpoint')
-const CreatedServingStaticFilesEndpoint = require('./../CreatedServingStaticFilesEndpoint')
-const CustomInternalServerErrorEndpoint = require('./../CustomInternalServerErrorEndpoint')
-const OnPageStaticJsFilesChangeEvent = require('./../OnPageStaticJsFilesChangeEvent')
-const OnStaticGeneratorsChangeEvent = require('./../OnStaticGeneratorsChangeEvent')
-const OnTemplatesChangeEvent = require('./../OnTemplatesChangeEvent')
-const ReloadedBackendOnFailedWorkerEvent = require('./../ReloadedBackendOnFailedWorkerEvent')
-const LoggedAndThrownErrorEvent = require('./../LoggedAndThrownErrorEvent')
-const UrlToFSPathMapper = require('./../UrlToFSPathMapper')
-const CuteUrlToFSPathForHtmlMapper = require('./../CuteUrlToFSPathForHtmlMapper')
-const PrintedToConsolePageLogo = require('./../PrintedToConsolePageLogo')
-const CreatedOptionsByProtocol = require('./../CreatedOptionsByProtocol')
-const IsHttps = require('./../IsHttps')
+const CreatedCustomIndexEndpoint = require('./endpoints/CreatedCustomIndexEndpoint')
+const CreatedCustomNotFoundEndpoint = require('./endpoints/CreatedCustomNotFoundEndpoint')
+const CreatedServingStaticFilesEndpoint = require('./endpoints/CreatedServingStaticFilesEndpoint')
+const CustomInternalServerErrorEndpoint = require('./endpoints/CustomInternalServerErrorEndpoint')
+const CreatedLogsEndpoint = require('./endpoints/CreatedLogsEndpoint')
+const OnPageStaticJsFilesChangeEvent = require('./events/OnPageStaticJsFilesChangeEvent')
+const OnStaticGeneratorsChangeEvent = require('./events/OnStaticGeneratorsChangeEvent')
+const OnTemplatesChangeEvent = require('./events/OnTemplatesChangeEvent')
+const ReloadedBackendOnFailedWorkerEvent = require('./events/ReloadedBackendOnFailedWorkerEvent')
+const LoggedAndThrownErrorEvent = require('./events/LoggedAndThrownErrorEvent')
+const UrlToFSPathMapper = require('./async/UrlToFSPathMapper')
+const CuteUrlToFSPathForHtmlMapper = require('./async/CuteUrlToFSPathForHtmlMapper')
+const PrintedToConsolePageLogo = require('./async/PrintedToConsolePageLogo')
+const CreatedOptionsByProtocol = require('./async/CreatedOptionsByProtocol')
+const IsHttps = require('./async/IsHttps')
 
 const numCPUs = require('os').cpus().length
 const env = process.env.NODE_ENV || 'local'
@@ -58,8 +59,15 @@ const restApi = new RestApi(
     customNotFoundEndpoint,
     env === 'prod'
   ),
+  new CreatedLogsEndpoint(
+    new RegExp(/^\/logs\/all(\/|)$/),
+    new Value(
+      as('config'),
+      'logs'
+    )
+  ),
   new CreatedServingStaticFilesEndpoint(
-    new RegExp(/^\/(logs)/),
+    new RegExp(/^\/logs/),
     new UrlToFSPathMapper(),
     {},
     customNotFoundEndpoint,

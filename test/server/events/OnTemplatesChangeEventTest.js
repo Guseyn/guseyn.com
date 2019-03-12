@@ -1,11 +1,11 @@
 'use strict'
 
+const OnTemplatesChangeEvent = require('./../../../server/events/OnTemplatesChangeEvent')
 const { AsyncObject } = require('@cuties/cutie')
-const OnStaticGeneratorsChangeEvent = require('./../../server/OnStaticGeneratorsChangeEvent')
 const { Assertion } = require('@cuties/assert')
 const { Is } = require('@cuties/is')
 
-class InvokedOnStaticGeneratorsChangeEvent extends AsyncObject {
+class InvokedOnTemplatesChangeEvent extends AsyncObject {
   constructor (event, eventType, fileName) {
     super(event, eventType, fileName)
   }
@@ -20,14 +20,14 @@ class InvokedOnStaticGeneratorsChangeEvent extends AsyncObject {
 
 new Assertion(
   new Is(
-    new OnStaticGeneratorsChangeEvent('./test/server/files'),
+    new OnTemplatesChangeEvent('./test/server/files'),
     Function
   )
 ).after(
   new Assertion(
     new Is(
-      new InvokedOnStaticGeneratorsChangeEvent(
-        new OnStaticGeneratorsChangeEvent('./test/server/files'),
+      new InvokedOnTemplatesChangeEvent(
+        new OnTemplatesChangeEvent('./test/server/files'),
         'change', 'index.html'
       ),
       Function
@@ -35,8 +35,8 @@ new Assertion(
   ).after(
     new Assertion(
       new Is(
-        new InvokedOnStaticGeneratorsChangeEvent(
-          new OnStaticGeneratorsChangeEvent('./test/server/files'),
+        new InvokedOnTemplatesChangeEvent(
+          new OnTemplatesChangeEvent('./test/server/files'),
           'create', 'index.html'
         ),
         Function

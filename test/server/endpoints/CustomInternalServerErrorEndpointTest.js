@@ -1,10 +1,10 @@
 'use strict'
 
+const CustomInternalServerErrorEndpoint = require('./../../../server/endpoints/CustomInternalServerErrorEndpoint')
 const { InternalServerErrorEndpoint } = require('@cuties/rest')
-const CustomInternalServerErrorEndpoint = require('./../../server/CustomInternalServerErrorEndpoint')
 const { Assertion } = require('@cuties/assert')
 const { Is } = require('@cuties/is')
-const { CustomStream, InvokedEndpoint } = require('./common')
+const { CustomStream, InvokedEndpoint } = require('./../common')
 
 new Assertion(
   new Is(
