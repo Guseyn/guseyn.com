@@ -1,7 +1,7 @@
 'use strict'
 
+const UrlWithVersion = require('./../../../server/async/UrlWithVersion')
 const { StrictEqualAssertion } = require('@cuties/assert')
-const UrlWithVersion = require('./../../server/UrlWithVersion')
 
 new StrictEqualAssertion(
   new UrlWithVersion('/url', '1.0.0'),

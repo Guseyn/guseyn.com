@@ -1,8 +1,8 @@
 'use strict'
 
+const CreatedCustomIndexEndpoint = require('./../../../server/endpoints/CreatedCustomIndexEndpoint')
+const CustomNotFoundEndpoint = require('./../../../server/endpoints/CustomNotFoundEndpoint')
 const { IndexEndpoint } = require('@cuties/rest')
-const CreatedCustomIndexEndpoint = require('./../../server/CreatedCustomIndexEndpoint')
-const CustomNotFoundEndpoint = require('./../../server/CustomNotFoundEndpoint')
 const { Assertion } = require('@cuties/assert')
 const { Is } = require('@cuties/is')
 

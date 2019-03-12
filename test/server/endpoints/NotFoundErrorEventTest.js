@@ -1,11 +1,11 @@
 'use strict'
 
+const NotFoundErrorEvent = require('./../../../server/events/NotFoundErrorEvent')
+const CustomNotFoundEndpoint = require('./../../../server/endpoints/CustomNotFoundEndpoint')
 const { AsyncObject } = require('@cuties/cutie')
 const { Assertion } = require('@cuties/assert')
 const { Is } = require('@cuties/is')
-const NotFoundErrorEvent = require('./../../server/NotFoundErrorEvent')
-const CustomNotFoundEndpoint = require('./../../server/CustomNotFoundEndpoint')
-const { CustomStream } = require('./common')
+const { CustomStream } = require('./../common')
 
 class InvokedNotFoundErrorEvent extends AsyncObject {
   constructor (event) {

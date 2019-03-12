@@ -1,7 +1,7 @@
 'use strict'
 
+const OnPageStaticJsFilesChangeEvent = require('./../../../server/events/OnPageStaticJsFilesChangeEvent')
 const { AsyncObject } = require('@cuties/cutie')
-const OnPageStaticJsFilesChangeEvent = require('./../../server/OnPageStaticJsFilesChangeEvent')
 const { Assertion } = require('@cuties/assert')
 const { Is } = require('@cuties/is')
 

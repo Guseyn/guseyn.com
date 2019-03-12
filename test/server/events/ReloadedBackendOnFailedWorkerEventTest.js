@@ -1,7 +1,7 @@
 'use strict'
 
+const ReloadedBackendOnFailedWorkerEvent = require('./../../../server/events/ReloadedBackendOnFailedWorkerEvent')
 const { AsyncObject } = require('@cuties/cutie')
-const ReloadedBackendOnFailedWorkerEvent = require('./../../server/ReloadedBackendOnFailedWorkerEvent')
 const { Assertion } = require('@cuties/assert')
 const { Is } = require('@cuties/is')
 
