@@ -8,9 +8,9 @@ const { ReadDataByPath } = require('@cuties/fs')
 const { If, Else } = require('@cuties/if-else')
 const { IsMaster, ClusterWithForkedWorkers, ClusterWithExitEvent } = require('@cuties/cluster')
 const { FoundProcessOnPort, KilledProcess, Pid, ProcessWithUncaughtExceptionEvent } = require('@cuties/process')
-const CreatedRedirectEndpoint = require('./../CreatedRedirectEndpoint')
-const ReloadedBackendOnFailedWorkerEvent = require('./../ReloadedBackendOnFailedWorkerEvent')
-const LoggedAndThrownErrorEvent = require('./../LoggedAndThrownErrorEvent')
+const CreatedRedirectEndpoint = require('./endpoints/CreatedRedirectEndpoint')
+const ReloadedBackendOnFailedWorkerEvent = require('./events/ReloadedBackendOnFailedWorkerEvent')
+const LoggedAndThrownErrorEvent = require('./events/LoggedAndThrownErrorEvent')
 
 const env = process.env.NODE_ENV || 'local'
 
