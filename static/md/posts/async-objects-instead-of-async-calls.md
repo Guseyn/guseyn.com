@@ -248,3 +248,6 @@ So, that's it. I do hope you enjoyed reading this article.
 
 * [Cutie on GitHub](https://github.com/Guseyn/cutie)
 * [Cutie on npm](https://www.npmjs.com/package/@cuties/cutie)
+
+[Reddit Comments](https://www.reddit.com/r/javascript/comments/azy7pb/async_objects_instead_of_async_calls/) / 
+[HN Comments](https://news.ycombinator.com/item?id=19361241)

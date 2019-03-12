@@ -38,3 +38,6 @@ Nothing to say about bad conditions of hackathons: loud music, noise, annoying p
 The most demotivating factor of hackathons is, of course, the final presentation of <i>"prototypes"</i>. Most of them are simply stupid and with bad quality. Even if some of them are more or less good, your mind creates unintendedly suspicions that it(or part of it) was done already before the hackathon. In most cases, I am sure, it's true. It makes whole competition meaningless.
 
 <b>The main point</b> of this post is that you don't need hackathons. If you have ideas, and you believe in them, just realize and make them properly, <b>respect yourself</b>. Don't wait for next hackathon in your town where you can ruin your ideas.
+
+[Reddit Comments](https://www.reddit.com/r/ITdept/comments/b048uh/no_more_hackathons_please/?) / 
+[HN Comments](https://news.ycombinator.com/item?id=19365751)
