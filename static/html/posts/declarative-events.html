@@ -44,7 +44,7 @@
         <pre><code class="js language-js">http.createServer((request, response) =&gt; {
     // send back a response every time you get a request
 }).listen(8080, '127.0.0.1', () =&gt; {
-    'server is listening on 127.0.0.1:8080'
+    console.log('server is listening on 127.0.0.1:8080')
 })
 </code></pre>
         <p>Here method <code>createServer</code> uses <em>request listener</em> as argument, which actually works like an event: on every <code>request</code> it provides a <code>response</code>. Unlike simple async call, event is never finished and it's being invoked every time when it's needed.</p>
@@ -103,11 +103,11 @@ class ReadStreamWithOpenEvent extends AsyncObject {
 </code></pre>
         <p>As you can see <code>body</code> use the same arguments as the event of the <code>readStream</code>. </p>
         <p>So, in the composition it would look something like this:</p>
-        <p><code>
-new ReadStreamWithOpenEvent(
+        <pre><code class="js language-js">new ReadStreamWithOpenEvent(
   new CreatedSomeHowReadStream(), new OpenEvent()
 ).call()
-</code></p>
+</code></pre>
+        <p>`</p>
         <p>The main problem of <code>Event</code> is that it cannot encapsulate async objects, because it's being replaced by corresponding function (which is actually <code>body()</code>) in a moment of construction of the async tree that contains this event. So, if you want use an event that can be constructed by async objects you can simply create <code>AsyncObject</code> that represents a function that is the <code>body</code> of the event:</p>
         <pre><code class="js language-js">class OpenEvent extends AsyncObject {
   constructor (...asyncObjects) {
