@@ -99,7 +99,7 @@ So, in the composition it would look something like this:
 new ReadStreamWithOpenEvent(
   new CreatedSomeHowReadStream(), new OpenEvent()
 ).call()
-````
+```
 
 The main problem of `Event` is that it cannot encapsulate async objects, because it's being replaced by corresponding function (which is actually `body()`) in a moment of construction of the async tree that contains this event. So, if you want use an event that can be constructed by async objects you can simply create  `AsyncObject` that represents a function that is the `body` of the event:
 
