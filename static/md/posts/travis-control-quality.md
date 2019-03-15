@@ -6,7 +6,7 @@
   <a class="tag" href="/../tags/travisci?v={version}">Travis CI</a>
 </div>
 
-Let's say you want to create an open source JS library and publish it to **npm** and also release it to **GitHub**. You can do it manually, but it's not convinient and you'll not be able to control quality of your project. I've created a solution that can help to automatize the whole process and allows to catch problems in code before it's released. In this article I'll share my variation of configuration that I use in [Travis CI](https://travis-ci.org/) and try to explain in details how it works. You might find it very useful, especially if you use restricted master branch in your repo.
+Let's say you want to create an open source JS library and publish it to **npm** and also release it to **GitHub**. You can do it manually, but it's not convinient and you'll not be able to control quality of your project. I've created a solution that can help to automatize the whole process and allows to catch problems in code before it's released. In this article, I'll share my variation of configuration that I use in [Travis CI](https://travis-ci.org/) and try to explain in details how it works. You might find it very useful, especially if you use restricted master branch in your repo.
 
 Let's consider following *git flow* that you can use for your project:
 

@@ -15,7 +15,7 @@ Let's look at the most popular example in Node:
 http.createServer((request, response) => {
     // send back a response every time you get a request
 }).listen(8080, '127.0.0.1', () => {
-    'server is listening on 127.0.0.1:8080'
+    console.log('server is listening on 127.0.0.1:8080')
 })
 ```
 
@@ -95,11 +95,11 @@ As you can see `body` use the same arguments as the event of the `readStream`.
 
 So, in the composition it would look something like this:
 
-`
+```js
 new ReadStreamWithOpenEvent(
   new CreatedSomeHowReadStream(), new OpenEvent()
 ).call()
-`
+````
 
 The main problem of `Event` is that it cannot encapsulate async objects, because it's being replaced by corresponding function (which is actually `body()`) in a moment of construction of the async tree that contains this event. So, if you want use an event that can be constructed by async objects you can simply create  `AsyncObject` that represents a function that is the `body` of the event:
 

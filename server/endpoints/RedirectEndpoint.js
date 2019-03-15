@@ -11,6 +11,7 @@ class RedirectEndpoint extends Endpoint {
   }
 
   body (request, response) {
+    request.headers.host = request.headers.host || ''
     return new EndedResponse(
       new ResponseWithWrittenHead(response, 301, {
         'Location': `https://${request.headers.host.replace(`:${this.httpPort}`, `${this.httpsPort === 433 ? '' : `:${this.httpsPort}`}`)}${request.url}`
