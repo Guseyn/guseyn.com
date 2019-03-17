@@ -24,6 +24,7 @@ class BaseTemplateWrapper extends AsyncObject {
               new Head(
                 new Meta('charset="UTF-8"'),
                 new Meta('name="viewport" content="width=device-width, initial-scale=1"'),
+                new Meta('name="google-site-verification" content="vGxE5xshQhWEvbfiGVWZ4qmfLx_1WW8P82ZW0RP0mwg"'),
                 new Title('fan of yours'),
                 new Link('rel="shortcut icon" type="image/png" href="/../image/favicon.png"'),
                 new Style('https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i|Source+Sans+Pro:400,400i,700,700i', 'type="text/css"'),
