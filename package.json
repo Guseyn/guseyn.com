@@ -29,7 +29,7 @@
     "@cuties/assert": "^1.2.0",
     "@cuties/buffer": "^1.2.0",
     "@cuties/cluster": "^1.1.1",
-    "@cuties/cutie": "^1.7.0",
+    "@cuties/cutie": "^1.7.3",
     "@cuties/error": "^1.1.1",
     "@cuties/event": "^1.1.0",
     "@cuties/fs": "^1.2.1",
