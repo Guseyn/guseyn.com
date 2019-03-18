@@ -240,6 +240,8 @@ iframe {
 .tags {
   margin-top: 0.5em;
   margin-bottom: 1em;
+  line-height: 1.5em;
+  word-break: keep-all;
 }
 
 .tags a {

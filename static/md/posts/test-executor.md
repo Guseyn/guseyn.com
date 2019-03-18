@@ -32,5 +32,9 @@ Here is an example of output (case when one of the tests fail):
 
 <div class="refs">References</div>
 
+P.S. I know that there are test runners like Mocha, Jest, Ava, and so on. But as far as I know, their docs don't include information how you can run tests from the code.
+
 * [Test Executor on GitHub](https://github.com/Guseyn/node-test-executor)
 
+[Reddit Comments](https://www.reddit.com/r/node/comments/b2ajit/the_first_test_executor_for_nodejs/) / 
+[HN Comments](https://news.ycombinator.com/item?id=19416882)
