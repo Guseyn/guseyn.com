@@ -32,7 +32,7 @@ Here is an example of output (case when one of the tests fail):
 
 <div class="refs">References</div>
 
-P.S. I know that there are test runners like Mocha, Jest, Ava, and so on. But as far as I know, their docs don't include information how you can run tests from the code.
+P.S. I know that there are test runners like Mocha, Jest, Ava, and so on. But as far as I know, their docs don't include information of how you can run tests from the code.
 
 * [Test Executor on GitHub](https://github.com/Guseyn/node-test-executor)
 
