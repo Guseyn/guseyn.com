@@ -8,7 +8,12 @@ then
   mkdir logs
 else
   cd guseyn.com
+  git fetch --all
+  git reset --hard origin/master
   git pull
+  page b
+  git add --all
+  git commit -m "local build changes"
 fi
 npm install --no-optional
 '"
