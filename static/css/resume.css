@@ -64,20 +64,21 @@ a {
 }
 
 .title {
-  font-size: 1.34em;
+  font-size: 1em;
   font-weight: bold;
 }
 
 .info-box {
-  margin-top: 1em;
+  margin-top: 1.5em;
 }
 
 .list {
-  padding: 0.5em 0em 0em 1em;
+  padding: 0em 0em 0em 1em;
 }
 
 .cert-badge {
   width: 100px;
+  margin-top: 0.5em;
 }
 
 .smaller {
@@ -85,8 +86,8 @@ a {
 }
 
 .left-to-link {
-  width: 48px;
-  height: 48px;
+  width: 36px;
+  height: 36px;
   vertical-align: middle;
 }
 
