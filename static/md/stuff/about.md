@@ -11,7 +11,7 @@ As a **researcher**, I try to find or invent my own techniques to solve problems
 
 As a **blogger**, I try to write useful and unique articles that can increase your vast knowledge and make you reconsider something that you have for granted in programming and IT industry in the whole. Also, you can check [my tech talk](/../stuff/talks#declarative-node) about declarative Node. I'm planning to make more tech talks in the future (preferably in English).
 
-As a good **start upper**, I have a couple of [failed projects](/../stuff/projects#mypreviousprojects). And I am ready to fail further.
+As a good **startupper**, I have a couple of [failed projects](/../stuff/projects#mypreviousprojects). And I am ready to fail further.
 
 As an **interesting person**, I like playing chess (you can challenge me on [liches](https://lichess.org/@/guseyn1245)). Also, I like music and making covers of popular songs on guitar and ukelele. [Here](/../stuff/covers) is some of them.
 
