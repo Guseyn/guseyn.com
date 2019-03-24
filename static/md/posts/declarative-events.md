@@ -38,17 +38,21 @@ As you can see, `RequestResponseEvent` is a node of the async tree that represen
 Basically, `Event` is an interface that provides only one method: `body(...args)` that must be implemented by the extended classes. The main purpose of this interface is to replace functions of events(or listeners). `Event` is not an `AsyncObject`, but it represents function of some event. But you cannot use `AsyncObject` that represents some `Event` instead of the `Event`. In that case you can use `AsyncObject` that represents some function. Actually, you can use a function in the async composition instead of `Event`, but for readability it's better to use `Event`.
 
 ```js
+class Event {
+  constructor () {}
+
+  // TO BE OVERRIDDEN
+
   body (...args) {
-    throw new Error(
-      'Method body must be overridden'
-    )
+    throw new Error(`Method body must be overriden with arguments ${args} of the event/eventListener you call`)
   }
+}
 ```
 
 <br/>
 **How to create an Event**
 
-Let's say we have a `ReadStream` and we need to be able to attach a `'open'` event to it. So, we need to create an async object `ReadStreamWithOpenEvent` that represents `ReadStream` with attached `'open'` event.
+Let's say we have a `ReadStream` and we need to be able to attach an `'open'` event to it. So, we need to create an async object `ReadStreamWithOpenEvent` that represents `ReadStream` with attached `'open'` event.
 
 ```js
 // Represented result is a ReadStream
@@ -56,7 +60,7 @@ class ReadStreamWithOpenEvent extends AsyncObject {
   /*
     event is an Event with body(fd)
   */
-  constructor( readStream, event) {
+  constructor ( readStream, event) {
     super(readStream, event)
   }
 
@@ -81,7 +85,7 @@ So, `OpenEvent` would be:
 
 ```js
 class OpenEvent extends Event {
-  constructor() {
+  constructor () {
     super ()
   }
 
