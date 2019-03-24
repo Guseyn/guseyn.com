@@ -9,7 +9,7 @@ const { Template } = require('@page-libs/static-generator')
 const HtmlFilesFromMdFiles = require('./../HtmlFilesFromMdFiles')
 const BaseTemplateWrapper = require('./../BaseTemplateWrapper')
 const JoinedPathMapper = require('./../JoinedPathMapper')
-const PreviewsFromPosts = require('./../PreviewsFromPosts')
+const PreviewsOfPosts = require('./../PreviewsOfPosts')
 const TagsFromPosts = require('./../TagsFromPosts')
 
 new ParsedJSON(
@@ -57,7 +57,7 @@ new ParsedJSON(
         ).after(
           new WrittenDataToFiles(
             new ProcessedObject(
-              new PreviewsFromPosts(
+              new PreviewsOfPosts(
                 as('posts'),
                 new Value(
                   as('config'),

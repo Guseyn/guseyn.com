@@ -4,7 +4,7 @@ const { AsyncObject } = require('@cuties/cutie')
 const cheerio = require('cheerio')
 const path = require('path')
 
-class PreviewsFromPosts extends AsyncObject {
+class PreviewsOfPosts extends AsyncObject {
   constructor (posts, dirToSave, bundleSize, version) {
     super(posts, dirToSave, bundleSize, version)
   }
@@ -94,4 +94,4 @@ class PreviewsFromPosts extends AsyncObject {
   }
 }
 
-module.exports = PreviewsFromPosts
+module.exports = PreviewsOfPosts
