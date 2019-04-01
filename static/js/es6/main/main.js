@@ -5,12 +5,16 @@ const { ResponseFromAjaxRequest, ResponseBody } = require('@page-libs/ajax')
 const { ElementWithInnerHTML } = require('@page-libs/dom')
 const { HtmlFromMd } = require('@page-libs/md2html')
 
+let localStyle = localStorage.getItem('localStyle') || 'day'
+if (localStyle === 'night') {
+  let mainNightStyle = document.getElementById('main-night')
+  let githubGistStyle = document.getElementById('github-gist-night')
+  mainNightStyle.disabled = false
+  githubGistStyle.disabled = false
+}
+
 /* eslint-disable no-new */
 window.onload = () => {
-  let localStyle = localStorage.getItem('localStyle') || 'day'
-  if (localStyle === 'night') {
-    document.documentElement.classList.toggle('night')
-  }
   new DayNightButton(
     document.getElementById('day-night')
   )

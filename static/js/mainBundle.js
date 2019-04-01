@@ -6700,16 +6700,19 @@ var _require2 = require('@page-libs/dom'),
 
 var _require3 = require('@page-libs/md2html'),
     HtmlFromMd = _require3.HtmlFromMd;
+
+var localStyle = localStorage.getItem('localStyle') || 'day';
+
+if (localStyle === 'night') {
+  var mainNightStyle = document.getElementById('main-night');
+  var githubGistStyle = document.getElementById('github-gist-night');
+  mainNightStyle.disabled = false;
+  githubGistStyle.disabled = false;
+}
 /* eslint-disable no-new */
 
 
 window.onload = function () {
-  var localStyle = localStorage.getItem('localStyle') || 'day';
-
-  if (localStyle === 'night') {
-    document.documentElement.classList.toggle('night');
-  }
-
   new DayNightButton(document.getElementById('day-night'));
   var cutiesDetailsBox = document.getElementById('cuties-details');
 

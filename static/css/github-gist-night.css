@@ -2,62 +2,62 @@
  * GitHub Gist Theme (Night variation)
  */
 
-.night .hljs {
+.hljs {
   color: #dedede;
   background-color: #252525; 
 }
 
-.night .hljs-comment,
-.night .hljs-meta {
+.hljs-comment,
+.hljs-meta {
   color: #969896;
 }
 
-.night .hljs-string,
-.night .hljs-variable,
-.night .hljs-template-variable,
-.night .hljs-strong,
-.night .hljs-emphasis,
-.night .hljs-quote {
+.hljs-string,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-strong,
+.hljs-emphasis,
+.hljs-quote {
   color: #ffa97a;
 }
 
-.night .hljs-keyword,
-.night .hljs-selector-tag,
-.night .hljs-type {
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-type {
   color: #e776aa;
 }
 
-.night .hljs-literal,
-.night .hljs-symbol,
-.night .hljs-bullet,
-.night .hljs-attribute {
+.hljs-literal,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-attribute {
   color: #00bfff;
 }
 
-.night .hljs-section,
-.night .hljs-name {
+.hljs-section,
+.hljs-name {
   color: #92bf8d;
 }
 
-.night .hljs-tag {
+.hljs-tag {
   color: #dedede;
 }
 
-.night .hljs-title,
-.night .hljs-attr,
-.night .hljs-selector-id,
-.night .hljs-selector-class,
-.night .hljs-selector-attr,
-.night .hljs-selector-pseudo {
+.hljs-title,
+.hljs-attr,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo {
   color: #a18ebf;
 }
 
-.night .hljs-addition {
+.hljs-addition {
   color: #55a532;
   background-color: #eaffea;
 }
 
-.night .hljs-deletion {
+.hljs-deletion {
   color: #bd2c00;
   background-color: #ffecec;
 }

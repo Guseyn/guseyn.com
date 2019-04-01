@@ -60,7 +60,7 @@ class BaseTemplateWrapper extends AsyncObject {
                     new Value(
                       packageJSON, 'version'
                     )
-                  ), 'type="text/css"'
+                  ), 'disabled id="main-night" type="text/css"'
                 ),
                 new Style(
                   new UrlWithVersion(
@@ -76,7 +76,7 @@ class BaseTemplateWrapper extends AsyncObject {
                     new Value(
                       packageJSON, 'version'
                     )
-                  ), 'type="text/css"'
+                  ), 'disabled id="github-gist-night" type="text/css"'
                 ),
                 new Script(
                   new UrlWithVersion(

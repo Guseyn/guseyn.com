@@ -1,4 +1,4 @@
-.night body {
+body {
   background: #191919;
   color: #eeeeee;
 }
@@ -18,42 +18,46 @@
     background: #dedede; 
 }
 
-.night .day-night {
+.day{
   background: #ffffff;
 }
 
-.night a,
-.night .menu a,
-.night .subscribe a,
-.night .dot,
-.night h1 a,
-.night .continue,
-.night .pagination a,
-.night .post-link a {
+.day-night {
+  background: #ffffff;
+}
+
+a,
+.menu a,
+.subscribe a,
+.dot,
+h1 a,
+.continue,
+.pagination a,
+.post-link a {
   color: #eeeeee;
 }
 
-.night .menu a:hover, .night .subscribe a:hover {
+.menu a:hover, .subscribe a:hover {
   color: #fefefe;
 }
 
-.night .date {
+.date {
   color: #cccccc;
 }
 
-.night pre {
+pre {
   border: 1px solid #333333;
   background: #252525;
 }
 
-.night table, .night th, .night td {
+table, th, td {
   border: 1px solid #dedede;
 }
 
-.night .quote-text, .night .refs {
+.quote-text, .refs {
   color: #cccccc;
 }
 
-.night .quote-author {
+.quote-author {
   color: #eeeeee;
 }
