@@ -3,7 +3,7 @@ ssh root@209.97.128.89 bash -c "'
 if [ ! -d guseyn.com ]
 then
   git clone https://github.com/Guseyn/guseyn.com.git guseyn.com
-  git config --global user.email "guseynism@gmail.com"
+  git config --global user.email \"guseynism@gmail.com\"
   npm install @page-libs/cli -g
   cd guseyn.com
   npm install --no-optional
@@ -16,7 +16,7 @@ else
   npm install --no-optional
   page b prod
   git add --all
-  git commit -m "local build changes"
+  git commit -m \"local build changes\"
 fi
 '"
 
