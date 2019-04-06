@@ -10,7 +10,7 @@
 
 In this article, I'll explain how easily you can implement authorization and authentication via JWT using only standard modules in Node.js. So, it might be interesting to you, if you really want to know how it works.
 
-If you don't know what JWT is, you can read [this](https://en.wikipedia.org/wiki/JSON_Web_Token) article first. In few words, JWT is a JSON-based open standard for creating access tokens. Let's say you have a system with some REST API, and you want to securily detect a user who calls methods from this API. JWT is quite simple and effective solution for this problem.
+If you don't know what JWT is, you can read [this article](https://en.wikipedia.org/wiki/JSON_Web_Token) first. In few words, JWT is a JSON-based open standard for creating access tokens. Let's say you have a system with some REST API, and you want to securily detect a user who calls methods from this API. JWT is quite simple and effective solution for this problem.
 
 JWT is a string that has following format:
 
