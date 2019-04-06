@@ -128,3 +128,9 @@ function base64UrlDecode (str) {
 For testing your access token I would suggest [this service](https://jwt.io/).
 
 So, that's it. You can also check [this sample app](https://github.com/Guseyn/simple-oauth-app) that can show how you can use **JWT** with **Google OAuth** and **GitHub OAuth**. 
+
+<div class="refs">References</div>
+
+* [JWT.io](https://jwt.io/)
+* [JSON Web Token](https://en.wikipedia.org/wiki/JSON_Web_Token)
+* [Sample app using JWT with Google OAuth and GitHub OAuth](https://github.com/Guseyn/simple-oauth-app)
