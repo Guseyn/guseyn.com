@@ -105,11 +105,11 @@ Now we need to be able to verify our token from 'Authorization' request header:
 ```js
 // Returns true if token is valid, otherwise returns false
 function isValid (token, secret) {
-  let parts = token.split('.')
-  let header = base64UrlDecode(parts[0])
-  let payload = base64UrlDecode(parts[1])
-  let signature = parts[2]
-  let exp = payload.exp
+  const parts = token.split('.')
+  const header = base64UrlDecode(parts[0])
+  const payload = base64UrlDecode(parts[1])
+  const signature = parts[2]
+  const exp = payload.exp
   if (exp < new Date().getTime()) {
     return false
   }
