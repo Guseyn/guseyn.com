@@ -5,9 +5,9 @@
 <div class="tags">
   <a class="tag" href="/../tags/library?v={version}">library</a>
   <a class="tag" href="/../tags/unittesting?v={version}">unit testing</a>
-  <a class="tag" href="/../tags/oop?v={version}">OOP</a>
-  <a class="tag" href="/../tags/asyncobjects?v={version}">Async Objects</a>
-  <a class="tag" href="/../tags/node?v={version}">Node</a>
+  <a class="tag" href="/../tags/oop?v={version}">oop</a>
+  <a class="tag" href="/../tags/asyncobjects?v={version}">async objects</a>
+  <a class="tag" href="/../tags/node?v={version}">node</a>
 </div>
 
 It's amazing how easily and joyful unit testing can be if you write code in declarative style. I've just released my new library [cutie-assert](https://github.com/Guseyn/cutie-assert). It is a [cutie](https://github.com/Guseyn/cutie) extension for **assert** module in Node. In this article, I want to show you the real power of this library.

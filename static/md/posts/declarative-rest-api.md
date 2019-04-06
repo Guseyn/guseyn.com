@@ -4,9 +4,9 @@
 
 <div class="tags">
   <a class="tag" href="/../tags/library?v={version}">library</a>
-  <a class="tag" href="/../tags/oop?v={version}">OOP</a>
-  <a class="tag" href="/../tags/node?v={version}">Node</a>
-  <a class="tag" href="/../tags/asyncobjects?v={version}">Async Objects</a>
+  <a class="tag" href="/../tags/oop?v={version}">oop</a>
+  <a class="tag" href="/../tags/node?v={version}">node</a>
+  <a class="tag" href="/../tags/asyncobjects?v={version}">async objects</a>
 </div>
 
 We all are used to MVC for building REST applications. In this article, I'll show how you can build REST API using object-oriented approach. It'll be demonstrated on my library **[cutie-rest](https://github.com/Guseyn/cutie-rest)** which was released recently.
