@@ -2,9 +2,9 @@
 <div class="date">5 April 2018</div>
 
 <div class="tags">
-  <a class="tag" href="/../tags/oop?v={version}">OOP</a>
-  <a class="tag" href="/../tags/node?v={version}">Node</a>
-  <a class="tag" href="/../tags/asyncobjects?v={version}">Async Objects</a>
+  <a class="tag" href="/../tags/oop?v={version}">oop</a>
+  <a class="tag" href="/../tags/node?v={version}">node</a>
+  <a class="tag" href="/../tags/asyncobjects?v={version}">async objects</a>
 </div>
 
 There is another abstraction in Node that must be considered. And this is *events*.

@@ -2,9 +2,9 @@
 <div class="date">26 January 2018</div>
 
 <div class="tags">
-  <a class="tag" href="/../tags/oop?v={version}">OOP</a>
-  <a class="tag" href="/../tags/node?v={version}">Node</a>
-  <a class="tag" href="/../tags/asyncobjects?v={version}">Async Objects</a>
+  <a class="tag" href="/../tags/oop?v={version}">oop</a>
+  <a class="tag" href="/../tags/node?v={version}">node</a>
+  <a class="tag" href="/../tags/asyncobjects?v={version}">async objects</a>
 </div>
 
 No secret, OOP in JS is not perfect. At least it's not so mature as it's in Java, for example. And actually I don't see that anybody from the JavaScript world would use this paradigm as the main concept of their applications. In the modern software development the ideas of the object-oriented programming (as itself) are becoming less and less popular and giving way to the ideas of functional programming. But I think we should not give up such a powerful and wonderful tool/mechanism that can simplify our complex systems. In this article I'll try to introduce the idea of **async objects** and show how they can help us to get rid of the main problem in asyncronious enviroment... Of course, I am talking about **callbacks**.

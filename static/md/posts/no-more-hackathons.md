@@ -3,7 +3,7 @@
 
 <div class="tags">
   <a class="tag" href="/../tags/hate?v={version}">hate</a>
-  <a class="tag" href="/../tags/itculture?v={version}">IT culture</a>
+  <a class="tag" href="/../tags/itculture?v={version}">it culture</a>
 </div>
 
 <div class="quote">
