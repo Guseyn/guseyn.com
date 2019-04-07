@@ -12,7 +12,7 @@
 
 You might ask, *why do we need another way of creating JWT*? Well, [this answer](https://stackoverflow.com/questions/39239051/rs256-vs-hs256-whats-the-difference/39239395#39239395) can help you to understand why.
 
-Workflow of using JWT still is the same that we used in the symmetric approach. The only difference that now we don't use `secret` for creating and validating access token. Instead, we need RSA public/private pair. We use private key only for creating JWT, and public key only for validating it. So, you don't have to keep some secret information for validating tokens. You can generate such pair of keys using following commands:
+Workflow of using JWT still is the same that we used in the symmetric approach. The only difference that now we don't use `secret` for creating and validating access token. Instead, we need RSA public/private pair of keys. We use private key only for creating JWT, and public key only for validating it. So, you don't have to keep some secret information for validating tokens. You can generate such pair of keys using following commands:
 
 ```bash
 openssl genrsa -out private.pem 2048
