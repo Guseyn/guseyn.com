@@ -1,4 +1,4 @@
-# Simple JWT Implementation in Node.js
+# Simple JWT Implementation in Node.js: Symmetric Variation
 
 <div class="date">6 April 2019</div>
 
@@ -8,7 +8,7 @@
   <a class="tag" href="/../tags/node?v={version}">node</a>
 </div>
 
-In this article, I'll explain how easily you can implement authorization and authentication via JWT using only standard modules in Node.js. So, it might be interesting to you, if you really want to know how it works.
+In this article, I'll explain how easily you can implement authorization and authentication via **JWT** using only standard modules in Node.js. So, it might be interesting to you, if you really want to know how it works.
 
 If you don't know what JWT is, you can read [this article](https://en.wikipedia.org/wiki/JSON_Web_Token) first. In few words, JWT is a JSON-based open standard for creating access tokens. Let's say you have a system with some REST API, and you want to securily detect a user who calls methods from this API. JWT is quite simple and effective solution for this problem.
 
@@ -36,7 +36,7 @@ For creating JWT we need two objects: `header` and `payload`.
 }
 ```
 
-`alg` identifies which algorithm is used to generate the signature, and `type` tell us that we use JSON Web Token. I would recommend you to hardcode this object as a header, if you want to use symmetric algorithms. I don't see any other reason to parametrize this object, so you can avoid a lot of checks on `alg` property and reduce complexity of your code. Or you can use asymmetric algorithms such as RS256, and allow your users to identify themselves via their public keys. But in this article we will consider only symmetric approach (HS256).
+`alg` identifies which algorithm is used to generate the signature, and `type` tell us that we use JSON Web Token. I would recommend you to hardcode this object as a header, if you want to use symmetric algorithms. I don't see any other reason to parametrize this object, so you can avoid a lot of checks on `alg` property and reduce complexity of your code. Or you can use asymmetric algorithms such as **RS256**, and allow your users to identify themselves via their public keys. But in this article we will consider only symmetric approach (**HS256**).
 
 **Payload** is an object that identifies your user, so it has to contain unique data for specific user like `email`. It can also store some other user data, but you definetely shouldn't store there sensitive information like `password`. Also, it's useful to store expiration time of access token there.
 
@@ -63,7 +63,7 @@ You might wonder why some propertie names are just three charatecrs long. I have
 So, we have `header` and `payload` as json structures. And we need to convert them in *base64 encoded strings*. For doing this, use following function:
 
 ```js
-function base64UrlEncode (json) {
+function base64UrlEncodeJSON (json) {
   return Buffer.from(
     JSON.stringify(json)
   ).toString('base64')
@@ -94,8 +94,8 @@ Function `generateSignature` also encodes string to `base64`.
 So, for creating our access token we do something like this:
 
 ```js
-const encodedHeaderInBase64 = base64UrlEncode(header)
-const encodedPayloadInBase64 = base64UrlEncode(payload)
+const encodedHeaderInBase64 = base64UrlEncodeJSON(header)
+const encodedPayloadInBase64 = base64UrlEncodeJSON(payload)
 const encodedSignatureInBase64 = generateSignature(`${encodedHeaderInBase64}.${encodedPayloadInBase64}`, 'some-secret')
 const token = `${encodedHeaderInBase64}.${encodedPayloadInBase64}.${encodedSignatureInBase64}`
 ```
@@ -106,17 +106,22 @@ Now we need to be able to verify our token from 'Authorization' request header:
 // Returns true if token is valid, otherwise returns false
 function isValid (token, secret) {
   const parts = token.split('.')
-  const header = base64UrlDecode(parts[0])
-  const payload = base64UrlDecode(parts[1])
+  const header = base64UrlDecodeToJSON(parts[0])
+  const payload = base64UrlDecodeToJSON(parts[1])
+  if (header.alg !== 'HS256' || header.typ !== 'JWT') {
+    return false
+  }
   const signature = parts[2]
   const exp = payload.exp
-  if (exp < new Date().getTime()) {
-    return false
+  if (exp) {
+    if (exp < new Date().getTime()) {
+      return false
+    }
   }
   return generateSignature(`${parts[0]}.${parts[1]}`, secret) === signature
 }
 
-function base64UrlDecode (str) {
+function base64UrlDecodeToJSON (str) {
   return JSON.parse(
     Buffer.from(
       str.replace(/-/g, '+').replace(/_/g, '/'), 'base64'
