@@ -1,4 +1,4 @@
-# Simple JWT implementation in Node.js
+# Simple JWT Implementation in Node.js
 
 <div class="date">6 April 2019</div>
 
