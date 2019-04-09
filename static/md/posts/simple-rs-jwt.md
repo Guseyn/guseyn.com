@@ -92,7 +92,7 @@ function unescape (str) {
 
 For testing your access token you can also use [this service](https://jwt.io/). Just change `alg` property to `RS256`.
 
-Also, I just released [cutie-jwt](https://github.com/Guseyn/cutie-jwt). So, if you want to use JWT in the declarative style, you should definetely try it.
+Also, I just released [cutie-jwt](https://github.com/Guseyn/cutie-jwt). So, if you want to use JWT in the declarative style, you should definitely try it.
 
 <div class="refs">References</div>
 
