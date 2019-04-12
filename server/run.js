@@ -5,14 +5,14 @@ const { as } = require('@cuties/cutie')
 const { If, Else } = require('@cuties/if-else')
 const { IsMaster, ClusterWithForkedWorkers, ClusterWithExitEvent } = require('@cuties/cluster')
 const { ParsedJSON, Value } = require('@cuties/json')
-const { Backend, RestApi } = require('@cuties/rest')
+const { Backend, RestApi, ServingFilesEndpoint, CachedServingFilesEndpoint } = require('@cuties/rest')
 const { ReadDataByPath, WatcherWithEventTypeAndFilenameListener } = require('@cuties/fs')
 const { FoundProcessOnPort, KilledProcess, Pid, ProcessWithUncaughtExceptionEvent } = require('@cuties/process')
-const CreatedCustomIndexEndpoint = require('./endpoints/CreatedCustomIndexEndpoint')
-const CreatedCustomNotFoundEndpoint = require('./endpoints/CreatedCustomNotFoundEndpoint')
-const CreatedServingStaticFilesEndpoint = require('./endpoints/CreatedServingStaticFilesEndpoint')
+const { Created } = require('@cuties/created')
+const CustomIndexEndpoint = require('./endpoints/CustomIndexEndpoint')
+const CustomNotFoundEndpoint = require('./endpoints/CustomNotFoundEndpoint')
+const LogsEndpoint = require('./endpoints/LogsEndpoint')
 const CustomInternalServerErrorEndpoint = require('./endpoints/CustomInternalServerErrorEndpoint')
-const CreatedLogsEndpoint = require('./endpoints/CreatedLogsEndpoint')
 const OnPageStaticJsFilesChangeEvent = require('./events/OnPageStaticJsFilesChangeEvent')
 const OnStaticGeneratorsChangeEvent = require('./events/OnStaticGeneratorsChangeEvent')
 const OnTemplatesChangeEvent = require('./events/OnTemplatesChangeEvent')
@@ -28,7 +28,8 @@ const numCPUs = require('os').cpus().length
 const env = process.env.NODE_ENV || 'local'
 const devEnv = env === 'local' || env === 'dev'
 
-const customNotFoundEndpoint = new CreatedCustomNotFoundEndpoint(
+const customNotFoundEndpoint = new Created(
+  CustomNotFoundEndpoint,
   new RegExp(/^\/not-found/),
   new Value(
     as('config'),
@@ -37,43 +38,47 @@ const customNotFoundEndpoint = new CreatedCustomNotFoundEndpoint(
 )
 
 const restApi = new RestApi(
-  new CreatedCustomIndexEndpoint(
+  new Created(
+    CustomIndexEndpoint,
     new Value(as('config'), 'index'),
     customNotFoundEndpoint
   ),
-  new CreatedServingStaticFilesEndpoint(
+  new Created(
+    env === 'prod' ? CachedServingFilesEndpoint : ServingFilesEndpoint,
     new RegExp(/^\/(html|css|md|image|js|txt|yml|pdf)/),
     new UrlToFSPathMapper(
       new Value(as('config'), 'static')
     ),
     env === 'prod' ? { 'Cache-Control': 'cache, public, max-age=86400' } : {},
-    customNotFoundEndpoint,
-    env === 'prod'
+    customNotFoundEndpoint
   ),
-  new CreatedServingStaticFilesEndpoint(
+  new Created(
+    env === 'prod' ? CachedServingFilesEndpoint : ServingFilesEndpoint,
     new RegExp(/^\/(posts|previews|stuff|tags)/),
     new CuteUrlToFSPathForHtmlMapper(
       new Value(as('config'), 'staticHtml')
     ),
     env === 'prod' ? { 'Cache-Control': 'cache, public, max-age=86400' } : {},
-    customNotFoundEndpoint,
-    env === 'prod'
+    customNotFoundEndpoint
   ),
-  new CreatedLogsEndpoint(
+  new Created(
+    LogsEndpoint,
     new RegExp(/^\/logs\/all(\/|)$/),
     new Value(
       as('config'),
       'logs'
     )
   ),
-  new CreatedServingStaticFilesEndpoint(
+  new Created(
+    ServingFilesEndpoint,
     new RegExp(/^\/logs/),
     new UrlToFSPathMapper(),
     {},
     customNotFoundEndpoint,
     false
   ),
-  new CreatedServingStaticFilesEndpoint(
+  new Created(
+    ServingFilesEndpoint,
     new RegExp(/^\/package.json(\/|)$/),
     new UrlToFSPathMapper(),
     {},
@@ -107,6 +112,39 @@ const launchedHttpsBackend = new Backend(
   )
 )
 
+const watchers = new WatcherWithEventTypeAndFilenameListener(
+  new Value(as('config'), 'staticGenerators'),
+  { persistent: true, recursive: true, encoding: 'utf8' },
+  new OnStaticGeneratorsChangeEvent(
+    new Value(as('config'), 'staticGenerators')
+  )
+).after(
+  new WatcherWithEventTypeAndFilenameListener(
+    new Value(as('config'), 'templates'),
+    { persistent: true, recursive: true, encoding: 'utf8' },
+    new OnTemplatesChangeEvent(
+      new Value(as('config'), 'staticGenerators')
+    )
+  ).after(
+    new WatcherWithEventTypeAndFilenameListener(
+      new Value(as('config'), 'mdFiles'),
+      { persistent: true, recursive: true, encoding: 'utf8' },
+      new OnTemplatesChangeEvent(
+        new Value(as('config'), 'staticGenerators')
+      )
+    ).after(
+      new WatcherWithEventTypeAndFilenameListener(
+        new Value(as('config'), 'staticJs'),
+        { persistent: true, recursive: true, encoding: 'utf8' },
+        new OnPageStaticJsFilesChangeEvent(
+          new Value(as('config'), 'staticJs'),
+          new Value(as('config'), 'bundleJs')
+        )
+      )
+    )
+  )
+)
+
 new ParsedJSON(
   new ReadDataByPath('./config.json')
 ).as('config').after(
@@ -136,38 +174,7 @@ new ParsedJSON(
           ).after(
             new If(
               devEnv,
-              new WatcherWithEventTypeAndFilenameListener(
-                new Value(as('config'), 'staticGenerators'),
-                { persistent: true, recursive: true, encoding: 'utf8' },
-                new OnStaticGeneratorsChangeEvent(
-                  new Value(as('config'), 'staticGenerators')
-                )
-              ).after(
-                new WatcherWithEventTypeAndFilenameListener(
-                  new Value(as('config'), 'templates'),
-                  { persistent: true, recursive: true, encoding: 'utf8' },
-                  new OnTemplatesChangeEvent(
-                    new Value(as('config'), 'staticGenerators')
-                  )
-                ).after(
-                  new WatcherWithEventTypeAndFilenameListener(
-                    new Value(as('config'), 'mdFiles'),
-                    { persistent: true, recursive: true, encoding: 'utf8' },
-                    new OnTemplatesChangeEvent(
-                      new Value(as('config'), 'staticGenerators')
-                    )
-                  ).after(
-                    new WatcherWithEventTypeAndFilenameListener(
-                      new Value(as('config'), 'staticJs'),
-                      { persistent: true, recursive: true, encoding: 'utf8' },
-                      new OnPageStaticJsFilesChangeEvent(
-                        new Value(as('config'), 'staticJs'),
-                        new Value(as('config'), 'bundleJs')
-                      )
-                    )
-                  )
-                )
-              )
+              watchers
             ).after(
               new If(
                 new Value(as('config'), `${env}.clusterMode`),
