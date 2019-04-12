@@ -8,7 +8,8 @@ const { ReadDataByPath } = require('@cuties/fs')
 const { If, Else } = require('@cuties/if-else')
 const { IsMaster, ClusterWithForkedWorkers, ClusterWithExitEvent } = require('@cuties/cluster')
 const { FoundProcessOnPort, KilledProcess, Pid, ProcessWithUncaughtExceptionEvent } = require('@cuties/process')
-const CreatedRedirectEndpoint = require('./endpoints/CreatedRedirectEndpoint')
+const { Created } = require('@cuties/created')
+const RedirectEndpoint = require('./endpoints/RedirectEndpoint')
 const ReloadedBackendOnFailedWorkerEvent = require('./events/ReloadedBackendOnFailedWorkerEvent')
 const LoggedAndThrownErrorEvent = require('./events/LoggedAndThrownErrorEvent')
 
@@ -19,7 +20,8 @@ const redirectBackendForProd = new Backend(
   new Value(as('config'), `${env}.http.port`),
   new Value(as('config'), `${env}.host`),
   new RestApi(
-    new CreatedRedirectEndpoint(
+    new Created(
+      RedirectEndpoint,
       new Value(as('config'), `${env}.http.port`),
       new Value(as('config'), `${env}.port`)
     )
