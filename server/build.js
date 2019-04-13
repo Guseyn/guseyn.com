@@ -1,27 +1,18 @@
 'use strict'
 
 const { as } = require('@cuties/cutie')
-const { ParsedJSON, Value } = require('@cuties/json')
+const { Value } = require('@cuties/json')
 const { ExecutedScripts } = require('@cuties/scripts')
-const { ReadDataByPath } = require('@cuties/fs')
 const { ExecutedLint, ExecutedTestCoverage, ExecutedTestCoverageCheck } = require('@cuties/wall')
-const PrintedToConsolePageLogo = require('./async/PrintedToConsolePageLogo')
+const Config = require('./async/Config')
+const PrintedLogoToConsole = require('./async/PrintedLogoToConsole')
 const ExecutedGruntBuild = require('./async/ExecutedGruntBuild')
+
 const env = process.env.NODE_ENV || 'local'
 
-new ParsedJSON(
-  new ReadDataByPath('./config.json')
-).as('config').after(
-  new ParsedJSON(
-    new ReadDataByPath('./package.json')
-  ).as('packageJSON').after(
-    new PrintedToConsolePageLogo(
-      new ReadDataByPath(
-        new Value(as('config'), 'page.logoText')
-      ),
-      new Value(as('packageJSON'), 'version'),
-      `BUILD (${env})`
-    ).after(
+new Config('./config.json').as('config').after(
+  new Config('./package.json').as('packageJSON').after(
+    new PrintedLogoToConsole(`BUILD (${env})`).after(
       new ExecutedLint(process, './server', './static/js/es6', './test', './pages').after(
         new ExecutedTestCoverageCheck(
           new ExecutedTestCoverage(process, './test-executor.js'),
