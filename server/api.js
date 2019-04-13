@@ -51,15 +51,13 @@ module.exports = new RestApi(
     new RegExp(/^\/logs/),
     new UrlToFSPathMapper(),
     {},
-    customNotFoundEndpoint,
-    false
+    customNotFoundEndpoint
   ),
   new ServingFilesEndpoint(
     new RegExp(/^\/package.json(\/|)$/),
     new UrlToFSPathMapper(),
     {},
-    customNotFoundEndpoint,
-    false
+    customNotFoundEndpoint
   ),
   customNotFoundEndpoint,
   new CustomInternalServerErrorEndpoint()
