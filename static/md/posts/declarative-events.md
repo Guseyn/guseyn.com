@@ -7,7 +7,9 @@
   <a class="tag" href="/../tags/asyncobjects?v={version}">async objects</a>
 </div>
 
-There is another abstraction in Node that must be considered. And this is *events*.
+There is another abstraction in Node that must be considered. And this is the *events*.
+
+*[ If you didn't read [previous article](https://guseyn.com/posts/async-objects-instead-of-async-calls?v=1.0.100), I would recommend read it first before moving on. ]*
 
 Let's look at the most popular example in Node:
 
@@ -135,6 +137,8 @@ new ReadStreamWithOpenEvent(
   )
 ).call()
 ```
+
+**Updates:** you can create `Event` via [`Created`](https://github.com/Guseyn/cutie-created) async object, it will allow to encapsulate data from async objects inside of `Event`.
 
 <div class="refs">References</div>
 
