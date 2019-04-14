@@ -58,7 +58,7 @@ function payloadWithExpirationTime (payload, minutesFromNow) {
 } 
 ```
 
-You might wonder why some propertie names are just three charatecrs long. I have no idea. I read that's sort of some optimisations, but I don't think that's so important.
+You might wonder why some property names are just three charatecrs long. I have no idea. I read that's sort of some optimisations, but I don't think that's so important.
 
 So, we have `header` and `payload` as json structures. And we need to convert them in *base64 encoded strings*. For doing this, use following function:
 
