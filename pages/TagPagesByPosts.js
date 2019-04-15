@@ -4,7 +4,7 @@ const { AsyncObject } = require('@cuties/cutie')
 const cheerio = require('cheerio')
 const path = require('path')
 
-class TagPages extends AsyncObject {
+class TagPagesByPosts extends AsyncObject {
   constructor (posts, dirToSave, version) {
     super(posts, dirToSave, version)
   }
@@ -35,4 +35,4 @@ class TagPages extends AsyncObject {
   }
 }
 
-module.exports = TagPages
+module.exports = TagPagesByPosts
