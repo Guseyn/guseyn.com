@@ -10,7 +10,7 @@ const HtmlFilesFromMdFiles = require('./../HtmlFilesFromMdFiles')
 const BaseTemplateWrapper = require('./../BaseTemplateWrapper')
 const JoinedPathMapper = require('./../JoinedPathMapper')
 const PreviewsOfPosts = require('./../PreviewsOfPosts')
-const TagPages = require('./../TagPages')
+const TagPagesByPosts = require('./../TagPagesByPosts')
 
 new ParsedJSON(
   new ReadDataByPath('./config.json')
@@ -81,7 +81,7 @@ new ParsedJSON(
           ).after(
             new WrittenDataToFiles(
               new ProcessedObject(
-                new TagPages(
+                new TagPagesByPosts(
                   as('posts'),
                   new Value(
                     as('config'),

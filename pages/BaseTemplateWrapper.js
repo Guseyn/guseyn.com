@@ -7,6 +7,7 @@ const { Value } = require('@cuties/json')
 const UrlWithVersion = require('./../server/async/UrlWithVersion')
 const TemplateWithVersion = require('./TemplateWithVersion')
 const MetaWithKeyWordsByContent = require('./MetaWithKeyWordsByContent')
+const TitleTextByPath = require('./TitleTextByPath')
 
 class BaseTemplateWrapper extends AsyncObject {
   constructor (config, packageJSON, baseTemplate) {
@@ -34,7 +35,9 @@ class BaseTemplateWrapper extends AsyncObject {
                   )
                 ),
                 new Meta('name="google-site-verification" content="vGxE5xshQhWEvbfiGVWZ4qmfLx_1WW8P82ZW0RP0mwg"'),
-                new Title('fan of yours'),
+                new Title(
+                  new TitleTextByPath(path, content)
+                ),
                 new Link('rel="shortcut icon" type="image/png" href="/../image/favicon.png"'),
                 new Style('https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i|Source+Sans+Pro:400,400i,700,700i', 'type="text/css"'),
                 new Style(
