@@ -1,23 +1,20 @@
 'use strict'
 
 const { as } = require('@cuties/cutie')
-const { ParsedJSON, Value } = require('@cuties/json')
-const { ReadDataByPath, ReadDataFromFiles, ReadFilesOfDirectory, WrittenDataToFiles } = require('@cuties/fs')
+const { Value } = require('@cuties/json')
+const { ReadDataFromFiles, ReadFilesOfDirectory, WrittenDataToFiles } = require('@cuties/fs')
 const { Mapped } = require('@cuties/array-iteration')
 const { ProcessedObject } = require('@cuties/object')
 const { Template } = require('@page-libs/static-generator')
-const HtmlFilesFromMdFiles = require('./../HtmlFilesFromMdFiles')
-const BaseTemplateWrapper = require('./../BaseTemplateWrapper')
-const JoinedPathMapper = require('./../JoinedPathMapper')
-const PreviewsOfPosts = require('./../PreviewsOfPosts')
-const TagPagesByPosts = require('./../TagPagesByPosts')
+const Config = require('./../../async/Config')
+const HtmlFilesFromMdFiles = require('./../async/HtmlFilesFromMdFiles')
+const BaseTemplateWrapper = require('./../async/BaseTemplateWrapper')
+const JoinedPathMapper = require('./../async/JoinedPathMapper')
+const PreviewsOfPosts = require('./../async/PreviewsOfPosts')
+const TagPagesByPosts = require('./../async/TagPagesByPosts')
 
-new ParsedJSON(
-  new ReadDataByPath('./config.json')
-).as('config').after(
-  new ParsedJSON(
-    new ReadDataByPath('./package.json')
-  ).as('packageJSON').after(
+new Config('./config.json').as('config').after(
+  new Config('./package.json').as('packageJSON').after(
     new ReadFilesOfDirectory(
       new Value(
         as('config'),

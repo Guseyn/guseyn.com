@@ -4,7 +4,7 @@ const { as } = require('@cuties/cutie')
 const { Value } = require('@cuties/json')
 const { ExecutedScripts } = require('@cuties/scripts')
 const { ExecutedLint, ExecutedTestCoverage, ExecutedTestCoverageCheck } = require('@cuties/wall')
-const Config = require('./async/Config')
+const Config = require('./../async/Config')
 const PrintedLogoToConsole = require('./async/PrintedLogoToConsole')
 const ExecutedGruntBuild = require('./async/ExecutedGruntBuild')
 
