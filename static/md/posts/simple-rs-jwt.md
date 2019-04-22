@@ -33,7 +33,7 @@ Where `generateSignature` in this case is
 ```js
 const crypto = require('crypto')
 
-generateSignature (str, privateKey) {
+function generateSignature (str, privateKey) {
   const sign = crypto.createSign('RSA-SHA256')
   sign.update(str)
   return sign.sign(privateKey, 'base64')
