@@ -1,11 +1,11 @@
 'use strict'
 
-const OnPageStaticJsFilesChangeEvent = require('./../../../server/events/OnPageStaticJsFilesChangeEvent')
+const OnPageStaticJSFilesChangeEvent = require('./../../../server/events/OnPageStaticJSFilesChangeEvent')
 const { AsyncObject } = require('@cuties/cutie')
 const { Assertion } = require('@cuties/assert')
 const { Is } = require('@cuties/is')
 
-class InvokedOnPageStaticJsFilesChangeEvent extends AsyncObject {
+class InvokedOnPageStaticJSFilesChangeEvent extends AsyncObject {
   constructor (event, eventType, fileName) {
     super(event, eventType, fileName)
   }
@@ -20,14 +20,14 @@ class InvokedOnPageStaticJsFilesChangeEvent extends AsyncObject {
 
 new Assertion(
   new Is(
-    new OnPageStaticJsFilesChangeEvent('./test/server/files', 'index.js'),
+    new OnPageStaticJSFilesChangeEvent('./test/server/files', 'index.js'),
     Function
   )
 ).after(
   new Assertion(
     new Is(
-      new InvokedOnPageStaticJsFilesChangeEvent(
-        new OnPageStaticJsFilesChangeEvent('./test/server/files', 'index.js'),
+      new InvokedOnPageStaticJSFilesChangeEvent(
+        new OnPageStaticJSFilesChangeEvent('./test/server/files', 'index.js'),
         'change', './test/server/files/index.js'
       ),
       Function
@@ -35,8 +35,8 @@ new Assertion(
   ).after(
     new Assertion(
       new Is(
-        new InvokedOnPageStaticJsFilesChangeEvent(
-          new OnPageStaticJsFilesChangeEvent('./test/server/files', 'index.js'),
+        new InvokedOnPageStaticJSFilesChangeEvent(
+          new OnPageStaticJSFilesChangeEvent('./test/server/files', 'index.js'),
           'create', 'index.js'
         ),
         Function

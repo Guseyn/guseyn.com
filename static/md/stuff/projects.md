@@ -24,3 +24,8 @@
 
 2. [<img class="project-logo" style="width: 42px; height: 47px;" src="/../../image/pb.png">](https://github.com/Guseyn/Paper-blog)
 [Paper Blog](https://github.com/Guseyn/Paper-blog) was a minimalistic platform for posting educational materials or some other interesting stuff with a convenient WYSIWYG editor. It had basic features like posting and editing articles, writing reviews, subscribing to user’s favorite authors and topics.
+
+<script type="text/javascript">
+  initCutiesDetails()
+  initPagesDetails()
+</script>
