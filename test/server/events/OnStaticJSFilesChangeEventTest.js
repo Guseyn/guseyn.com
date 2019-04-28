@@ -20,14 +20,14 @@ class InvokedOnPageStaticJSFilesChangeEvent extends AsyncObject {
 
 new Assertion(
   new Is(
-    new OnStaticJSFilesChangeEvent('./test/server/files', 'index.js'),
+    new OnStaticJSFilesChangeEvent(),
     Function
   )
 ).after(
   new Assertion(
     new Is(
       new InvokedOnPageStaticJSFilesChangeEvent(
-        new OnStaticJSFilesChangeEvent('./test/server/files', 'index.js'),
+        new OnStaticJSFilesChangeEvent(),
         'change', './test/server/files/index.js'
       ),
       Function
@@ -36,7 +36,7 @@ new Assertion(
     new Assertion(
       new Is(
         new InvokedOnPageStaticJSFilesChangeEvent(
-          new OnStaticJSFilesChangeEvent('./test/server/files', 'index.js'),
+          new OnStaticJSFilesChangeEvent(),
           'create', 'index.js'
         ),
         Function
