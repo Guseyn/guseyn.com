@@ -3,13 +3,13 @@
 const { AsyncObject } = require('@cuties/cutie')
 const { SpawnedCommand } = require('@cuties/spawn')
 
-class OnPageStaticJSFilesChangeEvent extends AsyncObject {
-  constructor (pageStaticJsFilesDirectory, pageBundleJsFile) {
-    super(pageStaticJsFilesDirectory, pageBundleJsFile)
+class OnStaticJSFilesChangeEvent extends AsyncObject {
+  constructor (staticJsFilesDirectory, pageBundleJsFile) {
+    super(staticJsFilesDirectory, pageBundleJsFile)
   }
 
   syncCall () {
-    return (pageStaticJsFilesDirectory, pageBundleJsFile) => {
+    return (staticJsFilesDirectory, pageBundleJsFile) => {
       return (eventType, fileName) => {
         if (eventType === 'change') {
           new SpawnedCommand('grunt').call()
@@ -19,4 +19,4 @@ class OnPageStaticJSFilesChangeEvent extends AsyncObject {
   }
 }
 
-module.exports = OnPageStaticJSFilesChangeEvent
+module.exports = OnStaticJSFilesChangeEvent
