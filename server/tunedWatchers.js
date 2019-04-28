@@ -31,10 +31,7 @@ module.exports = new WatcherWithEventTypeAndFilenameListener(
       new WatcherWithEventTypeAndFilenameListener(
         new Value(as('config'), 'staticJS'),
         { persistent: true, recursive: true, encoding: 'utf8' },
-        new OnStaticJSFilesChangeEvent(
-          new Value(as('config'), 'staticJS'),
-          new Value(as('config'), 'bundleJs')
-        )
+        new OnStaticJSFilesChangeEvent()
       )
     )
   )
