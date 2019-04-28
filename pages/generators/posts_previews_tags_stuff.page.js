@@ -3,8 +3,7 @@
 const { as } = require('@cuties/cutie')
 const { Value } = require('@cuties/json')
 const { ReadDataFromFiles, ReadFilesOfDirectory, WrittenDataToFiles } = require('@cuties/fs')
-const { Mapped } = require('@cuties/array-iteration')
-const { ProcessedObject } = require('@cuties/object')
+const { Mapped } = require('@cuties/async')
 const { Template } = require('@page-libs/static-generator')
 const Config = require('./../../async/Config')
 const HtmlFilesFromMdFiles = require('./../async/HtmlFilesFromMdFiles')
@@ -22,21 +21,16 @@ new Config('./config.json').as('config').after(
       )
     ).as('postFileNames').after(
       new Template(
-        new Value(
-          as('config'),
-          'baseTemplate'
-        )
+        new Value(as('config'), 'baseTemplate')
       ).as('baseTemplate').after(
         new WrittenDataToFiles(
-          new ProcessedObject(
+          new Mapped(
             new HtmlFilesFromMdFiles(
               new ReadDataFromFiles(
                 new Mapped(
                   as('postFileNames'),
                   new JoinedPathMapper(
-                    new Value(
-                      as('config'), 'mdPosts'
-                    )
+                    new Value(as('config'), 'mdPosts')
                   )
                 ),
                 { encoding: 'utf8' }
@@ -53,7 +47,7 @@ new Config('./config.json').as('config').after(
           ).as('posts'), { flag: 'w' }
         ).after(
           new WrittenDataToFiles(
-            new ProcessedObject(
+            new Mapped(
               new PreviewsOfPosts(
                 as('posts'),
                 new Value(
@@ -77,7 +71,7 @@ new Config('./config.json').as('config').after(
             ), { flag: 'w' }
           ).after(
             new WrittenDataToFiles(
-              new ProcessedObject(
+              new Mapped(
                 new TagPagesByPosts(
                   as('posts'),
                   new Value(
@@ -103,7 +97,7 @@ new Config('./config.json').as('config').after(
                 )
               ).as('stuffFileNames').after(
                 new WrittenDataToFiles(
-                  new ProcessedObject(
+                  new Mapped(
                     new HtmlFilesFromMdFiles(
                       new ReadDataFromFiles(
                         new Mapped(

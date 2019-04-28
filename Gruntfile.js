@@ -15,9 +15,9 @@ module.exports = function(grunt) {
         files: [
           {
             expand: true,
-            cwd: '<%= config.mainStaticJs %>',
+            cwd: '<%= config.staticJS %>',
             src: ['**/*.js'],
-            dest: '<%= config.mainOutStaticJs %>',
+            dest: '<%= config.staticJSOut %>',
             ext: '.js'
           }
         ]
@@ -26,7 +26,7 @@ module.exports = function(grunt) {
     browserify: {
       dist: {
         files: {
-          '<%= config.mainBundle %>': ['<%= config.mainOutStaticJs %>/**/*.js']
+          '<%= config.bundle %>': ['<%= config.staticJSOut %>/**/*.js']
         }
       }
     },
@@ -36,7 +36,7 @@ module.exports = function(grunt) {
       },
       my_target: {
         files: {
-          '<%= config.mainMinBundle %>': ['<%= config.mainBundle %>']
+          '<%= config.minBundle %>': ['<%= config.bundle %>']
         }
       }
     }

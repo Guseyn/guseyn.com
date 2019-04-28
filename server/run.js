@@ -7,10 +7,10 @@ const { IsMaster, ClusterWithForkedWorkers, ClusterWithExitEvent } = require('@c
 const { Value } = require('@cuties/json')
 const { ProcessWithUncaughtExceptionEvent } = require('@cuties/process')
 const Config = require('./../async/Config')
+const PrintedStage = require('./../async/PrintedStage')
 const KilledProcessOnPortIfExists = require('./async/KilledProcessOnPortIfExists')
 const ReloadedBackendOnFailedWorkerEvent = require('./events/ReloadedBackendOnFailedWorkerEvent')
 const LoggedAndThrownErrorEvent = require('./events/LoggedAndThrownErrorEvent')
-const PrintedLogoToConsole = require('./async/PrintedLogoToConsole')
 const launchedBackend = require('./launchedBackend')
 const tunedWatchers = require('./tunedWatchers')
 
@@ -30,7 +30,7 @@ new Config('./config.json').as('config').after(
         new KilledProcessOnPortIfExists(
           new Value(as('config'), `${env}.port`)
         ).after(
-          new PrintedLogoToConsole(`RUN (${env})`).after(
+          new PrintedStage(`RUN (${env})`).after(
             new If(devEnv, tunedWatchers).after(
               new If(
                 new Value(as('config'), `${env}.clusterMode`),

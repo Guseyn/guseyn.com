@@ -4,7 +4,7 @@ const { AsyncObject } = require('@cuties/cutie')
 const cheerio = require('cheerio')
 const path = require('path')
 
-class TitleTextByPath extends AsyncObject {
+class TitleText extends AsyncObject {
   constructor (filePath, content) {
     super(filePath, content)
   }
@@ -42,4 +42,4 @@ class TitleTextByPath extends AsyncObject {
   }
 }
 
-module.exports = TitleTextByPath
+module.exports = TitleText
