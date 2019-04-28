@@ -3,7 +3,7 @@
 const { as } = require('@cuties/cutie')
 const { Value } = require('@cuties/json')
 const { WatcherWithEventTypeAndFilenameListener } = require('@cuties/fs')
-const OnPageStaticJsFilesChangeEvent = require('./events/OnPageStaticJsFilesChangeEvent')
+const OnStaticJSFilesChangeEvent = require('./events/OnStaticJSFilesChangeEvent')
 const OnStaticGeneratorsChangeEvent = require('./events/OnStaticGeneratorsChangeEvent')
 const OnTemplatesChangeEvent = require('./events/OnTemplatesChangeEvent')
 
@@ -31,7 +31,7 @@ module.exports = new WatcherWithEventTypeAndFilenameListener(
       new WatcherWithEventTypeAndFilenameListener(
         new Value(as('config'), 'staticJS'),
         { persistent: true, recursive: true, encoding: 'utf8' },
-        new OnPageStaticJsFilesChangeEvent(
+        new OnStaticJSFilesChangeEvent(
           new Value(as('config'), 'staticJS'),
           new Value(as('config'), 'bundleJs')
         )
