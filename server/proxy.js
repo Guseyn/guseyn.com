@@ -10,8 +10,7 @@ const Config = require('./../async/Config')
 const KilledProcessOnPortIfExists = require('./async/KilledProcessOnPortIfExists')
 const ReloadedBackendOnFailedWorkerEvent = require('./events/ReloadedBackendOnFailedWorkerEvent')
 const LoggedAndThrownErrorEvent = require('./events/LoggedAndThrownErrorEvent')
-const redirectedBackend = require('./redirectedBackend')
-
+const ProxyBackend = require('./async/ProxyBackend')
 const env = process.env.NODE_ENV || 'local'
 
 new Config('./config.json').as('config').after(
@@ -33,7 +32,7 @@ new Config('./config.json').as('config').after(
         )
       ),
       new Else(
-        redirectedBackend
+        new ProxyBackend(as('config'))
       )
     )
   )
