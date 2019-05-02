@@ -11,8 +11,8 @@ const PrintedStage = require('./../async/PrintedStage')
 const KilledProcessOnPortIfExists = require('./async/KilledProcessOnPortIfExists')
 const ReloadedBackendOnFailedWorkerEvent = require('./events/ReloadedBackendOnFailedWorkerEvent')
 const LoggedAndThrownErrorEvent = require('./events/LoggedAndThrownErrorEvent')
-const launchedBackend = require('./launchedBackend')
-const tunedWatchers = require('./tunedWatchers')
+const LaunchedBackend = require('./async/LaunchedBackend')
+const TunedWatchers = require('./async/TunedWatchers')
 
 const numCPUs = require('os').cpus().length
 const env = process.env.NODE_ENV || 'local'
@@ -31,7 +31,7 @@ new Config('./config.json').as('config').after(
           new Value(as('config'), `${env}.port`)
         ).after(
           new PrintedStage(`RUN (${env})`).after(
-            new If(devEnv, tunedWatchers).after(
+            new If(devEnv, new TunedWatchers(as('config'))).after(
               new If(
                 new Value(as('config'), `${env}.clusterMode`),
                 new ClusterWithForkedWorkers(
@@ -40,12 +40,12 @@ new Config('./config.json').as('config').after(
                     new ReloadedBackendOnFailedWorkerEvent(cluster)
                   ), numCPUs
                 ),
-                launchedBackend
+                new LaunchedBackend(as('config'))
               )
             )
           )
         ),
-        launchedBackend
+        new LaunchedBackend(as('config'))
       )
     )
   )
