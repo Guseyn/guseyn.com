@@ -3,7 +3,7 @@
 const { Endpoint } = require('@cuties/rest')
 const { EndedResponse, ResponseWithWrittenHead } = require('@cuties/http')
 
-class RedirectEndpoint extends Endpoint {
+class ProxyEndpoint extends Endpoint {
   constructor (httpPort, httpsPort) {
     super(new RegExp(/.*/))
     this.httpPort = httpPort
@@ -20,4 +20,4 @@ class RedirectEndpoint extends Endpoint {
   }
 }
 
-module.exports = RedirectEndpoint
+module.exports = ProxyEndpoint
