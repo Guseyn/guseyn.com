@@ -16,12 +16,13 @@ window.initYoutubeVideos = (proportion) => {
     youtubeWrapper.style['width'] = '100%'
     youtubeVideos[v].parentNode.insertBefore(youtubeWrapper, youtubeVideos[v])
     youtubeWrapper.appendChild(youtubeVideos[v])
-    youtubeVideos[v].onclick = () => {
-      const videoId = this.id
+    youtubeVideos[v].onclick = (e) => {
+      const youtubeVideo = e.target.id ? e.target : e.target.parentNode
+      const videoId = youtubeVideo.id
       const videoIframe = document.createElement('iframe')
-      const className = this.getAttribute('class')
-      videoIframe.width = this.offsetWidth
-      videoIframe.height = this.offsetWidth / proportion
+      const className = youtubeVideo.getAttribute('class')
+      videoIframe.width = youtubeVideo.offsetWidth
+      videoIframe.height = youtubeVideo.offsetWidth / proportion
       videoIframe.frameBorder = 0
       videoIframe.allowfullscreen = true
       videoIframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`
@@ -29,7 +30,7 @@ window.initYoutubeVideos = (proportion) => {
       videoIframe.setAttribute('allow', 'autoplay;')
       videoIframe.setAttribute('allowfullscreen', true)
       iframes.push(videoIframe)
-      this.parentElement.replaceChild(videoIframe, this)
+      youtubeVideo.parentElement.replaceChild(videoIframe, youtubeVideo)
     }
   }
   window.addEventListener('resize', (event) => {
