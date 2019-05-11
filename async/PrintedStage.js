@@ -18,12 +18,12 @@ class PrintedLogo extends AsyncObject {
 }
 
 class PrintedStage {
-  constructor (message) {
+  constructor (config, packageJSON, message) {
     return new PrintedLogo(
       new ReadDataByPath(
-        new Value(as('config'), 'page.logoText')
+        new Value(config, 'page.logoText')
       ),
-      new Value(as('packageJSON'), 'version'),
+      new Value(packageJSON, 'version'),
       message
     )
   }
