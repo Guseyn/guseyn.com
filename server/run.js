@@ -30,7 +30,7 @@ new Config('./config.json').as('config').after(
         new KilledProcessOnPortIfExists(
           new Value(as('config'), `${env}.port`)
         ).after(
-          new PrintedStage(`RUN (${env})`).after(
+          new PrintedStage(as('config'), as('packageJSON'), `RUN (${env})`).after(
             new If(devEnv, new TunedWatchers(as('config'))).after(
               new If(
                 new Value(as('config'), `${env}.clusterMode`),

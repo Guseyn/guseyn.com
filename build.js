@@ -12,7 +12,7 @@ const env = process.env.NODE_ENV || 'local'
 
 new Config('./config.json').as('config').after(
   new Config('./package.json').as('packageJSON').after(
-    new PrintedStage(`BUILD (${env})`).after(
+    new PrintedStage(as('config'), as('packageJSON'), `BUILD (${env})`).after(
       new ExecutedLint(process, './server', './static/js/src', './test', './pages').after(
         new ExecutedTestCoverageCheck(
           new ExecutedTestCoverage(process, './test.js'),
