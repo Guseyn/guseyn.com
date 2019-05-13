@@ -28,6 +28,13 @@ body {
   background: #555; 
 }
 
+h3 {
+  font-size: 1em;
+  margin-top: 2em;
+  margin-bottom: -0.6em;
+  display: block;
+}
+
 p {
   padding-top: 1em;
   clear: both;
@@ -112,7 +119,8 @@ summary::-webkit-scrollbar {
 
 pre {
   overflow: auto;
-  margin-top: 1.2em;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
   padding-left: 4px;
   font-size: 0.7em;
   background: white;
@@ -223,8 +231,7 @@ iframe {
 .date {
   font-size: 0.8721em;
   color: #656565;
-  margin-top: -1.2em;
-  margin-bottom: 0.5em;
+  margin-top: -1.0em;
 }
 
 .pagination {
@@ -238,8 +245,8 @@ iframe {
 }
 
 .tags {
-  margin-top: 0.5em;
-  margin-bottom: 1em;
+  margin-top: 1em;
+  margin-bottom: 1.2em;
   line-height: 1.5em;
   word-break: keep-all;
 }
