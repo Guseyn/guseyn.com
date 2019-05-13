@@ -28,7 +28,7 @@ For js libraries I would recommend [eslint](https://github.com/eslint/eslint) fo
 
 So, for the *git flow* that has been described above I use a configuration (*.travis.yml* in the root of repo) with following sections: `language`, `install`, `script`, `branches`, `before_deploy`, and `deploy`.
 
-**language**
+### language
 
 Here we indicate that we use last version of node (you can specify the version).
 
@@ -38,7 +38,7 @@ node_js:
 - lts/*
 ```
 
-**install**
+### install
 
 In this section, we install all dependencies of project and also [codecov](https://github.com/codecov/codecov-node) module (we need it for badge with test coverage information).
 
@@ -48,7 +48,7 @@ install: |-
   npm install -g codecov
 ```
 
-**script**
+### script
 
 This section runs our build. If our build fails we terminate Travis CI process via command `travis_terminate 1`. It guarantees that if something is wrong in our build, Travis does not exit with success code `0`. Then we generate `nyc` report and invoke codecov to process the report. And finally, we get change log using Travis variable `$TRAVIS_COMMIT_RANGE` (we will use it as information for GitHub release).
 
@@ -61,7 +61,7 @@ script: |-
   echo $'**Change log:**<br/>'${log//$'\n'/<br/>}
 ```
 
-**branches**
+### branches
 
 Here we tell Travis to trigger only on changes in `master` branch. Also, you have to configure Travis to build pushed pull requests(in the settings of your project).
 
@@ -73,7 +73,7 @@ branches:
 
 <img style="max-width: 280px;" src="/../../image/build-pushed-pr.png">
 
-**before_deploy**
+### before_deploy
 
 Here we just export `tag` and `body` as changelog (all new commits in `master` branch) of our future release in bash variables.
 
@@ -86,7 +86,7 @@ before_deploy: |-
 
 Notice that we have to replace all `'\n'` with `'<br/>'` in `body`. Otherwise, GitHub wouldn't show it properly.
 
-**deploy**
+### deploy
 
 Use following commands to setup deploy for **npm** and **GitHub** respectively:
 
