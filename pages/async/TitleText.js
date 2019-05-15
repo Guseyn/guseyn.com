@@ -28,7 +28,7 @@ class TitleText extends AsyncObject {
         if (pathRegExp.test(filePath)) {
           if (type === 'Post') {
             const $ = cheerio.load(content)
-            title = $('h1').first().html()
+            title = $('h1').first().text()
           } else if (type === 'Tag') {
             title = `Tag: ${path.basename(filePath, '.html')}`
           } else {
