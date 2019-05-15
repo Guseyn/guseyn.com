@@ -46,7 +46,7 @@
         <p>Let's start with interface <code>Endpoint</code> and some default built-in implementations of this interface that this library provides.</p>
         <h3 id="endpointregexpurlmethodstringargs"><code>Endpoint(regexpUrl, method(string)[, ...args])</code></h3>
         <p>This interface declares an endpoint (in api) with <code>url</code> that matches <code>regexpUrl</code> and specified <code>method</code> (<code>'GET'</code>, <code>'POST'</code>, etc.) in arguments of constructor. Also it's possible to pass some custom arguments via <code>...args</code>. This class has a method <code>body(request, response[, ...args])</code> that needs to be overridden and must return async object.</p>
-        <p>It's important to mention that <code>Endpoint</code> is not an <code>AsyncObject</code>. That's how you can implement an <code>Endpoint</code>:</p>
+        <p>It's important to mention that <code>Endpoint</code> is not an <code>AsyncObject</code>. And that's how you can implement an it:</p>
         <pre><code class="js language-js">const { Endpoint } = require('@cuties/rest')
 const {
   ResponseWithHeader,
@@ -230,8 +230,7 @@ new Backend(
         <p>It's an <code>AsyncObject</code> that represents <code>ServingFilesEndpoint</code>. So, you can use its arguments as async objects.</p>
         <h3 id="createdservingfilesendpointregexpurlmapperheadersnotfoundendpoint-1"><code>CreatedServingFilesEndpoint(regexpUrl, mapper, headers, notFoundEndpoint)</code></h3>
         <p>It's an <code>AsyncObject</code> that represents <code>CachedServingFilesEndpoint</code>. So, you can use its arguments as async objects.</p>
-        <p>Let's see how endpoints are implemented.</p>
-        <h3 id="customindexendpoint"><code>CustomIndexEndpoint</code></h3>
+        <p>Let's see now how endpoints <code>CustomIndexEndpoint</code>, <code>CustomNotFoundEndpoint</code>, <code>SimpleResponseOnGETRequest</code>, <code>SimpleResponseOnPOSTRequest</code>, <code>CustomInternalServerErrorEndpoint</code> are implemented.</p>
         <pre><code class="js language-js">class CustomIndexEndpoint extends IndexEndpoint {
   constructor () {
     super()
@@ -242,7 +241,6 @@ new Backend(
   }
 }
 </code></pre>
-        <h3 id="customnotfoundendpoint"><code>CustomNotFoundEndpoint</code></h3>
         <pre><code class="js language-js">class CustomNotFoundEndpoint extends NotFoundEndpoint {
   constructor (regexpUrl) {
     super(regexpUrl)
@@ -253,7 +251,6 @@ new Backend(
   }
 }
 </code></pre>
-        <h3 id="simpleresponseongetrequest"><code>SimpleResponseOnGETRequest</code></h3>
         <pre><code class="js language-js">class SimpleResponseOnGETRequest extends Endpoint {
   constructor (regexpUrl, type) {
     super(regexpUrl, type)
@@ -272,7 +269,6 @@ new Backend(
   }
 }
 </code></pre>
-        <h3 id="simpleresponseonpostrequest"><code>SimpleResponseOnPOSTRequest</code></h3>
         <pre><code class="js language-js">class SimpleResponseOnPOSTRequest extends Endpoint {
   constructor (regexpUrl, type) {
     super(regexpUrl, type)
@@ -292,7 +288,6 @@ new Backend(
   }
 }
 </code></pre>
-        <h3 id="custominternalservererrorendpoint"><code>CustomInternalServerErrorEndpoint</code></h3>
         <pre><code class="js language-js">class CustomInternalServerErrorEndpoint extends InternalServerErrorEndpoint {
   constructor (regexpUrl) {
     super(regexpUrl)

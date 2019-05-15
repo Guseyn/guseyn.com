@@ -17,7 +17,7 @@ Let's start with interface `Endpoint` and some default built-in implementations 
 
 This interface declares an endpoint (in api) with `url` that matches `regexpUrl` and specified `method` (`'GET'`, `'POST'`, etc.) in arguments of constructor. Also it's possible to pass some custom arguments via `...args`. This class has a method `body(request, response[, ...args])` that needs to be overridden and must return async object.
 
-It's important to mention that `Endpoint` is not an `AsyncObject`. That's how you can implement an `Endpoint`:
+It's important to mention that `Endpoint` is not an `AsyncObject`. And that's how you can implement an it:
 
 ```js
 
@@ -240,9 +240,7 @@ It's an `AsyncObject` that represents `ServingFilesEndpoint`. So, you can use it
 
 It's an `AsyncObject` that represents `CachedServingFilesEndpoint`. So, you can use its arguments as async objects.
 
-Let's see how endpoints are implemented.
-
-### `CustomIndexEndpoint`
+Let's see now how endpoints `CustomIndexEndpoint`, `CustomNotFoundEndpoint`, `SimpleResponseOnGETRequest`, `SimpleResponseOnPOSTRequest`, `CustomInternalServerErrorEndpoint` are implemented.
 
 ```js
 class CustomIndexEndpoint extends IndexEndpoint {
@@ -256,8 +254,6 @@ class CustomIndexEndpoint extends IndexEndpoint {
 }
 ```
 
-### `CustomNotFoundEndpoint`
-
 ```js
 class CustomNotFoundEndpoint extends NotFoundEndpoint {
   constructor (regexpUrl) {
@@ -269,8 +265,6 @@ class CustomNotFoundEndpoint extends NotFoundEndpoint {
   }
 }
 ```
-
-### `SimpleResponseOnGETRequest`
 
 ```js
 class SimpleResponseOnGETRequest extends Endpoint {
@@ -292,8 +286,6 @@ class SimpleResponseOnGETRequest extends Endpoint {
 }
 ```
 
-### `SimpleResponseOnPOSTRequest`
-
 ```js
 class SimpleResponseOnPOSTRequest extends Endpoint {
   constructor (regexpUrl, type) {
@@ -314,8 +306,6 @@ class SimpleResponseOnPOSTRequest extends Endpoint {
   }
 }
 ```
-
-### `CustomInternalServerErrorEndpoint`
 
 ```js
 class CustomInternalServerErrorEndpoint extends InternalServerErrorEndpoint {
