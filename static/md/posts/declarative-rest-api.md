@@ -240,7 +240,7 @@ It's an `AsyncObject` that represents `ServingFilesEndpoint`. So, you can use it
 
 It's an `AsyncObject` that represents `CachedServingFilesEndpoint`. So, you can use its arguments as async objects.
 
-Let's see now how endpoints `CustomIndexEndpoint`, `CustomNotFoundEndpoint`, `SimpleResponseOnGETRequest`, `SimpleResponseOnPOSTRequest`, `CustomInternalServerErrorEndpoint` are implemented.
+Let's see now how `CustomIndexEndpoint`, `CustomNotFoundEndpoint`, `SimpleResponseOnGETRequest`, `SimpleResponseOnPOSTRequest` and `CustomInternalServerErrorEndpoint` are implemented.
 
 ```js
 class CustomIndexEndpoint extends IndexEndpoint {
