@@ -11,10 +11,9 @@
 
 We all are used to MVC for building REST applications. In this article, I'll show how you can build REST API using object-oriented approach. It'll be demonstrated on my library **[cutie-rest](https://github.com/Guseyn/cutie-rest)** which was released recently.
 
-Let's start with interface **Endpoint** and some default built-in implementations of this interface that this library provides.
+Let's start with interface `Endpoint` and some default built-in implementations of this interface that this library provides.
 
-<br/>
-**`Endpoint(regexpUrl, method(string)[, ...args])`**
+### `Endpoint(regexpUrl, method(string)[, ...args])`
 
 This interface declares an endpoint (in api) with `url` that matches `regexpUrl` and specified `method` (`'GET'`, `'POST'`, etc.) in arguments of constructor. Also it's possible to pass some custom arguments via `...args`. This class has a method `body(request, response[, ...args])` that needs to be overridden and must return async object.
 
@@ -54,8 +53,7 @@ class CustomEndpoint extends Endpoint {
 
 To handle `request` and `response` in the method `body` you can use [cutie-http](https://github.com/Guseyn/cutie-http).
 
-<br/>
-**`NotFoundEndpoint(regexpUrl)`**
+### `NotFoundEndpoint(regexpUrl)`
 
 This interface (or abstract class) extends `Endpoint`, and it declares endpoint on **`404(NOT_FOUND)`** status. 
 
@@ -95,8 +93,7 @@ class NotFoundEndpoint extends Endpoint {
 
 You can create your custom variation of `Endpoint`. Just extends this default class with redefined method `body`.
 
-<br/>
-**`IndexEndpoint()`**
+### `IndexEndpoint()`
 
 It's an `Endpoint` that is used for representing index page.
 
@@ -131,8 +128,7 @@ class IndexEndpoint extends Endpoint {
 }
 ```
 
-<br/>
-**`InternalServerErrorEndpoint(regexpUrl)`**
+### `InternalServerErrorEndpoint(regexpUrl)`
 
 It's an `Endpoint` that is used for handling underlying internal failure(not for user error) with status code **`500`**.
 
@@ -216,45 +212,37 @@ new Backend(
 ).call()
 ```
 
-<br/>
-**`Backend(protocol, port, host, api[, options])`**
+### `Backend(protocol, port, host, api[, options])`
 
 It's an `AsyncObject`. It declares a backend server with `protocol` (*http* or *https*) on specified `port` and `host`, also it provides declared `api`, `options` of the *http/https* server (it's optional).
 
-<br/>
-**`RestApi(...endpoints)`**
+### `RestApi(...endpoints)`
 
 Represents request-response listener. Declares endpoints of api.
 
-<br/>
-**`RequestBody(request)`**
+### `RequestBody(request)`
 
 Reads body of request in `body(request, response)` method of `Endpoint` implementation.
 
-<br/>
-**`ServingFilesEndpoint(regexpUrl, mapper, headers, notFoundEndpoint)`**
+### `ServingFilesEndpoint(regexpUrl, mapper, headers, notFoundEndpoint)`
 
 Extends `Endpoint` and serves files on url that mathes `regexpUrl` with `mapper` function that gets location of a file on a disk by the url of incoming request. Also it's required to declare `notFoundEndpoint` that handles the cases when a file is not found. You also can specify headers in response(no need to specify the `'Content-Type'`, library makes it for you).
 
-<br/>
-**`CachedServingFilesEndpoint(regexpUrl, mapper, headers, notFoundEndpoint)`**
+### `CachedServingFilesEndpoint(regexpUrl, mapper, headers, notFoundEndpoint)`
 
 Does the same that `ServingFilesEndpoint` does and caches files for increasing speed of serving them.
 
-<br/>
-**`CreatedServingFilesEndpoint(regexpUrl, mapper, headers, notFoundEndpoint)`**
+### `CreatedServingFilesEndpoint(regexpUrl, mapper, headers, notFoundEndpoint)`
 
 It's an `AsyncObject` that represents `ServingFilesEndpoint`. So, you can use its arguments as async objects.
 
-<br/>
-**`CreatedServingFilesEndpoint(regexpUrl, mapper, headers, notFoundEndpoint)`**
+### `CreatedServingFilesEndpoint(regexpUrl, mapper, headers, notFoundEndpoint)`
 
 It's an `AsyncObject` that represents `CachedServingFilesEndpoint`. So, you can use its arguments as async objects.
 
 Let's see how endpoints are implemented.
 
-<br/>
-**`CustomIndexEndpoint`**
+### `CustomIndexEndpoint`
 
 ```js
 class CustomIndexEndpoint extends IndexEndpoint {
@@ -268,8 +256,7 @@ class CustomIndexEndpoint extends IndexEndpoint {
 }
 ```
 
-<br/>
-**`CustomNotFoundEndpoint`**
+### `CustomNotFoundEndpoint`
 
 ```js
 class CustomNotFoundEndpoint extends NotFoundEndpoint {
@@ -283,8 +270,7 @@ class CustomNotFoundEndpoint extends NotFoundEndpoint {
 }
 ```
 
-<br/>
-**`SimpleResponseOnGETRequest`**
+### `SimpleResponseOnGETRequest`
 
 ```js
 class SimpleResponseOnGETRequest extends Endpoint {
@@ -306,8 +292,7 @@ class SimpleResponseOnGETRequest extends Endpoint {
 }
 ```
 
-<br/>
-**`SimpleResponseOnPOSTRequest`**
+### `SimpleResponseOnPOSTRequest`
 
 ```js
 class SimpleResponseOnPOSTRequest extends Endpoint {
@@ -330,8 +315,7 @@ class SimpleResponseOnPOSTRequest extends Endpoint {
 }
 ```
 
-<br/>
-**`CustomInternalServerErrorEndpoint`**
+### `CustomInternalServerErrorEndpoint`
 
 ```js
 class CustomInternalServerErrorEndpoint extends InternalServerErrorEndpoint {
