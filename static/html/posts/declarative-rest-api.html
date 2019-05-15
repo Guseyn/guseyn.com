@@ -11,41 +11,40 @@
     <title>Declarative REST API</title>
     <link rel="shortcut icon" type="image/png" href="/../image/favicon.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i|Source+Sans+Pro:400,400i,700,700i" type="text/css">
-    <link rel="stylesheet" href="/../css/normalize.css?v=1.0.116" type="text/css">
-    <link rel="stylesheet" href="/../css/main.css?v=1.0.116" type="text/css">
-    <link rel="stylesheet" href="/../css/main-night.css?v=1.0.116" disabled id="main-night" type="text/css">
-    <link rel="stylesheet" href="/../css/github-gist.css?v=1.0.116" type="text/css">
-    <link rel="stylesheet" href="/../css/github-gist-night.css?v=1.0.116" disabled id="github-gist-night" type="text/css">
-    <script src="/../js/bundle.min.js?v=1.0.116" type="text/javascript"></script>
-    <script src="/../js/highlight.pack.js?v=1.0.116" type="text/javascript"></script>
+    <link rel="stylesheet" href="/../css/normalize.css?v=1.0.117" type="text/css">
+    <link rel="stylesheet" href="/../css/main.css?v=1.0.117" type="text/css">
+    <link rel="stylesheet" href="/../css/main-night.css?v=1.0.117" disabled id="main-night" type="text/css">
+    <link rel="stylesheet" href="/../css/github-gist.css?v=1.0.117" type="text/css">
+    <link rel="stylesheet" href="/../css/github-gist-night.css?v=1.0.117" disabled id="github-gist-night" type="text/css">
+    <script src="/../js/bundle.min.js?v=1.0.117" type="text/javascript"></script>
+    <script src="/../js/highlight.pack.js?v=1.0.117" type="text/javascript"></script>
   </head>
 
   <body class="main">
     <div class="base">
       <div class="menu">
-        <a href="/../stuff/about?v=1.0.116">About</a>
-        <a href="/../stuff/projects?v=1.0.116">Projects</a>
-        <a href="/../previews/1?v=1.0.116">Posts</a>
-        <a href="/../stuff/slides?v=1.0.116">Slides</a>
-        <a href="/../stuff/papers?v=1.0.116">Papers</a>
-        <a href="/../stuff/talks?v=1.0.116">Talks</a>
-        <a href="/../stuff/podcasts?v=1.0.116" style="display: none;">Podcasts</a>
-        <a href="/../stuff/covers?v=1.0.116">♫ Covers</a>
+        <a href="/../stuff/about?v=1.0.117">About</a>
+        <a href="/../stuff/projects?v=1.0.117">Projects</a>
+        <a href="/../previews/1?v=1.0.117">Posts</a>
+        <a href="/../stuff/slides?v=1.0.117">Slides</a>
+        <a href="/../stuff/papers?v=1.0.117">Papers</a>
+        <a href="/../stuff/talks?v=1.0.117">Talks</a>
+        <a href="/../stuff/podcasts?v=1.0.117" style="display: none;">Podcasts</a>
+        <a href="/../stuff/covers?v=1.0.117">♫ Covers</a>
       </div>
       <div class="day-night" id="day-night"></div>
       <div class="content">
         <h1 id="declarativerestapi">Declarative REST API</h1>
         <div class="date">16 June 2018</div>
         <div class="tags">
-          <a class="tag" href="/../tags/library?v=1.0.116">library</a>
-          <a class="tag" href="/../tags/oop?v=1.0.116">oop</a>
-          <a class="tag" href="/../tags/node?v=1.0.116">node</a>
-          <a class="tag" href="/../tags/asyncobjects?v=1.0.116">async objects</a>
+          <a class="tag" href="/../tags/library?v=1.0.117">library</a>
+          <a class="tag" href="/../tags/oop?v=1.0.117">oop</a>
+          <a class="tag" href="/../tags/node?v=1.0.117">node</a>
+          <a class="tag" href="/../tags/asyncobjects?v=1.0.117">async objects</a>
         </div>
         <p>We all are used to MVC for building REST applications. In this article, I'll show how you can build REST API using object-oriented approach. It'll be demonstrated on my library <strong><a href="https://github.com/Guseyn/cutie-rest">cutie-rest</a></strong> which was released recently.</p>
-        <p>Let's start with interface <strong>Endpoint</strong> and some default built-in implementations of this interface that this library provides.</p>
-        <p><br />
-          <strong><code>Endpoint(regexpUrl, method(string)[, ...args])</code></strong></p>
+        <p>Let's start with interface <code>Endpoint</code> and some default built-in implementations of this interface that this library provides.</p>
+        <h3 id="endpointregexpurlmethodstringargs"><code>Endpoint(regexpUrl, method(string)[, ...args])</code></h3>
         <p>This interface declares an endpoint (in api) with <code>url</code> that matches <code>regexpUrl</code> and specified <code>method</code> (<code>'GET'</code>, <code>'POST'</code>, etc.) in arguments of constructor. Also it's possible to pass some custom arguments via <code>...args</code>. This class has a method <code>body(request, response[, ...args])</code> that needs to be overridden and must return async object.</p>
         <p>It's important to mention that <code>Endpoint</code> is not an <code>AsyncObject</code>. That's how you can implement an <code>Endpoint</code>:</p>
         <pre><code class="js language-js">const { Endpoint } = require('@cuties/rest')
@@ -78,8 +77,7 @@ class CustomEndpoint extends Endpoint {
 }
 </code></pre>
         <p>To handle <code>request</code> and <code>response</code> in the method <code>body</code> you can use <a href="https://github.com/Guseyn/cutie-http">cutie-http</a>.</p>
-        <p><br />
-          <strong><code>NotFoundEndpoint(regexpUrl)</code></strong></p>
+        <h3 id="notfoundendpointregexpurl"><code>NotFoundEndpoint(regexpUrl)</code></h3>
         <p>This interface (or abstract class) extends <code>Endpoint</code>, and it declares endpoint on <strong><code>404(NOT_FOUND)</code></strong> status. </p>
         <p>And that's how it's implmented:</p>
         <pre><code class="js language-js">const { Endpoint } = require('@cuties/rest')
@@ -112,8 +110,7 @@ class NotFoundEndpoint extends Endpoint {
 }
 </code></pre>
         <p>You can create your custom variation of <code>Endpoint</code>. Just extends this default class with redefined method <code>body</code>.</p>
-        <p><br />
-          <strong><code>IndexEndpoint()</code></strong></p>
+        <h3 id="indexendpoint"><code>IndexEndpoint()</code></h3>
         <p>It's an <code>Endpoint</code> that is used for representing index page.</p>
         <pre><code class="js language-js">const { Endpoint } = require('@cuties/rest')
 const {
@@ -144,8 +141,7 @@ class IndexEndpoint extends Endpoint {
   }
 }
 </code></pre>
-        <p><br />
-          <strong><code>InternalServerErrorEndpoint(regexpUrl)</code></strong></p>
+        <h3 id="internalservererrorendpointregexpurl"><code>InternalServerErrorEndpoint(regexpUrl)</code></h3>
         <p>It's an <code>Endpoint</code> that is used for handling underlying internal failure(not for user error) with status code <strong><code>500</code></strong>.</p>
         <pre><code class="js language-js">const { Endpoint } = require('@cuties/rest')
 const {
@@ -220,30 +216,22 @@ new Backend(
   )
 ).call()
 </code></pre>
-        <p><br />
-          <strong><code>Backend(protocol, port, host, api[, options])</code></strong></p>
+        <h3 id="backendprotocolporthostapioptions"><code>Backend(protocol, port, host, api[, options])</code></h3>
         <p>It's an <code>AsyncObject</code>. It declares a backend server with <code>protocol</code> (<em>http</em> or <em>https</em>) on specified <code>port</code> and <code>host</code>, also it provides declared <code>api</code>, <code>options</code> of the <em>http/https</em> server (it's optional).</p>
-        <p><br />
-          <strong><code>RestApi(...endpoints)</code></strong></p>
+        <h3 id="restapiendpoints"><code>RestApi(...endpoints)</code></h3>
         <p>Represents request-response listener. Declares endpoints of api.</p>
-        <p><br />
-          <strong><code>RequestBody(request)</code></strong></p>
+        <h3 id="requestbodyrequest"><code>RequestBody(request)</code></h3>
         <p>Reads body of request in <code>body(request, response)</code> method of <code>Endpoint</code> implementation.</p>
-        <p><br />
-          <strong><code>ServingFilesEndpoint(regexpUrl, mapper, headers, notFoundEndpoint)</code></strong></p>
+        <h3 id="servingfilesendpointregexpurlmapperheadersnotfoundendpoint"><code>ServingFilesEndpoint(regexpUrl, mapper, headers, notFoundEndpoint)</code></h3>
         <p>Extends <code>Endpoint</code> and serves files on url that mathes <code>regexpUrl</code> with <code>mapper</code> function that gets location of a file on a disk by the url of incoming request. Also it's required to declare <code>notFoundEndpoint</code> that handles the cases when a file is not found. You also can specify headers in response(no need to specify the <code>'Content-Type'</code>, library makes it for you).</p>
-        <p><br />
-          <strong><code>CachedServingFilesEndpoint(regexpUrl, mapper, headers, notFoundEndpoint)</code></strong></p>
+        <h3 id="cachedservingfilesendpointregexpurlmapperheadersnotfoundendpoint"><code>CachedServingFilesEndpoint(regexpUrl, mapper, headers, notFoundEndpoint)</code></h3>
         <p>Does the same that <code>ServingFilesEndpoint</code> does and caches files for increasing speed of serving them.</p>
-        <p><br />
-          <strong><code>CreatedServingFilesEndpoint(regexpUrl, mapper, headers, notFoundEndpoint)</code></strong></p>
+        <h3 id="createdservingfilesendpointregexpurlmapperheadersnotfoundendpoint"><code>CreatedServingFilesEndpoint(regexpUrl, mapper, headers, notFoundEndpoint)</code></h3>
         <p>It's an <code>AsyncObject</code> that represents <code>ServingFilesEndpoint</code>. So, you can use its arguments as async objects.</p>
-        <p><br />
-          <strong><code>CreatedServingFilesEndpoint(regexpUrl, mapper, headers, notFoundEndpoint)</code></strong></p>
+        <h3 id="createdservingfilesendpointregexpurlmapperheadersnotfoundendpoint-1"><code>CreatedServingFilesEndpoint(regexpUrl, mapper, headers, notFoundEndpoint)</code></h3>
         <p>It's an <code>AsyncObject</code> that represents <code>CachedServingFilesEndpoint</code>. So, you can use its arguments as async objects.</p>
         <p>Let's see how endpoints are implemented.</p>
-        <p><br />
-          <strong><code>CustomIndexEndpoint</code></strong></p>
+        <h3 id="customindexendpoint"><code>CustomIndexEndpoint</code></h3>
         <pre><code class="js language-js">class CustomIndexEndpoint extends IndexEndpoint {
   constructor () {
     super()
@@ -254,8 +242,7 @@ new Backend(
   }
 }
 </code></pre>
-        <p><br />
-          <strong><code>CustomNotFoundEndpoint</code></strong></p>
+        <h3 id="customnotfoundendpoint"><code>CustomNotFoundEndpoint</code></h3>
         <pre><code class="js language-js">class CustomNotFoundEndpoint extends NotFoundEndpoint {
   constructor (regexpUrl) {
     super(regexpUrl)
@@ -266,8 +253,7 @@ new Backend(
   }
 }
 </code></pre>
-        <p><br />
-          <strong><code>SimpleResponseOnGETRequest</code></strong></p>
+        <h3 id="simpleresponseongetrequest"><code>SimpleResponseOnGETRequest</code></h3>
         <pre><code class="js language-js">class SimpleResponseOnGETRequest extends Endpoint {
   constructor (regexpUrl, type) {
     super(regexpUrl, type)
@@ -286,8 +272,7 @@ new Backend(
   }
 }
 </code></pre>
-        <p><br />
-          <strong><code>SimpleResponseOnPOSTRequest</code></strong></p>
+        <h3 id="simpleresponseonpostrequest"><code>SimpleResponseOnPOSTRequest</code></h3>
         <pre><code class="js language-js">class SimpleResponseOnPOSTRequest extends Endpoint {
   constructor (regexpUrl, type) {
     super(regexpUrl, type)
@@ -307,8 +292,7 @@ new Backend(
   }
 }
 </code></pre>
-        <p><br />
-          <strong><code>CustomInternalServerErrorEndpoint</code></strong></p>
+        <h3 id="custominternalservererrorendpoint"><code>CustomInternalServerErrorEndpoint</code></h3>
         <pre><code class="js language-js">class CustomInternalServerErrorEndpoint extends InternalServerErrorEndpoint {
   constructor (regexpUrl) {
     super(regexpUrl)
