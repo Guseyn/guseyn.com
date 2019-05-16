@@ -17,7 +17,7 @@ Let's start with interface `Endpoint` and some default built-in implementations 
 
 This interface declares an endpoint (in api) with `url` that matches `regexpUrl` and specified `method` (`'GET'`, `'POST'`, etc.) in arguments of constructor. Also it's possible to pass some custom arguments via `...args`. This class has a method `body(request, response[, ...args])` that needs to be overridden and must return async object.
 
-It's important to mention that `Endpoint` is not an `AsyncObject`. And that's how you can implement an it:
+It's important to mention that `Endpoint` is not an `AsyncObject`. And that's how you can implement it:
 
 ```js
 
@@ -57,7 +57,7 @@ To handle `request` and `response` in the method `body` you can use [cutie-http]
 
 This interface (or abstract class) extends `Endpoint`, and it declares endpoint on **`404(NOT_FOUND)`** status. 
 
-And that's how it's implmented:
+And that's how it's implemented:
 
 ```js
 
