@@ -30,8 +30,8 @@ body {
 
 h3 {
   font-size: 1em;
-  margin-top: 1.4em;
-  margin-bottom: -0.7em;
+  margin-top: 1.6em;
+  margin-bottom: -1em;
   display: block;
 }
 
@@ -59,7 +59,10 @@ h1 a {
 
 ol, ul {
   padding: 0 1.14em;
-  margin-top: -0.7em;
+}
+
+ol {
+  margin-top: -0.8em;
 }
 
 li {
