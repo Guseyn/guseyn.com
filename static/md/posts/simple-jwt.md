@@ -21,8 +21,11 @@ JWT is a string that has following format:
 Let's go through typical workflow of using JWT.
 
 1. User signs in a system with some sensitive data like `password` and simple user data like `email` or `user name`. After successfull authentication user gets an access token from server. This token has expiration time, so user cannot use it forever.
+
 2. We save it to local storage, so user can always have it for calling REST API methods.
+
 3. Every time user calls a method from API, we send JWT in headers of request and server verifies that token. If it's valid we are allowed to use API method, otherwise we must sign in the system again to get new access token. It's important to use secure protocols like `https`, because JWT is sensitive data.
+
 4. If you signs out the system, we delete access token from local storage.
 
 For creating JWT we need two objects: `header` and `payload`.

@@ -62,7 +62,7 @@ ol, ul {
 }
 
 ol {
-  margin-top: -0.8em;
+  margin-top: -0.5em;
 }
 
 li {
@@ -123,7 +123,7 @@ summary::-webkit-scrollbar {
 
 pre {
   overflow: auto;
-  margin-top: 0.5em;
+  margin-top: 0.8em;
   margin-bottom: 1em;
   padding-left: 4px;
   font-size: 0.7em;
