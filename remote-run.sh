@@ -9,3 +9,4 @@ NODE_ENV=prod node server/proxy.js
 # /etc/letsencrypt/live/guseyn.com/privkey.pem
 
 # page r test & NODE_ENV=test node server/proxy.js
+# page r prod & NODE_ENV=test node server/proxy.js
