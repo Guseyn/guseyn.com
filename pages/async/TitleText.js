@@ -14,8 +14,11 @@ class TitleText extends AsyncObject {
       let title
       let titleMap = {
         'Post': new RegExp(/^static\/html\/posts/),
+        'Rus Post': new RegExp(/^static\/html\/rus-posts/),
         'Posts': new RegExp(/^static\/html\/previews/),
+        'Rus Posts': new RegExp(/^static\/html\/rus-previews/),
         'Tag': new RegExp(/^static\/html\/tags/),
+        'Rus Tag': new RegExp(/^static\/html\/rus-tags/),
         'About': new RegExp(/^static\/html\/stuff\/about.html/),
         'Papers': new RegExp(/^static\/html\/stuff\/papers.html/),
         'Slides': new RegExp(/^static\/html\/stuff\/slides.html/),
@@ -26,10 +29,10 @@ class TitleText extends AsyncObject {
       for (let type in titleMap) {
         const pathRegExp = titleMap[type]
         if (pathRegExp.test(filePath)) {
-          if (type === 'Post') {
+          if (type === 'Post' || type === 'Rus Post') {
             const $ = cheerio.load(content)
             title = $('h1').first().text()
-          } else if (type === 'Tag') {
+          } else if (type === 'Tag' || type === 'Rus Tag') {
             title = `Tag: ${path.basename(filePath, '.html')}`
           } else {
             title = type

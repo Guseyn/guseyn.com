@@ -42,7 +42,7 @@ module.exports = class {
       ),
       new Created(
         servingFilesEndpoint,
-        new RegExp(/^\/(posts|previews|stuff|tags)/),
+        new RegExp(/^\/(posts|rus-posts|previews|rus-previews|stuff|tags|rus-tags)/),
         new CuteUrlToFSPathForHtmlMapper(
           new Value(config, 'staticHtml')
         ),

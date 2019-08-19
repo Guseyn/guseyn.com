@@ -35,6 +35,13 @@ h3 {
   display: block;
 }
 
+h4 {
+  font-size: 1em;
+  margin-top: 1.6em;
+  margin-bottom: 0em;
+  display: block;
+}
+
 p {
   padding-top: 1em;
   clear: both;

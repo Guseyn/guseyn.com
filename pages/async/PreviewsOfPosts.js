@@ -5,12 +5,12 @@ const cheerio = require('cheerio')
 const path = require('path')
 
 class PreviewsOfPosts extends AsyncObject {
-  constructor (posts, dirToSave, bundleSize, version) {
-    super(posts, dirToSave, bundleSize, version)
+  constructor (posts, dirToSave, postPartInLink, previewPartInLink, bundleSize, version) {
+    super(posts, dirToSave, postPartInLink, previewPartInLink, bundleSize, version)
   }
 
   syncCall () {
-    return (posts, dirToSave, bundleSize, version) => {
+    return (posts, dirToSave, postPartInLink, previewPartInLink, bundleSize, version) => {
       const previews = {}
       const postsLen = Object.keys(posts).length
       const totalPreviewPagesNumber = Math.ceil(postsLen / bundleSize)
@@ -18,7 +18,7 @@ class PreviewsOfPosts extends AsyncObject {
       let previewsCount = 1
       this.sortedPostPathsByDate(posts).forEach((postPath, index) => {
         const postContent = posts[postPath]
-        const postLink = `/../posts/${path.basename(postPath, '.html')}?v=${version}`
+        const postLink = `/../${postPartInLink}/${path.basename(postPath, '.html')}?v=${version}`
         const contentDiv = this.contentDiv(postContent)
         const key = path.join(dirToSave, `${previewsCount}.html`)
         previews[key] = previews[key] || ''
@@ -29,7 +29,7 @@ class PreviewsOfPosts extends AsyncObject {
           this.continueLink(postLink)
         )
         if (currentBundleCount === bundleSize || index === postsLen - 1) {
-          previews[key] += this.pagination(previewsCount, totalPreviewPagesNumber)
+          previews[key] += this.pagination(previewPartInLink, previewsCount, totalPreviewPagesNumber)
           currentBundleCount = 1
           previewsCount += 1
         } else {
@@ -81,14 +81,14 @@ class PreviewsOfPosts extends AsyncObject {
     return previewContent.html()
   }
 
-  pagination (previewsCount, totalPreviewPagesNumber) {
+  pagination (previewPartInLink, previewsCount, totalPreviewPagesNumber) {
     let prevLink = ''
     let nextLink = ''
     if (previewsCount !== 1) {
-      prevLink = `<a class="prev" href="./../previews/${previewsCount - 1}"> << </a>`
+      prevLink = `<a class="prev" href="./../${previewPartInLink}/${previewsCount - 1}"> << </a>`
     }
     if (previewsCount !== totalPreviewPagesNumber) {
-      nextLink = `<a class="next" href="./../previews/${previewsCount + 1}"> >> </a>`
+      nextLink = `<a class="next" href="./../${previewPartInLink}/${previewsCount + 1}"> >> </a>`
     }
     return `<div class="pagination">${prevLink}<span class="current-page">${previewsCount} / ${totalPreviewPagesNumber}</span>${nextLink}</div>`
   }
