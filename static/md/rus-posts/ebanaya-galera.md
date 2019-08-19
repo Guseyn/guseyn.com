@@ -81,3 +81,5 @@
 * [Yegor Bugayenko - How Bright is Your Future?](https://www.youtube.com/watch?v=IGbteQpTNCA)
 * [Decline of Detroit](https://en.wikipedia.org/wiki/Decline_of_Detroit)
 * [То самое видео](https://www.youtube.com/watch?v=nGfeSo52_8A)
+
+[КОММЕНТЫ НА РЕДДИТЕ](https://www.reddit.com/user/gyen/comments/cslck9/%D0%BA%D0%B0%D0%BA_%D1%81%D1%8A%D0%B5%D0%B1%D0%B0%D1%82%D1%8C_%D1%81_%D0%B5%D0%B1%D0%B0%D0%BD%D0%BE%D0%B9_%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D1%8B/)
