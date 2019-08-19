@@ -77,11 +77,27 @@ li {
 }
 
 img:not(.photo):not(.project-logo):not(.article-logo):not(.youtube-video-play):not(.left-to-link) {
-  margin: 1em 0;
   width: 100%;
   height: auto;
 }
 
+.image-box {
+  margin: 2em 0 1em 0;
+  width: 100%;
+  height: auto;
+  clear: both;
+}
+
+.image-title {
+  position: absolute;
+  background: white;
+  color: black;
+  height: auto;
+  opacity: 0.6;
+  padding: 1em;
+  font-size: 0.8em;
+  margin-top: -4em;
+}
 
 details {
   padding: 0em 0.5em 0.5em 0em;
@@ -373,8 +389,14 @@ iframe {
     margin-bottom: 0;
   }
   img:not(.photo):not(.project-logo):not(.article-logo):not(.youtube-video-play):not(.left-to-link) {
-    margin: 1em 3%;
+    width: 100%;
+  }
+  .image-box {
+    margin: 2em 3% 1em 3%;
     width: 94%;
+    height: auto;
+  }
+  .image-title {
   }
   pre {
     font-size: 0.734em;
