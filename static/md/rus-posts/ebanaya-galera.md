@@ -1,5 +1,5 @@
 # Как Съебать С Ебаной Галеры 
-<div class="date">19 August 2018</div>
+<div class="date">19 August 2019</div>
 
 <div class="tags">
   <a class="tag" href="/../rus-tags/galera?v={version}">галера</a>
