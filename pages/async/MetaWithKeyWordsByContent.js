@@ -16,14 +16,12 @@ class MetaWithKeyWordsByContent extends AsyncObject {
       $('h1').each((index, elm) => {
         titles = titles.concat(
           $(elm).text()
-            .replace(/[^\w\s]|_/g, '')
             .replace(/\s+/g, ' ')
             .split(' ')
         )
       })
       $('a.tag').each((index, elm) => {
         tags.push($(elm).text()
-          .replace(/[^\w\s]|_/g, '')
           .replace(/\s+/g, ' ')
         )
       })
