@@ -1,0 +1,195 @@
+body {
+  background: #ffffff;
+  color: #111111;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  line-height: 1.4em;
+}
+
+a {
+  color: #111111;
+}
+
+.content {
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  clear: both;
+  margin: 0 auto;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  overflow: hidden;
+  font-size: 1.14em;
+}
+
+.intro {
+  width: 100%;
+}
+
+.info-box {
+  margin-top: 1.5em;
+}
+
+.display {
+  width: 100%;
+  margin: 0 auto;
+  height: auto;
+  padding-bottom: 1em;
+  border: 1px solid #a9a9a9;
+  border-radius: 0.5em;
+}
+
+.display-title {
+  width: 100%;
+  color: #454545;
+  text-align: center;
+  padding-top: 1em;
+}
+
+.display-list-elm, .display-list-little-elm {
+  width: 80%;
+  padding: 1em;
+  background: #f5f5f5;
+  border: 1px solid #dedede;
+  border-radius: 1em;
+  color: #454545;
+  margin: 1em auto;
+}
+
+.display-list-little-elm {
+  width: 60%;
+  padding: 0.5em;
+  border-radius: 0.3em;
+  margin: 0.3em auto;
+}
+
+.display-action-box {
+  width: 80%;
+  padding: 1em;
+  border: 1px solid #dedede;
+  border-radius: 0.4em;
+  margin: 15px auto;
+  color: #454545;
+  overflow: hidden;
+}
+
+.display-right-icon {
+  float: right;
+  width: 24px;
+  height: 24px;
+  margin-left: 1em;
+}
+
+.display-left-icon {
+  width: 48px;
+  height: 48px;
+  margin-right: 1em;
+}
+
+.display-input {
+  border: none; /* <-- This thing here */
+  border:solid 1px #ccc;
+  border-radius: 1em;
+  padding: 0.5em;
+  background: white;
+  font-size: 0.7em;
+}
+
+input, select {
+  outline: none;
+  background: white;
+}
+
+.login-form {
+  width: 250px;
+  height: auto;
+  margin: 1em auto;
+  font-family: 'Source Sans Pro', sans-serif;
+  padding: 5px;
+  background: #f8f8f8;
+  border-radius: 3px;
+  border: 1px solid #dedede;
+  color: #111111;
+}
+
+.login-input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 3px;
+  font-size: 1em;
+  outline: none;
+  border-radius: 3px;
+  border: 1px solid #dedede;
+}
+
+.mode {
+  text-align: center;
+  text-decoration: underline;
+}
+
+#google-icon {
+  background: url('/image/g-logo.png') transparent 5px 50% no-repeat;
+}
+
+span.icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 48px;
+  height: 48px;
+}
+
+span.buttonText {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 5px;
+  font-family: 'Roboto', sans-serif;
+}
+
+#go-button {
+  cursor: pointer;
+  background: deepskyblue;
+  color: white;
+}
+
+#go-button:hover {
+  background: #19c5ff;
+}
+
+#go-button:active {
+  background: #00abe5;
+}
+
+.customSignIn {
+  margin: 10px auto;
+  background: white;
+  color: #444;
+  width: 200px;
+  border-radius: 5px;
+  border: thin solid #888;
+  box-shadow: 1px 1px 1px grey;
+  white-space: nowrap;
+}
+
+.acc-icon {
+  border-radius: 50%;
+  width: 72px;
+  margin: 1em auto;
+  display:block;
+  border: 1px solid #6c7a89;
+}
+
+@media only screen and (min-width: 700px), print {
+  .intro {
+    float: left;
+  }
+  .display {
+    width: 80%;
+  }
+}
