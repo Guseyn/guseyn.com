@@ -8,7 +8,7 @@ const {
 const {
   Endpoint,
   RequestBody
-} = require('./../index')
+} = require('@cuties/rest')
 
 class EchoEndpoint extends Endpoint {
   constructor (regexpUrl, type) {
