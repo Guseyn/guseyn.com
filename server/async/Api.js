@@ -1,12 +1,13 @@
 'use strict'
 
-const { RestApi, ServingFilesEndpoint, CachedServingFilesEndpoint } = require('@cuties/rest')
+const { RestApi, ServingFilesEndpoint, CachedServingFilesEndpoint, CORSEndpoint } = require('@cuties/rest')
 const { Value } = require('@cuties/json')
 const { Created } = require('@cuties/created')
 const CustomIndexEndpoint = require('./../endpoints/CustomIndexEndpoint')
 const CustomNotFoundEndpoint = require('./../endpoints/CustomNotFoundEndpoint')
 const LogsEndpoint = require('./../endpoints/LogsEndpoint')
 const CustomInternalServerErrorEndpoint = require('./../endpoints/CustomInternalServerErrorEndpoint')
+const EchoEndpoint = require('./../endpoints/EchoEndpoint')
 const UrlToFSPathMapper = require('./UrlToFSPathMapper')
 const CuteUrlToFSPathForHtmlMapper = require('./CuteUrlToFSPathForHtmlMapper')
 const env = process.env.NODE_ENV || 'local'
@@ -65,6 +66,10 @@ module.exports = class {
         new UrlToFSPathMapper(),
         {},
         new CreatedCustomNotFoundEndpoint(config)
+      ),
+      new CORSEndpoint(
+        new EchoEndpoint(new RegExp(/^\/echo/), 'POST, PUT'),
+        { allowedOrigins: '*' }
       ),
       new CreatedCustomNotFoundEndpoint(config),
       new CustomInternalServerErrorEndpoint()
