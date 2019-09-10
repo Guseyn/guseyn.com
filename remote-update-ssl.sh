@@ -8,5 +8,6 @@ cd
 cp /etc/letsencrypt/live/guseyn.com/cert.pem guseyn.com/cert.pem
 cp /etc/letsencrypt/live/guseyn.com/privkey.pem guseyn.com/key.pem
 cd guseyn.com
-page r prod
+page r prod &
+NODE_ENV=prod node server/proxy.js 
 '"
