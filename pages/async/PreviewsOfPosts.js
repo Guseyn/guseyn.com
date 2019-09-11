@@ -29,7 +29,7 @@ class PreviewsOfPosts extends AsyncObject {
           this.continueLink(postLink)
         )
         if (currentBundleCount === bundleSize || index === postsLen - 1) {
-          previews[key] += this.pagination(previewPartInLink, previewsCount, totalPreviewPagesNumber)
+          previews[key] += this.pagination(previewPartInLink, previewsCount, totalPreviewPagesNumber, version)
           currentBundleCount = 1
           previewsCount += 1
         } else {
@@ -81,14 +81,14 @@ class PreviewsOfPosts extends AsyncObject {
     return previewContent.html()
   }
 
-  pagination (previewPartInLink, previewsCount, totalPreviewPagesNumber) {
+  pagination (previewPartInLink, previewsCount, totalPreviewPagesNumber, version) {
     let prevLink = ''
     let nextLink = ''
     if (previewsCount !== 1) {
-      prevLink = `<a class="prev" href="./../${previewPartInLink}/${previewsCount - 1}"> << </a>`
+      prevLink = `<a class="prev" href="./../${previewPartInLink}/${previewsCount - 1}?v=${version}"> << </a>`
     }
     if (previewsCount !== totalPreviewPagesNumber) {
-      nextLink = `<a class="next" href="./../${previewPartInLink}/${previewsCount + 1}"> >> </a>`
+      nextLink = `<a class="next" href="./../${previewPartInLink}/${previewsCount + 1}?v=${version}"> >> </a>`
     }
     return `<div class="pagination">${prevLink}<span class="current-page">${previewsCount} / ${totalPreviewPagesNumber}</span>${nextLink}</div>`
   }
