@@ -1,5 +1,6 @@
 'use strict'
 
+const { as } = require('@cuties/cutie')
 const {
   EndedResponse,
   WrittenResponse,
@@ -9,6 +10,12 @@ const {
   Endpoint,
   RequestBody
 } = require('@cuties/rest')
+const {
+  CreatedOptions
+} = require('@cuties/object')
+const {
+  ByteLengthOfBuffer
+} = require('@cuties/buffer')
 
 class EchoEndpoint extends Endpoint {
   constructor (regexpUrl, type) {
@@ -17,13 +24,20 @@ class EchoEndpoint extends Endpoint {
 
   body (request, response) {
     //  Use RequestBody object for fetching body from request
-    return new EndedResponse(
-      new WrittenResponse(
-        new ResponseWithWrittenHead(
-          response, 200, 'ok', {
-            'Content-Type': 'application/json'
-          }
-        ), new RequestBody(request)
+    return new RequestBody(request).as('BODY').after(
+      new EndedResponse(
+        new WrittenResponse(
+          new ResponseWithWrittenHead(
+            response, 200, 'ok',
+            new CreatedOptions(
+              'Content-Type', 'application/json',
+              'Content-Length',
+              new ByteLengthOfBuffer(
+                as('BODY')
+              )
+            )
+          ), as('BODY')
+        )
       )
     )
   }
