@@ -32,6 +32,7 @@ a {
   -moz-transition: all 0.5s;
   transition: all 0.5s;
   background-color: #222222;
+  border-radius: 0.5em;
   background: repeating-linear-gradient(45deg, #2b2b2b 0%, #2b2b2b 10%, #222222 0%, #222222 50%) 0 / 15px 15px;
 }
 
