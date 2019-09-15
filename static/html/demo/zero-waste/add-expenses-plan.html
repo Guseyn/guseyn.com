@@ -2,16 +2,16 @@
   <div class="display">
     <div class="display-title">
       ADD EXPENSES PLAN
-      <div style="margin: 0.5em auto; color: #6c7a89; font-size: 0.7em;">email@email.com</div>
     </div>
     <div class="display-list-elm" style="padding-bottom: 2em;">
-      <input type="text" style="width: 150px; font-size: 0.7em; margin-right: 1em;" value="Plan name" class="display-input"></input>
+      <input type="text" style="width: 150px; font-size: 0.7em;" placeholder="Plan name" class="display-input"></input>
+      <span style="margin-right: 1em;">:</span>
       <select class="display-input">
         <option>$</option>
         <option>£</option>
         <option>€</option>
       </select>
-      <input type="number" style="width: 50px;" value="500" class="display-input"></input>
+      <input type="number" style="width: 80px;" placeholder="amount" class="display-input"></input>
       (<select class="display-input">
         <option>annual</option>
         <option selected>monthly</option>
@@ -34,7 +34,7 @@
       <div class="display-action-box" style="padding: 1em; background: white; width: 100%;">
         <div class="display-list-little-elm" style="width: 100%;">
           <span>
-            Netflix
+            Netflix:
           </span>
           <span>
             $10
@@ -48,7 +48,7 @@
         </div>
         <div class="display-list-little-elm" style="width: 100%;">
           <span>
-            Food
+            Food:
           </span>
           <span>
             $100
@@ -61,16 +61,17 @@
           <img src="./../../../image/edit.svg" class="display-right-icon" style="margin-top: -10px;"/>
         </div>
         <div class="display-list-little-elm" style="width: 100%;">
-          <input style="margin-right: 1em; width: 100px;" value="Item name" class="display-input"></input>
-          <select class="display-input"  style="color: #3fc380">
+          <input style="width: 100px;" placeholder="Item name" class="display-input"></input>
+          <span style="margin-right: 1em;">:</span>
+          <select class="display-input">
             <option>$</option>
             <option>£</option>
             <option>€</option>
           </select>
-          <input style="color: #3fc380; width: 100px;" value="180" class="display-input" style=""></input>
+          <input style="width: 80px;" placeholder="amount" class="display-input" style=""></input>
           <br>
           auto apply on
-          <input type="number" class="display-input" style="margin-top: 6px;width: 40px" value="25">th day of the each month (optional)
+          <input type="number" class="display-input" style="width: 80px; margin-top: 6px;width: 40px" value="25">th day of the each month (optional)
           <img src="./../../../image/plus.svg" class="display-right-icon" style="margin-top: 2px;" />
         </div>
       </div>

@@ -15,6 +15,44 @@ a {
   color: #111111;
 }
 
+@font-face {
+  font-family: 'Monoton-Regular';
+  src: url('/../ttf/Monoton-Regular.ttf'); /* IE9 Compat Modes */
+  src: url('/../ttf/Monoton-Regular.ttf?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/../ttf/Monoton-Regular.ttf') format('woff'), /* Modern Browsers */
+       url('/../ttf/Monoton-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+}
+
+.logo {
+  width: 80%;
+  text-align: center;
+  margin: 10px auto;
+  text-decoration: none;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+  background-color: #222222;
+  background: repeating-linear-gradient(45deg, #2b2b2b 0%, #2b2b2b 10%, #222222 0%, #222222 50%) 0 / 15px 15px;
+}
+
+.logo span {
+  color: #f5f5f5;
+  font-family: Monoton-Regular;
+  font-size: 5em;
+  -webkit-animation: neon1 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon1 1.5s ease-in-out infinite alternate;
+  animation: neon1 1.5s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes neon1 {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FF1177, 0 0 70px #FF1177, 0 0 80px #FF1177, 0 0 100px #FF1177, 0 0 150px #FF1177;
+  }
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FF1177, 0 0 35px #FF1177, 0 0 40px #FF1177, 0 0 50px #FF1177, 0 0 75px #FF1177;
+  }
+}
+
 .content {
   width: 100%;
   max-width: 700px;
@@ -153,17 +191,16 @@ span.buttonText {
 }
 
 #go-button {
-  cursor: pointer;
-  background: deepskyblue;
+  background: #34495e;
   color: white;
 }
 
 #go-button:hover {
-  background: #19c5ff;
+  background: #34495e;
 }
 
 #go-button:active {
-  background: #00abe5;
+  background: #34495e;
 }
 
 .customSignIn {
@@ -186,11 +223,47 @@ span.buttonText {
 }
 
 .apply {
-  background: #67809f;
+  background: #34495e;
   color: #ffffff;
   font-weight: bold;
   border-radius: 0.5em;
   border: none;
+}
+
+.table {
+  width: 80%;
+  margin: 4px auto;
+  border: 1px solid #dedede;
+  border-radius: 0.5em;
+  background: #f5f5f5;
+}
+
+table {
+  border-collapse: collapse;
+  border-radius: 0.5em;
+  overflow: hidden;
+  border: 1px solid #dedede;
+}
+
+table tr:last-child td:first-child thead:first-child {
+    border-bottom-left-radius: 1em;
+}
+
+table tr:last-child td:last-child thead:last-child {
+    border-bottom-right-radius: 1em;
+}
+
+th, td {
+  border: 1px solid #dedede;
+}
+
+th, td {
+  padding: 1em;
+  background: #f5f5f5;
+  color: #454545;
+  font-size: 0.8em;
+  text-align: center;
+  width: 33%;
 }
 
 @media only screen and (min-width: 700px), print {

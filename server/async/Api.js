@@ -34,7 +34,7 @@ module.exports = class {
       ),
       new Created(
         servingFilesEndpoint,
-        new RegExp(/^\/(html|css|md|image|js|txt|yml|pdf)/),
+        new RegExp(/^\/(html|css|md|image|js|txt|yml|pdf|ttf)/),
         new UrlToFSPathMapper(
           new Value(config, 'static')
         ),
