@@ -8,6 +8,7 @@ const CustomNotFoundEndpoint = require('./../endpoints/CustomNotFoundEndpoint')
 const LogsEndpoint = require('./../endpoints/LogsEndpoint')
 const CustomInternalServerErrorEndpoint = require('./../endpoints/CustomInternalServerErrorEndpoint')
 const EchoEndpoint = require('./../endpoints/EchoEndpoint')
+const BigJSONEndpoint = require('./../endpoints/BigJSONEndpoint')
 const UrlToFSPathMapper = require('./UrlToFSPathMapper')
 const CuteUrlToFSPathForHtmlMapper = require('./CuteUrlToFSPathForHtmlMapper')
 const env = process.env.NODE_ENV || 'local'
@@ -34,7 +35,7 @@ module.exports = class {
       ),
       new Created(
         servingFilesEndpoint,
-        new RegExp(/^\/(html|css|md|image|js|txt|yml|pdf|ttf)/),
+        new RegExp(/^\/(html|css|md|image|js|json|txt|yml|pdf|ttf)/),
         new UrlToFSPathMapper(
           new Value(config, 'static')
         ),
@@ -69,6 +70,10 @@ module.exports = class {
       ),
       new CORSEndpoint(
         new EchoEndpoint(new RegExp(/^\/echo/), 'POST, PUT'),
+        { allowedOrigins: '*' }
+      ),
+      new CORSEndpoint(
+        new BigJSONEndpoint(new RegExp(/^\/bigjson/), 'GET'),
         { allowedOrigins: '*' }
       ),
       new CreatedCustomNotFoundEndpoint(config),
