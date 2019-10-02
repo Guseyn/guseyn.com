@@ -56,13 +56,15 @@ module.exports = class {
         new RegExp(/^\/logs\/all(\/|)$/),
         new Value(config, 'logs')
       ),
-      new ServingFilesEndpoint(
+      new Created(
+        ServingFilesEndpoint,
         new RegExp(/^\/logs/),
         new UrlToFSPathMapper(),
         {},
         new CreatedCustomNotFoundEndpoint(config)
       ),
-      new ServingFilesEndpoint(
+      new Created(
+        ServingFilesEndpoint,
         new RegExp(/^\/package.json(\/|)$/),
         new UrlToFSPathMapper(),
         {},
