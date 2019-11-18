@@ -95,6 +95,14 @@ class BaseTemplateWrapper extends AsyncObject {
                     packageJSON, 'version'
                   )
                 ), 'type="text/javascript"'
+              ),
+              new Script(
+                new UrlWithVersion(
+                  '/../js/ehtml.bundle.min.js',
+                  new Value(
+                    packageJSON, 'version'
+                  )
+                ), 'type="text/javascript"'
               )
             ),
             new Body(
