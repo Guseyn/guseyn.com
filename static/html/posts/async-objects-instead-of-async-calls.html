@@ -16,36 +16,43 @@
     <link rel="stylesheet" href="/../css/main-night.css?v=1.0.159" disabled id="main-night" type="text/css">
     <link rel="stylesheet" href="/../css/github-gist.css?v=1.0.159" type="text/css">
     <link rel="stylesheet" href="/../css/github-gist-night.css?v=1.0.159" disabled id="github-gist-night" type="text/css">
-    <script src="/../js/bundle.min.js?v=1.0.159" type="text/javascript"></script>
+    <script src="/../js/day-night.js?v=1.0.159" type="text/javascript"></script>
+    <script src="/../js/youtube.js?v=1.0.159" type="text/javascript"></script>
+    <script src="/../js/iframe.js?v=1.0.159" type="text/javascript"></script>
     <script src="/../js/highlight.pack.js?v=1.0.159" type="text/javascript"></script>
     <script src="/../js/ehtml.bundle.min.js?v=1.0.159" type="text/javascript"></script>
+    <script src="/../js/script.js?v=1.0.159" type="text/javascript"></script>
   </head>
 
-  <body class="main">
-    <div class="base">
-      <div class="menu">
-        <a href="/../stuff/about?v=1.0.159">About</a>
-        <e-turbolink data-href="/../stuff/projects?v=1.0.159">Projects</e-turbolink>
-        <a href="/../previews/1?v=1.0.159">Posts</a>
-        <a href="/../stuff/slides?v=1.0.159">Slides</a>
-        <a href="/../stuff/papers?v=1.0.159">Papers</a>
-        <a href="/../stuff/talks?v=1.0.159">Talks</a>
-        <a href="/../stuff/podcasts?v=1.0.159" style="display: none;">Podcasts</a>
-        <a href="/../stuff/covers?v=1.0.159">♫ Covers</a>
-        <a href="/../rus-previews/1?v=1.0.159">На русском</a>
+  <body 'class="main" 
+                onload="
+                  hljs.initHighlightingOnLoad();
+                  initYoutubeVideos(1.777);
+                  makeIframesResizable(' youtube-video', 1.777); makeIframesResizable('soundcloud', 2.185); "
+              ><div class=" base">
+    <div class="menu">
+      <a href="/../stuff/about?v=1.0.159">About</a>
+      <e-turbolink data-href="/../stuff/projects?v=1.0.159">Projects</e-turbolink>
+      <e-turbolink data-href="/../previews/1?v=1.0.159">Posts</e-turbolink>
+      <e-turbolink data-href="/../stuff/slides?v=1.0.159">Slides</e-turbolink>
+      <e-turbolink data-href="/../stuff/papers?v=1.0.159">Papers</e-turbolink>
+      <e-turbolink data-href="/../stuff/talks?v=1.0.159">Talks</e-turbolink>
+      <e-turbolink data-href="/../stuff/podcasts?v=1.0.159" style="display: none;">Podcasts</e-turbolink>
+      <e-turbolink data-href="/../stuff/covers?v=1.0.159">♫ Covers</e-turbolink>
+      <e-turbolink data-href="/../rus-previews/1?v=1.0.159">На русском</e-turbolink>
+    </div>
+    <div class="day-night" id="day-night" onclick="changeStyle()"></div>
+    <div class="content">
+      <h1 id="asyncobjectsinsteadofasynccalls">Async Objects Instead of Async Calls</h1>
+      <div class="date">26 January 2018</div>
+      <div class="tags">
+        <a class="tag" href="/../tags/oop?v=1.0.159">oop</a>
+        <a class="tag" href="/../tags/node?v=1.0.159">node</a>
+        <a class="tag" href="/../tags/asyncobjects?v=1.0.159">async objects</a>
       </div>
-      <div class="day-night" id="day-night" onclick="changeStyle()"></div>
-      <div class="content">
-        <h1 id="asyncobjectsinsteadofasynccalls">Async Objects Instead of Async Calls</h1>
-        <div class="date">26 January 2018</div>
-        <div class="tags">
-          <a class="tag" href="/../tags/oop?v=1.0.159">oop</a>
-          <a class="tag" href="/../tags/node?v=1.0.159">node</a>
-          <a class="tag" href="/../tags/asyncobjects?v=1.0.159">async objects</a>
-        </div>
-        <p>No secret, OOP in JS is not perfect. At least it's not so mature as it's in Java, for example. And actually I don't see that anybody from the JavaScript world would use this paradigm as the main concept for their applications. In the modern software development the ideas of the object-oriented programming (as itself) are becoming less and less popular and giving way to the ideas of functional programming. But I think we should not give up such a powerful and wonderful tool/mechanism that can simplify our complex systems. In this article, I'll try to introduce the idea of <strong>async objects</strong> and show how they can help us to get rid of the main problem in asyncronious enviroment… Of course, I am talking about <strong>callbacks</strong>.</p>
-        <p>Every library or driver in Node.js has <b>async calls</b>, and all them have similar signature:</p>
-        <pre><code class="js language-js">module.asyncCall(...args, (err, result) =&gt; {
+      <p>No secret, OOP in JS is not perfect. At least it's not so mature as it's in Java, for example. And actually I don't see that anybody from the JavaScript world would use this paradigm as the main concept for their applications. In the modern software development the ideas of the object-oriented programming (as itself) are becoming less and less popular and giving way to the ideas of functional programming. But I think we should not give up such a powerful and wonderful tool/mechanism that can simplify our complex systems. In this article, I'll try to introduce the idea of <strong>async objects</strong> and show how they can help us to get rid of the main problem in asyncronious enviroment… Of course, I am talking about <strong>callbacks</strong>.</p>
+      <p>Every library or driver in Node.js has <b>async calls</b>, and all them have similar signature:</p>
+      <pre><code class="js language-js">module.asyncCall(...args, (err, result) =&gt; {
   if (err != null) {
     // everything is ok, we can use result here
   } else {
@@ -53,12 +60,12 @@
   }
 })
 </code></pre>
-        <p>Usually <code>module</code> is just a storage of static methods, and <code>asyncCall</code> is one of them. Besides the arguments <code>asyncCall</code> provides a callback that is being invoked when result is ready or some error comes up. The static methods is not something that we want to see in our object-oriented code.</p>
-        <p>So, how can we rewrite it in object-oriented style?</p>
-        <p>I think, the main question needs to be answered is "What is the main point of doing async call?" Well, it's simple: receive a result from an I/O operation or just handle an error in case if something fails. That means that we can represent an I/O call as a result that can be received in the future, and when it's ready it can be used as an argument for another async call.</p>
-        <p>Let's say we want to read content from a file and write it to another one. And all these operations are asynchronous, of course.</p>
-        <p>So, instead of writing something like this:</p>
-        <pre><code class="js language-js">fs.readFile('./../file1.txt', 'utf8', (err, result) =&gt; {
+      <p>Usually <code>module</code> is just a storage of static methods, and <code>asyncCall</code> is one of them. Besides the arguments <code>asyncCall</code> provides a callback that is being invoked when result is ready or some error comes up. The static methods is not something that we want to see in our object-oriented code.</p>
+      <p>So, how can we rewrite it in object-oriented style?</p>
+      <p>I think, the main question needs to be answered is "What is the main point of doing async call?" Well, it's simple: receive a result from an I/O operation or just handle an error in case if something fails. That means that we can represent an I/O call as a result that can be received in the future, and when it's ready it can be used as an argument for another async call.</p>
+      <p>Let's say we want to read content from a file and write it to another one. And all these operations are asynchronous, of course.</p>
+      <p>So, instead of writing something like this:</p>
+      <pre><code class="js language-js">fs.readFile('./../file1.txt', 'utf8', (err, result) =&gt; {
   if (err != null) {
     throw err;
   }
@@ -69,32 +76,32 @@
   })
 })
 </code></pre>
-        <p>we can design our code in the following style:</p>
-        <pre><code class="js language-js">new WrittenFile(
+      <p>we can design our code in the following style:</p>
+      <pre><code class="js language-js">new WrittenFile(
   './../file2.txt',
   new ReadDataByPath('./../file1.txt', 'utf8')
 ).call()
 </code></pre>
-        <p>Objects <code>WrittenFile</code> and <code>ReadDataByPath</code> are async objects, and they have the same arguments that their corresponding async calls have, except callbacks. So, here the first argument of <code>WrittenFile</code> is a path of a file we want to write content to, and the second one is the content we want to write. And as you noticed, second argument is represented here as <code>ReadDataByPath</code>. It means that method <code>call</code> of <code>WrittenFile</code> invoke first <code>ReadDataByPath</code> and use its result as content for <code>WrittenFile</code>.</p>
-        <p>It's good, but it could be better. For making this declarative abstraction flexible we need a possibility to use either ready results or async objects as arguments of composition.</p>
-        <p>For example, we can use second argument of <code>WrittenFile</code> as a string:</p>
-        <pre><code class="js language-js">new WrittenFile('./../file2.txt', 'content to write').call()
+      <p>Objects <code>WrittenFile</code> and <code>ReadDataByPath</code> are async objects, and they have the same arguments that their corresponding async calls have, except callbacks. So, here the first argument of <code>WrittenFile</code> is a path of a file we want to write content to, and the second one is the content we want to write. And as you noticed, second argument is represented here as <code>ReadDataByPath</code>. It means that method <code>call</code> of <code>WrittenFile</code> invoke first <code>ReadDataByPath</code> and use its result as content for <code>WrittenFile</code>.</p>
+      <p>It's good, but it could be better. For making this declarative abstraction flexible we need a possibility to use either ready results or async objects as arguments of composition.</p>
+      <p>For example, we can use second argument of <code>WrittenFile</code> as a string:</p>
+      <pre><code class="js language-js">new WrittenFile('./../file2.txt', 'content to write').call()
 </code></pre>
-        <p>or use the fist argument as something that has been read from another file:</p>
-        <pre><code class="js language-js">/* here file3.txt contains information
+      <p>or use the fist argument as something that has been read from another file:</p>
+      <pre><code class="js language-js">/* here file3.txt contains information
     for the first argument of WrittenFile: './../file2.txt' */
 new WrittenFile(
   new ReadDataByPath('./../file3.txt', 'utf8'),
   new ReadDataByPath('./../file1.txt', 'utf8')
 ).call()
 </code></pre>
-        <p>or even just use every async object independently:</p>
-        <pre><code class="js language-js">new ReadDataByPath('./../file.txt', 'utf8').call()
+      <p>or even just use every async object independently:</p>
+      <pre><code class="js language-js">new ReadDataByPath('./../file.txt', 'utf8').call()
 </code></pre>
-        <p>It's very cute, isn't? But it's quite not easy to implement. Well, at least to me: it took 3 days or something for consideration how to do everything properly.</p>
-        <p>However the solution is quite simple. All we need is just to convert a composition of async objects to "asynchronous tree" and make tree traversal from its leaves to the root.</p>
-        <p>So, let's say we have following composition of async objects:</p>
-        <pre><code class="js language-js">//Pseudocode
+      <p>It's very cute, isn't? But it's quite not easy to implement. Well, at least to me: it took 3 days or something for consideration how to do everything properly.</p>
+      <p>However the solution is quite simple. All we need is just to convert a composition of async objects to "asynchronous tree" and make tree traversal from its leaves to the root.</p>
+      <p>So, let's say we have following composition of async objects:</p>
+      <pre><code class="js language-js">//Pseudocode
 A1 (
   A2 (
     a1, a2
@@ -107,23 +114,23 @@ A1 (
   A5()
 )
 </code></pre>
-        <p>where <code>A1, A2, A3, A4, A5</code> are async objects and <code>a1, a2, a3, a4, a5</code> are just simple arguments. Then corresponding async tree for this composition would be:
-          <img src="https://github.com/Guseyn/async-tree-patern/blob/master/async-tree.png?raw=true" alt="Async Tree Patter" />
-          Every node has child nodes as their arguments. So, <code>a1, a2, a3, a4, a5, A5</code> are leaves of the tree and they are being called first at the same time. When their results are recieved, their parents will be ready to be invoked (<code>a1, a2, a3, a4, a5</code> are already ready in that case, so we just add them to the argumets of their parent). <code>A1</code> is root of the tree, so we invoke it last. <code>A2</code> never waits for result of <code>A3</code> or <code>A4</code>, beacuse <code>A2</code> just does not need them. But <code>A3</code> waits for result of <code>A4</code>, and <code>A1</code> waits for results of <code>A2, A3, A5</code>.</p>
-        <p>Then the sequence of the calls is</p>
-        <pre><code class="js language-js">1. a1, a2, a3, a4, a5, A5 // at the same time
+      <p>where <code>A1, A2, A3, A4, A5</code> are async objects and <code>a1, a2, a3, a4, a5</code> are just simple arguments. Then corresponding async tree for this composition would be:
+        <img src="https://github.com/Guseyn/async-tree-patern/blob/master/async-tree.png?raw=true" alt="Async Tree Patter" />
+        Every node has child nodes as their arguments. So, <code>a1, a2, a3, a4, a5, A5</code> are leaves of the tree and they are being called first at the same time. When their results are recieved, their parents will be ready to be invoked (<code>a1, a2, a3, a4, a5</code> are already ready in that case, so we just add them to the argumets of their parent). <code>A1</code> is root of the tree, so we invoke it last. <code>A2</code> never waits for result of <code>A3</code> or <code>A4</code>, beacuse <code>A2</code> just does not need them. But <code>A3</code> waits for result of <code>A4</code>, and <code>A1</code> waits for results of <code>A2, A3, A5</code>.</p>
+      <p>Then the sequence of the calls is</p>
+      <pre><code class="js language-js">1. a1, a2, a3, a4, a5, A5 // at the same time
 2. A2, A4 // at the same time
 3. A3
 4. A1
 </code></pre>
-        <p>You might ask <em>"What if I need to use the result that is represented by <code>A1</code>, how can I do that?"</em>. Well, it's very simple: you just wrap it with another async object that processes <code>A1</code> and invokes method <code>call</code> of new async object instead of <code>A1</code>.</p>
-        <p>It means that it's not possible to combine this approach with callbacks, Promises and async/await abstractions. Mostly because all these abstractions are procedural, and async object that described above is pure object-oriented abstraction.</p>
-        <p>So, I've created open source library <a href="https://github.com/Guseyn/cutie">cutie</a> that provides <code>AsyncObject</code> abstraction. It helps to build and use such compositions.</p>
-        <p>You can download it via npm:</p>
-        <pre><code class="bash language-bash">npm install @cuties/cutie
+      <p>You might ask <em>"What if I need to use the result that is represented by <code>A1</code>, how can I do that?"</em>. Well, it's very simple: you just wrap it with another async object that processes <code>A1</code> and invokes method <code>call</code> of new async object instead of <code>A1</code>.</p>
+      <p>It means that it's not possible to combine this approach with callbacks, Promises and async/await abstractions. Mostly because all these abstractions are procedural, and async object that described above is pure object-oriented abstraction.</p>
+      <p>So, I've created open source library <a href="https://github.com/Guseyn/cutie">cutie</a> that provides <code>AsyncObject</code> abstraction. It helps to build and use such compositions.</p>
+      <p>You can download it via npm:</p>
+      <pre><code class="bash language-bash">npm install @cuties/cutie
 </code></pre>
-        <p>Let's see how <code>WrittenFile</code> and <code>ReadDataByPath</code> could be desinged using this library:</p>
-        <pre><code class="js language-js">const AsyncObject = require('@cuties/cutie').AsyncObject
+      <p>Let's see how <code>WrittenFile</code> and <code>ReadDataByPath</code> could be desinged using this library:</p>
+      <pre><code class="js language-js">const AsyncObject = require('@cuties/cutie').AsyncObject
 const fs = require('fs')
 
 // Represents file as path
@@ -144,7 +151,7 @@ class WrittenFile extends AsyncObject {
   }
 }
 </code></pre>
-        <pre><code class="js language-js">const AsyncObject = require('@cuties/cutie').AsyncObject
+      <pre><code class="js language-js">const AsyncObject = require('@cuties/cutie').AsyncObject
 const fs = require('fs')
 
 // Represents buffer or string
@@ -158,9 +165,9 @@ class ReadDataByPath extends AsyncObject {
   }
 }
 </code></pre>
-        <p>AsyncObject also provides methods <code>OnResult</code> and <code>OnError</code>, so that you can process the result (it's provided by callback by default) from async call and handle an error in the specific way (error is being thrown by default).</p>
-        <p>Let's say we want to read a json file and parse all information from there. <strong>Cutie</strong> provides two ways. First of them is just to create <code>ParsedJSON</code> async object like this:</p>
-        <pre><code class="js language-js">const AsyncObject = require('@cuties/cutie').AsyncObject;
+      <p>AsyncObject also provides methods <code>OnResult</code> and <code>OnError</code>, so that you can process the result (it's provided by callback by default) from async call and handle an error in the specific way (error is being thrown by default).</p>
+      <p>Let's say we want to read a json file and parse all information from there. <strong>Cutie</strong> provides two ways. First of them is just to create <code>ParsedJSON</code> async object like this:</p>
+      <pre><code class="js language-js">const AsyncObject = require('@cuties/cutie').AsyncObject;
 const fs = require('fs');
 
 class ParsedJSON extends AsyncObject {
@@ -180,8 +187,8 @@ class ParsedJSON extends AsyncObject {
 // usage
 new ParsedJSON('./../file.txt', 'utf8').call()
 </code></pre>
-        <p><code>ParsedJSON</code> also could be designed like this:</p>
-        <pre><code class="js language-js">const fs = require('fs')
+      <p><code>ParsedJSON</code> also could be designed like this:</p>
+      <pre><code class="js language-js">const fs = require('fs')
 const ReadDataByPath = require('./ReadDataByPath')
 
 class ParsedJSON extends ReadDataByPath {
@@ -197,8 +204,8 @@ class ParsedJSON extends ReadDataByPath {
 // usage
 new ParsedJSON('./../file.txt', 'utf8').call()
 </code></pre>
-        <p>Or you can use ReadDataByPath with ParsedJSON that looks like this:</p>
-        <pre><code class="js language-js">const AsyncObject = require('@cuties/cutie').AsyncObject
+      <p>Or you can use ReadDataByPath with ParsedJSON that looks like this:</p>
+      <pre><code class="js language-js">const AsyncObject = require('@cuties/cutie').AsyncObject
 const fs = require('fs')
 const ReadDataByPath = require('./ReadDataByPath')
 
@@ -220,23 +227,17 @@ new ParsedJSON(
   new ReadDataByPath('./../file.txt', 'utf8')
 ).call()
 </code></pre>
-        <p>I've called this conception <strong>Async Tree Pattern</strong>. You can read more about it and <a href="https://github.com/Guseyn/cutie">cutie</a> in <a href="/../../pdf/Async_Tree_Pattern.pdf">this doc</a>.</p>
-        <p>There is a lot of work to do, because <strong>Cutie</strong> is just basic library that provides <code>AsyncObject</code> abstraction. So, my goal is now to make abstractions for most async calls in Node. For example, async objects for <strong>fs</strong> and <strong>http</strong> modules for beginning would be great. If you liked this idea, you can also transform Node's static async methods into the beautiful async objects.</p>
-        <p>So, that's it. I do hope you enjoyed reading this article.</p>
-        <div class="refs">References</div>
-        <ul>
-          <li><a href="https://github.com/Guseyn/cutie">Cutie on GitHub</a></li>
-          <li><a href="https://www.npmjs.com/package/@cuties/cutie">Cutie on npm</a></li>
-        </ul>
-        <p><a href="https://www.reddit.com/r/javascript/comments/azy7pb/async_objects_instead_of_async_calls/">Reddit Comments</a> /
-          <a href="https://news.ycombinator.com/item?id=19361241">HN Comments</a></p>
-      </div>
-      <script type="text/javascript">
-        hljs.initHighlightingOnLoad()
-        initYoutubeVideos(1.777)
-        makeIframesResizable('youtube-video', 1.777)
-        makeIframesResizable('soundcloud', 2.185)
-      </script>
+      <p>I've called this conception <strong>Async Tree Pattern</strong>. You can read more about it and <a href="https://github.com/Guseyn/cutie">cutie</a> in <a href="/../../pdf/Async_Tree_Pattern.pdf">this doc</a>.</p>
+      <p>There is a lot of work to do, because <strong>Cutie</strong> is just basic library that provides <code>AsyncObject</code> abstraction. So, my goal is now to make abstractions for most async calls in Node. For example, async objects for <strong>fs</strong> and <strong>http</strong> modules for beginning would be great. If you liked this idea, you can also transform Node's static async methods into the beautiful async objects.</p>
+      <p>So, that's it. I do hope you enjoyed reading this article.</p>
+      <div class="refs">References</div>
+      <ul>
+        <li><a href="https://github.com/Guseyn/cutie">Cutie on GitHub</a></li>
+        <li><a href="https://www.npmjs.com/package/@cuties/cutie">Cutie on npm</a></li>
+      </ul>
+      <p><a href="https://www.reddit.com/r/javascript/comments/azy7pb/async_objects_instead_of_async_calls/">Reddit Comments</a> /
+        <a href="https://news.ycombinator.com/item?id=19361241">HN Comments</a></p>
+    </div>
     </div>
   </body>
 

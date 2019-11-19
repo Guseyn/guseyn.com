@@ -16,39 +16,46 @@
     <link rel="stylesheet" href="/../css/main-night.css?v=1.0.159" disabled id="main-night" type="text/css">
     <link rel="stylesheet" href="/../css/github-gist.css?v=1.0.159" type="text/css">
     <link rel="stylesheet" href="/../css/github-gist-night.css?v=1.0.159" disabled id="github-gist-night" type="text/css">
-    <script src="/../js/bundle.min.js?v=1.0.159" type="text/javascript"></script>
+    <script src="/../js/day-night.js?v=1.0.159" type="text/javascript"></script>
+    <script src="/../js/youtube.js?v=1.0.159" type="text/javascript"></script>
+    <script src="/../js/iframe.js?v=1.0.159" type="text/javascript"></script>
     <script src="/../js/highlight.pack.js?v=1.0.159" type="text/javascript"></script>
     <script src="/../js/ehtml.bundle.min.js?v=1.0.159" type="text/javascript"></script>
+    <script src="/../js/script.js?v=1.0.159" type="text/javascript"></script>
   </head>
 
-  <body class="main">
-    <div class="base">
-      <div class="menu">
-        <a href="/../stuff/about?v=1.0.159">About</a>
-        <e-turbolink data-href="/../stuff/projects?v=1.0.159">Projects</e-turbolink>
-        <a href="/../previews/1?v=1.0.159">Posts</a>
-        <a href="/../stuff/slides?v=1.0.159">Slides</a>
-        <a href="/../stuff/papers?v=1.0.159">Papers</a>
-        <a href="/../stuff/talks?v=1.0.159">Talks</a>
-        <a href="/../stuff/podcasts?v=1.0.159" style="display: none;">Podcasts</a>
-        <a href="/../stuff/covers?v=1.0.159">♫ Covers</a>
-        <a href="/../rus-previews/1?v=1.0.159">На русском</a>
+  <body 'class="main" 
+                onload="
+                  hljs.initHighlightingOnLoad();
+                  initYoutubeVideos(1.777);
+                  makeIframesResizable(' youtube-video', 1.777); makeIframesResizable('soundcloud', 2.185); "
+              ><div class=" base">
+    <div class="menu">
+      <a href="/../stuff/about?v=1.0.159">About</a>
+      <e-turbolink data-href="/../stuff/projects?v=1.0.159">Projects</e-turbolink>
+      <e-turbolink data-href="/../previews/1?v=1.0.159">Posts</e-turbolink>
+      <e-turbolink data-href="/../stuff/slides?v=1.0.159">Slides</e-turbolink>
+      <e-turbolink data-href="/../stuff/papers?v=1.0.159">Papers</e-turbolink>
+      <e-turbolink data-href="/../stuff/talks?v=1.0.159">Talks</e-turbolink>
+      <e-turbolink data-href="/../stuff/podcasts?v=1.0.159" style="display: none;">Podcasts</e-turbolink>
+      <e-turbolink data-href="/../stuff/covers?v=1.0.159">♫ Covers</e-turbolink>
+      <e-turbolink data-href="/../rus-previews/1?v=1.0.159">На русском</e-turbolink>
+    </div>
+    <div class="day-night" id="day-night" onclick="changeStyle()"></div>
+    <div class="content">
+      <h1 id="dragdropanddragresizeinpurejsstyle">Drag&amp;Drop and Drag&amp;Resize in Pure JS style</h1>
+      <div class="date">20 December 2017</div>
+      <div class="tags">
+        <a class="tag" href="/../tags/js?v=1.0.159">js</a>
       </div>
-      <div class="day-night" id="day-night" onclick="changeStyle()"></div>
-      <div class="content">
-        <h1 id="dragdropanddragresizeinpurejsstyle">Drag&amp;Drop and Drag&amp;Resize in Pure JS style</h1>
-        <div class="date">20 December 2017</div>
-        <div class="tags">
-          <a class="tag" href="/../tags/js?v=1.0.159">js</a>
-        </div>
-        <p>Although there are a lot of libraries doing such simple things like <em>drag&drop</em> and <em>drag&resize</em>, sometimes we need to do specific functional interfaces where it's important to understand how these things really work. If you are begginer in js or just curious programmer, this article would be very useful for you (you will learn some tricks in event driven js system and how it works in the whole).</p>
-        <p>Let's start with <em>drag&drop</em>. Consider we have an element in another one where it could be dragged and drop. We would have something like the following html code:</p>
-        <pre><code class="html language-html">&lt;div id="wrapElm"&gt;
+      <p>Although there are a lot of libraries doing such simple things like <em>drag&drop</em> and <em>drag&resize</em>, sometimes we need to do specific functional interfaces where it's important to understand how these things really work. If you are begginer in js or just curious programmer, this article would be very useful for you (you will learn some tricks in event driven js system and how it works in the whole).</p>
+      <p>Let's start with <em>drag&drop</em>. Consider we have an element in another one where it could be dragged and drop. We would have something like the following html code:</p>
+      <pre><code class="html language-html">&lt;div id="wrapElm"&gt;
     &lt;div id="elm"&gt;&lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
-        <p>and corresponding styles:</p>
-        <pre><code class="css language-css">#wrapElm {
+      <p>and corresponding styles:</p>
+      <pre><code class="css language-css">#wrapElm {
   width: 300px
   height:300px
   position: absolute
@@ -66,10 +73,10 @@
   background: #00bfff
 }
 </code></pre>
-        <p>You may notice that <code>wrapElm</code> and <code>elm</code> have absolute positions. But you can use default(static) positions for elements, in that case you have to use <code>css margin</code> properties instead of <code>top</code> and <code>left</code> properties for declaring position of the dragged element. I prefer work with absolute positionated elements, it's just easier and more convenient.</p>
-        <p>Let's look at useful functions first before moving futher.</p>
-        <p><strong>1. The current horizontal/vertical position of the scroll bar.</strong> It's very important to get the scroll position in the browser, especially when you have big elements in your interface.</p>
-        <pre><code class="js language-js">function scrollTopPosition () {
+      <p>You may notice that <code>wrapElm</code> and <code>elm</code> have absolute positions. But you can use default(static) positions for elements, in that case you have to use <code>css margin</code> properties instead of <code>top</code> and <code>left</code> properties for declaring position of the dragged element. I prefer work with absolute positionated elements, it's just easier and more convenient.</p>
+      <p>Let's look at useful functions first before moving futher.</p>
+      <p><strong>1. The current horizontal/vertical position of the scroll bar.</strong> It's very important to get the scroll position in the browser, especially when you have big elements in your interface.</p>
+      <pre><code class="js language-js">function scrollTopPosition () {
   return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
 }
 
@@ -77,8 +84,8 @@ function scrollLeftPosition () {
   return window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft
 }
 </code></pre>
-        <p><strong>2. Height and width of the browser window.</strong> If you don't have a wrapper element, you might need to use the browser window that limits region for dragging the element.</p>
-        <pre><code class="js language-js">function clientHeight () {
+      <p><strong>2. Height and width of the browser window.</strong> If you don't have a wrapper element, you might need to use the browser window that limits region for dragging the element.</p>
+      <pre><code class="js language-js">function clientHeight () {
   return window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
 }
 
@@ -86,8 +93,8 @@ function clientWidth () {
   return window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
 }
 </code></pre>
-        <p><strong>3. Coordinates of the most top-and-left point in the document element.</strong> It's also useful when you use the browser window as a wrapper element.</p>
-        <pre><code class="js language-js">function clientTopPosition () {
+      <p><strong>3. Coordinates of the most top-and-left point in the document element.</strong> It's also useful when you use the browser window as a wrapper element.</p>
+      <pre><code class="js language-js">function clientTopPosition () {
   return document.documentElement.clientTop || document.body.clientTop || 0
 }
 
@@ -95,8 +102,8 @@ function clientLeftPosition () {
   return document.documentElement.clientLeft || document.body.clientLeft || 0
 }
 </code></pre>
-        <p><strong>4. Coordinates of the element.</strong> We need to know a start position of the dragged element.</p>
-        <pre><code class="js language-js">function elmCoordinates (elm) {
+      <p><strong>4. Coordinates of the element.</strong> We need to know a start position of the dragged element.</p>
+      <pre><code class="js language-js">function elmCoordinates (elm) {
   let rect = elm.getBoundingClientRect()
   let clientTop = clientTopPosition()
   let clientLeft = clientLeftPosition()
@@ -114,16 +121,16 @@ function clientLeftPosition () {
   }
 }
 </code></pre>
-        <p>If you want to learn more about window coordinates and how they are calculated, I can suggest you to visit <a href="https://javascript.info/coordinates">this page</a>. Just remember that window coordinates start at the left-upper corner of the window.</p>
-        <p><strong>5. Prohibit selection of the text on the dragged element.</strong> If the dragged element contains text, you probably should do it.</p>
-        <pre><code class="js language-js">function prohibitSelection () {
+      <p>If you want to learn more about window coordinates and how they are calculated, I can suggest you to visit <a href="https://javascript.info/coordinates">this page</a>. Just remember that window coordinates start at the left-upper corner of the window.</p>
+      <p><strong>5. Prohibit selection of the text on the dragged element.</strong> If the dragged element contains text, you probably should do it.</p>
+      <pre><code class="js language-js">function prohibitSelection () {
   if (window.getSelection) {
     window.getSelection().removeAllRanges()
   }
 }
 </code></pre>
-        <p>The main trick you need to know for implementing such things is that you can invoke one event listener in another one on an element. So, the common scheme looks like this:</p>
-        <pre><code class="js language-js">document.onmouseup = function () {
+      <p>The main trick you need to know for implementing such things is that you can invoke one event listener in another one on an element. So, the common scheme looks like this:</p>
+      <pre><code class="js language-js">document.onmouseup = function () {
     //remove mousemove listener of elm 
 }
 
@@ -134,11 +141,11 @@ elm.onmousedown = function (event) {
   document.addEventListener('mousemove', elmMouseMoveEvent)
 }
 </code></pre>
-        <p>Event <code>onmousedown</code> is needed to be bound to the element itself, not to the document. This solution is more flexible, so that you can use this scheme for several dragged elements. I don't why, but it's better to use function <code>addEventListener</code> for <code>mousemove</code> event on the document (dragging becomes more smooth). If you know why, please share your ideas in the comments below.</p>
-        <p>In fact it's very simple: while you're clicking on the element, <code>mousemove</code> event listener is created, so that you can move the element. And when we invoke <code>mouseup</code> event, we just remove all <code>mousemove</code> event listeners, so that <code>mousemove</code> works only if <code>mousedown</code> is invoked.</p>
-        <p>Let's say we want to make a function <code>dragAndDrop</code> with required parameter <code>elm</code> and optional parameter <code>wrapElm</code> (if it's missed we just use the body element instead).</p>
-        <p>So, I will write below the full body of <code>dragAndDrop</code> function with detailed explanation via comments in the code. I think it's more convenient for readers than explaining different parts of implemntation separately. The following function is also applicable for several dragged elements. </p>
-        <pre><code class="js language-js">// All dragged elements
+      <p>Event <code>onmousedown</code> is needed to be bound to the element itself, not to the document. This solution is more flexible, so that you can use this scheme for several dragged elements. I don't why, but it's better to use function <code>addEventListener</code> for <code>mousemove</code> event on the document (dragging becomes more smooth). If you know why, please share your ideas in the comments below.</p>
+      <p>In fact it's very simple: while you're clicking on the element, <code>mousemove</code> event listener is created, so that you can move the element. And when we invoke <code>mouseup</code> event, we just remove all <code>mousemove</code> event listeners, so that <code>mousemove</code> works only if <code>mousedown</code> is invoked.</p>
+      <p>Let's say we want to make a function <code>dragAndDrop</code> with required parameter <code>elm</code> and optional parameter <code>wrapElm</code> (if it's missed we just use the body element instead).</p>
+      <p>So, I will write below the full body of <code>dragAndDrop</code> function with detailed explanation via comments in the code. I think it's more convenient for readers than explaining different parts of implemntation separately. The following function is also applicable for several dragged elements. </p>
+      <pre><code class="js language-js">// All dragged elements
 var elms = []
 
 // All zIndexes of elements
@@ -276,12 +283,12 @@ function dragAndDrop (elm, wrapElm) {
   })
 }
 </code></pre>
-        <p>Now let's look at how <em>drag&resize</em> could be implemented. Consider the following html template for element that can be dragged&amp;resized.</p>
-        <pre><code class="html language-html">&lt;div id="elm" style=""&gt;
+      <p>Now let's look at how <em>drag&resize</em> could be implemented. Consider the following html template for element that can be dragged&amp;resized.</p>
+      <pre><code class="html language-html">&lt;div id="elm" style=""&gt;
   &lt;div id="resize-drag-elm"&gt;&lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
-        <pre><code class="css language-css">#elm {
+      <pre><code class="css language-css">#elm {
   width: 100px; 
   height: 100px;
   position: absolute;
@@ -301,8 +308,8 @@ function dragAndDrop (elm, wrapElm) {
   cursor: nwse-resize;
 }
 </code></pre>
-        <p>As you can see, <code>resize-drag-elm</code> - is the element that you have to drag for resizing the element with id <code>elm</code>. Usually it's placed in the right-bottom corner of the main element. So, <code>dragAndResize</code> function for this html pattern would be something like this:</p>
-        <pre><code class="js language-js">/*
+      <p>As you can see, <code>resize-drag-elm</code> - is the element that you have to drag for resizing the element with id <code>elm</code>. Usually it's placed in the right-bottom corner of the main element. So, <code>dragAndResize</code> function for this html pattern would be something like this:</p>
+      <pre><code class="js language-js">/*
   elm - the main element that we want to be resizable,
   resizeDragElm - the element you have to drag for resizing the main element
   minH - the minimal height of the elm
@@ -362,21 +369,15 @@ function directCursor (y, x, elm) {
   }
 }
 </code></pre>
-        <p>So, that's it. Hope, this article was useful for you. You can find demo <a href="/../html/demo/drag-drop-resize.html">here</a> and all code <a href="https://github.com/Guseyn/drag_drop_resize">here</a> (if you have questions, don't hesitate submiting issue there).</p>
-        <div class="refs">References</div>
-        <ul>
-          <li><a href="https://javascript.info/coordinates">Window Coordinates</a></li>
-          <li><a href="https://www.w3schools.com/js/js_htmldom_eventlistener.asp">Event Listeners</a></li>
-          <li><a href="/../html/demo/drag-drop-resize.html">Demo</a></li>
-          <li><a href="https://github.com/Guseyn/drag_drop_resize">Code</a></li>
-        </ul>
-      </div>
-      <script type="text/javascript">
-        hljs.initHighlightingOnLoad()
-        initYoutubeVideos(1.777)
-        makeIframesResizable('youtube-video', 1.777)
-        makeIframesResizable('soundcloud', 2.185)
-      </script>
+      <p>So, that's it. Hope, this article was useful for you. You can find demo <a href="/../html/demo/drag-drop-resize.html">here</a> and all code <a href="https://github.com/Guseyn/drag_drop_resize">here</a> (if you have questions, don't hesitate submiting issue there).</p>
+      <div class="refs">References</div>
+      <ul>
+        <li><a href="https://javascript.info/coordinates">Window Coordinates</a></li>
+        <li><a href="https://www.w3schools.com/js/js_htmldom_eventlistener.asp">Event Listeners</a></li>
+        <li><a href="/../html/demo/drag-drop-resize.html">Demo</a></li>
+        <li><a href="https://github.com/Guseyn/drag_drop_resize">Code</a></li>
+      </ul>
+    </div>
     </div>
   </body>
 
