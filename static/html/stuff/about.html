@@ -11,30 +11,30 @@
     <title>About</title>
     <link rel="shortcut icon" type="image/png" href="/../image/favicon.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i|Source+Sans+Pro:400,400i,700,700i" type="text/css">
-    <link rel="stylesheet" href="/../css/normalize.css?v=1.0.157" type="text/css">
-    <link rel="stylesheet" href="/../css/main.css?v=1.0.157" type="text/css">
-    <link rel="stylesheet" href="/../css/main-night.css?v=1.0.157" disabled id="main-night" type="text/css">
-    <link rel="stylesheet" href="/../css/github-gist.css?v=1.0.157" type="text/css">
-    <link rel="stylesheet" href="/../css/github-gist-night.css?v=1.0.157" disabled id="github-gist-night" type="text/css">
-    <script src="/../js/bundle.min.js?v=1.0.157" type="text/javascript"></script>
-    <script src="/../js/highlight.pack.js?v=1.0.157" type="text/javascript"></script>
-    <script src="/../js/ehtml.bundle.min.js?v=1.0.157" type="text/javascript"></script>
+    <link rel="stylesheet" href="/../css/normalize.css?v=1.0.158" type="text/css">
+    <link rel="stylesheet" href="/../css/main.css?v=1.0.158" type="text/css">
+    <link rel="stylesheet" href="/../css/main-night.css?v=1.0.158" disabled id="main-night" type="text/css">
+    <link rel="stylesheet" href="/../css/github-gist.css?v=1.0.158" type="text/css">
+    <link rel="stylesheet" href="/../css/github-gist-night.css?v=1.0.158" disabled id="github-gist-night" type="text/css">
+    <script src="/../js/bundle.min.js?v=1.0.158" type="text/javascript"></script>
+    <script src="/../js/highlight.pack.js?v=1.0.158" type="text/javascript"></script>
+    <script src="/../js/ehtml.bundle.min.js?v=1.0.158" type="text/javascript"></script>
   </head>
 
   <body class="main">
     <div class="base">
       <div class="menu">
-        <a href="/../stuff/about?v=1.0.157">About</a>
-        <e-turbolink data-href="/../stuff/projects?v=1.0.157">Projects</e-turbolink>
-        <a href="/../previews/1?v=1.0.157">Posts</a>
-        <a href="/../stuff/slides?v=1.0.157">Slides</a>
-        <a href="/../stuff/papers?v=1.0.157">Papers</a>
-        <a href="/../stuff/talks?v=1.0.157">Talks</a>
-        <a href="/../stuff/podcasts?v=1.0.157" style="display: none;">Podcasts</a>
-        <a href="/../stuff/covers?v=1.0.157">♫ Covers</a>
-        <a href="/../rus-previews/1?v=1.0.157">На русском</a>
+        <a href="/../stuff/about?v=1.0.158">About</a>
+        <e-turbolink data-href="/../stuff/projects?v=1.0.158">Projects</e-turbolink>
+        <a href="/../previews/1?v=1.0.158">Posts</a>
+        <a href="/../stuff/slides?v=1.0.158">Slides</a>
+        <a href="/../stuff/papers?v=1.0.158">Papers</a>
+        <a href="/../stuff/talks?v=1.0.158">Talks</a>
+        <a href="/../stuff/podcasts?v=1.0.158" style="display: none;">Podcasts</a>
+        <a href="/../stuff/covers?v=1.0.158">♫ Covers</a>
+        <a href="/../rus-previews/1?v=1.0.158">На русском</a>
       </div>
-      <div class="day-night" id="day-night"></div>
+      <div class="day-night" id="day-night" onclick="changeStyle()"></div>
       <div class="content">
         <h1 id="aboutme">About me</h1>
         <div class="date">3 March 2019 (last update)</div>
@@ -45,13 +45,12 @@
         <p>As a <strong>blogger</strong>, I try to write useful and unique articles that can increase your vast knowledge and make you reconsider something that you have for granted in programming and IT industry in the whole. Also, you can check <a href="/../stuff/talks#declarative-node">my tech talk</a> about declarative Node. I'm planning to make more tech talks in the future (preferably in English).</p>
         <p>As a good <strong>startupper</strong>, I have a couple of <a href="/../stuff/projects#mypreviousprojects">failed projects</a>. And I am ready to fail further.</p>
         <p>As an <strong>interesting person</strong>, I like playing chess (you can challenge me on <a href="https://lichess.org/@/guseyn1245">liches</a>). Also, I like music and making covers of popular songs on guitar and ukelele. <a href="/../stuff/covers">Here</a> is some of them.</p>
-        <p>I am available for hiring, here is my <a href="/../html/resume.html?v=1.0.157">resume</a>, <a href="http://github.com/Guseyn">GitHub</a>, and <a href="https://stackoverflow.com/users/8568641/guseyn-ismayylov">StackOverflow</a>.</p>
+        <p>I am available for hiring, here is my <a href="/../html/resume.html?v=1.0.158">resume</a>, <a href="http://github.com/Guseyn">GitHub</a>, and <a href="https://stackoverflow.com/users/8568641/guseyn-ismayylov">StackOverflow</a>.</p>
         <p>If you want to stay tuned with new materials on this blog, you can join <a href="https://t.me/guseyncom">this telegram channel</a>.</p>
         <p>Also, you can follow me on <a href="https://www.instagram.com/guseynismayilov/">Instagram</a> and contact me via <a href="https://t.me/guseyn">Telegram</a> and <a href="mailto:guseynism@gmail.com">email</a>.</p>
       </div>
       <script type="text/javascript">
         hljs.initHighlightingOnLoad()
-        initDayNightButton()
         initYoutubeVideos(1.777)
         makeIframesResizable('youtube-video', 1.777)
         makeIframesResizable('soundcloud', 2.185)

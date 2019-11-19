@@ -1,4 +1,4 @@
-# Async Objects instead of Async Calls
+# Async Objects Instead of Async Calls
 <div class="date">26 January 2018</div>
 
 <div class="tags">

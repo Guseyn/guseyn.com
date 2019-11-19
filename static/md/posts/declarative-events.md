@@ -1,4 +1,4 @@
-# Declarative events
+# Declarative Events
 <div class="date">5 April 2018</div>
 
 <div class="tags">

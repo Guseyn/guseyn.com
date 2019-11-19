@@ -1,4 +1,4 @@
-# Why I Don't Use Promises and Async/Await Abstractions In Node
+# Why I Don't Use Promises and Async/Await Abstractions in Node
 <div class="date">9 August 2019</div>
 
 <div class="tags">
