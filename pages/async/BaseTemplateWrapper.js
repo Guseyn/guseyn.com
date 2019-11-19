@@ -127,7 +127,7 @@ class BaseTemplateWrapper extends AsyncObject {
               )
             ),
             new Body(
-              `'class="main"`,
+              'class="main"',
               new TemplateWithParams(
                 new TemplateWithVersion(
                   baseTemplate,
