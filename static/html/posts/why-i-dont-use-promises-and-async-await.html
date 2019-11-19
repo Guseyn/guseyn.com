@@ -8,40 +8,40 @@
     <meta name="description" content="This blog is mostly expression of my ideas on different things in programming and IT culture">
     <meta name="keywords" content="guseyn, fan of yours, blog, IT, programming, coding, tech, culture, ideas, why, i, don't, use, promises, and, async/await, abstractions, in, node, oop, async objects">
     <meta name="google-site-verification" content="vGxE5xshQhWEvbfiGVWZ4qmfLx_1WW8P82ZW0RP0mwg">
-    <title>Why I Don't Use Promises and Async/Await Abstractions In Node</title>
+    <title>Why I Don't Use Promises and Async/Await Abstractions in Node</title>
     <link rel="shortcut icon" type="image/png" href="/../image/favicon.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i|Source+Sans+Pro:400,400i,700,700i" type="text/css">
-    <link rel="stylesheet" href="/../css/normalize.css?v=1.0.157" type="text/css">
-    <link rel="stylesheet" href="/../css/main.css?v=1.0.157" type="text/css">
-    <link rel="stylesheet" href="/../css/main-night.css?v=1.0.157" disabled id="main-night" type="text/css">
-    <link rel="stylesheet" href="/../css/github-gist.css?v=1.0.157" type="text/css">
-    <link rel="stylesheet" href="/../css/github-gist-night.css?v=1.0.157" disabled id="github-gist-night" type="text/css">
-    <script src="/../js/bundle.min.js?v=1.0.157" type="text/javascript"></script>
-    <script src="/../js/highlight.pack.js?v=1.0.157" type="text/javascript"></script>
-    <script src="/../js/ehtml.bundle.min.js?v=1.0.157" type="text/javascript"></script>
+    <link rel="stylesheet" href="/../css/normalize.css?v=1.0.158" type="text/css">
+    <link rel="stylesheet" href="/../css/main.css?v=1.0.158" type="text/css">
+    <link rel="stylesheet" href="/../css/main-night.css?v=1.0.158" disabled id="main-night" type="text/css">
+    <link rel="stylesheet" href="/../css/github-gist.css?v=1.0.158" type="text/css">
+    <link rel="stylesheet" href="/../css/github-gist-night.css?v=1.0.158" disabled id="github-gist-night" type="text/css">
+    <script src="/../js/bundle.min.js?v=1.0.158" type="text/javascript"></script>
+    <script src="/../js/highlight.pack.js?v=1.0.158" type="text/javascript"></script>
+    <script src="/../js/ehtml.bundle.min.js?v=1.0.158" type="text/javascript"></script>
   </head>
 
   <body class="main">
     <div class="base">
       <div class="menu">
-        <a href="/../stuff/about?v=1.0.157">About</a>
-        <e-turbolink data-href="/../stuff/projects?v=1.0.157">Projects</e-turbolink>
-        <a href="/../previews/1?v=1.0.157">Posts</a>
-        <a href="/../stuff/slides?v=1.0.157">Slides</a>
-        <a href="/../stuff/papers?v=1.0.157">Papers</a>
-        <a href="/../stuff/talks?v=1.0.157">Talks</a>
-        <a href="/../stuff/podcasts?v=1.0.157" style="display: none;">Podcasts</a>
-        <a href="/../stuff/covers?v=1.0.157">♫ Covers</a>
-        <a href="/../rus-previews/1?v=1.0.157">На русском</a>
+        <a href="/../stuff/about?v=1.0.158">About</a>
+        <e-turbolink data-href="/../stuff/projects?v=1.0.158">Projects</e-turbolink>
+        <a href="/../previews/1?v=1.0.158">Posts</a>
+        <a href="/../stuff/slides?v=1.0.158">Slides</a>
+        <a href="/../stuff/papers?v=1.0.158">Papers</a>
+        <a href="/../stuff/talks?v=1.0.158">Talks</a>
+        <a href="/../stuff/podcasts?v=1.0.158" style="display: none;">Podcasts</a>
+        <a href="/../stuff/covers?v=1.0.158">♫ Covers</a>
+        <a href="/../rus-previews/1?v=1.0.158">На русском</a>
       </div>
-      <div class="day-night" id="day-night"></div>
+      <div class="day-night" id="day-night" onclick="changeStyle()"></div>
       <div class="content">
-        <h1 id="whyidontusepromisesandasyncawaitabstractionsinnode">Why I Don't Use Promises and Async/Await Abstractions In Node</h1>
+        <h1 id="whyidontusepromisesandasyncawaitabstractionsinnode">Why I Don't Use Promises and Async/Await Abstractions in Node</h1>
         <div class="date">9 August 2019</div>
         <div class="tags">
-          <a class="tag" href="/../tags/oop?v=1.0.157">oop</a>
-          <a class="tag" href="/../tags/node?v=1.0.157">node</a>
-          <a class="tag" href="/../tags/asyncobjects?v=1.0.157">async objects</a>
+          <a class="tag" href="/../tags/oop?v=1.0.158">oop</a>
+          <a class="tag" href="/../tags/node?v=1.0.158">node</a>
+          <a class="tag" href="/../tags/asyncobjects?v=1.0.158">async objects</a>
         </div>
         <p>In this article, I'll talk about <strong>callback hell</strong> again. But this time, I'll try to describe how I see this problem, and why I actually think that this is a problem. Also I'll explain why I think that abstractions such as <strong><code>Promise</code></strong> and <strong><code>async/await</code></strong> don't help us to structure our code in a better way. I'll demonstrate my solution that's based on ideas of declarative and pure object-oriented programming, which I'm big fan of. And I'll show you why I think that declarative constructions is the only good way to write asynchronous code for big and complex applications.</p>
         <p>Let's take a look at this silly but quite representative code, where we make a sequence of async calls. Here we try to read some content from the first file and write this content into another one.</p>
@@ -225,7 +225,6 @@ class WrittenFile extends AsyncObject {
       </div>
       <script type="text/javascript">
         hljs.initHighlightingOnLoad()
-        initDayNightButton()
         initYoutubeVideos(1.777)
         makeIframesResizable('youtube-video', 1.777)
         makeIframesResizable('soundcloud', 2.185)

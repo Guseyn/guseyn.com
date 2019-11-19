@@ -10,13 +10,12 @@
     <a href="/../stuff/covers?v={version}">♫ Covers</a>
     <a href="/../rus-previews/1?v={version}">На русском</a>
   </div>
-  <div class="day-night" id="day-night"></div>
+  <div class="day-night" id="day-night" onclick="changeStyle()"></div>
   <div class="content">
     {{ content }}
   </div>
   <script type="text/javascript">
     hljs.initHighlightingOnLoad()
-    initDayNightButton()
     initYoutubeVideos(1.777)
     makeIframesResizable('youtube-video', 1.777)
     makeIframesResizable('soundcloud', 2.185)
