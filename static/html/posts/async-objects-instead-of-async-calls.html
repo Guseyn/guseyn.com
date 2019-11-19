@@ -11,37 +11,37 @@
     <title>Async Objects instead of Async Calls</title>
     <link rel="shortcut icon" type="image/png" href="/../image/favicon.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i|Source+Sans+Pro:400,400i,700,700i" type="text/css">
-    <link rel="stylesheet" href="/../css/normalize.css?v=1.0.155" type="text/css">
-    <link rel="stylesheet" href="/../css/main.css?v=1.0.155" type="text/css">
-    <link rel="stylesheet" href="/../css/main-night.css?v=1.0.155" disabled id="main-night" type="text/css">
-    <link rel="stylesheet" href="/../css/github-gist.css?v=1.0.155" type="text/css">
-    <link rel="stylesheet" href="/../css/github-gist-night.css?v=1.0.155" disabled id="github-gist-night" type="text/css">
-    <script src="/../js/bundle.min.js?v=1.0.155" type="text/javascript"></script>
-    <script src="/../js/highlight.pack.js?v=1.0.155" type="text/javascript"></script>
-    <script src="/../js/ehtml.bundle.min.js?v=1.0.155" type="text/javascript"></script>
+    <link rel="stylesheet" href="/../css/normalize.css?v=1.0.157" type="text/css">
+    <link rel="stylesheet" href="/../css/main.css?v=1.0.157" type="text/css">
+    <link rel="stylesheet" href="/../css/main-night.css?v=1.0.157" disabled id="main-night" type="text/css">
+    <link rel="stylesheet" href="/../css/github-gist.css?v=1.0.157" type="text/css">
+    <link rel="stylesheet" href="/../css/github-gist-night.css?v=1.0.157" disabled id="github-gist-night" type="text/css">
+    <script src="/../js/bundle.min.js?v=1.0.157" type="text/javascript"></script>
+    <script src="/../js/highlight.pack.js?v=1.0.157" type="text/javascript"></script>
+    <script src="/../js/ehtml.bundle.min.js?v=1.0.157" type="text/javascript"></script>
   </head>
 
   <body class="main">
     <div class="base">
       <div class="menu">
-        <a href="/../stuff/about?v=1.0.155">About</a>
-        <a href="/../stuff/projects?v=1.0.155">Projects</a>
-        <a href="/../previews/1?v=1.0.155">Posts</a>
-        <a href="/../stuff/slides?v=1.0.155">Slides</a>
-        <a href="/../stuff/papers?v=1.0.155">Papers</a>
-        <a href="/../stuff/talks?v=1.0.155">Talks</a>
-        <a href="/../stuff/podcasts?v=1.0.155" style="display: none;">Podcasts</a>
-        <a href="/../stuff/covers?v=1.0.155">♫ Covers</a>
-        <a href="/../rus-previews/1?v=1.0.155">На русском</a>
+        <a href="/../stuff/about?v=1.0.157">About</a>
+        <e-turbolink data-href="/../stuff/projects?v=1.0.157">Projects</e-turbolink>
+        <a href="/../previews/1?v=1.0.157">Posts</a>
+        <a href="/../stuff/slides?v=1.0.157">Slides</a>
+        <a href="/../stuff/papers?v=1.0.157">Papers</a>
+        <a href="/../stuff/talks?v=1.0.157">Talks</a>
+        <a href="/../stuff/podcasts?v=1.0.157" style="display: none;">Podcasts</a>
+        <a href="/../stuff/covers?v=1.0.157">♫ Covers</a>
+        <a href="/../rus-previews/1?v=1.0.157">На русском</a>
       </div>
       <div class="day-night" id="day-night"></div>
       <div class="content">
         <h1 id="asyncobjectsinsteadofasynccalls">Async Objects instead of Async Calls</h1>
         <div class="date">26 January 2018</div>
         <div class="tags">
-          <a class="tag" href="/../tags/oop?v=1.0.155">oop</a>
-          <a class="tag" href="/../tags/node?v=1.0.155">node</a>
-          <a class="tag" href="/../tags/asyncobjects?v=1.0.155">async objects</a>
+          <a class="tag" href="/../tags/oop?v=1.0.157">oop</a>
+          <a class="tag" href="/../tags/node?v=1.0.157">node</a>
+          <a class="tag" href="/../tags/asyncobjects?v=1.0.157">async objects</a>
         </div>
         <p>No secret, OOP in JS is not perfect. At least it's not so mature as it's in Java, for example. And actually I don't see that anybody from the JavaScript world would use this paradigm as the main concept for their applications. In the modern software development the ideas of the object-oriented programming (as itself) are becoming less and less popular and giving way to the ideas of functional programming. But I think we should not give up such a powerful and wonderful tool/mechanism that can simplify our complex systems. In this article, I'll try to introduce the idea of <strong>async objects</strong> and show how they can help us to get rid of the main problem in asyncronious enviroment… Of course, I am talking about <strong>callbacks</strong>.</p>
         <p>Every library or driver in Node.js has <b>async calls</b>, and all them have similar signature:</p>
