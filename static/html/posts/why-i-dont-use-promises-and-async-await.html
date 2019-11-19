@@ -11,48 +11,44 @@
     <title>Why I Don't Use Promises and Async/Await Abstractions in Node</title>
     <link rel="shortcut icon" type="image/png" href="/../image/favicon.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i|Source+Sans+Pro:400,400i,700,700i" type="text/css">
-    <link rel="stylesheet" href="/../css/normalize.css?v=1.0.159" type="text/css">
-    <link rel="stylesheet" href="/../css/main.css?v=1.0.159" type="text/css">
-    <link rel="stylesheet" href="/../css/main-night.css?v=1.0.159" disabled id="main-night" type="text/css">
-    <link rel="stylesheet" href="/../css/github-gist.css?v=1.0.159" type="text/css">
-    <link rel="stylesheet" href="/../css/github-gist-night.css?v=1.0.159" disabled id="github-gist-night" type="text/css">
-    <script src="/../js/day-night.js?v=1.0.159" type="text/javascript"></script>
-    <script src="/../js/youtube.js?v=1.0.159" type="text/javascript"></script>
-    <script src="/../js/iframe.js?v=1.0.159" type="text/javascript"></script>
-    <script src="/../js/highlight.pack.js?v=1.0.159" type="text/javascript"></script>
-    <script src="/../js/ehtml.bundle.min.js?v=1.0.159" type="text/javascript"></script>
-    <script src="/../js/script.js?v=1.0.159" type="text/javascript"></script>
+    <link rel="stylesheet" href="/../css/normalize.css?v=1.0.161" type="text/css">
+    <link rel="stylesheet" href="/../css/main.css?v=1.0.161" type="text/css">
+    <link rel="stylesheet" href="/../css/main-night.css?v=1.0.161" disabled id="main-night" type="text/css">
+    <link rel="stylesheet" href="/../css/github-gist.css?v=1.0.161" type="text/css">
+    <link rel="stylesheet" href="/../css/github-gist-night.css?v=1.0.161" disabled id="github-gist-night" type="text/css">
+    <script src="/../js/day-night.js?v=1.0.161" type="text/javascript"></script>
+    <script src="/../js/youtube.js?v=1.0.161" type="text/javascript"></script>
+    <script src="/../js/iframe.js?v=1.0.161" type="text/javascript"></script>
+    <script src="/../js/highlight.pack.js?v=1.0.161" type="text/javascript"></script>
+    <script src="/../js/ehtml.bundle.min.js?v=1.0.161" type="text/javascript"></script>
+    <script src="/../js/script.js?v=1.0.161" type="text/javascript"></script>
   </head>
 
-  <body 'class="main" 
-                onload="
-                  hljs.initHighlightingOnLoad();
-                  initYoutubeVideos(1.777);
-                  makeIframesResizable(' youtube-video', 1.777); makeIframesResizable('soundcloud', 2.185); "
-              ><div class=" base">
-    <div class="menu">
-      <a href="/../stuff/about?v=1.0.159">About</a>
-      <e-turbolink data-href="/../stuff/projects?v=1.0.159">Projects</e-turbolink>
-      <e-turbolink data-href="/../previews/1?v=1.0.159">Posts</e-turbolink>
-      <e-turbolink data-href="/../stuff/slides?v=1.0.159">Slides</e-turbolink>
-      <e-turbolink data-href="/../stuff/papers?v=1.0.159">Papers</e-turbolink>
-      <e-turbolink data-href="/../stuff/talks?v=1.0.159">Talks</e-turbolink>
-      <e-turbolink data-href="/../stuff/podcasts?v=1.0.159" style="display: none;">Podcasts</e-turbolink>
-      <e-turbolink data-href="/../stuff/covers?v=1.0.159">♫ Covers</e-turbolink>
-      <e-turbolink data-href="/../rus-previews/1?v=1.0.159">На русском</e-turbolink>
-    </div>
-    <div class="day-night" id="day-night" onclick="changeStyle()"></div>
-    <div class="content">
-      <h1 id="whyidontusepromisesandasyncawaitabstractionsinnode">Why I Don't Use Promises and Async/Await Abstractions in Node</h1>
-      <div class="date">9 August 2019</div>
-      <div class="tags">
-        <a class="tag" href="/../tags/oop?v=1.0.159">oop</a>
-        <a class="tag" href="/../tags/node?v=1.0.159">node</a>
-        <a class="tag" href="/../tags/asyncobjects?v=1.0.159">async objects</a>
+  <body class="main">
+    <div class="base">
+      <div class="menu">
+        <a href="/../stuff/about?v=1.0.161">About</a>
+        <e-turbolink data-href="/../stuff/projects?v=1.0.161">Projects</e-turbolink>
+        <e-turbolink data-href="/../previews/1?v=1.0.161">Posts</e-turbolink>
+        <e-turbolink data-href="/../stuff/slides?v=1.0.161">Slides</e-turbolink>
+        <e-turbolink data-href="/../stuff/papers?v=1.0.161">Papers</e-turbolink>
+        <e-turbolink data-href="/../stuff/talks?v=1.0.161">Talks</e-turbolink>
+        <e-turbolink data-href="/../stuff/podcasts?v=1.0.161" style="display: none;">Podcasts</e-turbolink>
+        <e-turbolink data-href="/../stuff/covers?v=1.0.161">♫ Covers</e-turbolink>
+        <e-turbolink data-href="/../rus-previews/1?v=1.0.161">На русском</e-turbolink>
       </div>
-      <p>In this article, I'll talk about <strong>callback hell</strong> again. But this time, I'll try to describe how I see this problem, and why I actually think that this is a problem. Also I'll explain why I think that abstractions such as <strong><code>Promise</code></strong> and <strong><code>async/await</code></strong> don't help us to structure our code in a better way. I'll demonstrate my solution that's based on ideas of declarative and pure object-oriented programming, which I'm big fan of. And I'll show you why I think that declarative constructions is the only good way to write asynchronous code for big and complex applications.</p>
-      <p>Let's take a look at this silly but quite representative code, where we make a sequence of async calls. Here we try to read some content from the first file and write this content into another one.</p>
-      <pre><code class="js language-js">const fs = require('fs')
+      <div class="day-night" id="day-night" onclick="changeStyle()"></div>
+      <div class="content">
+        <h1 id="whyidontusepromisesandasyncawaitabstractionsinnode">Why I Don't Use Promises and Async/Await Abstractions in Node</h1>
+        <div class="date">9 August 2019</div>
+        <div class="tags">
+          <a class="tag" href="/../tags/oop?v=1.0.161">oop</a>
+          <a class="tag" href="/../tags/node?v=1.0.161">node</a>
+          <a class="tag" href="/../tags/asyncobjects?v=1.0.161">async objects</a>
+        </div>
+        <p>In this article, I'll talk about <strong>callback hell</strong> again. But this time, I'll try to describe how I see this problem, and why I actually think that this is a problem. Also I'll explain why I think that abstractions such as <strong><code>Promise</code></strong> and <strong><code>async/await</code></strong> don't help us to structure our code in a better way. I'll demonstrate my solution that's based on ideas of declarative and pure object-oriented programming, which I'm big fan of. And I'll show you why I think that declarative constructions is the only good way to write asynchronous code for big and complex applications.</p>
+        <p>Let's take a look at this silly but quite representative code, where we make a sequence of async calls. Here we try to read some content from the first file and write this content into another one.</p>
+        <pre><code class="js language-js">const fs = require('fs')
 
 fs.readFile('./text1.txt', 'utf8', (err, result) =&gt; {
   if (err != null) {
@@ -66,13 +62,13 @@ fs.readFile('./text1.txt', 'utf8', (err, result) =&gt; {
   })
 })
 </code></pre>
-      <p>Most people think that the main issue of using callbacks is that our code becomes more nested, so it would be difficult to read. But I think this is not complete vision on this problem.</p>
-      <p>The thing is that we use callbacks as proxies between async calls. We expose data and behaviour outside of async calls to callbacks where we do all the work: processing result with some logic, error handling, we share results that we get from callbacks as arguments for other async calls inside of these callbacks. And these results can mutate, so it becomes even more problematic to control data flow in our code. </p>
-      <p>Also you can see duplication of code where we check if error is null or not. So, it's really difficult to write more or less complex programs using this approach and keep your code clean, readable and maintainable.</p>
-      <p>Of course, you can structure your code somehow adding functions which group different combinations of async calls. But these functions are not so reusable, because all you do is just grouping different async calls just to make your code shorter, but you cannot do it always. Anyway, this approach is not efficient enough.</p>
-      <p>How can we solve callback-hell problem then?</p>
-      <p>Let's talk about <em>Promises</em>, which were introduced to do that. But I don't think they actually do. Let's take look at the same logic but with using Promises. </p>
-      <pre><code class="js language-js">const fs = require('fs')
+        <p>Most people think that the main issue of using callbacks is that our code becomes more nested, so it would be difficult to read. But I think this is not complete vision on this problem.</p>
+        <p>The thing is that we use callbacks as proxies between async calls. We expose data and behaviour outside of async calls to callbacks where we do all the work: processing result with some logic, error handling, we share results that we get from callbacks as arguments for other async calls inside of these callbacks. And these results can mutate, so it becomes even more problematic to control data flow in our code. </p>
+        <p>Also you can see duplication of code where we check if error is null or not. So, it's really difficult to write more or less complex programs using this approach and keep your code clean, readable and maintainable.</p>
+        <p>Of course, you can structure your code somehow adding functions which group different combinations of async calls. But these functions are not so reusable, because all you do is just grouping different async calls just to make your code shorter, but you cannot do it always. Anyway, this approach is not efficient enough.</p>
+        <p>How can we solve callback-hell problem then?</p>
+        <p>Let's talk about <em>Promises</em>, which were introduced to do that. But I don't think they actually do. Let's take look at the same logic but with using Promises. </p>
+        <pre><code class="js language-js">const fs = require('fs')
 
 const read = (path) =&gt; {
   return new Promise((resolve, reject) =&gt; {
@@ -104,9 +100,9 @@ read('./text1.txt').then((data) =&gt; {
   // handling error
 })
 </code></pre>
-      <p>Promise is just an object that has one argument, which is function with two arguments: <code>resolve</code> function and <code>reject</code> function. So, when result from async call is ready we invoke <code>resolve</code> function. And when some error occurs we invoke <code>reject</code> function. Promises make our code less nested, it's true: instead of complex callback structure we have a chain of async calls. But it does not solve other problems which I described. We still expose our data and behaviour outside of async calls to some function via <code>.then</code>. We still handle errors outside of our async calls.</p>
-      <p>I think that people who created the concept of Promises understood that, and that's why <em>async/await</em> conception was introduced as syntax sugar for Promises. And now we can rewrtite our code in this way:</p>
-      <pre><code class="js language-js">const fsPromises = require('fs').promises
+        <p>Promise is just an object that has one argument, which is function with two arguments: <code>resolve</code> function and <code>reject</code> function. So, when result from async call is ready we invoke <code>resolve</code> function. And when some error occurs we invoke <code>reject</code> function. Promises make our code less nested, it's true: instead of complex callback structure we have a chain of async calls. But it does not solve other problems which I described. We still expose our data and behaviour outside of async calls to some function via <code>.then</code>. We still handle errors outside of our async calls.</p>
+        <p>I think that people who created the concept of Promises understood that, and that's why <em>async/await</em> conception was introduced as syntax sugar for Promises. And now we can rewrtite our code in this way:</p>
+        <pre><code class="js language-js">const fsPromises = require('fs').promises
 
 const readFile = async (file) =&gt; {
   return fsPromises.readFile(await file, 'utf8');
@@ -131,46 +127,46 @@ async () =&gt; {
   }
 }
 </code></pre>
-      <p>But the fact is that it made the whole situation even worse. They tried to imitate async code as synchronous code in the traditional procedural way. First, let me explain what are <code>async/await</code> keywords mean.</p>
-      <p><code>async</code> is a keyword that says that the following function after this word is asynchronous, so it based on async calls. And <code>await</code> is used for waiting for the result from async function. And you must use <code>await</code> in async function. And the problem of this conception is that we still try to write some combinations of async calls, we are tying somehow to group them, so we can write less nested code.</p>
-      <p>But in fact we lose control of data flow. We can get a result as it is, but we have to constantly keep in mind if some calls depend on each other or not because <code>await</code> key word blocks our thread in the async function where it's used. We don't want to have something like that's called async/awit hell problem, right?</p>
-      <pre><code class="js language-js">async () =&gt; {
+        <p>But the fact is that it made the whole situation even worse. They tried to imitate async code as synchronous code in the traditional procedural way. First, let me explain what are <code>async/await</code> keywords mean.</p>
+        <p><code>async</code> is a keyword that says that the following function after this word is asynchronous, so it based on async calls. And <code>await</code> is used for waiting for the result from async function. And you must use <code>await</code> in async function. And the problem of this conception is that we still try to write some combinations of async calls, we are tying somehow to group them, so we can write less nested code.</p>
+        <p>But in fact we lose control of data flow. We can get a result as it is, but we have to constantly keep in mind if some calls depend on each other or not because <code>await</code> key word blocks our thread in the async function where it's used. We don't want to have something like that's called async/awit hell problem, right?</p>
+        <pre><code class="js language-js">async () =&gt; {
   const res1 = await fun1()
   const res2 = await fun2() 
   const res3 = await funt3()
 }
 </code></pre>
-      <p>It's a case when we invoke several async calls, which don't use each other results. But it's kinda easy to make such mistakes which broke the whole idea of asynchronous programming.</p>
-      <p>Of course, you can use Promise.all() to prevent such things, but we back to using Promises, does it mean that idea and design of async/await is not efficient enough to completely avoiding Promises in our code? It seems that it's not..
-        And we still have the problem with error handling. Of course, we can do via standard <code>try/catch</code> mechanism in JavaScript, but I don't think that such constructions make our code easier to read and maintain.</p>
-      <p>Another big problem which I can see is noisy words: <code>Promise</code>, <code>async</code>, <code>await</code>, <code>.then</code>, <code>.catch</code>, <code>.all</code> and other things. Are they related to the business logic? Is procedural approach is the best solution for solving mentioned problems? I don't think so.</p>
-      <p>Before presenting my solution, I want to show the difference between procedural and declarative programming on this simple example.</p>
-      <pre><code class="js language-js">const user = getUserFromDb(userId)
+        <p>It's a case when we invoke several async calls, which don't use each other results. But it's kinda easy to make such mistakes which broke the whole idea of asynchronous programming.</p>
+        <p>Of course, you can use Promise.all() to prevent such things, but we back to using Promises, does it mean that idea and design of async/await is not efficient enough to completely avoiding Promises in our code? It seems that it's not..
+          And we still have the problem with error handling. Of course, we can do via standard <code>try/catch</code> mechanism in JavaScript, but I don't think that such constructions make our code easier to read and maintain.</p>
+        <p>Another big problem which I can see is noisy words: <code>Promise</code>, <code>async</code>, <code>await</code>, <code>.then</code>, <code>.catch</code>, <code>.all</code> and other things. Are they related to the business logic? Is procedural approach is the best solution for solving mentioned problems? I don't think so.</p>
+        <p>Before presenting my solution, I want to show the difference between procedural and declarative programming on this simple example.</p>
+        <pre><code class="js language-js">const user = getUserFromDb(userId)
 const account = user.createNewAccount(user, info)
 user.saveAccount(account)
 </code></pre>
-      <p>Before presenting my solution, I want to show the difference between procedural and declarative programming on this simple example. Here we just try to get some user from database, build account for this user and save it. Simple logic, and the same thing in the declarative style would look smth like this.</p>
-      <pre><code class="js language-js">SavedAccount(
+        <p>Before presenting my solution, I want to show the difference between procedural and declarative programming on this simple example. Here we just try to get some user from database, build account for this user and save it. Simple logic, and the same thing in the declarative style would look smth like this.</p>
+        <pre><code class="js language-js">SavedAccount(
   CreatedAccount(
     UserFromDb(userId),
     info
   )
 )
 </code></pre>
-      <p>As you can see, the main of point of such declarative style is that we hide logic inside of these objects, and we represent what we want to see as result of our program. And these objects are immutable, so we can easily test such code and control the state of these objects.</p>
-      <p>So, how can such declarative style help us solve callback hell problem? So, let's see.</p>
-      <pre><code class="js language-js">const { ReadDataByPath, WrittenFile } = require('@cuties/fs')
+        <p>As you can see, the main of point of such declarative style is that we hide logic inside of these objects, and we represent what we want to see as result of our program. And these objects are immutable, so we can easily test such code and control the state of these objects.</p>
+        <p>So, how can such declarative style help us solve callback hell problem? So, let's see.</p>
+        <pre><code class="js language-js">const { ReadDataByPath, WrittenFile } = require('@cuties/fs')
 
 new WrittenFile(
   './text2.txt',
   new ReadDataByPath('./text1.txt', 'utf8')
 ).call()
 </code></pre>
-      <p>This is what I propose. We can present our program as a composition or as a tree where we can declare what we want to get as a result. In this example we have two async objects <code>ReadDataByPath</code> which encapsulate function <code>fs.readFile</code>, and <code>WrittenFile</code> which encapsulates async function <code>fs.writeFile</code>. <code>ReadDataByPath</code> represents some content from file, and <code>WrittenFile</code> represents a file(or a path to the file), which has been written with some content. </p>
-      <p>And you can notice that these objects have the same arguments in the same order that their corresponding async calls have. You might find it joyful to read such code: so, it's like we want to get file that has been written with some content that has been read from another file. I think that's the way we should write programs in general, not only in the asynchronous environments.</p>
-      <p>But the whole power of this approach you can feel when we try to get rid of callbacks. And wonderful thing about async composition is that you can put arguments like either other async object or simple objects and primitives. For example, instead of first argument in <code>WrittenFile</code> we can put another async object <code>ReadDataByPath</code> that gets the path from some 3rd file. Isn't wonderful?</p>
-      <p>Let's take a quick look at how these async objects are designed from the inside. First let's see what happens in ReadDataByPath.</p>
-      <pre><code class="js language-js">const { AsyncObject } = require('@cuties/cutie')
+        <p>This is what I propose. We can present our program as a composition or as a tree where we can declare what we want to get as a result. In this example we have two async objects <code>ReadDataByPath</code> which encapsulate function <code>fs.readFile</code>, and <code>WrittenFile</code> which encapsulates async function <code>fs.writeFile</code>. <code>ReadDataByPath</code> represents some content from file, and <code>WrittenFile</code> represents a file(or a path to the file), which has been written with some content. </p>
+        <p>And you can notice that these objects have the same arguments in the same order that their corresponding async calls have. You might find it joyful to read such code: so, it's like we want to get file that has been written with some content that has been read from another file. I think that's the way we should write programs in general, not only in the asynchronous environments.</p>
+        <p>But the whole power of this approach you can feel when we try to get rid of callbacks. And wonderful thing about async composition is that you can put arguments like either other async object or simple objects and primitives. For example, instead of first argument in <code>WrittenFile</code> we can put another async object <code>ReadDataByPath</code> that gets the path from some 3rd file. Isn't wonderful?</p>
+        <p>Let's take a quick look at how these async objects are designed from the inside. First let's see what happens in ReadDataByPath.</p>
+        <pre><code class="js language-js">const { AsyncObject } = require('@cuties/cutie')
 const fs = require('fs')
 
 // Represented result is buffer or string
@@ -187,9 +183,9 @@ class ReadDataByPath extends AsyncObject {
   }
 }
 </code></pre>
-      <p>We see here a class that extends <code>AsyncObject</code> that's provided by library <a href="https://github.com/Guseyn/cutie">cutie</a>. And we create a constructor with arguments: path (which can be either simple string or som other <code>AsyncObject</code>) and options object (which also can be as a simple object or some <code>AsyncObject</code> that represents options object). Also we declare here our async call, which is <code>fs.read</code>. You can encapsulate in <code>AsyncObject</code> not only async call, but sync call. And it will still be an async object as it can have async objects as arguments (it can rely on other async objects, and this is makes it async object, for more details you can use links in the references).</p>
-      <p>Now, let's take a look at <code>WrittenFile</code>. </p>
-      <pre><code class="js language-js">const { AsyncObject } = require('@cuties/cutie')
+        <p>We see here a class that extends <code>AsyncObject</code> that's provided by library <a href="https://github.com/Guseyn/cutie">cutie</a>. And we create a constructor with arguments: path (which can be either simple string or som other <code>AsyncObject</code>) and options object (which also can be as a simple object or some <code>AsyncObject</code> that represents options object). Also we declare here our async call, which is <code>fs.read</code>. You can encapsulate in <code>AsyncObject</code> not only async call, but sync call. And it will still be an async object as it can have async objects as arguments (it can rely on other async objects, and this is makes it async object, for more details you can use links in the references).</p>
+        <p>Now, let's take a look at <code>WrittenFile</code>. </p>
+        <pre><code class="js language-js">const { AsyncObject } = require('@cuties/cutie')
 const fs = require('fs')
 
 // Represented result is file
@@ -214,22 +210,22 @@ class WrittenFile extends AsyncObject {
   }
 }
 </code></pre>
-      <p>It's a bit more complex, but still we have constructor where invoke super constructor with the same arguments as for <code>fs.writeFile</code> except callback, obviously. And as <code>fs.writeFile</code> does not have any result in the callback as you might remember, we define it in our custom async call which encapsulate original async call where we declare what we want to save as a result. In this case we want to save a file as a path. By the way, as I said, in the constructor we can put either async objects as arguments or simple objects and primitive. But in the declaration of our method <code>asyncCall()</code> we have ready results which we can use for our async call <code>fs.writeFile</code>. And we have method <code>onResult</code> where we can return the file which we defined here.</p>
-      <p>So, why basically this approach solves all the problems which I described?</p>
-      <p>First of all, we encapsulate logic and data in the object. Async object has methods <code>onResult</code> and <code>onError</code> which you can override and make processing result or handling error. There are other stuff you can do in the object, for example you can declare that you don't want your program to stop event if something fails, you specify if your callback has an error argument or not and a lot of other stuff which you can find in the references section.</p>
-      <p>Another thing that I want to mention you async objects work only in the context of other async object in the async composition, so your whole program would be declarative, which is in my opinion is great.</p>
-      <p>But obviously, there are some problems with this approach. First is that you have to write a lot of such declarative wrapper around static functions in Node. But I solved a bit this problem, I created a lot of libraries like <a href="https://github.com/Guseyn/cutie-fs"><strong>cutie-fs</strong></a>, <a href="https://github.com/Guseyn/cutie-http"><strong>cutie-http</strong></a>, <a href="https://github.com/Guseyn/cutie-https"><strong>cutie-https</strong></a>, <a href="https://github.com/Guseyn/cutie-buffer"><strong>cutie-buffer</strong></a>, <a href="https://github.com/Guseyn/cutie-json"><strong>cutie-json</strong></a>, <a href="https://github.com/Guseyn/cutie-stream"><strong>cutie-stream</strong></a>, and even <a href="https://github.com/Guseyn/cutie-rest"><strong>cutie-rest</strong></a>. I will put link to my github account, so you can find all those libraries. </p>
-      <p>Another thing is that people don't use to write and read such code. They think that it's too verbose and weird. But in my opinion, it's just a cultural problem, because I really feel that this is something that I want to maintain and read. I think that such code has well written structured form. </p>
-      <p>And last but not least, it's performance. As you can imagine, in this approach we have to create a lot of objects, and it cannot be good for garbage collection and stuff like that. But in my experience, performance is not affected too much that I give up this idea and move to traditional procedural programming. And I think that it's better to have clean code instead of fast code, because it would be easier to find performance issues in the code that you can understand than in the bad structured code. And more over, I think that it's possible to create a converter that translate such declarative code into procedural code as executable file that you can run in production environment, for example.</p>
-      <p>That's pretty much it what I wanted to cover in this article. Thank you for reading. See you soon.</p>
-      <div class="refs">References</div>
-      <ul>
-        <li><a href="https://github.com/Guseyn/">My GitHub account where you can find all libraries, which provide async objects</a></li>
-        <li><a href="https://github.com/Guseyn/cutie">Cutie on GitHub</a></li>
-        <li><a href="https://guseyn.com/posts/async-objects-instead-of-async-calls">Technical article about async objects</a></li>
-        <li><a href="https://guseyn.com/pdf/Async_Tree_Pattern.pdf">Async Tree Pattern</a></li>
-      </ul>
-    </div>
+        <p>It's a bit more complex, but still we have constructor where invoke super constructor with the same arguments as for <code>fs.writeFile</code> except callback, obviously. And as <code>fs.writeFile</code> does not have any result in the callback as you might remember, we define it in our custom async call which encapsulate original async call where we declare what we want to save as a result. In this case we want to save a file as a path. By the way, as I said, in the constructor we can put either async objects as arguments or simple objects and primitive. But in the declaration of our method <code>asyncCall()</code> we have ready results which we can use for our async call <code>fs.writeFile</code>. And we have method <code>onResult</code> where we can return the file which we defined here.</p>
+        <p>So, why basically this approach solves all the problems which I described?</p>
+        <p>First of all, we encapsulate logic and data in the object. Async object has methods <code>onResult</code> and <code>onError</code> which you can override and make processing result or handling error. There are other stuff you can do in the object, for example you can declare that you don't want your program to stop event if something fails, you specify if your callback has an error argument or not and a lot of other stuff which you can find in the references section.</p>
+        <p>Another thing that I want to mention you async objects work only in the context of other async object in the async composition, so your whole program would be declarative, which is in my opinion is great.</p>
+        <p>But obviously, there are some problems with this approach. First is that you have to write a lot of such declarative wrapper around static functions in Node. But I solved a bit this problem, I created a lot of libraries like <a href="https://github.com/Guseyn/cutie-fs"><strong>cutie-fs</strong></a>, <a href="https://github.com/Guseyn/cutie-http"><strong>cutie-http</strong></a>, <a href="https://github.com/Guseyn/cutie-https"><strong>cutie-https</strong></a>, <a href="https://github.com/Guseyn/cutie-buffer"><strong>cutie-buffer</strong></a>, <a href="https://github.com/Guseyn/cutie-json"><strong>cutie-json</strong></a>, <a href="https://github.com/Guseyn/cutie-stream"><strong>cutie-stream</strong></a>, and even <a href="https://github.com/Guseyn/cutie-rest"><strong>cutie-rest</strong></a>. I will put link to my github account, so you can find all those libraries. </p>
+        <p>Another thing is that people don't use to write and read such code. They think that it's too verbose and weird. But in my opinion, it's just a cultural problem, because I really feel that this is something that I want to maintain and read. I think that such code has well written structured form. </p>
+        <p>And last but not least, it's performance. As you can imagine, in this approach we have to create a lot of objects, and it cannot be good for garbage collection and stuff like that. But in my experience, performance is not affected too much that I give up this idea and move to traditional procedural programming. And I think that it's better to have clean code instead of fast code, because it would be easier to find performance issues in the code that you can understand than in the bad structured code. And more over, I think that it's possible to create a converter that translate such declarative code into procedural code as executable file that you can run in production environment, for example.</p>
+        <p>That's pretty much it what I wanted to cover in this article. Thank you for reading. See you soon.</p>
+        <div class="refs">References</div>
+        <ul>
+          <li><a href="https://github.com/Guseyn/">My GitHub account where you can find all libraries, which provide async objects</a></li>
+          <li><a href="https://github.com/Guseyn/cutie">Cutie on GitHub</a></li>
+          <li><a href="https://guseyn.com/posts/async-objects-instead-of-async-calls">Technical article about async objects</a></li>
+          <li><a href="https://guseyn.com/pdf/Async_Tree_Pattern.pdf">Async Tree Pattern</a></li>
+        </ul>
+      </div>
     </div>
   </body>
 
