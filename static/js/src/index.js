@@ -20,7 +20,7 @@ window.changeStyle = () => {
   } else {
     localStorage.setItem('localStyle', 'night')
   }
-  setStyle()
+  window.setStyle()
 }
 
-setStyle()
+window.setStyle()
