@@ -79,10 +79,23 @@ class BaseTemplateWrapper extends AsyncObject {
               ),
               new Script(
                 new UrlWithVersion(
+                  '/../js/day-night.js',
                   new Value(
-                    config,
-                    'minBundleHref'
-                  ),
+                    packageJSON, 'version'
+                  )
+                ), 'type="text/javascript"'
+              ),
+              new Script(
+                new UrlWithVersion(
+                  '/../js/youtube.js',
+                  new Value(
+                    packageJSON, 'version'
+                  )
+                ), 'type="text/javascript"'
+              ),
+              new Script(
+                new UrlWithVersion(
+                  '/../js/iframe.js',
                   new Value(
                     packageJSON, 'version'
                   )
@@ -103,10 +116,18 @@ class BaseTemplateWrapper extends AsyncObject {
                     packageJSON, 'version'
                   )
                 ), 'type="text/javascript"'
+              ),
+              new Script(
+                new UrlWithVersion(
+                  '/../js/script.js',
+                  new Value(
+                    packageJSON, 'version'
+                  )
+                ), 'type="text/javascript"'
               )
             ),
             new Body(
-              'class="main"',
+              `'class="main"`,
               new TemplateWithParams(
                 new TemplateWithVersion(
                   baseTemplate,

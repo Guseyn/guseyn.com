@@ -1,5 +1,3 @@
-'use strict'
-
 window.setStyle = () => {
   const localStyle = localStorage.getItem('localStyle') || 'day'
   const mainNightStyle = document.getElementById('main-night')

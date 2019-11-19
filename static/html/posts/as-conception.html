@@ -16,53 +16,60 @@
     <link rel="stylesheet" href="/../css/main-night.css?v=1.0.159" disabled id="main-night" type="text/css">
     <link rel="stylesheet" href="/../css/github-gist.css?v=1.0.159" type="text/css">
     <link rel="stylesheet" href="/../css/github-gist-night.css?v=1.0.159" disabled id="github-gist-night" type="text/css">
-    <script src="/../js/bundle.min.js?v=1.0.159" type="text/javascript"></script>
+    <script src="/../js/day-night.js?v=1.0.159" type="text/javascript"></script>
+    <script src="/../js/youtube.js?v=1.0.159" type="text/javascript"></script>
+    <script src="/../js/iframe.js?v=1.0.159" type="text/javascript"></script>
     <script src="/../js/highlight.pack.js?v=1.0.159" type="text/javascript"></script>
     <script src="/../js/ehtml.bundle.min.js?v=1.0.159" type="text/javascript"></script>
+    <script src="/../js/script.js?v=1.0.159" type="text/javascript"></script>
   </head>
 
-  <body class="main">
-    <div class="base">
-      <div class="menu">
-        <a href="/../stuff/about?v=1.0.159">About</a>
-        <e-turbolink data-href="/../stuff/projects?v=1.0.159">Projects</e-turbolink>
-        <a href="/../previews/1?v=1.0.159">Posts</a>
-        <a href="/../stuff/slides?v=1.0.159">Slides</a>
-        <a href="/../stuff/papers?v=1.0.159">Papers</a>
-        <a href="/../stuff/talks?v=1.0.159">Talks</a>
-        <a href="/../stuff/podcasts?v=1.0.159" style="display: none;">Podcasts</a>
-        <a href="/../stuff/covers?v=1.0.159">♫ Covers</a>
-        <a href="/../rus-previews/1?v=1.0.159">На русском</a>
+  <body 'class="main" 
+                onload="
+                  hljs.initHighlightingOnLoad();
+                  initYoutubeVideos(1.777);
+                  makeIframesResizable(' youtube-video', 1.777); makeIframesResizable('soundcloud', 2.185); "
+              ><div class=" base">
+    <div class="menu">
+      <a href="/../stuff/about?v=1.0.159">About</a>
+      <e-turbolink data-href="/../stuff/projects?v=1.0.159">Projects</e-turbolink>
+      <e-turbolink data-href="/../previews/1?v=1.0.159">Posts</e-turbolink>
+      <e-turbolink data-href="/../stuff/slides?v=1.0.159">Slides</e-turbolink>
+      <e-turbolink data-href="/../stuff/papers?v=1.0.159">Papers</e-turbolink>
+      <e-turbolink data-href="/../stuff/talks?v=1.0.159">Talks</e-turbolink>
+      <e-turbolink data-href="/../stuff/podcasts?v=1.0.159" style="display: none;">Podcasts</e-turbolink>
+      <e-turbolink data-href="/../stuff/covers?v=1.0.159">♫ Covers</e-turbolink>
+      <e-turbolink data-href="/../rus-previews/1?v=1.0.159">На русском</e-turbolink>
+    </div>
+    <div class="day-night" id="day-night" onclick="changeStyle()"></div>
+    <div class="content">
+      <h1 id="asconceptioninasynctree"><em>As</em> Conception in Async Tree</h1>
+      <div class="date">6 May 2018</div>
+      <div class="tags">
+        <a class="tag" href="/../tags/oop?v=1.0.159">oop</a>
+        <a class="tag" href="/../tags/node?v=1.0.159">node</a>
+        <a class="tag" href="/../tags/asyncobjects?v=1.0.159">async objects</a>
       </div>
-      <div class="day-night" id="day-night" onclick="changeStyle()"></div>
-      <div class="content">
-        <h1 id="asconceptioninasynctree"><em>As</em> Conception in Async Tree</h1>
-        <div class="date">6 May 2018</div>
-        <div class="tags">
-          <a class="tag" href="/../tags/oop?v=1.0.159">oop</a>
-          <a class="tag" href="/../tags/node?v=1.0.159">node</a>
-          <a class="tag" href="/../tags/asyncobjects?v=1.0.159">async objects</a>
+      <div class="quote">
+        <div class="quote-text">
+          &ldquo;&nbsp;&nbsp;There are only two hard things in Computer Science: cache invalidation and naming things.&nbsp;&nbsp;&rdquo;
         </div>
-        <div class="quote">
-          <div class="quote-text">
-            &ldquo;&nbsp;&nbsp;There are only two hard things in Computer Science: cache invalidation and naming things.&nbsp;&nbsp;&rdquo;
-          </div>
-          <div class="quote-author">
-            Phil Karlton
-          </div>
+        <div class="quote-author">
+          Phil Karlton
         </div>
-        <p>If you don't know what <strong>async tree</strong> is, you definitely should take a look at <a href="https://github.com/Guseyn/cutie">this</a>. So in short, it's a beautiful abstraction the main idea of which is to make our code declarative in asynchronous environment. So, assuming that you know (or just acquainted with) this conception, I want to describe how managing of cache could be implemented for this abstraction.</p>
-        <p>Consider the following example with <em>async tree</em>:</p>
-        <pre><code class="js language-js">new SavedNewAccountOfUser(
+      </div>
+      <p>If you don't know what <strong>async tree</strong> is, you definitely should take a look at <a href="https://github.com/Guseyn/cutie">this</a>. So in short, it's a beautiful abstraction the main idea of which is to make our code declarative in asynchronous environment. So, assuming that you know (or just acquainted with) this conception, I want to describe how managing of cache could be implemented for this abstraction.</p>
+      <p>Consider the following example with <em>async tree</em>:</p>
+      <pre><code class="js language-js">new SavedNewAccountOfUser(
   new RetrievedUser(userId),
   new RetrievedOldAccountOfUser(
     new RetrievedUser(userId)
   )
 ).call()
 </code></pre>
-        <p>So, here we try to save new account for user that based (somehow) on its old one. And as you can see, we <em>retrieve user</em> here twice. <code>RetrievedUser</code> can be a quite expensive operation, so we don't want to do it more than one time. So, what would do you do here?</p>
-        <p>Well, you definitely don't want to do something like this:</p>
-        <pre><code class="js language-js">const retrievedUser = new RetrievedUser(userId);
+      <p>So, here we try to save new account for user that based (somehow) on its old one. And as you can see, we <em>retrieve user</em> here twice. <code>RetrievedUser</code> can be a quite expensive operation, so we don't want to do it more than one time. So, what would do you do here?</p>
+      <p>Well, you definitely don't want to do something like this:</p>
+      <pre><code class="js language-js">const retrievedUser = new RetrievedUser(userId);
 new SavedNewAccountOfUser(
   retrievedUser,
   new RetrievedOldAccountOfUser(
@@ -70,10 +77,10 @@ new SavedNewAccountOfUser(
   )
 ).call()
 </code></pre>
-        <p>Because it does not change anything. All these objects are asynchronous, they are not simple procedures, and all them will be invoked only when they are needed in the <i>async tree</i>. It means that the results they produce could be recieved and used only in the inner scope of the <i>tree</i>.</p>
-        <p>Another thing you must consider here is which of two <code>RetrievedUser</code> will be invoked first, so that you can write its result into the cache for using it for the second <code>RetrievedUser</code>.</p>
-        <p>I suggest the following approach, which I called <strong><em>As</em></strong> conception.</p>
-        <pre><code class="js language-js">new RetrievedUser(userId).as('user').after(
+      <p>Because it does not change anything. All these objects are asynchronous, they are not simple procedures, and all them will be invoked only when they are needed in the <i>async tree</i>. It means that the results they produce could be recieved and used only in the inner scope of the <i>tree</i>.</p>
+      <p>Another thing you must consider here is which of two <code>RetrievedUser</code> will be invoked first, so that you can write its result into the cache for using it for the second <code>RetrievedUser</code>.</p>
+      <p>I suggest the following approach, which I called <strong><em>As</em></strong> conception.</p>
+      <pre><code class="js language-js">new RetrievedUser(userId).as('user').after(
   new SavedNewAccountOfUser(
     as('user'),
     new RetrievedOldAccountOfUser(
@@ -82,9 +89,9 @@ new SavedNewAccountOfUser(
   )
 ).call()
 </code></pre>
-        <p>Every async object can has <code>as(key)</code> method, which says to the async object that it must save its represented value(result) into the cache with the specified <code>key</code>. If <code>as(key)</code> method is used as independent(separate) function, it returns <code>AsyncObject</code>, which represents value from the cache with the specified <code>key</code>. And you can use this scheme not only for caching.
-          At the moment, I am working on tests for <em><a href="https://github.com/Guseyn/cutie-fs">cutie-fs</a></em>, and sometimes I need to clean up environment after tests have passed. For example,</p>
-        <pre><code class="js language-js">new EqualAssertion(
+      <p>Every async object can has <code>as(key)</code> method, which says to the async object that it must save its represented value(result) into the cache with the specified <code>key</code>. If <code>as(key)</code> method is used as independent(separate) function, it returns <code>AsyncObject</code>, which represents value from the cache with the specified <code>key</code>. And you can use this scheme not only for caching.
+        At the moment, I am working on tests for <em><a href="https://github.com/Guseyn/cutie-fs">cutie-fs</a></em>, and sometimes I need to clean up environment after tests have passed. For example,</p>
+      <pre><code class="js language-js">new EqualAssertion(
   new ReadLinkByPath(
     new SymLinkedFile(
       new WrittenFile(file, data),
@@ -97,9 +104,9 @@ new SavedNewAccountOfUser(
   )
 ).call()
 </code></pre>
-        <p>Here I remove a link of file after test that created it, so it's able to create a link with the same name again in next execution of the test (you cannot create a link, if it already exists).</p>
-        <p>Method <code>after</code> can be used only once for every async tree. So, if you want to create a sequence of async trees you have to follow this rule:</p>
-        <pre><code class="js language-js">// RIGHT WAY, pseudocode
+      <p>Here I remove a link of file after test that created it, so it's able to create a link with the same name again in next execution of the test (you cannot create a link, if it already exists).</p>
+      <p>Method <code>after</code> can be used only once for every async tree. So, if you want to create a sequence of async trees you have to follow this rule:</p>
+      <pre><code class="js language-js">// RIGHT WAY, pseudocode
 AsyncTree1().after(
   AsyncTree2().after(
     AsyncTree3().after(...)
@@ -113,18 +120,12 @@ AsyncTree1().after(
   AsyncTree3()
 ).after(...)
 </code></pre>
-        <p>So, that's it. Hope, you liked this idea and how I explained it.</p>
-        <div class="refs">References</div>
-        <ul>
-          <li><a href="https://github.com/Guseyn/cutie">Cutie on GitHub</a></li>
-        </ul>
-      </div>
-      <script type="text/javascript">
-        hljs.initHighlightingOnLoad()
-        initYoutubeVideos(1.777)
-        makeIframesResizable('youtube-video', 1.777)
-        makeIframesResizable('soundcloud', 2.185)
-      </script>
+      <p>So, that's it. Hope, you liked this idea and how I explained it.</p>
+      <div class="refs">References</div>
+      <ul>
+        <li><a href="https://github.com/Guseyn/cutie">Cutie on GitHub</a></li>
+      </ul>
+    </div>
     </div>
   </body>
 
