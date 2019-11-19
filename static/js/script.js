@@ -10,6 +10,7 @@ const observer = new MutationObserver(
             initYoutubeVideos(1.777)
             makeIframesResizable('youtube-video', 1.777)
             makeIframesResizable('soundcloud', 2.185)
+            done = true
           }
         }
       }
