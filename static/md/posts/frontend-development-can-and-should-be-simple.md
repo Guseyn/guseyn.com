@@ -1,4 +1,4 @@
-# EHTML: Front End Development Can and Must Be Simple
+# EHTML: Front End Development Can and Should Be Simple
 <div class="date">19 November 2019</div>
 
 <div class="tags">
