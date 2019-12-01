@@ -21,4 +21,4 @@ So, check it out, you might find it very useful and interesting.
 
 * [EHTML](https://github.com/Guseyn/EHTML)
 
-[HN Comments](https://news.ycombinator.com/item?id=19365751)
+[HN Comments](https://news.ycombinator.com/item?id=21652300)
