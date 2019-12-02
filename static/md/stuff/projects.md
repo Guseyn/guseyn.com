@@ -25,10 +25,3 @@
 </details>
 
 1. [My blog](https://github.com/Guseyn/guseyn.com). Based on [Page](https://github.com/Guseyn/page).
-
-# My previous projects
-
-1. [<img class="project-logo" style="width: 96px; height: 96px;" src="/../../image/lexicon.png">](https://github.com/Guseyn/Lexicon-android-)
-[Lexicon](https://github.com/Guseyn/Lexicon-android-) was a mobile app (Android) for storing, learning, and repeating foreign words. It allowed users to create dictionaries with different languages, add unlimited number of words and translate them using Google Translate API. Lexicon supported scheduled repetition technique (via push notifications), which proved itself being very effective for memorizing words. Also, users were able to cache words for offline usage.
-
-1. [Paper Blog](https://github.com/Guseyn/Paper-blog) was a minimalistic platform for posting educational materials or some other interesting stuff with a convenient WYSIWYG editor. It had basic features like posting and editing articles, writing reviews, subscribing to user’s favorite authors and topics.
