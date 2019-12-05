@@ -31,13 +31,13 @@ Most people think that the main issue of using callbacks is that our code become
 
 The thing is that we use callbacks as proxies between async calls. We expose data and behaviour outside of async calls to callbacks where we do all the work: processing result with some logic, error handling, we share results that we get from callbacks as arguments for other async calls inside of these callbacks. And these results can mutate, so it becomes even more problematic to control data flow in our code. 
 
-Also you can see duplication of code where we check if error is null or not. So, it's really difficult to write more or less complex programs using this approach and keep your code clean, readable and maintainable.
+Also you can see duplication of the code where we check if error is null or not. So, it's really difficult to write more or less complex programs using this approach and keep your code clean, readable and maintainable.
 
 Of course, you can structure your code somehow adding functions which group different combinations of async calls. But these functions are not so reusable, because all you do is just grouping different async calls just to make your code shorter, but you cannot do it always. Anyway, this approach is not efficient enough.
 
 How can we solve callback-hell problem then?
 
-Let's talk about *Promises*, which were introduced to do that. But I don't think they actually do. Let's take look at the same logic but with using Promises. 
+Let's talk about *Promises*, which were introduced to do that. But I don't think they actually do. Let's take a look at the same logic but with using Promises. 
 
 ```js
 const fs = require('fs')
@@ -118,12 +118,12 @@ async () => {
 }
 ```
 
-It's a case when we invoke several async calls, which don't use each other results. But it's kinda easy to make such mistakes which broke the whole idea of asynchronous programming.
+It's a case when we invoke several async calls, which don't use each other's results. But it's kinda easy to make such mistakes whiches broke the whole idea of asynchronous programming.
 
-Of course, you can use Promise.all() to prevent such things, but we back to using Promises, does it mean that idea and design of async/await is not efficient enough to completely avoiding Promises in our code? It seems that it's not..
+Of course, you can use Promise.all() to prevent such things, but we back to using Promises, does it mean that idea and design of async/await is not efficient enough to completely avoiding Promises in our code?
 And we still have the problem with error handling. Of course, we can do via standard `try/catch` mechanism in JavaScript, but I don't think that such constructions make our code easier to read and maintain.
 
-Another big problem which I can see is noisy words: `Promise`, `async`, `await`, `.then`, `.catch`, `.all` and other things. Are they related to the business logic? Is procedural approach is the best solution for solving mentioned problems? I don't think so.
+Another big problem which I can see is noisy words: `Promise`, `async`, `await`, `.then`, `.catch`, `.all` and other things. Are they related to the business logic? Is procedural approach the best solution for solving mentioned problems? I don't think so.
 
 Before presenting my solution, I want to show the difference between procedural and declarative programming on this simple example.
 
@@ -133,7 +133,7 @@ const account = user.createNewAccount(user, info)
 user.saveAccount(account)
 ```
 
-Before presenting my solution, I want to show the difference between procedural and declarative programming on this simple example. Here we just try to get some user from database, build account for this user and save it. Simple logic, and the same thing in the declarative style would look smth like this.
+Here we just try to get some user from database, build account for this user and save it. Simple logic, and the same thing in the declarative style would look smth like this.
 
 ```js
 SavedAccount(
@@ -144,9 +144,9 @@ SavedAccount(
 )
 ```
 
-As you can see, the main of point of such declarative style is that we hide logic inside of these objects, and we represent what we want to see as result of our program. And these objects are immutable, so we can easily test such code and control the state of these objects.
+As you can see, the main of point of such declarative style is that we hide logic inside of these objects, and we represent what we want to see as a result that our program produces. And all these objects are immutable, so we can easily test such code and control the state of these objects.
 
-So, how can such declarative style help us solve callback hell problem? So, let's see.
+How can such declarative style help us solve callback hell problem? So, let's see.
 
 ```js
 const { ReadDataByPath, WrittenFile } = require('@cuties/fs')
@@ -227,7 +227,7 @@ But obviously, there are some problems with this approach. First is that you hav
 
 Another thing is that people don't use to write and read such code. They think that it's too verbose and weird. But in my opinion, it's just a cultural problem, because I really feel that this is something that I want to maintain and read. I think that such code has well written structured form. 
 
-And last but not least, it's performance. As you can imagine, in this approach we have to create a lot of objects, and it cannot be good for garbage collection and stuff like that. But in my experience, performance is not affected too much that I give up this idea and move to traditional procedural programming. And I think that it's better to have clean code instead of fast code, because it would be easier to find performance issues in the code that you can understand than in the bad structured code. And more over, I think that it's possible to create a converter that translate such declarative code into procedural code as executable file that you can run in production environment, for example.
+And last but not least, it's performance. As you can imagine, in this approach we have to create a lot of objects, and it cannot be good for garbage collection and stuff like that. But in my experience, performance is not affected too much so I give up this idea and move to traditional procedural programming. And I think that it's better to have clean code instead of fast code, because it would be easier to find performance issues in the code that you can understand than in the bad structured code. And more over, I think that it's possible to create a converter that translate such declarative code into procedural code as executable file that you can run in production environment, for example.
 
 That's pretty much it what I wanted to cover in this article. Thank you for reading. See you soon.
 
