@@ -11,40 +11,40 @@
     <title>Why I Don't Use Promises and Async/Await Abstractions in Node</title>
     <link rel="shortcut icon" type="image/png" href="/../image/favicon.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i|Source+Sans+Pro:400,400i,700,700i" type="text/css">
-    <link rel="stylesheet" href="/../css/normalize.css?v=1.0.170" type="text/css">
-    <link rel="stylesheet" href="/../css/main.css?v=1.0.170" type="text/css">
-    <link rel="stylesheet" href="/../css/main-night.css?v=1.0.170" disabled id="main-night" type="text/css">
-    <link rel="stylesheet" href="/../css/github-gist.css?v=1.0.170" type="text/css">
-    <link rel="stylesheet" href="/../css/github-gist-night.css?v=1.0.170" disabled id="github-gist-night" type="text/css">
-    <script src="/../js/day-night.js?v=1.0.170" type="text/javascript"></script>
-    <script src="/../js/youtube.js?v=1.0.170" type="text/javascript"></script>
-    <script src="/../js/iframe.js?v=1.0.170" type="text/javascript"></script>
-    <script src="/../js/highlight.pack.js?v=1.0.170" type="text/javascript"></script>
-    <script src="/../js/ehtml.bundle.min.js?v=1.0.170" type="text/javascript"></script>
-    <script src="/../js/script.js?v=1.0.170" type="text/javascript"></script>
+    <link rel="stylesheet" href="/../css/normalize.css?v=1.0.177" type="text/css">
+    <link rel="stylesheet" href="/../css/main.css?v=1.0.177" type="text/css">
+    <link rel="stylesheet" href="/../css/main-night.css?v=1.0.177" disabled id="main-night" type="text/css">
+    <link rel="stylesheet" href="/../css/github-gist.css?v=1.0.177" type="text/css">
+    <link rel="stylesheet" href="/../css/github-gist-night.css?v=1.0.177" disabled id="github-gist-night" type="text/css">
+    <script src="/../js/day-night.js?v=1.0.177" type="text/javascript"></script>
+    <script src="/../js/youtube.js?v=1.0.177" type="text/javascript"></script>
+    <script src="/../js/iframe.js?v=1.0.177" type="text/javascript"></script>
+    <script src="/../js/highlight.pack.js?v=1.0.177" type="text/javascript"></script>
+    <script src="/../js/ehtml.bundle.min.js?v=1.0.177" type="text/javascript"></script>
+    <script src="/../js/script.js?v=1.0.177" type="text/javascript"></script>
   </head>
 
   <body class="main">
     <div class="base">
       <div class="menu">
-        <e-turbolink data-href="/../stuff/about?v=1.0.170">About</e-turbolink>
-        <e-turbolink data-href="/../stuff/projects?v=1.0.170">Projects</e-turbolink>
-        <e-turbolink data-href="/../previews/1?v=1.0.170">Posts</e-turbolink>
-        <e-turbolink data-href="/../stuff/slides?v=1.0.170">Slides</e-turbolink>
-        <e-turbolink data-href="/../stuff/papers?v=1.0.170">Papers</e-turbolink>
-        <e-turbolink data-href="/../stuff/talks?v=1.0.170">Talks</e-turbolink>
-        <e-turbolink data-href="/../stuff/podcasts?v=1.0.170" style="display: none;">Podcasts</e-turbolink>
-        <e-turbolink data-href="/../stuff/covers?v=1.0.170">♫ Covers</e-turbolink>
-        <e-turbolink data-href="/../rus-previews/1?v=1.0.170">На русском</e-turbolink>
+        <e-turbolink data-href="/../stuff/about?v=1.0.177">About</e-turbolink>
+        <e-turbolink data-href="/../stuff/projects?v=1.0.177">Projects</e-turbolink>
+        <e-turbolink data-href="/../previews/1?v=1.0.177">Posts</e-turbolink>
+        <e-turbolink data-href="/../stuff/slides?v=1.0.177">Slides</e-turbolink>
+        <e-turbolink data-href="/../stuff/papers?v=1.0.177">Papers</e-turbolink>
+        <e-turbolink data-href="/../stuff/talks?v=1.0.177">Talks</e-turbolink>
+        <e-turbolink data-href="/../stuff/podcasts?v=1.0.177" style="display: none;">Podcasts</e-turbolink>
+        <e-turbolink data-href="/../stuff/covers?v=1.0.177">♫ Covers</e-turbolink>
+        <e-turbolink data-href="/../rus-previews/1?v=1.0.177">На русском</e-turbolink>
       </div>
       <div class="day-night" id="day-night" onclick="changeStyle()"></div>
       <div class="content">
         <h1 id="whyidontusepromisesandasyncawaitabstractionsinnode">Why I Don't Use Promises and Async/Await Abstractions in Node</h1>
         <div class="date">9 August 2019</div>
         <div class="tags">
-          <a class="tag" href="/../tags/oop?v=1.0.170">oop</a>
-          <a class="tag" href="/../tags/node?v=1.0.170">node</a>
-          <a class="tag" href="/../tags/asyncobjects?v=1.0.170">async objects</a>
+          <a class="tag" href="/../tags/oop?v=1.0.177">oop</a>
+          <a class="tag" href="/../tags/node?v=1.0.177">node</a>
+          <a class="tag" href="/../tags/asyncobjects?v=1.0.177">async objects</a>
         </div>
         <p>In this article, I'll talk about <strong>callback hell</strong> again. But this time, I'll try to describe how I see this problem, and why I actually think that this is a problem. Also I'll explain why I think that abstractions such as <strong><code>Promise</code></strong> and <strong><code>async/await</code></strong> don't help us to structure our code in a better way. I'll demonstrate my solution that's based on ideas of declarative and pure object-oriented programming, which I'm big fan of. And I'll show you why I think that declarative constructions is the only good way to write asynchronous code for big and complex applications.</p>
         <p>Let's take a look at this silly but quite representative code, where we make a sequence of async calls. Here we try to read some content from the first file and write this content into another one.</p>
@@ -64,10 +64,10 @@ fs.readFile('./text1.txt', 'utf8', (err, result) =&gt; {
 </code></pre>
         <p>Most people think that the main issue of using callbacks is that our code becomes more nested, so it would be difficult to read. But I think this is not complete vision on this problem.</p>
         <p>The thing is that we use callbacks as proxies between async calls. We expose data and behaviour outside of async calls to callbacks where we do all the work: processing result with some logic, error handling, we share results that we get from callbacks as arguments for other async calls inside of these callbacks. And these results can mutate, so it becomes even more problematic to control data flow in our code. </p>
-        <p>Also you can see duplication of code where we check if error is null or not. So, it's really difficult to write more or less complex programs using this approach and keep your code clean, readable and maintainable.</p>
+        <p>Also you can see duplication of the code where we check if error is null or not. So, it's really difficult to write more or less complex programs using this approach and keep your code clean, readable and maintainable.</p>
         <p>Of course, you can structure your code somehow adding functions which group different combinations of async calls. But these functions are not so reusable, because all you do is just grouping different async calls just to make your code shorter, but you cannot do it always. Anyway, this approach is not efficient enough.</p>
         <p>How can we solve callback-hell problem then?</p>
-        <p>Let's talk about <em>Promises</em>, which were introduced to do that. But I don't think they actually do. Let's take look at the same logic but with using Promises. </p>
+        <p>Let's talk about <em>Promises</em>, which were introduced to do that. But I don't think they actually do. Let's take a look at the same logic but with using Promises. </p>
         <pre><code class="js language-js">const fs = require('fs')
 
 const read = (path) =&gt; {
@@ -136,16 +136,16 @@ async () =&gt; {
   const res3 = await funt3()
 }
 </code></pre>
-        <p>It's a case when we invoke several async calls, which don't use each other results. But it's kinda easy to make such mistakes which broke the whole idea of asynchronous programming.</p>
-        <p>Of course, you can use Promise.all() to prevent such things, but we back to using Promises, does it mean that idea and design of async/await is not efficient enough to completely avoiding Promises in our code? It seems that it's not..
+        <p>It's a case when we invoke several async calls, which don't use each other's results. But it's kinda easy to make such mistakes whiches broke the whole idea of asynchronous programming.</p>
+        <p>Of course, you can use Promise.all() to prevent such things, but we back to using Promises, does it mean that idea and design of async/await is not efficient enough to completely avoiding Promises in our code?
           And we still have the problem with error handling. Of course, we can do via standard <code>try/catch</code> mechanism in JavaScript, but I don't think that such constructions make our code easier to read and maintain.</p>
-        <p>Another big problem which I can see is noisy words: <code>Promise</code>, <code>async</code>, <code>await</code>, <code>.then</code>, <code>.catch</code>, <code>.all</code> and other things. Are they related to the business logic? Is procedural approach is the best solution for solving mentioned problems? I don't think so.</p>
+        <p>Another big problem which I can see is noisy words: <code>Promise</code>, <code>async</code>, <code>await</code>, <code>.then</code>, <code>.catch</code>, <code>.all</code> and other things. Are they related to the business logic? Is procedural approach the best solution for solving mentioned problems? I don't think so.</p>
         <p>Before presenting my solution, I want to show the difference between procedural and declarative programming on this simple example.</p>
         <pre><code class="js language-js">const user = getUserFromDb(userId)
 const account = user.createNewAccount(user, info)
 user.saveAccount(account)
 </code></pre>
-        <p>Before presenting my solution, I want to show the difference between procedural and declarative programming on this simple example. Here we just try to get some user from database, build account for this user and save it. Simple logic, and the same thing in the declarative style would look smth like this.</p>
+        <p>Here we just try to get some user from database, build account for this user and save it. Simple logic, and the same thing in the declarative style would look smth like this.</p>
         <pre><code class="js language-js">SavedAccount(
   CreatedAccount(
     UserFromDb(userId),
@@ -153,8 +153,8 @@ user.saveAccount(account)
   )
 )
 </code></pre>
-        <p>As you can see, the main of point of such declarative style is that we hide logic inside of these objects, and we represent what we want to see as result of our program. And these objects are immutable, so we can easily test such code and control the state of these objects.</p>
-        <p>So, how can such declarative style help us solve callback hell problem? So, let's see.</p>
+        <p>As you can see, the main of point of such declarative style is that we hide logic inside of these objects, and we represent what we want to see as a result that our program produces. And all these objects are immutable, so we can easily test such code and control the state of these objects.</p>
+        <p>How can such declarative style help us solve callback hell problem? So, let's see.</p>
         <pre><code class="js language-js">const { ReadDataByPath, WrittenFile } = require('@cuties/fs')
 
 new WrittenFile(
@@ -216,7 +216,7 @@ class WrittenFile extends AsyncObject {
         <p>Another thing that I want to mention you async objects work only in the context of other async object in the async composition, so your whole program would be declarative, which is in my opinion is great.</p>
         <p>But obviously, there are some problems with this approach. First is that you have to write a lot of such declarative wrapper around static functions in Node. But I solved a bit this problem, I created a lot of libraries like <a href="https://github.com/Guseyn/cutie-fs"><strong>cutie-fs</strong></a>, <a href="https://github.com/Guseyn/cutie-http"><strong>cutie-http</strong></a>, <a href="https://github.com/Guseyn/cutie-https"><strong>cutie-https</strong></a>, <a href="https://github.com/Guseyn/cutie-buffer"><strong>cutie-buffer</strong></a>, <a href="https://github.com/Guseyn/cutie-json"><strong>cutie-json</strong></a>, <a href="https://github.com/Guseyn/cutie-stream"><strong>cutie-stream</strong></a>, and even <a href="https://github.com/Guseyn/cutie-rest"><strong>cutie-rest</strong></a>. I will put link to my github account, so you can find all those libraries. </p>
         <p>Another thing is that people don't use to write and read such code. They think that it's too verbose and weird. But in my opinion, it's just a cultural problem, because I really feel that this is something that I want to maintain and read. I think that such code has well written structured form. </p>
-        <p>And last but not least, it's performance. As you can imagine, in this approach we have to create a lot of objects, and it cannot be good for garbage collection and stuff like that. But in my experience, performance is not affected too much that I give up this idea and move to traditional procedural programming. And I think that it's better to have clean code instead of fast code, because it would be easier to find performance issues in the code that you can understand than in the bad structured code. And more over, I think that it's possible to create a converter that translate such declarative code into procedural code as executable file that you can run in production environment, for example.</p>
+        <p>And last but not least, it's performance. As you can imagine, in this approach we have to create a lot of objects, and it cannot be good for garbage collection and stuff like that. But in my experience, performance is not affected too much so I give up this idea and move to traditional procedural programming. And I think that it's better to have clean code instead of fast code, because it would be easier to find performance issues in the code that you can understand than in the bad structured code. And more over, I think that it's possible to create a converter that translate such declarative code into procedural code as executable file that you can run in production environment, for example.</p>
         <p>That's pretty much it what I wanted to cover in this article. Thank you for reading. See you soon.</p>
         <div class="refs">References</div>
         <ul>
