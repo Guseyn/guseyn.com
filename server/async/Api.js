@@ -1,6 +1,6 @@
 'use strict'
 
-const { RestApi, ServingFilesEndpoint, CachedServingFilesEndpoint, CORSEndpoint } = require('@cuties/rest')
+const { RestApi, ServingFilesEndpoint, CORSEndpoint } = require('@cuties/rest')
 const { Value } = require('@cuties/json')
 const { Created } = require('@cuties/created')
 const CustomIndexEndpoint = require('./../endpoints/CustomIndexEndpoint')
