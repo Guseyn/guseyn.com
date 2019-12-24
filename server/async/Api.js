@@ -13,7 +13,6 @@ const UrlToFSPathMapper = require('./UrlToFSPathMapper')
 const CuteUrlToFSPathForHtmlMapper = require('./CuteUrlToFSPathForHtmlMapper')
 const env = process.env.NODE_ENV || 'local'
 const headers = env === 'prod' ? { 'Cache-Control': 'cache, public, max-age=86400' } : {}
-const servingFilesEndpoint = env === 'prod' ? CachedServingFilesEndpoint : ServingFilesEndpoint
 
 class CreatedCustomNotFoundEndpoint {
   constructor (config) {
@@ -34,7 +33,7 @@ module.exports = class {
         new CreatedCustomNotFoundEndpoint(config)
       ),
       new Created(
-        servingFilesEndpoint,
+        ServingFilesEndpoint,
         new RegExp(/^\/(html|css|md|image|js|json|txt|yml|pdf|ttf)/),
         new UrlToFSPathMapper(
           new Value(config, 'static')
@@ -43,7 +42,7 @@ module.exports = class {
         new CreatedCustomNotFoundEndpoint(config)
       ),
       new Created(
-        servingFilesEndpoint,
+        ServingFilesEndpoint,
         new RegExp(/^\/(posts|rus-posts|previews|rus-previews|stuff|tags|rus-tags)/),
         new CuteUrlToFSPathForHtmlMapper(
           new Value(config, 'staticHtml')
