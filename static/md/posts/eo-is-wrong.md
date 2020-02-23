@@ -135,7 +135,7 @@ But again you cannot call this composition just as it is. You must call it in a 
 
 You can see that we use methods `toJSON()` and `printedLibraryAsJSON()`, but just imagine that we have a lot more different objects with more methods. Let's say we want to be able to print our objects in XML as well. So we have to add method `toXML()` to `Library` and `Book` classes, and method `printedLibraryAsXML()` to `SomeClassThatHasToUseLibrary` class.
 
-I mean it's okay, but do we really make our code composible or we just create objects with `new` key words. Instead one big composition we have a lot of different compositions which are in different places in our program.
+I mean it's okay, but do we really make our code composible or we just create objects with `new` key words. Instead of one big composition we have a lot of different compositions which are in different places in our program.
 
 So, **EO** principles do not bring us the structure of code that we have on the first picture, it looks more like this:
 
@@ -275,9 +275,9 @@ class App {
 
 I hope you understand my point as we are talking about serious and complex shit here. In order to have one composition which represents our program, our objects must have only one method `value()` which represents it.
 
-I understand that **EO** allows you to create classes with such `value()` methods(as far as I know it's not prohibited yet). But the main idea of **EO** are decorators, which are completely different thing. Decorators are for extending behaviour of objects, while objects with such `value()` methods are for explicit passing representations of objects. And I think the last type of objects has much more sense.
+I understand that **EO** allows you to create classes with such `value()` methods(as far as I know it's not prohibited yet). But the main idea of **EO** are decorators, which are completely different thing. Decorators are for extending behaviour of objects, while objects with such `value()` methods are for explicit passing their representations. And I think the last type of objects has much more sense.
 
-I have never met in the **EO** theory that each object **must** have such `value()` method. But as I see, that's the only way to have program with a structure like on the first picture. Otherwise, if you use different methods in you objects, you are forsed to create different compositions in different places of your program instead of having one good composition in the entry point of your program. 
+I have never met in the **EO** theory that each object **must** have such `value()` method. But as I see, that's the only way to have program with a structure like on the first picture. Otherwise, if you use different methods in you objects, you are forsed to create different compositions in different places of your program instead of having one good composition in the entry point of it. 
 
 And as a result you get very weird mix of declarative and imperative code in different places, which looks very ugly to me.
 

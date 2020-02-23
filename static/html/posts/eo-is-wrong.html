@@ -11,40 +11,40 @@
     <title>What's Wrong With EO</title>
     <link rel="shortcut icon" type="image/png" href="/../image/favicon.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i|Source+Sans+Pro:400,400i,700,700i" type="text/css">
-    <link rel="stylesheet" href="/../css/normalize.css?v=1.0.191" type="text/css">
-    <link rel="stylesheet" href="/../css/main.css?v=1.0.191" type="text/css">
-    <link rel="stylesheet" href="/../css/main-night.css?v=1.0.191" disabled id="main-night" type="text/css">
-    <link rel="stylesheet" href="/../css/github-gist.css?v=1.0.191" type="text/css">
-    <link rel="stylesheet" href="/../css/github-gist-night.css?v=1.0.191" disabled id="github-gist-night" type="text/css">
-    <script src="/../js/day-night.js?v=1.0.191" type="text/javascript"></script>
-    <script src="/../js/youtube.js?v=1.0.191" type="text/javascript"></script>
-    <script src="/../js/iframe.js?v=1.0.191" type="text/javascript"></script>
-    <script src="/../js/highlight.pack.js?v=1.0.191" type="text/javascript"></script>
-    <script src="/../js/ehtml.bundle.min.js?v=1.0.191" type="text/javascript"></script>
-    <script src="/../js/script.js?v=1.0.191" type="text/javascript"></script>
+    <link rel="stylesheet" href="/../css/normalize.css?v=1.0.192" type="text/css">
+    <link rel="stylesheet" href="/../css/main.css?v=1.0.192" type="text/css">
+    <link rel="stylesheet" href="/../css/main-night.css?v=1.0.192" disabled id="main-night" type="text/css">
+    <link rel="stylesheet" href="/../css/github-gist.css?v=1.0.192" type="text/css">
+    <link rel="stylesheet" href="/../css/github-gist-night.css?v=1.0.192" disabled id="github-gist-night" type="text/css">
+    <script src="/../js/day-night.js?v=1.0.192" type="text/javascript"></script>
+    <script src="/../js/youtube.js?v=1.0.192" type="text/javascript"></script>
+    <script src="/../js/iframe.js?v=1.0.192" type="text/javascript"></script>
+    <script src="/../js/highlight.pack.js?v=1.0.192" type="text/javascript"></script>
+    <script src="/../js/ehtml.bundle.min.js?v=1.0.192" type="text/javascript"></script>
+    <script src="/../js/script.js?v=1.0.192" type="text/javascript"></script>
   </head>
 
   <body class="main">
     <div class="base">
       <div class="menu">
-        <e-turbolink data-href="/../stuff/about?v=1.0.191">About</e-turbolink>
-        <e-turbolink data-href="/../stuff/projects?v=1.0.191">Projects</e-turbolink>
-        <e-turbolink data-href="/../previews/1?v=1.0.191">Posts</e-turbolink>
-        <e-turbolink data-href="/../stuff/slides?v=1.0.191">Slides</e-turbolink>
-        <e-turbolink data-href="/../stuff/papers?v=1.0.191">Papers</e-turbolink>
-        <e-turbolink data-href="/../stuff/talks?v=1.0.191">Talks</e-turbolink>
-        <e-turbolink data-href="/../stuff/podcasts?v=1.0.191" style="display: none;">Podcasts</e-turbolink>
-        <e-turbolink data-href="/../stuff/covers?v=1.0.191">♫ Covers</e-turbolink>
-        <!-- <e-turbolink data-href="/../rus-previews/1?v=1.0.191">На русском</e-turbolink> -->
+        <e-turbolink data-href="/../stuff/about?v=1.0.192">About</e-turbolink>
+        <e-turbolink data-href="/../stuff/projects?v=1.0.192">Projects</e-turbolink>
+        <e-turbolink data-href="/../previews/1?v=1.0.192">Posts</e-turbolink>
+        <e-turbolink data-href="/../stuff/slides?v=1.0.192">Slides</e-turbolink>
+        <e-turbolink data-href="/../stuff/papers?v=1.0.192">Papers</e-turbolink>
+        <e-turbolink data-href="/../stuff/talks?v=1.0.192">Talks</e-turbolink>
+        <e-turbolink data-href="/../stuff/podcasts?v=1.0.192" style="display: none;">Podcasts</e-turbolink>
+        <e-turbolink data-href="/../stuff/covers?v=1.0.192">♫ Covers</e-turbolink>
+        <!-- <e-turbolink data-href="/../rus-previews/1?v=1.0.192">На русском</e-turbolink> -->
       </div>
       <div class="day-night" id="day-night" onclick="changeStyle()"></div>
       <div class="content">
         <h1 id="whatswrongwitheo">What's Wrong With EO</h1>
         <div class="date">22 February 2020</div>
         <div class="tags">
-          <a class="tag" href="/../tags/oop?v=1.0.191">oop</a>
-          <a class="tag" href="/../tags/eo?v=1.0.191">eo</a>
-          <a class="tag" href="/../tags/java?v=1.0.191">java</a>
+          <a class="tag" href="/../tags/oop?v=1.0.192">oop</a>
+          <a class="tag" href="/../tags/eo?v=1.0.192">eo</a>
+          <a class="tag" href="/../tags/java?v=1.0.192">java</a>
         </div>
         <div class="quote">
           <div class="quote-text">
@@ -146,7 +146,7 @@
 </code></pre>
         <p>But again you cannot call this composition just as it is. You must call it in a some method of some class. And as far as I know, <strong>EO</strong> does not prohibit <code>void</code> methods, so you cannot even use <code>SomeClassThatHasToUseLibrary</code> as argument for other methods using <code>printedLibraryAsJSON()</code> method.</p>
         <p>You can see that we use methods <code>toJSON()</code> and <code>printedLibraryAsJSON()</code>, but just imagine that we have a lot more different objects with more methods. Let's say we want to be able to print our objects in XML as well. So we have to add method <code>toXML()</code> to <code>Library</code> and <code>Book</code> classes, and method <code>printedLibraryAsXML()</code> to <code>SomeClassThatHasToUseLibrary</code> class.</p>
-        <p>I mean it's okay, but do we really make our code composible or we just create objects with <code>new</code> key words. Instead one big composition we have a lot of different compositions which are in different places in our program.</p>
+        <p>I mean it's okay, but do we really make our code composible or we just create objects with <code>new</code> key words. Instead of one big composition we have a lot of different compositions which are in different places in our program.</p>
         <p>So, <strong>EO</strong> principles do not bring us the structure of code that we have on the first picture, it looks more like this:</p>
         <p><img src="/../../image/eo.png" alt="procedural" /></p>
         <p>On one hand it makes situation a bit better because at least we have compositions: the idea of breaking complex logic into smaller objects. And I like this idea. But connections between these composition are still "procedural" as you can imagine and it makes the whole situation even worse.</p>
@@ -259,8 +259,8 @@ class App {
 }
 </code></pre>
         <p>I hope you understand my point as we are talking about serious and complex shit here. In order to have one composition which represents our program, our objects must have only one method <code>value()</code> which represents it.</p>
-        <p>I understand that <strong>EO</strong> allows you to create classes with such <code>value()</code> methods(as far as I know it's not prohibited yet). But the main idea of <strong>EO</strong> are decorators, which are completely different thing. Decorators are for extending behaviour of objects, while objects with such <code>value()</code> methods are for explicit passing representations of objects. And I think the last type of objects has much more sense.</p>
-        <p>I have never met in the <strong>EO</strong> theory that each object <strong>must</strong> have such <code>value()</code> method. But as I see, that's the only way to have program with a structure like on the first picture. Otherwise, if you use different methods in you objects, you are forsed to create different compositions in different places of your program instead of having one good composition in the entry point of your program. </p>
+        <p>I understand that <strong>EO</strong> allows you to create classes with such <code>value()</code> methods(as far as I know it's not prohibited yet). But the main idea of <strong>EO</strong> are decorators, which are completely different thing. Decorators are for extending behaviour of objects, while objects with such <code>value()</code> methods are for explicit passing their representations. And I think the last type of objects has much more sense.</p>
+        <p>I have never met in the <strong>EO</strong> theory that each object <strong>must</strong> have such <code>value()</code> method. But as I see, that's the only way to have program with a structure like on the first picture. Otherwise, if you use different methods in you objects, you are forsed to create different compositions in different places of your program instead of having one good composition in the entry point of it. </p>
         <p>And as a result you get very weird mix of declarative and imperative code in different places, which looks very ugly to me.</p>
         <p>I read a lot of <strong>EO</strong> code last days and I can tell you for sure that it's true. Only some of <strong>EO</strong> classes are small, but there are also a lot of <a href="https://github.com/yegor256/rultor/blob/master/src/main/java/com/rultor/dynamo/DyTalks.java">big classes</a> which are way more difficult to maintain because they have different methods with big compositions of decorators mixed with static methods.</p>
         <p>Again, I have never met in the <strong>EO</strong> theory that each object <strong>must</strong> have <code>value()</code> method which represents it and allows us to build good composible code. And you know why <strong>EO</strong> does not have such point? Because it's pointless to have such objects with just one <code>value()</code> method.</p>
