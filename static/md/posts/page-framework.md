@@ -15,7 +15,7 @@ I am glad to introduce my web framework [Page](https://github.com/Guseyn/page). 
 Almost every framework is made with assumption that we live in ideal world, but it's very far from the truth. It's not possible to build something big and stable using magic, which every framework is based on. Meanwhile, **Page** allows you to control the whole behaviour of your application and apply new changes in a explicit way.
 
 **It's Not Easy to Start Quickly.**
- First of all you need to get acquainted with [Async Tree Pattern](/../../pdf/Async_Tree_Pattern.pdf) and it's [implementation](https://github.com/Guseyn/cutie). It allows to build everything using pure approach in OOP. Also you must know how Node.js works and it's important to understand how non-blockinng i/o works there.
+ First of all you need to get acquainted with [Async Tree Pattern](/../../pdf/Async_Tree_Pattern.pdf) and it's [implementation](https://github.com/Guseyn/cutie). It allows to build everything using declarative approach. Also you must know how Node.js works and it's important to understand how non-blockinng i/o works there.
 
 **But It's Very Easy to Continue.**
 Ones you've learnt how to use [Async Tree Pattern](/../../pdf/Async_Tree_Pattern.pdf), libraries that are based on cutie and libraries for **Page**, your life is never will be like before. You'll able to intoduce new changes into your code extremely fast and painless(unlike in frameworks).
