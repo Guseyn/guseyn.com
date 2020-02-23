@@ -58,8 +58,8 @@ class Library {
 
   private final List<Book> books;
 
-  public Library(final List<Book> books) {
-    this.books = books;
+  public Library(final Book ...books) {
+    this.books = Arrays.asList(books);
   }
 
   public String toJSON() {
@@ -133,7 +133,24 @@ new SomeClassThatHasToUseLibrary(
 
 But again you cannot call this composition just as it is. You must call it in a some method of some class. And as far as I know, **EO** does not prohibit `void` methods, so you cannot even use `SomeClassThatHasToUseLibrary` as argument for other methods using `printedLibraryAsJSON()` method.
 
-You can see that we use methods `toJSON()` and `printedLibraryAsJSON()`, but just imagine that we have a lot more different objects with more methods. Let's say we want to be able to print our objects in XML as well. So we have to add method `toXML()` to `Library` and `Book` classes, and method `printedLibraryAsXML()` to `SomeClassThatHasToUseLibrary` class.
+
+I think that the only good place for composition is enrty point of your app:
+
+```java
+class App {
+  public static void main(String[] args) {
+    new SomeClassThatHasToUseLibrary(
+      new Library(
+        new Book("In Search of Lost Time", "Marcel Proust"),
+        new Book("Ulysses", "James Joyce"),
+        new Book("Don Quixote", "Miguel de Cervantes")
+      ).toJSON()
+    ).printedLibraryAsJSON()
+  }
+}
+```
+
+You can see that we use methods `toJSON()` and `printedLibraryAsJSON()`, but just imagine that we have a lot more different objects with more methods. Let's say we want to be able to print our objects in XML as well. So we have to add method `toXML()` to `Library` and `Book` classes, and method `printedLibraryAsXML()` to `SomeClassThatHasToUseLibrary` class. And at this point, you cannot do everything in one composition in the enrty point of your app, as your objects would depend on other methods. 
 
 I mean it's okay, but do we really make our code composible or we just create objects with `new` key words. Instead of one big composition we have a lot of different compositions which are in different places in our program.
 
@@ -177,8 +194,8 @@ class LibraryAsJSON {
 
   private final List<BookAsJSON> books;
 
-  public Library(final List<BookAsJSON> books) {
-    this.books = books;
+  public Library(BookAsJSON ...books) {
+    this.books = Arrays.asList(books);
   }
 
   public String value() {
@@ -297,10 +314,34 @@ printedJSON(
 )
 ``` 
 
+And just look at how simple these functions are:
+
+```java
+public static String bookAsJSON(final String title, final String author) {
+  return String.format(
+    "{ \"title\":\"%s\", \"author\":\"%s\" }",
+    title,
+    author
+  );
+}
+
+public static String libraryAsJSON(final String ...books) {
+  return String.format(
+      "{ \"books\": [ %s ] }",
+      String.join(", ", Arrays.asList(books))
+  );
+}
+
+public static String printedJSON(final String json) {
+  System.out.println(json);
+  return json;
+}
+```
+
 Each of these functions has the logic from `value()` method of the corresponding object. You can notice that with such approach we just need `printedJSON` and we don't have to care about type of the object, which we want to print json format for.
 
 Yeah, and it's called functional programming. Everyone knows it, right?
 
-But it's sooo much more boring than selling the idea that everyone makes OOP wrong. But guess what, everyone makes OOP wrong, even ones who do it in **EO** style.
+But it's sooo much more boring than selling the idea that everyone makes OOP wrong. But guess what, everyone makes OOP wrong, even ones who do it in **EO** style. Because OOP does not bring us first picture. OOP is wrong.
 
 That's it.

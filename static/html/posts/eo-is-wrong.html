@@ -11,40 +11,40 @@
     <title>What's Wrong With EO</title>
     <link rel="shortcut icon" type="image/png" href="/../image/favicon.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i|Source+Sans+Pro:400,400i,700,700i" type="text/css">
-    <link rel="stylesheet" href="/../css/normalize.css?v=1.0.192" type="text/css">
-    <link rel="stylesheet" href="/../css/main.css?v=1.0.192" type="text/css">
-    <link rel="stylesheet" href="/../css/main-night.css?v=1.0.192" disabled id="main-night" type="text/css">
-    <link rel="stylesheet" href="/../css/github-gist.css?v=1.0.192" type="text/css">
-    <link rel="stylesheet" href="/../css/github-gist-night.css?v=1.0.192" disabled id="github-gist-night" type="text/css">
-    <script src="/../js/day-night.js?v=1.0.192" type="text/javascript"></script>
-    <script src="/../js/youtube.js?v=1.0.192" type="text/javascript"></script>
-    <script src="/../js/iframe.js?v=1.0.192" type="text/javascript"></script>
-    <script src="/../js/highlight.pack.js?v=1.0.192" type="text/javascript"></script>
-    <script src="/../js/ehtml.bundle.min.js?v=1.0.192" type="text/javascript"></script>
-    <script src="/../js/script.js?v=1.0.192" type="text/javascript"></script>
+    <link rel="stylesheet" href="/../css/normalize.css?v=1.0.193" type="text/css">
+    <link rel="stylesheet" href="/../css/main.css?v=1.0.193" type="text/css">
+    <link rel="stylesheet" href="/../css/main-night.css?v=1.0.193" disabled id="main-night" type="text/css">
+    <link rel="stylesheet" href="/../css/github-gist.css?v=1.0.193" type="text/css">
+    <link rel="stylesheet" href="/../css/github-gist-night.css?v=1.0.193" disabled id="github-gist-night" type="text/css">
+    <script src="/../js/day-night.js?v=1.0.193" type="text/javascript"></script>
+    <script src="/../js/youtube.js?v=1.0.193" type="text/javascript"></script>
+    <script src="/../js/iframe.js?v=1.0.193" type="text/javascript"></script>
+    <script src="/../js/highlight.pack.js?v=1.0.193" type="text/javascript"></script>
+    <script src="/../js/ehtml.bundle.min.js?v=1.0.193" type="text/javascript"></script>
+    <script src="/../js/script.js?v=1.0.193" type="text/javascript"></script>
   </head>
 
   <body class="main">
     <div class="base">
       <div class="menu">
-        <e-turbolink data-href="/../stuff/about?v=1.0.192">About</e-turbolink>
-        <e-turbolink data-href="/../stuff/projects?v=1.0.192">Projects</e-turbolink>
-        <e-turbolink data-href="/../previews/1?v=1.0.192">Posts</e-turbolink>
-        <e-turbolink data-href="/../stuff/slides?v=1.0.192">Slides</e-turbolink>
-        <e-turbolink data-href="/../stuff/papers?v=1.0.192">Papers</e-turbolink>
-        <e-turbolink data-href="/../stuff/talks?v=1.0.192">Talks</e-turbolink>
-        <e-turbolink data-href="/../stuff/podcasts?v=1.0.192" style="display: none;">Podcasts</e-turbolink>
-        <e-turbolink data-href="/../stuff/covers?v=1.0.192">♫ Covers</e-turbolink>
-        <!-- <e-turbolink data-href="/../rus-previews/1?v=1.0.192">На русском</e-turbolink> -->
+        <e-turbolink data-href="/../stuff/about?v=1.0.193">About</e-turbolink>
+        <e-turbolink data-href="/../stuff/projects?v=1.0.193">Projects</e-turbolink>
+        <e-turbolink data-href="/../previews/1?v=1.0.193">Posts</e-turbolink>
+        <e-turbolink data-href="/../stuff/slides?v=1.0.193">Slides</e-turbolink>
+        <e-turbolink data-href="/../stuff/papers?v=1.0.193">Papers</e-turbolink>
+        <e-turbolink data-href="/../stuff/talks?v=1.0.193">Talks</e-turbolink>
+        <e-turbolink data-href="/../stuff/podcasts?v=1.0.193" style="display: none;">Podcasts</e-turbolink>
+        <e-turbolink data-href="/../stuff/covers?v=1.0.193">♫ Covers</e-turbolink>
+        <!-- <e-turbolink data-href="/../rus-previews/1?v=1.0.193">На русском</e-turbolink> -->
       </div>
       <div class="day-night" id="day-night" onclick="changeStyle()"></div>
       <div class="content">
         <h1 id="whatswrongwitheo">What's Wrong With EO</h1>
         <div class="date">22 February 2020</div>
         <div class="tags">
-          <a class="tag" href="/../tags/oop?v=1.0.192">oop</a>
-          <a class="tag" href="/../tags/eo?v=1.0.192">eo</a>
-          <a class="tag" href="/../tags/java?v=1.0.192">java</a>
+          <a class="tag" href="/../tags/oop?v=1.0.193">oop</a>
+          <a class="tag" href="/../tags/eo?v=1.0.193">eo</a>
+          <a class="tag" href="/../tags/java?v=1.0.193">java</a>
         </div>
         <div class="quote">
           <div class="quote-text">
@@ -85,8 +85,8 @@
 
   private final List&lt;Book&gt; books;
 
-  public Library(final List&lt;Book&gt; books) {
-    this.books = books;
+  public Library(final Book ...books) {
+    this.books = Arrays.asList(books);
   }
 
   public String toJSON() {
@@ -145,7 +145,20 @@
 ).printedLibraryAsJSON()
 </code></pre>
         <p>But again you cannot call this composition just as it is. You must call it in a some method of some class. And as far as I know, <strong>EO</strong> does not prohibit <code>void</code> methods, so you cannot even use <code>SomeClassThatHasToUseLibrary</code> as argument for other methods using <code>printedLibraryAsJSON()</code> method.</p>
-        <p>You can see that we use methods <code>toJSON()</code> and <code>printedLibraryAsJSON()</code>, but just imagine that we have a lot more different objects with more methods. Let's say we want to be able to print our objects in XML as well. So we have to add method <code>toXML()</code> to <code>Library</code> and <code>Book</code> classes, and method <code>printedLibraryAsXML()</code> to <code>SomeClassThatHasToUseLibrary</code> class.</p>
+        <p>I think that the only good place for composition is enrty point of your app:</p>
+        <pre><code class="java language-java">class App {
+  public static void main(String[] args) {
+    new SomeClassThatHasToUseLibrary(
+      new Library(
+        new Book("In Search of Lost Time", "Marcel Proust"),
+        new Book("Ulysses", "James Joyce"),
+        new Book("Don Quixote", "Miguel de Cervantes")
+      ).toJSON()
+    ).printedLibraryAsJSON()
+  }
+}
+</code></pre>
+        <p>You can see that we use methods <code>toJSON()</code> and <code>printedLibraryAsJSON()</code>, but just imagine that we have a lot more different objects with more methods. Let's say we want to be able to print our objects in XML as well. So we have to add method <code>toXML()</code> to <code>Library</code> and <code>Book</code> classes, and method <code>printedLibraryAsXML()</code> to <code>SomeClassThatHasToUseLibrary</code> class. And at this point, you cannot do everything in one composition in the enrty point of your app, as your objects would depend on other methods. </p>
         <p>I mean it's okay, but do we really make our code composible or we just create objects with <code>new</code> key words. Instead of one big composition we have a lot of different compositions which are in different places in our program.</p>
         <p>So, <strong>EO</strong> principles do not bring us the structure of code that we have on the first picture, it looks more like this:</p>
         <p><img src="/../../image/eo.png" alt="procedural" /></p>
@@ -177,8 +190,8 @@
 
   private final List&lt;BookAsJSON&gt; books;
 
-  public Library(final List&lt;BookAsJSON&gt; books) {
-    this.books = books;
+  public Library(BookAsJSON ...books) {
+    this.books = Arrays.asList(books);
   }
 
   public String value() {
@@ -273,9 +286,30 @@ class App {
   )
 )
 </code></pre>
+        <p>And just look at how simple these functions are:</p>
+        <pre><code class="java language-java">public static String bookAsJSON(final String title, final String author) {
+  return String.format(
+    "{ \"title\":\"%s\", \"author\":\"%s\" }",
+    title,
+    author
+  );
+}
+
+public static String libraryAsJSON(final String ...books) {
+  return String.format(
+      "{ \"books\": [ %s ] }",
+      String.join(", ", Arrays.asList(books))
+  );
+}
+
+public static String printedJSON(final String json) {
+  System.out.println(json);
+  return json;
+}
+</code></pre>
         <p>Each of these functions has the logic from <code>value()</code> method of the corresponding object. You can notice that with such approach we just need <code>printedJSON</code> and we don't have to care about type of the object, which we want to print json format for.</p>
         <p>Yeah, and it's called functional programming. Everyone knows it, right?</p>
-        <p>But it's sooo much more boring than selling the idea that everyone makes OOP wrong. But guess what, everyone makes OOP wrong, even ones who do it in <strong>EO</strong> style.</p>
+        <p>But it's sooo much more boring than selling the idea that everyone makes OOP wrong. But guess what, everyone makes OOP wrong, even ones who do it in <strong>EO</strong> style. Because OOP does not bring us first picture. OOP is wrong.</p>
         <p>That's it.</p>
       </div>
     </div>
