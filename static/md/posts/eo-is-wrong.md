@@ -150,7 +150,7 @@ class App {
 }
 ```
 
-You can see that we use methods `toJSON()` and `printedLibraryAsJSON()`, but just imagine that we have a lot more different objects with more methods. Let's say we want to be able to print our objects in XML as well. So we have to add method `toXML()` to `Library` and `Book` classes, and method `printedLibraryAsXML()` to `SomeClassThatHasToUseLibrary` class. And at this point, you cannot do everything in one composition in the enrty point of your app, as your objects would depend on other methods. 
+You can see that we use methods `toJSON()` and `printedLibraryAsJSON()`, but just imagine that we have a lot more different objects with more methods. Let's say we want to be able to print our objects in XML as well. So we have to add method `toXML()` to `Library` and `Book` classes, and method `printedLibraryAsXML()` to `SomeClassThatHasToUseLibrary` class. And at this point, you cannot do everything in one composition in the enrty point of your app because your objects would depend on other methods. 
 
 I mean it's okay, but do we really make our code composible or we just create objects with `new` key words. Instead of one big composition we have a lot of different compositions which are in different places in our program.
 
@@ -290,7 +290,7 @@ class App {
 }
 ```
 
-I hope you understand my point as we are talking about serious and complex shit here. In order to have one composition which represents our program, our objects must have only one method `value()` which represents it.
+I hope you understand my point as we are talking about serious and complex shit here. In order to have one composition which represents our program, each of our objects must have only one method `value()` which represents it.
 
 I understand that **EO** allows you to create classes with such `value()` methods(as far as I know it's not prohibited yet). But the main idea of **EO** are decorators, which are completely different thing. Decorators are for extending behaviour of objects, while objects with such `value()` methods are for explicit passing their representations. And I think the last type of objects has much more sense.
 
