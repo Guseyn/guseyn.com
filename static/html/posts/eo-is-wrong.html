@@ -11,40 +11,40 @@
     <title>What's Wrong With EO</title>
     <link rel="shortcut icon" type="image/png" href="/../image/favicon.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i|Source+Sans+Pro:400,400i,700,700i" type="text/css">
-    <link rel="stylesheet" href="/../css/normalize.css?v=1.0.194" type="text/css">
-    <link rel="stylesheet" href="/../css/main.css?v=1.0.194" type="text/css">
-    <link rel="stylesheet" href="/../css/main-night.css?v=1.0.194" disabled id="main-night" type="text/css">
-    <link rel="stylesheet" href="/../css/github-gist.css?v=1.0.194" type="text/css">
-    <link rel="stylesheet" href="/../css/github-gist-night.css?v=1.0.194" disabled id="github-gist-night" type="text/css">
-    <script src="/../js/day-night.js?v=1.0.194" type="text/javascript"></script>
-    <script src="/../js/youtube.js?v=1.0.194" type="text/javascript"></script>
-    <script src="/../js/iframe.js?v=1.0.194" type="text/javascript"></script>
-    <script src="/../js/highlight.pack.js?v=1.0.194" type="text/javascript"></script>
-    <script src="/../js/ehtml.bundle.min.js?v=1.0.194" type="text/javascript"></script>
-    <script src="/../js/script.js?v=1.0.194" type="text/javascript"></script>
+    <link rel="stylesheet" href="/../css/normalize.css?v=1.0.195" type="text/css">
+    <link rel="stylesheet" href="/../css/main.css?v=1.0.195" type="text/css">
+    <link rel="stylesheet" href="/../css/main-night.css?v=1.0.195" disabled id="main-night" type="text/css">
+    <link rel="stylesheet" href="/../css/github-gist.css?v=1.0.195" type="text/css">
+    <link rel="stylesheet" href="/../css/github-gist-night.css?v=1.0.195" disabled id="github-gist-night" type="text/css">
+    <script src="/../js/day-night.js?v=1.0.195" type="text/javascript"></script>
+    <script src="/../js/youtube.js?v=1.0.195" type="text/javascript"></script>
+    <script src="/../js/iframe.js?v=1.0.195" type="text/javascript"></script>
+    <script src="/../js/highlight.pack.js?v=1.0.195" type="text/javascript"></script>
+    <script src="/../js/ehtml.bundle.min.js?v=1.0.195" type="text/javascript"></script>
+    <script src="/../js/script.js?v=1.0.195" type="text/javascript"></script>
   </head>
 
   <body class="main">
     <div class="base">
       <div class="menu">
-        <e-turbolink data-href="/../stuff/about?v=1.0.194">About</e-turbolink>
-        <e-turbolink data-href="/../stuff/projects?v=1.0.194">Projects</e-turbolink>
-        <e-turbolink data-href="/../previews/1?v=1.0.194">Posts</e-turbolink>
-        <e-turbolink data-href="/../stuff/slides?v=1.0.194">Slides</e-turbolink>
-        <e-turbolink data-href="/../stuff/papers?v=1.0.194">Papers</e-turbolink>
-        <e-turbolink data-href="/../stuff/talks?v=1.0.194">Talks</e-turbolink>
-        <e-turbolink data-href="/../stuff/podcasts?v=1.0.194" style="display: none;">Podcasts</e-turbolink>
-        <e-turbolink data-href="/../stuff/covers?v=1.0.194">♫ Covers</e-turbolink>
-        <!-- <e-turbolink data-href="/../rus-previews/1?v=1.0.194">На русском</e-turbolink> -->
+        <e-turbolink data-href="/../stuff/about?v=1.0.195">About</e-turbolink>
+        <e-turbolink data-href="/../stuff/projects?v=1.0.195">Projects</e-turbolink>
+        <e-turbolink data-href="/../previews/1?v=1.0.195">Posts</e-turbolink>
+        <e-turbolink data-href="/../stuff/slides?v=1.0.195">Slides</e-turbolink>
+        <e-turbolink data-href="/../stuff/papers?v=1.0.195">Papers</e-turbolink>
+        <e-turbolink data-href="/../stuff/talks?v=1.0.195">Talks</e-turbolink>
+        <e-turbolink data-href="/../stuff/podcasts?v=1.0.195" style="display: none;">Podcasts</e-turbolink>
+        <e-turbolink data-href="/../stuff/covers?v=1.0.195">♫ Covers</e-turbolink>
+        <!-- <e-turbolink data-href="/../rus-previews/1?v=1.0.195">На русском</e-turbolink> -->
       </div>
       <div class="day-night" id="day-night" onclick="changeStyle()"></div>
       <div class="content">
         <h1 id="whatswrongwitheo">What's Wrong With EO</h1>
         <div class="date">22 February 2020</div>
         <div class="tags">
-          <a class="tag" href="/../tags/oop?v=1.0.194">oop</a>
-          <a class="tag" href="/../tags/eo?v=1.0.194">eo</a>
-          <a class="tag" href="/../tags/java?v=1.0.194">java</a>
+          <a class="tag" href="/../tags/oop?v=1.0.195">oop</a>
+          <a class="tag" href="/../tags/eo?v=1.0.195">eo</a>
+          <a class="tag" href="/../tags/java?v=1.0.195">java</a>
         </div>
         <div class="quote">
           <div class="quote-text">
@@ -61,7 +61,7 @@
         <p><img src="/../../image/procedural.png" alt="procedural" /></p>
         <p>And I cannot agree more. I also think that a good program on the API level should have composible structure. But does it make sense to use objects for that?</p>
         <p>Let's take a look at this <code>Book</code> object.</p>
-        <pre><code class="java language-java">class Book {
+        <pre><code class="java language-java">final class Book {
 
   private final String title;
   private final String author;
@@ -71,7 +71,7 @@
     this.author = author;
   }
 
-  public String toJSON() {
+  public String json() {
     return String.format(
       "{ \"title\":\"%s\", \"author\":\"%s\" }",
       this.title,
@@ -81,7 +81,7 @@
 }
 </code></pre>
         <p>And let's say we have another object <code>Library</code> which contains a list of books:</p>
-        <pre><code class="java language-java">class Library {
+        <pre><code class="java language-java">final class Library {
 
   private final List&lt;Book&gt; books;
 
@@ -89,11 +89,11 @@
     this.books = Arrays.asList(books);
   }
 
-  public String toJSON() {
+  public String json() {
     return String.format(
       "{ \"books\": [ %s ] }",
       books.stream()
-        .map(Book::toJSON)
+        .map(Book::json)
         .collect(Collectors.joining(", "))
     );
   }
@@ -104,68 +104,58 @@
   new Book("In Search of Lost Time", "Marcel Proust"),
   new Book("Ulysses", "James Joyce"),
   new Book("Don Quixote", "Miguel de Cervantes")
-).toJSON()
+).json()
 </code></pre>
-        <p>So, "What is the problem?" you might ask. Well, first problem is here that you cannot just call this composition in Java, you have to use it in some method of some class where this logic is needed:</p>
-        <pre><code class="java language-java">class SomeClassThatHasToUseLibrary {
-  private final Library Library;
+        <p>So, "What is the problem?" you might ask. Well, the main problem is here that <code>Library</code> and <code>Book</code> are composible only for <code>json()</code> method. What if we want want also to represent <code>Book</code> and <code>Library</code> in XML format?</p>
+        <p><strong>EO</strong> suggests us such thing like "Media" in <a href="https://www.yegor256.com/2016/04/05/printers-instead-of-getters.html">this article</a>. So we do something like this:</p>
+        <pre><code class="java language-java">JsonMedia media = new JsonMedia("books");
+new Book("In Search of Lost Time", "Marcel Proust").print(media);
+new Book("Ulysses", "James Joyce").print(media);
+new Book("Don Quixote", "Miguel de Cervantes").print(media);
+JsonObject json = media.json();
+</code></pre>
+        <p>Or we can do it via <code>Library</code> object:</p>
+        <pre><code class="java language-java">JsonMedia media = new JsonMedia("books");
+new Library(
+  new Book("In Search of Lost Time", "Marcel Proust"),
+  new Book("Ulysses", "James Joyce"),
+  new Book("Don Quixote", "Miguel de Cervantes")
+).print(media)
+JsonObject json = media.json();
+</code></pre>
+        <p>Is this code composible? For me it looks very procedural. More over you can see that media has mutable nature. </p>
+        <p>What if we want to print to console our json representations of our objects? In <strong>EO</strong> style I do something like:</p>
+        <pre><code class="java language-java">final class PrintableText implements Printable {
 
-  public SomeClassThatHasToUseLibraary(final Library library) {
-    this.library = library;
+  private final String text;
+
+  public PrintableText(final String text) {
+    this.text = text;
   }
 
-  public void printedLibraryAsJSON() {
-    System.out.println(this.library.toJSON())
+  @Override
+  public void print() {
+    System.out.println(this.text);
   }
 }
 </code></pre>
-        <p>Or you can simply do something like this:</p>
-        <pre><code class="java language-java">class SomeClassThatHasToUseLibrary {
-  public SomeClassThatHasToUseLibrary() {}
-
-  public void printedLibraryAsJSON() {
-    System.out.println(
-      new Library(
-        new Book("In Search of Lost Time", "Marcel Proust"),
-        new Book("Ulysses", "James Joyce"),
-        new Book("Don Quixote", "Miguel de Cervantes")
-      ).toJSON()
-    )
-  }
-}
+        <p>And that's how we can print our json text by using "Media" abstraction:</p>
+        <pre><code class="java language-java">JsonMedia media = new JsonMedia("books");
+new Library(
+  new Book("In Search of Lost Time", "Marcel Proust"),
+  new Book("Ulysses", "James Joyce"),
+  new Book("Don Quixote", "Miguel de Cervantes")
+).print(media)
+JsonObject json = media.json();
+new PrintableText(json.toString()).print()
 </code></pre>
-        <p>But the composition you use in the method <code>printedLibraryAsJSON</code> just handles one behaviour. This method works only for converting objects to JSON format.</p>
-        <p>You might think that I am crazy and <code>SomeClassThatHasToUseLibrary</code> should work in the composition as well:</p>
-        <pre><code class="java language-java">new SomeClassThatHasToUseLibrary(
-  new Library(
-    new Book("In Search of Lost Time", "Marcel Proust"),
-    new Book("Ulysses", "James Joyce"),
-    new Book("Don Quixote", "Miguel de Cervantes")
-  ).toJSON()
-).printedLibraryAsJSON()
-</code></pre>
-        <p>But again you cannot call this composition just as it is. You must call it in a some method of some class. And as far as I know, <strong>EO</strong> does not prohibit <code>void</code> methods, so you cannot even use <code>SomeClassThatHasToUseLibrary</code> as argument for other methods using <code>printedLibraryAsJSON()</code> method.</p>
-        <p>I think that the only good place for composition is enrty point of your app:</p>
-        <pre><code class="java language-java">class App {
-  public static void main(String[] args) {
-    new SomeClassThatHasToUseLibrary(
-      new Library(
-        new Book("In Search of Lost Time", "Marcel Proust"),
-        new Book("Ulysses", "James Joyce"),
-        new Book("Don Quixote", "Miguel de Cervantes")
-      ).toJSON()
-    ).printedLibraryAsJSON()
-  }
-}
-</code></pre>
-        <p>You can see that we use methods <code>toJSON()</code> and <code>printedLibraryAsJSON()</code>, but just imagine that we have a lot more different objects with more methods. Let's say we want to be able to print our objects in XML as well. So we have to add method <code>toXML()</code> to <code>Library</code> and <code>Book</code> classes, and method <code>printedLibraryAsXML()</code> to <code>SomeClassThatHasToUseLibrary</code> class. And at this point, you cannot do everything in one composition in the enrty point of your app because your objects would depend on other methods. </p>
+        <p>Or maybe this code is composible? <strong>EO</strong> allows <code>void</code> methods, which is a big mistake. Because it means that you can't even make compositions for such methods.</p>
         <p>I mean it's okay, but do we really make our code composible or we just create objects with <code>new</code> key words. Instead of one big composition we have a lot of different compositions which are in different places in our program.</p>
         <p>So, <strong>EO</strong> principles do not bring us the structure of code that we have on the first picture, it looks more like this:</p>
         <p><img src="/../../image/eo.png" alt="procedural" /></p>
         <p>On one hand it makes situation a bit better because at least we have compositions: the idea of breaking complex logic into smaller objects. And I like this idea. But connections between these composition are still "procedural" as you can imagine and it makes the whole situation even worse.</p>
         <p>I understand your frustration(if you have it). Probably you don't even understand what I am trying to prove. But give me a chance. Let's see how we can improve the situation and write the logic a bit different so you can understand me.</p>
-        <p>I think in order to have one big composition each object in our program must have one method, which represents it. The perfect name, in my opinion, for this method is <code>value()</code>. Object also can have other different methods, but for each of these methods we must have a separate object with method <code>value()</code> which represents the value of the particular method. </p>
-        <p>So instead of <code>Book</code> we should have object <code>BookAsJSON</code> which looks like:</p>
+        <p>I think there is a better solution than "Media". Instead of <code>Book</code> we should have object <code>BookAsJSON</code>, which looks like:</p>
         <pre><code class="java language-java">class BookAsJSON {
 
   private final String title;
@@ -220,7 +210,7 @@
   }
 }
 </code></pre>
-        <p>So our composition would look like:</p>
+        <p>As you can see in all our classes we use <code>value()</code> method which represents particular object. So our composition would look like:</p>
         <pre><code class="java language-java">new PrintedLibraryAsJSON(
   new LibraryAsJSON(
     new BookAsJSON("In Search of Lost Time", "Marcel Proust"),
@@ -229,21 +219,7 @@
   )
 ).value()
 </code></pre>
-        <p>As you can see here, we don't have different methods like <code>toJSON()</code> and <code>printedLibraryAsJSON()</code>. It allows us to have meaningfull name for class <code>PrintedLibraryAsJSON</code> as it just represents some json that has been printed to console.</p>
-        <p>And the only place we call our compisition is the the <code>main()</code> method in our let's say <code>App</code> class.</p>
-        <pre><code class="java language-java">class App {
-  public static void main(String[] args) {
-    new PrintedLibraryAsJSON(
-      new LibraryAsJSON(
-        new BookAsJSON("In Search of Lost Time", "Marcel Proust"),
-        new BookAsJSON("Ulysses", "James Joyce"),
-        new BookAsJSON("Don Quixote", "Miguel de Cervantes")
-      )
-    ).value()
-  }
-}
-</code></pre>
-        <p>Because with such approach you don't have other places for your compositions. You have one and only one. And it's in the entry point of your program(!!). You don't use compositions in some methods of some objects. And you don't make procedural connections between compositions because you have only one.</p>
+        <p>As you can see here, we don't have different methods like <code>json()</code> and <code>print()</code>. We use only one method <code>value()</code> in each class, which means that every object in our program can be a part of one composition.</p>
         <p>Let's just compare two approaches again:</p>
         <pre><code class="java language-java">// Pure approach
 class App {
@@ -261,24 +237,24 @@ class App {
 // EO approach
 class App {
   public static void main(String[] args) {
-    new SomeClassThatHasToUseLibrary(
-      new Library(
-        new Book("In Search of Lost Time", "Marcel Proust"),
-        new Book("Ulysses", "James Joyce"),
-        new Book("Don Quixote", "Miguel de Cervantes")
-      ).toJSON()
-    ).printedLibraryAsJSON()
+  JsonMedia media = new JsonMedia("books");
+  new Library(
+    new Book("In Search of Lost Time", "Marcel Proust"),
+    new Book("Ulysses", "James Joyce"),
+    new Book("Don Quixote", "Miguel de Cervantes")
+  ).print(media)
+  JsonObject json = media.json();
+  new PrintableText(json.toString()).print()
   }
 }
 </code></pre>
-        <p>I hope you understand my point as we are talking about serious and complex shit here. In order to have one composition which represents our program, each of our objects must have only one method <code>value()</code> which represents it.</p>
+        <p>Which one is more elegant? I hope you understand my point as we are talking about serious and complex shit here. In order to have one composition which represents our program, each of our objects must have only one method <code>value()</code> which represents it.</p>
         <p>I understand that <strong>EO</strong> allows you to create classes with such <code>value()</code> methods(as far as I know it's not prohibited yet). But the main idea of <strong>EO</strong> are decorators, which are completely different thing. Decorators are for extending behaviour of objects, while objects with such <code>value()</code> methods are for explicit passing their representations. And I think the last type of objects has much more sense.</p>
-        <p>I have never met in the <strong>EO</strong> theory that each object <strong>must</strong> have such <code>value()</code> method. But as I see, that's the only way to have program with a structure like on the first picture. Otherwise, if you use different methods in you objects, you are forsed to create different compositions in different places of your program instead of having one good composition in the entry point of it. </p>
-        <p>And as a result you get very weird mix of declarative and imperative code in different places, which looks very ugly to me.</p>
-        <p>I read a lot of <strong>EO</strong> code last days and I can tell you for sure that it's true. Only some of <strong>EO</strong> classes are small, but there are also a lot of <a href="https://github.com/yegor256/rultor/blob/master/src/main/java/com/rultor/dynamo/DyTalks.java">big classes</a> which are way more difficult to maintain because they have different methods with big compositions of decorators mixed with static methods.</p>
-        <p>Again, I have never met in the <strong>EO</strong> theory that each object <strong>must</strong> have <code>value()</code> method which represents it and allows us to build good composible code. And you know why <strong>EO</strong> does not have such point? Because it's pointless to have such objects with just one <code>value()</code> method.</p>
+        <p>I read a lot of <strong>EO</strong> code last days and I can tell you for sure that the code in such style can be also quite unmaintainable. Only some of <strong>EO</strong> classes are small, but there are also a lot of <a href="https://github.com/yegor256/rultor/blob/master/src/main/java/com/rultor/dynamo/DyTalks.java">big classes</a> which are way more difficult to maintain because they have different methods with big and weird compositions of decorators mixed with static methods.</p>
+        <p>I have never met in the <strong>EO</strong> theory that each object <strong>must</strong> have such <code>value()</code> method. But as I see, that's the only way to have program with a structure like on the first picture. </p>
+        <p>And you know why <strong>EO</strong> does not suggests such solution? Because it's pointless to have such objects with just one <code>value()</code> method.</p>
         <p>Funny fact is that you don't even need objects, you can write declaratively without them:</p>
-        <pre><code class="java language-java">printedJSON(
+        <pre><code class="java language-java">printed(
   libraryAsJSON(
     bookAsJSON("In Search of Lost Time", "Marcel Proust"),
     bookAsJSON("Ulysses", "James Joyce"),
@@ -302,13 +278,12 @@ public static String libraryAsJSON(final String ...books) {
   );
 }
 
-public static String printedJSON(final String json) {
-  System.out.println(json);
-  return json;
+public static String printed(final String text) {
+  System.out.println(text);
+  return text;
 }
 </code></pre>
-        <p>Each of these functions has the logic from <code>value()</code> method of the corresponding object. You can notice that with such approach we just need <code>printedJSON</code> and we don't have to care about type of the object, which we want to print json format for.</p>
-        <p>Yeah, and it's called functional programming. Everyone knows it, right?</p>
+        <p>Each of these functions has the logic from <code>value()</code> method of the corresponding object. Yeah, and it's called functional programming. Everyone knows it, right?</p>
         <p>But it's sooo much more boring than selling the idea that everyone makes OOP wrong. But guess what, everyone makes OOP wrong, even ones who do it in <strong>EO</strong> style. Because OOP does not bring us first picture. OOP is wrong.</p>
         <p>That's it.</p>
       </div>
