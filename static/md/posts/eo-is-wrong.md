@@ -140,7 +140,7 @@ JsonObject json = media.json();
 new PrintableText(json.toString()).print()
 ```
 
-Or maybe this code is composible? **EO** allows `void` methods, which is a big mistake. Because it means that you can't even make compositions for such methods.
+Our code is not becomming more composible. **EO** allows `void` methods, which is a big mistake. Because it means that you can't even make compositions for such methods.
 
 I mean it's okay, but do we really make our code composible or we just create objects with `new` key words. Instead of one big composition we have a lot of different compositions which are in different places in our program.
 
@@ -152,7 +152,7 @@ On one hand it makes situation a bit better because at least we have composition
 
 I understand your frustration(if you have it). Probably you don't even understand what I am trying to prove. But give me a chance. Let's see how we can improve the situation and write the logic a bit different so you can understand me.
 
-I think there is a better solution than "Media". Instead of `Book` we should have object `BookAsJSON`,  which looks like:
+I think there is a better solution than "Media". Instead of `Book` we should have an object `BookAsJSON`,  which looks like:
 
 ```java
 class BookAsJSON {
