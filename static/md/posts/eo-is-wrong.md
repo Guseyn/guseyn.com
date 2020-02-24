@@ -265,9 +265,9 @@ Which one is more elegant? I hope you understand my point as we are talking abou
 
 I understand that **EO** allows you to create classes with such `value()` methods(as far as I know it's not prohibited yet). But the main idea of **EO** are decorators, which are completely different thing. Decorators are for extending behaviour of objects, while objects with such `value()` methods are for explicit passing their representations. And I think the last type of objects has much more sense.
 
-I read a lot of **EO** code last days and I can tell you for sure that the code in such style can be also quite unmaintainable. Only some of **EO** classes are small, but there are also a lot of [big classes](https://github.com/yegor256/rultor/blob/master/src/main/java/com/rultor/dynamo/DyTalks.java) which are way more difficult to maintain because they have different methods with big and weird compositions of decorators mixed with static methods.
+I read a lot of **EO** code last days and I can tell you for sure that the code in such style can be also quite unmaintainable. Only some of **EO** classes are small, but there are also a lot of [big classes](https://github.com/yegor256/rultor/blob/master/src/main/java/com/rultor/dynamo/DyTalks.java) which are way more difficult to maintain because they have different methods with big and weird compositions of decorators mixed with static methods(which is funny as they are prohibited).
 
-I have never met in the **EO** theory that each object **must** have such `value()` method. But as I see, that's the only way to have program with a structure like on the first picture. 
+I have never met in the **EO** theory that each object **must** have such `value()` method. But as I see, that's the only way to build a program with a structure like on the first picture. 
 
 And you know why **EO** does not suggests such solution? Because it's pointless to have such objects with just one `value()` method.
 
