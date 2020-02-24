@@ -249,14 +249,14 @@ class App {
 // EO approach
 class App {
   public static void main(String[] args) {
-  JsonMedia media = new JsonMedia("books");
-  new Library(
-    new Book("In Search of Lost Time", "Marcel Proust"),
-    new Book("Ulysses", "James Joyce"),
-    new Book("Don Quixote", "Miguel de Cervantes")
-  ).print(media)
-  JsonObject json = media.json();
-  new PrintableText(json.toString()).print()
+    JsonMedia media = new JsonMedia("books");
+    new Library(
+      new Book("In Search of Lost Time", "Marcel Proust"),
+      new Book("Ulysses", "James Joyce"),
+      new Book("Don Quixote", "Miguel de Cervantes")
+    ).print(media)
+    JsonObject json = media.json();
+    new PrintableText(json.toString()).print()
   }
 }
 ```
