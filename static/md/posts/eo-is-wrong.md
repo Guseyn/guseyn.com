@@ -20,13 +20,13 @@ If you don't know what **Elegant Objects**(or **EO**) conception is, you should 
 
 Accroding to the **EO** good program must have following structure:
 
-![composible](/../../image/composible.png)
+![composable](/../../image/composable.png)
 
-So it should be composible. On the other hand, following picture shows us a bad structured program:
+So it should be composable. On the other hand, following picture shows us a bad structured program:
 
 ![procedural](/../../image/procedural.png)
 
-And I cannot agree more. I also think that a good program on the API level should have composible structure. But does it make sense to use objects for that?
+And I cannot agree more. I also think that a good program on the API level should have composable structure. But does it make sense to use objects for that?
 
 Let's take a look at this `Book` object.
 
@@ -83,7 +83,7 @@ new Library(
 ).json()
 ```
 
-So, "What is the problem?" you might ask. Well, the main problem is here that `Library` and `Book` are composible only for `json()` method. What if we want want also to represent `Book` and `Library` in XML format?
+So, "What is the problem?" you might ask. Well, the main problem is here that `Library` and `Book` are composable only for `json()` method. What if we want want also to represent `Book` and `Library` in XML format?
 
 **EO** suggests us such thing like "Media" in [this article](https://www.yegor256.com/2016/04/05/printers-instead-of-getters.html). So we do something like this:
 
@@ -107,7 +107,7 @@ new Library(
 JsonObject json = media.json();
 ```
 
-Is this code composible? For me it looks very procedural. More over you can see that media has mutable nature. 
+Is this code composable? For me it looks very procedural. More over you can see that media has mutable nature. 
 
 What if we want to print to console our json representations of our objects? In **EO** style I do something like:
 
@@ -140,9 +140,9 @@ JsonObject json = media.json();
 new PrintableText(json.toString()).print()
 ```
 
-Our code is not becomming more composible. **EO** allows `void` methods, which is a big mistake. Because it means that you can't even make compositions for such methods.
+Our code is not becomming more composable. **EO** allows `void` methods, which is a big mistake. Because it means that you can't even make compositions for such methods.
 
-I mean it's okay, but do we really make our code composible or we just create objects with `new` key words. Instead of one big composition we have a lot of different compositions which are in different places in our program.
+I mean it's okay, but do we really make our code composable or we just create objects with `new` key words. Instead of one big composition we have a lot of different compositions which are in different places in our program.
 
 So, **EO** principles do not bring us the structure of code that we have on the first picture, it looks more like this:
 
