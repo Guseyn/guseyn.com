@@ -31,7 +31,7 @@ And I cannot agree more. I also think that a good program on the API level shoul
 Let's take a look at this `Book` object.
 
 ```java
-class Book {
+final class Book {
 
   private final String title;
   private final String author;
@@ -41,7 +41,7 @@ class Book {
     this.author = author;
   }
 
-  public String toJSON() {
+  public String json() {
     return String.format(
       "{ \"title\":\"%s\", \"author\":\"%s\" }",
       this.title,
@@ -54,7 +54,7 @@ class Book {
 And let's say we have another object `Library` which contains a list of books:
 
 ```java
-class Library {
+final class Library {
 
   private final List<Book> books;
 
@@ -62,11 +62,11 @@ class Library {
     this.books = Arrays.asList(books);
   }
 
-  public String toJSON() {
+  public String json() {
     return String.format(
       "{ \"books\": [ %s ] }",
       books.stream()
-        .map(Book::toJSON)
+        .map(Book::json)
         .collect(Collectors.joining(", "))
     );
   }
@@ -80,77 +80,67 @@ new Library(
   new Book("In Search of Lost Time", "Marcel Proust"),
   new Book("Ulysses", "James Joyce"),
   new Book("Don Quixote", "Miguel de Cervantes")
-).toJSON()
+).json()
 ```
 
-So, "What is the problem?" you might ask. Well, first problem is here that you cannot just call this composition in Java, you have to use it in some method of some class where this logic is needed:
+So, "What is the problem?" you might ask. Well, the main problem is here that `Library` and `Book` are composible only for `json()` method. What if we want want also to represent `Book` and `Library` in XML format?
+
+**EO** suggests us such thing like "Media" in [this article](https://www.yegor256.com/2016/04/05/printers-instead-of-getters.html). So we do something like this:
 
 ```java
-class SomeClassThatHasToUseLibrary {
-  private final Library Library;
+JsonMedia media = new JsonMedia("books");
+new Book("In Search of Lost Time", "Marcel Proust").print(media);
+new Book("Ulysses", "James Joyce").print(media);
+new Book("Don Quixote", "Miguel de Cervantes").print(media);
+JsonObject json = media.json();
+```
 
-  public SomeClassThatHasToUseLibraary(final Library library) {
-    this.library = library;
+Or we can do it via `Library` object:
+
+```java
+JsonMedia media = new JsonMedia("books");
+new Library(
+  new Book("In Search of Lost Time", "Marcel Proust"),
+  new Book("Ulysses", "James Joyce"),
+  new Book("Don Quixote", "Miguel de Cervantes")
+).print(media)
+JsonObject json = media.json();
+```
+
+Is this code composible? For me it looks very procedural. More over you can see that media has mutable nature. 
+
+What if we want to print to console our json representations of our objects? In **EO** style I do something like:
+
+```java
+final class PrintableText implements Printable {
+
+  private final String text;
+
+  public PrintableText(final String text) {
+    this.text = text;
   }
 
-  public void printedLibraryAsJSON() {
-    System.out.println(this.library.toJSON())
-  }
-}
-```
-
-Or you can simply do something like this:
-
-```java
-class SomeClassThatHasToUseLibrary {
-  public SomeClassThatHasToUseLibrary() {}
-
-  public void printedLibraryAsJSON() {
-    System.out.println(
-      new Library(
-        new Book("In Search of Lost Time", "Marcel Proust"),
-        new Book("Ulysses", "James Joyce"),
-        new Book("Don Quixote", "Miguel de Cervantes")
-      ).toJSON()
-    )
-  }
-}
-```
-
-But the composition you use in the method `printedLibraryAsJSON` just handles one behaviour. This method works only for converting objects to JSON format.
-
-You might think that I am crazy and `SomeClassThatHasToUseLibrary` should work in the composition as well:
-
-```java
-new SomeClassThatHasToUseLibrary(
-  new Library(
-    new Book("In Search of Lost Time", "Marcel Proust"),
-    new Book("Ulysses", "James Joyce"),
-    new Book("Don Quixote", "Miguel de Cervantes")
-  ).toJSON()
-).printedLibraryAsJSON()
-```
-
-But again you cannot call this composition just as it is. You must call it in a some method of some class. And as far as I know, **EO** does not prohibit `void` methods, so you cannot even use `SomeClassThatHasToUseLibrary` as argument for other methods using `printedLibraryAsJSON()` method.
-
-
-I think that the only good place for composition is enrty point of your app:
-
-```java
-class App {
-  public static void main(String[] args) {
-    new SomeClassThatHasToUseLibrary(
-      new Library(
-        new Book("In Search of Lost Time", "Marcel Proust"),
-        new Book("Ulysses", "James Joyce"),
-        new Book("Don Quixote", "Miguel de Cervantes")
-      ).toJSON()
-    ).printedLibraryAsJSON()
+  @Override
+  public void print() {
+    System.out.println(this.text);
   }
 }
+``` 
+
+And that's how we can print our json text by using "Media" abstraction:
+
+```java
+JsonMedia media = new JsonMedia("books");
+new Library(
+  new Book("In Search of Lost Time", "Marcel Proust"),
+  new Book("Ulysses", "James Joyce"),
+  new Book("Don Quixote", "Miguel de Cervantes")
+).print(media)
+JsonObject json = media.json();
+new PrintableText(json.toString()).print()
 ```
 
-You can see that we use methods `toJSON()` and `printedLibraryAsJSON()`, but just imagine that we have a lot more different objects with more methods. Let's say we want to be able to print our objects in XML as well. So we have to add method `toXML()` to `Library` and `Book` classes, and method `printedLibraryAsXML()` to `SomeClassThatHasToUseLibrary` class. And at this point, you cannot do everything in one composition in the enrty point of your app because your objects would depend on other methods. 
+Or maybe this code is composible? **EO** allows `void` methods, which is a big mistake. Because it means that you can't even make compositions for such methods.
 
 I mean it's okay, but do we really make our code composible or we just create objects with `new` key words. Instead of one big composition we have a lot of different compositions which are in different places in our program.
 
@@ -162,9 +152,7 @@ On one hand it makes situation a bit better because at least we have composition
 
 I understand your frustration(if you have it). Probably you don't even understand what I am trying to prove. But give me a chance. Let's see how we can improve the situation and write the logic a bit different so you can understand me.
 
-I think in order to have one big composition each object in our program must have one method, which represents it. The perfect name, in my opinion, for this method is `value()`. Object also can have other different methods, but for each of these methods we must have a separate object with method `value()` which represents the value of the particular method. 
-
-So instead of `Book` we should have object `BookAsJSON`  which looks like:
+I think there is a better solution than "Media". Instead of `Book` we should have object `BookAsJSON`,  which looks like:
 
 ```java
 class BookAsJSON {
@@ -228,7 +216,7 @@ class PrintedLibraryAsJSON {
 }
 ```
 
-So our composition would look like:
+As you can see in all our classes we use `value()` method which represents particular object. So our composition would look like:
 
 ```java
 new PrintedLibraryAsJSON(
@@ -240,25 +228,7 @@ new PrintedLibraryAsJSON(
 ).value()
 ```
 
-As you can see here, we don't have different methods like `toJSON()` and `printedLibraryAsJSON()`. It allows us to have meaningfull name for class `PrintedLibraryAsJSON` as it just represents some json that has been printed to console.
-
-And the only place we call our compisition is the the `main()` method in our let's say `App` class.
-
-```java
-class App {
-  public static void main(String[] args) {
-    new PrintedLibraryAsJSON(
-      new LibraryAsJSON(
-        new BookAsJSON("In Search of Lost Time", "Marcel Proust"),
-        new BookAsJSON("Ulysses", "James Joyce"),
-        new BookAsJSON("Don Quixote", "Miguel de Cervantes")
-      )
-    ).value()
-  }
-}
-```
-
-Because with such approach you don't have other places for your compositions. You have one and only one. And it's in the entry point of your program(!!). You don't use compositions in some methods of some objects. And you don't make procedural connections between compositions because you have only one.
+As you can see here, we don't have different methods like `json()` and `print()`. We use only one method `value()` in each class, which means that every object in our program can be a part of one composition.
 
 Let's just compare two approaches again:
 
@@ -279,33 +249,32 @@ class App {
 // EO approach
 class App {
   public static void main(String[] args) {
-    new SomeClassThatHasToUseLibrary(
-      new Library(
-        new Book("In Search of Lost Time", "Marcel Proust"),
-        new Book("Ulysses", "James Joyce"),
-        new Book("Don Quixote", "Miguel de Cervantes")
-      ).toJSON()
-    ).printedLibraryAsJSON()
+  JsonMedia media = new JsonMedia("books");
+  new Library(
+    new Book("In Search of Lost Time", "Marcel Proust"),
+    new Book("Ulysses", "James Joyce"),
+    new Book("Don Quixote", "Miguel de Cervantes")
+  ).print(media)
+  JsonObject json = media.json();
+  new PrintableText(json.toString()).print()
   }
 }
 ```
 
-I hope you understand my point as we are talking about serious and complex shit here. In order to have one composition which represents our program, each of our objects must have only one method `value()` which represents it.
+Which one is more elegant? I hope you understand my point as we are talking about serious and complex shit here. In order to have one composition which represents our program, each of our objects must have only one method `value()` which represents it.
 
 I understand that **EO** allows you to create classes with such `value()` methods(as far as I know it's not prohibited yet). But the main idea of **EO** are decorators, which are completely different thing. Decorators are for extending behaviour of objects, while objects with such `value()` methods are for explicit passing their representations. And I think the last type of objects has much more sense.
 
-I have never met in the **EO** theory that each object **must** have such `value()` method. But as I see, that's the only way to have program with a structure like on the first picture. Otherwise, if you use different methods in you objects, you are forsed to create different compositions in different places of your program instead of having one good composition in the entry point of it. 
+I read a lot of **EO** code last days and I can tell you for sure that the code in such style can be also quite unmaintainable. Only some of **EO** classes are small, but there are also a lot of [big classes](https://github.com/yegor256/rultor/blob/master/src/main/java/com/rultor/dynamo/DyTalks.java) which are way more difficult to maintain because they have different methods with big and weird compositions of decorators mixed with static methods.
 
-And as a result you get very weird mix of declarative and imperative code in different places, which looks very ugly to me.
+I have never met in the **EO** theory that each object **must** have such `value()` method. But as I see, that's the only way to have program with a structure like on the first picture. 
 
-I read a lot of **EO** code last days and I can tell you for sure that it's true. Only some of **EO** classes are small, but there are also a lot of [big classes](https://github.com/yegor256/rultor/blob/master/src/main/java/com/rultor/dynamo/DyTalks.java) which are way more difficult to maintain because they have different methods with big compositions of decorators mixed with static methods.
-
-Again, I have never met in the **EO** theory that each object **must** have `value()` method which represents it and allows us to build good composible code. And you know why **EO** does not have such point? Because it's pointless to have such objects with just one `value()` method.
+And you know why **EO** does not suggests such solution? Because it's pointless to have such objects with just one `value()` method.
 
 Funny fact is that you don't even need objects, you can write declaratively without them:
 
 ```java
-printedJSON(
+printed(
   libraryAsJSON(
     bookAsJSON("In Search of Lost Time", "Marcel Proust"),
     bookAsJSON("Ulysses", "James Joyce"),
@@ -332,15 +301,13 @@ public static String libraryAsJSON(final String ...books) {
   );
 }
 
-public static String printedJSON(final String json) {
-  System.out.println(json);
-  return json;
+public static String printed(final String text) {
+  System.out.println(text);
+  return text;
 }
 ```
 
-Each of these functions has the logic from `value()` method of the corresponding object. You can notice that with such approach we just need `printedJSON` and we don't have to care about type of the object, which we want to print json format for.
-
-Yeah, and it's called functional programming. Everyone knows it, right?
+Each of these functions has the logic from `value()` method of the corresponding object. Yeah, and it's called functional programming. Everyone knows it, right?
 
 But it's sooo much more boring than selling the idea that everyone makes OOP wrong. But guess what, everyone makes OOP wrong, even ones who do it in **EO** style. Because OOP does not bring us first picture. OOP is wrong.
 
