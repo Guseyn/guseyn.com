@@ -309,6 +309,8 @@ public static String printed(final String text) {
 
 Each of these functions has the logic from `value()` method of the corresponding object. Yeah, and it's called functional programming. Everyone knows it, right?
 
-But it's sooo much more boring than selling the idea that everyone makes OOP wrong. But guess what, everyone makes OOP wrong, even ones who do it in **EO** style. Because OOP does not bring us first picture. OOP is wrong.
+But it's sooo much more boring than selling the idea that everyone makes OOP wrong. But guess what, everyone makes OOP wrong, even ones who do it in **EO** style. Because OOP does not bring us the first picture. OOP is wrong.
 
 That's it.
+
+[Reddit Comments](https://www.reddit.com/r/OOP/comments/f98pcs/whats_wrong_with_eo/)
