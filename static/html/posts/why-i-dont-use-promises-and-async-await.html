@@ -11,40 +11,40 @@
     <title>Why I Don't Use Promises and Async/Await Abstractions in Node</title>
     <link rel="shortcut icon" type="image/png" href="/../image/favicon.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i|Source+Sans+Pro:400,400i,700,700i" type="text/css">
-    <link rel="stylesheet" href="/../css/normalize.css?v=1.0.201" type="text/css">
-    <link rel="stylesheet" href="/../css/main.css?v=1.0.201" type="text/css">
-    <link rel="stylesheet" href="/../css/main-night.css?v=1.0.201" disabled id="main-night" type="text/css">
-    <link rel="stylesheet" href="/../css/github-gist.css?v=1.0.201" type="text/css">
-    <link rel="stylesheet" href="/../css/github-gist-night.css?v=1.0.201" disabled id="github-gist-night" type="text/css">
-    <script src="/../js/day-night.js?v=1.0.201" type="text/javascript"></script>
-    <script src="/../js/youtube.js?v=1.0.201" type="text/javascript"></script>
-    <script src="/../js/iframe.js?v=1.0.201" type="text/javascript"></script>
-    <script src="/../js/highlight.pack.js?v=1.0.201" type="text/javascript"></script>
-    <script src="/../js/ehtml.bundle.min.js?v=1.0.201" type="text/javascript"></script>
-    <script src="/../js/script.js?v=1.0.201" type="text/javascript"></script>
+    <link rel="stylesheet" href="/../css/normalize.css?v=1.0.203" type="text/css">
+    <link rel="stylesheet" href="/../css/main.css?v=1.0.203" type="text/css">
+    <link rel="stylesheet" href="/../css/main-night.css?v=1.0.203" disabled id="main-night" type="text/css">
+    <link rel="stylesheet" href="/../css/github-gist.css?v=1.0.203" type="text/css">
+    <link rel="stylesheet" href="/../css/github-gist-night.css?v=1.0.203" disabled id="github-gist-night" type="text/css">
+    <script src="/../js/day-night.js?v=1.0.203" type="text/javascript"></script>
+    <script src="/../js/youtube.js?v=1.0.203" type="text/javascript"></script>
+    <script src="/../js/iframe.js?v=1.0.203" type="text/javascript"></script>
+    <script src="/../js/highlight.pack.js?v=1.0.203" type="text/javascript"></script>
+    <script src="/../js/ehtml.bundle.min.js?v=1.0.203" type="text/javascript"></script>
+    <script src="/../js/script.js?v=1.0.203" type="text/javascript"></script>
   </head>
 
   <body class="main">
     <div class="base">
       <div class="menu">
-        <e-turbolink data-href="/../stuff/about?v=1.0.201">About</e-turbolink>
-        <e-turbolink data-href="/../stuff/projects?v=1.0.201">Projects</e-turbolink>
-        <e-turbolink data-href="/../previews/1?v=1.0.201">Posts</e-turbolink>
-        <e-turbolink data-href="/../stuff/slides?v=1.0.201">Slides</e-turbolink>
-        <e-turbolink data-href="/../stuff/papers?v=1.0.201">Papers</e-turbolink>
-        <e-turbolink data-href="/../stuff/talks?v=1.0.201">Talks</e-turbolink>
-        <e-turbolink data-href="/../stuff/podcasts?v=1.0.201" style="display: none;">Podcasts</e-turbolink>
-        <e-turbolink data-href="/../stuff/covers?v=1.0.201">♫ Covers</e-turbolink>
-        <!-- <e-turbolink data-href="/../rus-previews/1?v=1.0.201">На русском</e-turbolink> -->
+        <e-turbolink data-href="/../stuff/about?v=1.0.203">About</e-turbolink>
+        <e-turbolink data-href="/../stuff/projects?v=1.0.203">Projects</e-turbolink>
+        <e-turbolink data-href="/../previews/1?v=1.0.203">Posts</e-turbolink>
+        <e-turbolink data-href="/../stuff/slides?v=1.0.203">Slides</e-turbolink>
+        <e-turbolink data-href="/../stuff/papers?v=1.0.203">Papers</e-turbolink>
+        <e-turbolink data-href="/../stuff/talks?v=1.0.203">Talks</e-turbolink>
+        <e-turbolink data-href="/../stuff/podcasts?v=1.0.203" style="display: none;">Podcasts</e-turbolink>
+        <e-turbolink data-href="/../stuff/covers?v=1.0.203">♫ Covers</e-turbolink>
+        <!-- <e-turbolink data-href="/../rus-previews/1?v=1.0.203">На русском</e-turbolink> -->
       </div>
       <div class="day-night" id="day-night" onclick="changeStyle()"></div>
       <div class="content">
         <h1 id="whyidontusepromisesandasyncawaitabstractionsinnode">Why I Don't Use Promises and Async/Await Abstractions in Node</h1>
         <div class="date">9 August 2019</div>
         <div class="tags">
-          <a class="tag" href="/../tags/oop?v=1.0.201">oop</a>
-          <a class="tag" href="/../tags/node?v=1.0.201">node</a>
-          <a class="tag" href="/../tags/asyncobjects?v=1.0.201">async objects</a>
+          <a class="tag" href="/../tags/oop?v=1.0.203">oop</a>
+          <a class="tag" href="/../tags/node?v=1.0.203">node</a>
+          <a class="tag" href="/../tags/asyncobjects?v=1.0.203">async objects</a>
         </div>
         <p>In this article, I'll talk about <strong>callback hell</strong> again. But this time, I'll try to describe how I see this problem, and why I actually think that this is a problem. Also I'll explain why I think that abstractions such as <strong><code>Promise</code></strong> and <strong><code>async/await</code></strong> don't help us to structure our code in a better way. I'll demonstrate my solution that's based on ideas of declarative and pure object-oriented programming, which I'm big fan of. And I'll show you why I think that declarative constructions is the only good way to write asynchronous code for big and complex applications.</p>
         <p>Let's take a look at this silly but quite representative code, where we make a sequence of async calls. Here we try to read some content from the first file and write this content into another one.</p>
