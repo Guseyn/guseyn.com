@@ -21,11 +21,11 @@ The main point of this article is to show what *object-oriented programming* can
 
 I want to split this article into three parts:
 
-1. In first part, I want to show you my understanding of two different approaches that we can use in our code: *declarative* and *imperative*.
+1. In the first part, I want to show you my understanding of two different approaches that we can use in our code: *declarative* and *imperative*.
 
-2. In second part, I want to show that procedural programming mostly is in imperative style, so I'll try to make some examples of object-oriented code in the declarative style. Not because object-oriented necessarily should be declarative, but because I want to have at least something that can be different between procedural programming and object-oriented programming and via such difference show you a way that object-oriented code can be written differently than procedural code.
+2. In the second part, I want to show that procedural programming mostly is in imperative style, so I'll try to make some examples of object-oriented code in the declarative style. Not because object-oriented necessarily should be declarative, but because I want to have at least something that can be different between procedural programming and object-oriented programming and via such difference show you a way that object-oriented code can be written differently than procedural code.
 
-3. In third part I just want to summarize my thoughts about the attempts which I'll have made in the second part.
+3. In the third part, I just want to summarize my thoughts about the attempts which I'll have made in the second part.
 
 <br/>
 ## Imerative and Declarative
@@ -262,7 +262,7 @@ And let's say in the email we want also want to have number of reviews and numbe
 ```java
 new Email(
   new TextWithBookStats(
-    "Success coefficient of your book is: %d, it's based on number reviews: %d and number of positive reviews: %d",
+    "Success coefficient of your book is: %d, it's based on number of reviews: %d and number of positive reviews: %d",
     new Book(
       "How to Ruin Everything: Essays",
       "Watsky, George"
@@ -280,7 +280,7 @@ Book book = new Book(
 )
 new Email(
   new TextWithBookStats(
-    "Success coefficient of your book is: %d, it's based on number reviews: %d and number of positive reviews: %d",
+    "Success coefficient of your book is: %d, it's based on number of reviews: %d and number of positive reviews: %d",
     new SuccessCoefficient(book),
     new NumberOfReviews(book),
     new NumberOfPositiveReviews(book)
@@ -299,7 +299,7 @@ int numberOfReviews = new NumberOfReviews(book).value();
 int numberOfPositiveReviews = new NumberOfPositiveReviews(book).value();
 new Email(
   new TextWithBookStats(
-    "Success coefficient of your book is: %d, it's based on number reviews: %d and number of positive reviews: %d",
+    "Success coefficient of your book is: %d, it's based on number of reviews: %d and number of positive reviews: %d",
     new SuccessCoefficient(numberOfReviews, numberOfPositiveReviews),
     numberOfReviews,
     numberOfPositiveReviews
@@ -307,7 +307,7 @@ new Email(
 ).send();
 ```
 
-Is this code declarative? I would say it's still quite declarative, sure. But we spent so much energy and time doing it via objects in Java. Is it worth it? Well...
+Is this code declarative? I would say it's still quite declarative, sure. But we spent so much energy and time doing that via objects in Java. Is it worth it? Well...
 
 <br/>
 ## Object-oriented programming. Is it the way to write declarative code?
@@ -331,11 +331,14 @@ numberOfReviews = calculatedNumberOfReviews(book)
 numberOfPositiveReviews = calculatedNumberOfPositiveReviews(book)
 sendedEmail(
   textWithBookStats(
-    "Success coefficient of your book is: %d, it's based on number reviews: %d and number of positive reviews: %d",
+    "Success coefficient of your book is: %d, it's based on number of reviews: %d and number of positive reviews: %d",
     numberOfReviews,
     numberOfPositiveReviews,
-    calculatedSuccessCoefficient(numberOfReviews, numberOfPositiveReviews)
-  ),
+    calculatedSuccessCoefficient(
+      numberOfReviews,
+      numberOfPositiveReviews
+    )
+  )
 )
 ```
 
@@ -350,7 +353,7 @@ book(
     numberOfPositiveReviews(as('BOOK')).as('NUMBER_OF_POSITIVE_REVIEWS').after(
       sentEmail(
         textWithBookStats(
-          "Success coefficient of your book is: %d, it's based on number reviews: %d and number of positive reviews: %d",
+          "Success coefficient of your book is: %d, it's based on number of reviews: %d and number of positive reviews: %d",
           as('NUMBER_OF_REVIEWS'),
           as('NUMBER_OF_POSITIVE_REVIEWS'),
           successCoefficient(
