@@ -17,7 +17,7 @@
 
 Object-oriented programming(and I am not going to cut it further in the article) is extremely complex subject to discuss. Not only because it has such term like **object** as the core idea of this paradigm, which can be interpreted in many different ways, but because even if there is some agreement about what **object** really is, there are a lot of questions on how to implement it technically.
 
-The main point of this article is to show what *object-oriented programming* can give us in terms of structuring our code in a better way than uhm... Let's say in a better way than standard procedural programming on example of Java language, which may be claimed as not true object-oriented language, but still can be quite good for showing some examples.
+The main point of this article is to show what *object-oriented programming* can give us in terms of structuring our code in a better way than uhm... Let's say in a better way than standard procedural programming on example of Java, which may be claimed as not true object-oriented language, but still can be quite good for showing some examples.
 
 I want to split this article into three parts:
 
@@ -104,7 +104,7 @@ I think we see here procedural code via objects. Other people would say it's obj
 
 We definetly see mix of declarative and imperative code here. On one hand, we don't know for example how method `add()` works, but we understand that somehow this method adds elements as children into some parent element. But on the other hand, we see the whole process of how final result `htmlAsString` is constructed. 
 
-I think, it's more imperative code than declarative. Why? Because it can be more declarative:
+I think, it's rather imperative code than declarative. Why? Because it can be more declarative:
 
 ```java
 new HtmlAsString(
@@ -212,7 +212,7 @@ new Printed(
 ).run();
 ```
 
-Of course we can, but we break our structure by doing that, and it will lead again to imperative code where we expose the logic of our program. And if want to keep our code declarative, we will be forced to create another object that hides the logic.
+Of course we can, but we break our structure by doing that, and it will lead again to imperative code where we expose the logic of our program. And if we want to keep our code declarative, we will be forced to create another object that hides the logic.
 
 ### Attempt #3. Smart Object... or again decomposing?
 
@@ -229,7 +229,7 @@ new SuccessCoefficient(
 
 It's quite declarative, isn't?
 
-Obviously, our object `Book` can have method `printSuccessCoefficient`, right? Why do we even need `SuccessCoefficient` object in the first place? Well, it makes sence.
+Obviously, our object `Book` can have method `printSuccessCoefficient()`, right? Why do we even need `SuccessCoefficient` object in the first place? Well, it makes sence.
 
 ```java
 new Book(
@@ -312,13 +312,13 @@ Is this code declarative? I would say it's still quite declarative, sure. But we
 <br/>
 ## Object-oriented programming. Is it the way to write declarative code?
 
-If you read everything till this point, I can only say "Thank you for your time and energy! Thank you very much!".
+If you have read everything till this point, I can only say "Thank you for your time and energy! Thank you very much!".
 
 So, we actually can write declarative code using object-oriented programming or objects.
 
-But while we were doing it, we had do consider a lot of stuff. Most of them is about considering do we really need a particular method in our objects or not. And in most cases we had to decompose our object methods into another objects, because otherwise our objects would grow. But we were doing that not because we actually needed another object in our system, but because we had do somehow to manage the size and complexity of existing objects. 
+But while we were doing it, we had to consider a lot of stuff. Most of them is about considering do we really need a particular method in our objects or not. And in most cases we had to decompose our object methods into another objects, because otherwise our objects would grow. But we were doing that not because we actually needed another object in our system, but because we had to somehow to manage the size and complexity of existing objects. 
 
-I mean if we constantly have to decompose our methods in our objects into another objects to keep our code declarative and simple, do we really need objects?
+I mean if we constantly have to decompose our methods in our objects into another objects to keep our code declarative and simple, why do we need objects in the first place?
 
 If you look at the last code snippet above, you'll see declarative code, sure! But is it better than let's say following pseudo code?  
 
@@ -339,7 +339,7 @@ sendedEmail(
 )
 ```
 
-Or we can design our code in the extreme declarative way as it's been shown in [**Atemmpt #2**](#attempt2asconception):
+Or we can design our code in the extreme declarative way as it's been shown in the [**Atemmpt #2**](#attempt2asconception):
 
 ```js
 book(
@@ -364,7 +364,7 @@ book(
 )
 ```
 
-Well, it's up to you to decide. But I don't see too much sence in objects for writing declarative code. It's possible, of course! But if we want to keep our code simple and declarative at the same time, we need to constantly decompose methods in objects into another different objects. But we can just have simple functions which are already small and decomposed, so we don't need to spend our energy on decomposing objects.
+Well, it's up to you to decide. But I don't see too much sence in objects for writing declarative code. It's possible, of course! But if we want to keep our code simple and declarative at the same time, we need to constantly decompose methods in objects into another different objects. But we can just have simple functions which are already small and decomposed, so we don't need to spend our energy and time on decomposing such things like objects.
 
 This is it.
 
