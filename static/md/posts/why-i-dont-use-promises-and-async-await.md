@@ -2,12 +2,11 @@
 <div class="date">9 August 2019</div>
 
 <div class="tags">
-  <a class="tag" href="/../tags/oop?v={version}">oop</a>
   <a class="tag" href="/../tags/node?v={version}">node</a>
   <a class="tag" href="/../tags/asyncobjects?v={version}">async objects</a>
 </div>
 
-In this article, I'll talk about **callback hell** again. But this time, I'll try to describe how I see this problem, and why I actually think that this is a problem. Also I'll explain why I think that abstractions such as **`Promise`** and **`async/await`** don't help us to structure our code in a better way. I'll demonstrate my solution that's based on ideas of declarative and pure object-oriented programming, which I'm big fan of. And I'll show you why I think that declarative constructions is the only good way to write asynchronous code for big and complex applications.
+In this article, I'll talk about **callback hell** again. But this time, I'll try to describe how I see this problem, and why I actually think that this is a problem. Also I'll explain why I think that abstractions such as **`Promise`** and **`async/await`** don't help us to structure our code in a better way. I'll demonstrate my solution that's based on ideas of declarative programming. And I'll show you why I think that declarative constructions is the only good way to write asynchronous code for big and complex applications.
 
 Let's take a look at this silly but quite representative code, where we make a sequence of async calls. Here we try to read some content from the first file and write this content into another one.
 
