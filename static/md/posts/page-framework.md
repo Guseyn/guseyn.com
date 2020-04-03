@@ -1,10 +1,9 @@
-# Page: Pure Object-Oriented Web Framework for Node.js
+# Page: Declarative Web Framework for Node.js
 
 <div class="date">1 October 2018</div>
 
 <div class="tags">
   <a class="tag" href="/../tags/library?v={version}">library</a>
-  <a class="tag" href="/../tags/oop?v={version}">oop</a>
   <a class="tag" href="/../tags/node?v={version}">node</a>
 </div>
 
