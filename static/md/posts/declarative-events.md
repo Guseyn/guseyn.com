@@ -2,7 +2,6 @@
 <div class="date">5 April 2018</div>
 
 <div class="tags">
-  <a class="tag" href="/../tags/oop?v={version}">oop</a>
   <a class="tag" href="/../tags/node?v={version}">node</a>
   <a class="tag" href="/../tags/asyncobjects?v={version}">async objects</a>
 </div>

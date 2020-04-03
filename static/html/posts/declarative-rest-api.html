@@ -6,48 +6,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Guseyn">
     <meta name="description" content="This blog is mostly expression of my ideas on different things in programming and IT culture">
-    <meta name="keywords" content="guseyn, fan of yours, blog, IT, programming, coding, tech, culture, ideas, declarative, rest, api, library, oop, node, async objects">
+    <meta name="keywords" content="guseyn, fan of yours, blog, IT, programming, coding, tech, culture, ideas, declarative, rest, api, library, node, async objects">
     <meta name="google-site-verification" content="vGxE5xshQhWEvbfiGVWZ4qmfLx_1WW8P82ZW0RP0mwg">
     <title>Declarative REST API</title>
     <link rel="shortcut icon" type="image/png" href="/../image/favicon.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i|Source+Sans+Pro:400,400i,700,700i" type="text/css">
-    <link rel="stylesheet" href="/../css/normalize.css?v=1.0.203" type="text/css">
-    <link rel="stylesheet" href="/../css/main.css?v=1.0.203" type="text/css">
-    <link rel="stylesheet" href="/../css/main-night.css?v=1.0.203" disabled id="main-night" type="text/css">
-    <link rel="stylesheet" href="/../css/github-gist.css?v=1.0.203" type="text/css">
-    <link rel="stylesheet" href="/../css/github-gist-night.css?v=1.0.203" disabled id="github-gist-night" type="text/css">
-    <script src="/../js/day-night.js?v=1.0.203" type="text/javascript"></script>
-    <script src="/../js/youtube.js?v=1.0.203" type="text/javascript"></script>
-    <script src="/../js/iframe.js?v=1.0.203" type="text/javascript"></script>
-    <script src="/../js/highlight.pack.js?v=1.0.203" type="text/javascript"></script>
-    <script src="/../js/ehtml.bundle.min.js?v=1.0.203" type="text/javascript"></script>
-    <script src="/../js/script.js?v=1.0.203" type="text/javascript"></script>
+    <link rel="stylesheet" href="/../css/normalize.css?v=1.0.204" type="text/css">
+    <link rel="stylesheet" href="/../css/main.css?v=1.0.204" type="text/css">
+    <link rel="stylesheet" href="/../css/main-night.css?v=1.0.204" disabled id="main-night" type="text/css">
+    <link rel="stylesheet" href="/../css/github-gist.css?v=1.0.204" type="text/css">
+    <link rel="stylesheet" href="/../css/github-gist-night.css?v=1.0.204" disabled id="github-gist-night" type="text/css">
+    <script src="/../js/day-night.js?v=1.0.204" type="text/javascript"></script>
+    <script src="/../js/youtube.js?v=1.0.204" type="text/javascript"></script>
+    <script src="/../js/iframe.js?v=1.0.204" type="text/javascript"></script>
+    <script src="/../js/highlight.pack.js?v=1.0.204" type="text/javascript"></script>
+    <script src="/../js/ehtml.bundle.min.js?v=1.0.204" type="text/javascript"></script>
+    <script src="/../js/script.js?v=1.0.204" type="text/javascript"></script>
   </head>
 
   <body class="main">
     <div class="base">
       <div class="menu">
-        <e-turbolink data-href="/../stuff/about?v=1.0.203">About</e-turbolink>
-        <e-turbolink data-href="/../stuff/projects?v=1.0.203">Projects</e-turbolink>
-        <e-turbolink data-href="/../previews/1?v=1.0.203">Posts</e-turbolink>
-        <e-turbolink data-href="/../stuff/slides?v=1.0.203">Slides</e-turbolink>
-        <e-turbolink data-href="/../stuff/papers?v=1.0.203">Papers</e-turbolink>
-        <e-turbolink data-href="/../stuff/talks?v=1.0.203">Talks</e-turbolink>
-        <e-turbolink data-href="/../stuff/podcasts?v=1.0.203" style="display: none;">Podcasts</e-turbolink>
-        <e-turbolink data-href="/../stuff/covers?v=1.0.203">♫ Covers</e-turbolink>
-        <!-- <e-turbolink data-href="/../rus-previews/1?v=1.0.203">На русском</e-turbolink> -->
+        <e-turbolink data-href="/../stuff/about?v=1.0.204">About</e-turbolink>
+        <e-turbolink data-href="/../stuff/projects?v=1.0.204">Projects</e-turbolink>
+        <e-turbolink data-href="/../previews/1?v=1.0.204">Posts</e-turbolink>
+        <e-turbolink data-href="/../stuff/slides?v=1.0.204">Slides</e-turbolink>
+        <e-turbolink data-href="/../stuff/papers?v=1.0.204">Papers</e-turbolink>
+        <e-turbolink data-href="/../stuff/talks?v=1.0.204">Talks</e-turbolink>
+        <e-turbolink data-href="/../stuff/podcasts?v=1.0.204" style="display: none;">Podcasts</e-turbolink>
+        <e-turbolink data-href="/../stuff/covers?v=1.0.204">♫ Covers</e-turbolink>
+        <!-- <e-turbolink data-href="/../rus-previews/1?v=1.0.204">На русском</e-turbolink> -->
       </div>
       <div class="day-night" id="day-night" onclick="changeStyle()"></div>
       <div class="content">
         <h1 id="declarativerestapi">Declarative REST API</h1>
         <div class="date">16 June 2018</div>
         <div class="tags">
-          <a class="tag" href="/../tags/library?v=1.0.203">library</a>
-          <a class="tag" href="/../tags/oop?v=1.0.203">oop</a>
-          <a class="tag" href="/../tags/node?v=1.0.203">node</a>
-          <a class="tag" href="/../tags/asyncobjects?v=1.0.203">async objects</a>
+          <a class="tag" href="/../tags/library?v=1.0.204">library</a>
+          <a class="tag" href="/../tags/node?v=1.0.204">node</a>
+          <a class="tag" href="/../tags/asyncobjects?v=1.0.204">async objects</a>
         </div>
-        <p>We all are used to MVC for building REST applications. In this article, I'll show how you can build REST API using object-oriented approach. It'll be demonstrated on my library <strong><a href="https://github.com/Guseyn/cutie-rest">cutie-rest</a></strong> which was released recently.</p>
+        <p>We all are used to MVC for building REST applications. In this article, I'll show how you can build REST API using declarative approach. It'll be demonstrated on my library <strong><a href="https://github.com/Guseyn/cutie-rest">cutie-rest</a></strong> which was released recently.</p>
         <p>Let's start with interface <code>Endpoint</code> and some default built-in implementations of this interface that this library provides.</p>
         <h3 id="endpointregexpurlmethodstringargs"><code>Endpoint(regexpUrl, method(string)[, ...args])</code></h3>
         <p>This interface declares an endpoint (in api) with <code>url</code> that matches <code>regexpUrl</code> and specified <code>method</code> (<code>'GET'</code>, <code>'POST'</code>, etc.) in arguments of constructor. Also it's possible to pass some custom arguments via <code>...args</code>. This class has a method <code>body(request, response[, ...args])</code> that needs to be overridden and must return async object.</p>
