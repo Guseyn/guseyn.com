@@ -4,12 +4,11 @@
 
 <div class="tags">
   <a class="tag" href="/../tags/library?v={version}">library</a>
-  <a class="tag" href="/../tags/oop?v={version}">oop</a>
   <a class="tag" href="/../tags/node?v={version}">node</a>
   <a class="tag" href="/../tags/asyncobjects?v={version}">async objects</a>
 </div>
 
-We all are used to MVC for building REST applications. In this article, I'll show how you can build REST API using object-oriented approach. It'll be demonstrated on my library **[cutie-rest](https://github.com/Guseyn/cutie-rest)** which was released recently.
+We all are used to MVC for building REST applications. In this article, I'll show how you can build REST API using declarative approach. It'll be demonstrated on my library **[cutie-rest](https://github.com/Guseyn/cutie-rest)** which was released recently.
 
 Let's start with interface `Endpoint` and some default built-in implementations of this interface that this library provides.
 
