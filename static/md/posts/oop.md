@@ -28,7 +28,7 @@ I want to split this article into three parts:
 3. In the third part, I just want to summarize my thoughts about the attempts which I'll have made in the second part.
 
 <br/>
-## Imerative and Declarative
+## Imperative and Declarative
 
 Why is the following code declarative?
 
