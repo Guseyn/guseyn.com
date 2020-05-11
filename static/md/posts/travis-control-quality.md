@@ -141,6 +141,8 @@ You might ask *"Why don't I use git tags for deploying?"*. Well, for some strang
 
 [Here](/../../yml/travis.yml) is complete configuration.
 
+**Update:** It's important to mention that you need to merge pull requests in github via option: "Rebase and merge".
+
 So, that's it. I hope you found this article useful.
 
 <div class="refs">References</div>
