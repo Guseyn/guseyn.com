@@ -1,4 +1,4 @@
-# Object-oriented programming. What else did you expect?
+# Object-oriented Programming. What Else Did You Expect?
 <div class="date">2 April 2020</div>
 
 <div class="tags">

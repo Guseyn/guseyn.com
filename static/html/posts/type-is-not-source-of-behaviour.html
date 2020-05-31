@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Guseyn">
+    <meta name="description" content="This blog is mostly expression of my ideas on different things in programming and IT culture">
+    <meta name="keywords" content="guseyn, fan of yours, blog, IT, programming, coding, tech, culture, ideas, data, type, should, not, be, considered, as, a, source, of, its, behaviour, programming, code design">
+    <meta name="google-site-verification" content="vGxE5xshQhWEvbfiGVWZ4qmfLx_1WW8P82ZW0RP0mwg">
+    <title>Data Type Should Not Be Considered As a Source of Its Behaviour</title>
+    <link rel="shortcut icon" type="image/png" href="/../image/favicon.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i|Source+Sans+Pro:400,400i,700,700i" type="text/css">
+    <link rel="stylesheet" href="/../css/normalize.css?v=1.0.209" type="text/css">
+    <link rel="stylesheet" href="/../css/main.css?v=1.0.209" type="text/css">
+    <link rel="stylesheet" href="/../css/main-night.css?v=1.0.209" disabled id="main-night" type="text/css">
+    <link rel="stylesheet" href="/../css/github-gist.css?v=1.0.209" type="text/css">
+    <link rel="stylesheet" href="/../css/github-gist-night.css?v=1.0.209" disabled id="github-gist-night" type="text/css">
+    <script src="/../js/day-night.js?v=1.0.209" type="text/javascript"></script>
+    <script src="/../js/youtube.js?v=1.0.209" type="text/javascript"></script>
+    <script src="/../js/iframe.js?v=1.0.209" type="text/javascript"></script>
+    <script src="/../js/highlight.pack.js?v=1.0.209" type="text/javascript"></script>
+    <script src="/../js/ehtml.bundle.min.js?v=1.0.209" type="text/javascript"></script>
+    <script src="/../js/script.js?v=1.0.209" type="text/javascript"></script>
+  </head>
+
+  <body class="main">
+    <div class="base">
+      <div class="menu">
+        <e-turbolink data-href="/../stuff/about?v=1.0.209">About</e-turbolink>
+        <e-turbolink data-href="/../stuff/projects?v=1.0.209">Projects</e-turbolink>
+        <e-turbolink data-href="/../previews/1?v=1.0.209">Posts</e-turbolink>
+        <e-turbolink data-href="/../stuff/slides?v=1.0.209">Slides</e-turbolink>
+        <e-turbolink data-href="/../stuff/papers?v=1.0.209">Papers</e-turbolink>
+        <e-turbolink data-href="/../stuff/talks?v=1.0.209">Talks</e-turbolink>
+        <e-turbolink data-href="/../stuff/podcasts?v=1.0.209" style="display: none;">Podcasts</e-turbolink>
+        <e-turbolink data-href="/../stuff/covers?v=1.0.209">♫ Covers</e-turbolink>
+        <!-- <e-turbolink data-href="/../rus-previews/1?v=1.0.209">На русском</e-turbolink> -->
+      </div>
+      <div class="day-night" id="day-night" onclick="changeStyle()"></div>
+      <div class="content">
+        <h1 id="datatypeshouldnotbeconsideredasasourceofitsbehaviour">Data Type Should Not Be Considered As a Source of Its Behaviour</h1>
+        <div class="date">31 May 2020</div>
+        <div class="tags">
+          <a class="tag" href="/../tags/programming?v=1.0.209">programming</a>
+          <a class="tag" href="/../tags/codedesign?v=1.0.209">code design</a>
+        </div>
+        <div class="quote">
+          <div class="quote-text">
+            &ldquo;&nbsp;&nbsp;Truth is ever to be found in the simplicity, and not in the multiplicity and confusion of things.&nbsp;&nbsp;&rdquo;
+          </div>
+          <div class="quote-author">
+            Isaac Newton
+          </div>
+        </div>
+        <p>When you start learning a programming language(or just programming in general), usually there are first few chapters in books that introduce us such thing like <strong>data types</strong> (or just <strong>types</strong>). And we don't focus on this subject as much as we should because it's so simple, right? Well… I think that there is one little detail which can lead to big mistakes of understanding what really data type is.</p>
+        <p>Let's start with primitive data types like <code>byte</code>, <code>number</code>, <code>string</code>, <code>boolean</code> and so on. Most programming languages support them is some or other forms. And in most cases they are not attached to any functions. Interpreter of a programming language can apply operators or functions on them, so we don't have to deal with such things. For example, we don't have to impelment binary operator like plus (<strong><code>+</code></strong>) for <code>numbers</code> and <code>strings</code>. I want to emphesize the fact that (<strong><code>+</code></strong>) operator can be also considered as a simple function, as it's just one of the syntax variations of how we can write it in our code. For example, in PHP language we use operator dot (<strong><code>.</code></strong>) for concatenating strings, not (<strong><code>+</code></strong>). So, basically for primitive data types we don't have to declare and implement operations which can be applicable for them.</p>
+        <p>Then it becomes more interesing with such type like array, which in most cases is just a set of pointers to other types. In the code we declare array via brackets: <code>[</code> and <code>]</code>, and inside of this brackets we list its pointers or elements. For example, that's how we declare an array in JavaScript:</p>
+        <pre><code class="js language-js">/* In JavaScript we can use different types 
+    of elements in array as it's dynamic language */
+
+const array = [ 1, '2', 3, true ]
+</code></pre>
+        <p>Most languages attach functions like <code>add()</code>, <code>size()</code>, <code>get()</code> and so on to this type, so we can do following:</p>
+        <pre><code class="js language-js">// Pseudo code
+array = []
+array.add(1)
+array.add(true)
+array.get(0) // is 1
+</code></pre>
+        <p>Of course for languages like Java we can only assign and get pointers by their indexes directly, but in most dyncamic languages we actually can do something like it's been shown above.</p>
+        <p>Before we continue let's see the definition of data type which is given in Wikipedia:</p>
+        <p>&ldquo;In computer science and computer programming, a data type or simply type is an attribute of data which tells the compiler or interpreter how the programmer intends to use the data.&rdquo;</p>
+        <p>But do we really need to put the information of such intention inside of types? Well, it's a good question.</p>
+        <p><br></p>
+        <h2 id="behaviouraldualismindatatypes">Behavioural Dualism in Data Types</h2>
+        <p>When you look at following expression:</p>
+        <pre><code class="js language-js">array.add(5)
+</code></pre>
+        <p>Don't you ask yourself, why we don't do otherwise like:</p>
+        <pre><code>5.addToArray(array)
+</code></pre>
+        <p>You might think this is ridiculous nonsense, but is it?</p>
+        <p>In object-oriented languages we have such things like interfaces, usually they are represented as a set of operations or methods that can be applied for them. And basically we define custom types via such abstractions. After constructing some interface we have to override such operations in some class that implements it. Let's take a look at following interface in Java:</p>
+        <pre><code class="java language-java">// Simple variation of List from JDK (just for Object)
+public interface List {
+  int size();
+  boolean isEmpty();
+  boolean contains(Object obj);
+  Object[] toArray();
+  Object get(int index);
+  Object set(int index);
+  void add(Object obj);
+  void remove(Object o);
+  void sort(Comparator&lt;? super E&gt; c);
+  void clear();
+  /** many many other mathods... **/
+}
+</code></pre>
+        <p>So, in interfaces we don't implement methods, we just declare what kind of methods they support (so we can implement them in classes, which are based on such interfaces later on). </p>
+        <p>But here is the thing… Theoretically there are unlimited number of methods or operations for every type. If you think about <code>List</code> interface for a second, you can come up with many ideas: to save a list to some database, to send its representation via HTTP request, to cache it in memory or to convert it to a string, we can do literally whatever we want.
+          Actually, if you look at real <code>List</code> from <code>java.util</code> package in JDK, you'll see tons of methods, which every class must(!) override if you want to create an implmentation of <code>List</code>. But do we really need all of them in our program?</p>
+        <p>Another problem is here that for some reason we decided that a certain operation belongs to a certain type. That's what I would call &ldquo;behavioural dualism in data types&rdquo;. Let's take a look at two following interfaces <code>Teacher</code> and <code>Student</code>:</p>
+        <pre><code class="java language-java">public interface Teacher {
+  void giveInformation(Student student, Information information);
+}
+
+public interface Student {
+  Assessment studyInformation(Information information);
+}
+</code></pre>
+        <p>Sounds logical, right? Well, is following logical too?</p>
+        <pre><code class="java language-java">public interface Student {
+  Information getInformation(Teacher teacher);
+}
+
+public interface Information {
+  Assessment processBy(Student student);
+}
+</code></pre>
+        <p>Or maybe we just place all logic in one place?</p>
+        <pre><code class="java language-java">public interface Information {
+  void transfer(Teacher teacher, Student student);
+  Assessment processBy(Student student);
+}
+</code></pre>
+        <p>What about another place?</p>
+        <pre><code class="java language-java">public interface Assessment {
+  void give(Teacher teacher, Student student, Information information);
+}
+</code></pre>
+        <p>So, which of these three varations is correct? Or maybe all them are correct? You also might say that it depends, right? But how to decide the right way of representing behaviour in our program?</p>
+        <p>Looking at these interfaces you can simplify all the logic just in one simple function:</p>
+        <pre><code class="js language-js">// Pseudo code
+Assessment assessment = givenAssessment(
+  fromTeacher, toStudent, forInformation
+)
+</code></pre>
+        <p>where <code>Teacher</code>, <code>Student</code> and <code>Information</code> are just data structures for function <code>givenAssessment()</code> that produces another structure <code>Assessment</code>. And in this case we always deal with real data, because even though <code>givenAssessment()</code> is a function, it actually represents <code>Assesment</code> which is expressed in the name of the function. This is the reason actually why I use only nouns with verb adjectives in function names as it makes the code declarative. And if you name arguments properly, you can actually read the code like in plain English: </p>
+        <p>&ldquo;It's a given assessment from a teacher to a student for the information (which the teacher gave to the student).&rdquo;</p>
+        <p><br></p>
+        <h2 id="behaviourdoesnotbelongtoadatatype">Behaviour does not belong to a data type</h2>
+        <p>The main point which I am trying to prove is that operations, functions or methods in our code should not be attached to any types, because any function can process different types that can co-exists only in a context which presents there. In another words, data types should not dictate what kind of functions they are applicable to, it's the functions who dictate what kind of types they can process.</p>
+        <p>So, instead of</p>
+        <pre><code class="js language-js">array.add(element)
+</code></pre>
+        <p>we need to be able to write something like:</p>
+        <pre><code class="js language-js">array = arrayWithNewElement(array, element)
+</code></pre>
+        <p>Or instead of</p>
+        <pre><code class="js language-js">db.save(user)
+</code></pre>
+        <p>we can write something like:</p>
+        <pre><code class="js language-js">user = savedUserIntoDatabase(db, user)
+</code></pre>
+        <p>So, why is suggested approach better? Well, I can come up with some pros:
+          <br><br></p>
+        <ol>
+          <li>We have only one single point of behaviour, which is a some function that can do the whole work.</li>
+          <li>We don't have to build (or implment) types from their behaviour, the only thing we need is data. And when it's needed we can add functions that can process certain types of our data.</li>
+          <li>We don't have so called behavioural dualism in data types, where it's not clear why certain types are attached to certain methods, because it's not possible as we separate data from behaviour. It's really important, because sometimes when we mix them, we often create meaningless types, which are not even in our business logic.</li>
+          <li>Our code is decomposed. If we create proper functions, the only thing we need to do is just pass arguments and get result by invoking them.</li>
+          <li>Our code becomes more declarative if we use proper naming of functions. And by proper naming I mean that we express the whole idea of behaviour behind the function, the result that we get from it and maybe even sometimes arguments which are required for the function. So, instead of thinking about how we build result, we actually see the result. For example,</li>
+        </ol>
+        <pre><code class="java language-java">List&lt;User&gt; users = filteredUsersFromDatabaseByAgeAndGenderAndWhoIsFriendWithSpecifiedUser(db, 25, 'women', someUser)
+</code></pre>
+        <p>If you think that's very verbose, well… Just read it, and you'll see that there is nothing to remove from the name. And the only thing you need to do is just to read, you don't have to guess. After reading just the name of the function you'll understand what structure you get from the function (<code>User</code>), behaviour of the function (filtering) and of course what arguments you need for the function (database, age, gender, specified user who is friend).</p>
+        <p>Sure we can create dozen of interfaces like <code>DB</code>, <code>User</code>, <code>Gender</code>, <code>Friend</code> or some others and create a lot of complexity. But if just need to get real result, we just can do it with one function.</p>
+        <p>I don't know about you, but I would gladly read such long code all the time. Because I like to read, I don't like to guess.</p>
+        <p>This is it.</p>
+        <p><a href="https://news.ycombinator.com/item?id=23372478">HN Comments</a></p>
+      </div>
+    </div>
+  </body>
+
+</html>

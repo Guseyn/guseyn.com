@@ -8,43 +8,43 @@
     <meta name="description" content="This blog is mostly expression of my ideas on different things in programming and IT culture">
     <meta name="keywords" content="guseyn, fan of yours, blog, IT, programming, coding, tech, culture, ideas, async, objects, instead, of, calls, oop, node, async objects">
     <meta name="google-site-verification" content="vGxE5xshQhWEvbfiGVWZ4qmfLx_1WW8P82ZW0RP0mwg">
-    <title>Async Objects Instead of Async Calls</title>
+    <title>Async Objects instead of Async Calls</title>
     <link rel="shortcut icon" type="image/png" href="/../image/favicon.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i|Source+Sans+Pro:400,400i,700,700i" type="text/css">
-    <link rel="stylesheet" href="/../css/normalize.css?v=1.0.206" type="text/css">
-    <link rel="stylesheet" href="/../css/main.css?v=1.0.206" type="text/css">
-    <link rel="stylesheet" href="/../css/main-night.css?v=1.0.206" disabled id="main-night" type="text/css">
-    <link rel="stylesheet" href="/../css/github-gist.css?v=1.0.206" type="text/css">
-    <link rel="stylesheet" href="/../css/github-gist-night.css?v=1.0.206" disabled id="github-gist-night" type="text/css">
-    <script src="/../js/day-night.js?v=1.0.206" type="text/javascript"></script>
-    <script src="/../js/youtube.js?v=1.0.206" type="text/javascript"></script>
-    <script src="/../js/iframe.js?v=1.0.206" type="text/javascript"></script>
-    <script src="/../js/highlight.pack.js?v=1.0.206" type="text/javascript"></script>
-    <script src="/../js/ehtml.bundle.min.js?v=1.0.206" type="text/javascript"></script>
-    <script src="/../js/script.js?v=1.0.206" type="text/javascript"></script>
+    <link rel="stylesheet" href="/../css/normalize.css?v=1.0.209" type="text/css">
+    <link rel="stylesheet" href="/../css/main.css?v=1.0.209" type="text/css">
+    <link rel="stylesheet" href="/../css/main-night.css?v=1.0.209" disabled id="main-night" type="text/css">
+    <link rel="stylesheet" href="/../css/github-gist.css?v=1.0.209" type="text/css">
+    <link rel="stylesheet" href="/../css/github-gist-night.css?v=1.0.209" disabled id="github-gist-night" type="text/css">
+    <script src="/../js/day-night.js?v=1.0.209" type="text/javascript"></script>
+    <script src="/../js/youtube.js?v=1.0.209" type="text/javascript"></script>
+    <script src="/../js/iframe.js?v=1.0.209" type="text/javascript"></script>
+    <script src="/../js/highlight.pack.js?v=1.0.209" type="text/javascript"></script>
+    <script src="/../js/ehtml.bundle.min.js?v=1.0.209" type="text/javascript"></script>
+    <script src="/../js/script.js?v=1.0.209" type="text/javascript"></script>
   </head>
 
   <body class="main">
     <div class="base">
       <div class="menu">
-        <e-turbolink data-href="/../stuff/about?v=1.0.206">About</e-turbolink>
-        <e-turbolink data-href="/../stuff/projects?v=1.0.206">Projects</e-turbolink>
-        <e-turbolink data-href="/../previews/1?v=1.0.206">Posts</e-turbolink>
-        <e-turbolink data-href="/../stuff/slides?v=1.0.206">Slides</e-turbolink>
-        <e-turbolink data-href="/../stuff/papers?v=1.0.206">Papers</e-turbolink>
-        <e-turbolink data-href="/../stuff/talks?v=1.0.206">Talks</e-turbolink>
-        <e-turbolink data-href="/../stuff/podcasts?v=1.0.206" style="display: none;">Podcasts</e-turbolink>
-        <e-turbolink data-href="/../stuff/covers?v=1.0.206">♫ Covers</e-turbolink>
-        <!-- <e-turbolink data-href="/../rus-previews/1?v=1.0.206">На русском</e-turbolink> -->
+        <e-turbolink data-href="/../stuff/about?v=1.0.209">About</e-turbolink>
+        <e-turbolink data-href="/../stuff/projects?v=1.0.209">Projects</e-turbolink>
+        <e-turbolink data-href="/../previews/1?v=1.0.209">Posts</e-turbolink>
+        <e-turbolink data-href="/../stuff/slides?v=1.0.209">Slides</e-turbolink>
+        <e-turbolink data-href="/../stuff/papers?v=1.0.209">Papers</e-turbolink>
+        <e-turbolink data-href="/../stuff/talks?v=1.0.209">Talks</e-turbolink>
+        <e-turbolink data-href="/../stuff/podcasts?v=1.0.209" style="display: none;">Podcasts</e-turbolink>
+        <e-turbolink data-href="/../stuff/covers?v=1.0.209">♫ Covers</e-turbolink>
+        <!-- <e-turbolink data-href="/../rus-previews/1?v=1.0.209">На русском</e-turbolink> -->
       </div>
       <div class="day-night" id="day-night" onclick="changeStyle()"></div>
       <div class="content">
-        <h1 id="asyncobjectsinsteadofasynccalls">Async Objects Instead of Async Calls</h1>
+        <h1 id="asyncobjectsinsteadofasynccalls">Async Objects instead of Async Calls</h1>
         <div class="date">26 January 2018</div>
         <div class="tags">
-          <a class="tag" href="/../tags/oop?v=1.0.206">oop</a>
-          <a class="tag" href="/../tags/node?v=1.0.206">node</a>
-          <a class="tag" href="/../tags/asyncobjects?v=1.0.206">async objects</a>
+          <a class="tag" href="/../tags/oop?v=1.0.209">oop</a>
+          <a class="tag" href="/../tags/node?v=1.0.209">node</a>
+          <a class="tag" href="/../tags/asyncobjects?v=1.0.209">async objects</a>
         </div>
         <p>No secret, OOP in JS is not perfect. At least it's not so mature as it's in Java, for example. And actually I don't see that anybody from the JavaScript world would use this paradigm as the main concept for their applications. In the modern software development the ideas of the object-oriented programming (as itself) are becoming less and less popular and giving way to the ideas of functional programming. But I think we should not give up such a powerful and wonderful tool/mechanism that can simplify our complex systems. In this article, I'll try to introduce the idea of <strong>async objects</strong> and show how they can help us to get rid of the main problem in asyncronious enviroment… Of course, I am talking about <strong>callbacks</strong>.</p>
         <p>Every library or driver in Node.js has <b>async calls</b>, and all them have similar signature:</p>
