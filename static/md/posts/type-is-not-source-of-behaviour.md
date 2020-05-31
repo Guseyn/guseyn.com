@@ -191,4 +191,4 @@ I don't know about you, but I would gladly read such long code all the time. Bec
 
 This is it.
 
-[HN Comments](https://news.ycombinator.com/item?id=23372478)
+[Reddit Comments](https://www.reddit.com/user/gyen/comments/gu6xc5/data_type_should_not_be_considered_as_a_source_of/)
