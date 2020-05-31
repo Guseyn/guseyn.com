@@ -175,7 +175,7 @@ So, why is suggested approach better? Well, I can come up with some pros:
 <br><br>
 1. We have only one single point of behaviour, which is a some function that can do the whole work.
 2. We don't have to build (or implment) types from their behaviour, the only thing we need is data. And when it's needed we can add functions that can process certain types of our data.
-3. We don't have so called behavioural dualism in data types, where it's not clear why certain types are attached to certain methods, because it's not possible as we separate data from behaviour. It's really important, because sometimes when we mix them, we often create meaningless types, which are not even in our business logic.
+3. We don't have so called behavioural dualism in data types, where it's not clear why certain types are attached to certain methods, because it's no longer possible as we separate data from behaviour. It's really important, because sometimes when we mix them, we often create meaningless types, which are not even in our business logic.
 4. Our code is decomposed. If we create proper functions, the only thing we need to do is just pass arguments and get result by invoking them.
 5. Our code becomes more declarative if we use proper naming of functions. And by proper naming I mean that we express the whole idea of behaviour behind the function, the result that we get from it and maybe even sometimes arguments which are required for the function. So, instead of thinking about how we build result, we actually see the result. For example,
 
