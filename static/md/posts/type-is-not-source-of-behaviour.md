@@ -185,7 +185,7 @@ List<User> users = filteredUsersFromDatabaseByAgeAndGenderAndWhoIsFriendWithSpec
 
 If you think that's very verbose, well... Just read it, and you'll see that there is nothing to remove from the name. And the only thing you need to do is just to read, you don't have to guess. After reading just the name of the function you'll understand what structure you get from the function (`User`), behaviour of the function (filtering) and of course what arguments you need for the function (database, age, gender, specified user who is friend).
 
-Sure we can create dozen of interfaces like `DB`, `User`, `Gender`, `Friend` or some others and create a lot of complexity. But if just need to get real result, we just can do it with one function.
+Sure we can create dozen of interfaces like `DB`, `User`, `Gender`, `Friend` or some others and create a lot of complexity. But if we just need to get real result, we just can do it with one function.
 
 I don't know about you, but I would gladly read such long code all the time. Because I like to read, I don't like to guess.
 
