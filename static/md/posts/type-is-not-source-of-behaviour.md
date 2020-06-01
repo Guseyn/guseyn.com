@@ -183,7 +183,7 @@ So, why is suggested approach better? Well, I can come up with some pros:
 List<User> users = filteredUsersFromDatabaseByAgeAndGenderAndWhoIsFriendWithSpecifiedUser(db, 25, 'women', someUser)
 ```
 
-If you think that's very verbose, well... Just read it, and you'll see that there is nothing to remove from the name. And the only thing you need to do is just to read, you don't have to guess. After reading just the name of the function you'll understand what structure you get from the function (`User`), behaviour of the function (filtering) and of course what arguments you need for the function (database, age, gender, specified user who is friend).
+If you think that's very verbose, well... Just read it, and you'll see that there is nothing to remove from the name. And the only thing you need to do is just to read, you don't have to guess. After reading just the name of the function you'll understand what structure you get from the function (`List<User>`), behaviour of the function (filtering) and of course what arguments you need for the function (database, age, gender, specified user who is friend).
 
 Sure we can create dozen of interfaces like `DB`, `User`, `Gender`, `Friend` or some others and create a lot of complexity. But if we just need to get real result, we just can do it with one function.
 
