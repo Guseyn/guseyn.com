@@ -19,7 +19,7 @@ When you start learning a programming language(or just programming in general), 
 
 Let's start with primitive data types like `byte`, `number`, `string`, `boolean` and so on. Most programming languages support them is some or other forms. And in most cases they are not attached to any functions. Interpreter of a programming language can apply operators or functions on them, so we don't have to deal with such things. For example, we don't have to impelment binary operator like plus (**`+`**) for `numbers` and `strings`.  I want to emphesize the fact that (**`+`**) operator can be also considered as a simple function, as it's just one of the syntax variations of how we can write it in our code. For example, in PHP language we use operator dot (**`.`**) for concatenating strings, not (**`+`**). So, basically for primitive data types we don't have to declare and implement operations which can be applicable for them.
 
-Then it becomes more interesing with such type like array, which in most cases is just a set of pointers to other types. In the code we declare array via brackets: `[` and `]`, and inside of this brackets we list its pointers or elements. For example, that's how we declare an array in JavaScript:
+Then it becomes more interesing with such type like array, which in most cases is just a set of pointers to other types. In the code we declare array via brackets: `[` and `]`, and inside of these brackets we list its pointers or elements. For example, that's how we declare an array in JavaScript:
 
 ```js
 /* In JavaScript we can use different types 
@@ -127,7 +127,7 @@ public interface Assessment {
 }
 ```
 
-So, which of these three varations is correct? Or maybe all them are correct? You also might say that it depends, right? But how to decide the right way of representing behaviour in our program?
+So, which of these four varations is correct? Or maybe all them are correct? Are any other? You also might say that it depends, right? But how to decide the right way of representing behaviour in our program?
 
 Looking at these interfaces you can simplify all the logic just in one simple function:
 
@@ -171,7 +171,7 @@ we can write something like:
 user = savedUserIntoDatabase(db, user)
 ```
 
-So, why is suggested approach better? Well, I can come up with some pros:
+So, why is the suggested approach better? Well, I can come up with some pros:
 <br><br>
 1. We have only one single point of behaviour, which is a some function that can do the whole work.
 2. We don't have to build (or implment) types from their behaviour, the only thing we need is data. And when it's needed we can add functions that can process certain types of our data.
