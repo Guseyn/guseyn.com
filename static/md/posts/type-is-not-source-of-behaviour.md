@@ -127,7 +127,7 @@ public interface Assessment {
 }
 ```
 
-So, which of these four varations is correct? Or maybe all them are correct? Are any other? You also might say that it depends, right? But how to decide the right way of representing behaviour in our program?
+So, which of these four variations is correct? Or maybe all them are correct? Are any other? You also might say that it depends, right? But how to decide the right way of representing behaviour in our program?
 
 Looking at these interfaces you can simplify all the logic just in one simple function:
 
