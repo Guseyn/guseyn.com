@@ -11,39 +11,39 @@
     <title>Data Type Should Not Be Considered As a Source of Its Behaviour</title>
     <link rel="shortcut icon" type="image/png" href="/../image/favicon.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i|Source+Sans+Pro:400,400i,700,700i" type="text/css">
-    <link rel="stylesheet" href="/../css/normalize.css?v=1.0.209" type="text/css">
-    <link rel="stylesheet" href="/../css/main.css?v=1.0.209" type="text/css">
-    <link rel="stylesheet" href="/../css/main-night.css?v=1.0.209" disabled id="main-night" type="text/css">
-    <link rel="stylesheet" href="/../css/github-gist.css?v=1.0.209" type="text/css">
-    <link rel="stylesheet" href="/../css/github-gist-night.css?v=1.0.209" disabled id="github-gist-night" type="text/css">
-    <script src="/../js/day-night.js?v=1.0.209" type="text/javascript"></script>
-    <script src="/../js/youtube.js?v=1.0.209" type="text/javascript"></script>
-    <script src="/../js/iframe.js?v=1.0.209" type="text/javascript"></script>
-    <script src="/../js/highlight.pack.js?v=1.0.209" type="text/javascript"></script>
-    <script src="/../js/ehtml.bundle.min.js?v=1.0.209" type="text/javascript"></script>
-    <script src="/../js/script.js?v=1.0.209" type="text/javascript"></script>
+    <link rel="stylesheet" href="/../css/normalize.css?v=1.0.219" type="text/css">
+    <link rel="stylesheet" href="/../css/main.css?v=1.0.219" type="text/css">
+    <link rel="stylesheet" href="/../css/main-night.css?v=1.0.219" disabled id="main-night" type="text/css">
+    <link rel="stylesheet" href="/../css/github-gist.css?v=1.0.219" type="text/css">
+    <link rel="stylesheet" href="/../css/github-gist-night.css?v=1.0.219" disabled id="github-gist-night" type="text/css">
+    <script src="/../js/day-night.js?v=1.0.219" type="text/javascript"></script>
+    <script src="/../js/youtube.js?v=1.0.219" type="text/javascript"></script>
+    <script src="/../js/iframe.js?v=1.0.219" type="text/javascript"></script>
+    <script src="/../js/highlight.pack.js?v=1.0.219" type="text/javascript"></script>
+    <script src="/../js/ehtml.bundle.min.js?v=1.0.219" type="text/javascript"></script>
+    <script src="/../js/script.js?v=1.0.219" type="text/javascript"></script>
   </head>
 
   <body class="main">
     <div class="base">
       <div class="menu">
-        <e-turbolink data-href="/../stuff/about?v=1.0.209">About</e-turbolink>
-        <e-turbolink data-href="/../stuff/projects?v=1.0.209">Projects</e-turbolink>
-        <e-turbolink data-href="/../previews/1?v=1.0.209">Posts</e-turbolink>
-        <e-turbolink data-href="/../stuff/slides?v=1.0.209">Slides</e-turbolink>
-        <e-turbolink data-href="/../stuff/papers?v=1.0.209">Papers</e-turbolink>
-        <e-turbolink data-href="/../stuff/talks?v=1.0.209">Talks</e-turbolink>
-        <e-turbolink data-href="/../stuff/podcasts?v=1.0.209" style="display: none;">Podcasts</e-turbolink>
-        <e-turbolink data-href="/../stuff/covers?v=1.0.209">♫ Covers</e-turbolink>
-        <!-- <e-turbolink data-href="/../rus-previews/1?v=1.0.209">На русском</e-turbolink> -->
+        <e-turbolink data-href="/../stuff/about?v=1.0.219">About</e-turbolink>
+        <e-turbolink data-href="/../stuff/projects?v=1.0.219">Projects</e-turbolink>
+        <e-turbolink data-href="/../previews/1?v=1.0.219">Posts</e-turbolink>
+        <e-turbolink data-href="/../stuff/slides?v=1.0.219">Slides</e-turbolink>
+        <e-turbolink data-href="/../stuff/papers?v=1.0.219">Papers</e-turbolink>
+        <e-turbolink data-href="/../stuff/talks?v=1.0.219">Talks</e-turbolink>
+        <e-turbolink data-href="/../stuff/podcasts?v=1.0.219" style="display: none;">Podcasts</e-turbolink>
+        <e-turbolink data-href="/../stuff/covers?v=1.0.219">♫ Covers</e-turbolink>
+        <!-- <e-turbolink data-href="/../rus-previews/1?v=1.0.219">На русском</e-turbolink> -->
       </div>
       <div class="day-night" id="day-night" onclick="changeStyle()"></div>
       <div class="content">
         <h1 id="datatypeshouldnotbeconsideredasasourceofitsbehaviour">Data Type Should Not Be Considered As a Source of Its Behaviour</h1>
         <div class="date">31 May 2020</div>
         <div class="tags">
-          <a class="tag" href="/../tags/programming?v=1.0.209">programming</a>
-          <a class="tag" href="/../tags/codedesign?v=1.0.209">code design</a>
+          <a class="tag" href="/../tags/programming?v=1.0.219">programming</a>
+          <a class="tag" href="/../tags/codedesign?v=1.0.219">code design</a>
         </div>
         <div class="quote">
           <div class="quote-text">
@@ -54,8 +54,8 @@
           </div>
         </div>
         <p>When you start learning a programming language(or just programming in general), usually there are first few chapters in books that introduce us such thing like <strong>data types</strong> (or just <strong>types</strong>). And we don't focus on this subject as much as we should because it's so simple, right? Well… I think that there is one little detail which can lead to big mistakes of understanding what really data type is.</p>
-        <p>Let's start with primitive data types like <code>byte</code>, <code>number</code>, <code>string</code>, <code>boolean</code> and so on. Most programming languages support them is some or other forms. And in most cases they are not attached to any functions. Interpreter of a programming language can apply operators or functions on them, so we don't have to deal with such things. For example, we don't have to impelment binary operator like plus (<strong><code>+</code></strong>) for <code>numbers</code> and <code>strings</code>. I want to emphesize the fact that (<strong><code>+</code></strong>) operator can be also considered as a simple function, as it's just one of the syntax variations of how we can write it in our code. For example, in PHP language we use operator dot (<strong><code>.</code></strong>) for concatenating strings, not (<strong><code>+</code></strong>). So, basically for primitive data types we don't have to declare and implement operations which can be applicable for them.</p>
-        <p>Then it becomes more interesing with such type like array, which in most cases is just a set of pointers to other types. In the code we declare array via brackets: <code>[</code> and <code>]</code>, and inside of this brackets we list its pointers or elements. For example, that's how we declare an array in JavaScript:</p>
+        <p>Let's start with primitive data types like <code>byte</code>, <code>number</code>, <code>string</code>, <code>boolean</code> and so on. Most programming languages support them is some or other forms. And in most cases they are not attached to any functions. Interpreter of a programming language can apply operators or functions on them, so we don't have to deal with such things. For example, we don't have to implement binary operator like plus (<strong><code>+</code></strong>) for <code>numbers</code> and <code>strings</code>. I want to emphasize the fact that (<strong><code>+</code></strong>) operator can be also considered as a simple function, as it's just one of the syntax variations of how we can write it in our code. For example, in PHP language we use operator dot (<strong><code>.</code></strong>) for concatenating strings, not (<strong><code>+</code></strong>). So, basically for primitive data types we don't have to declare and implement operations which can be applicable for them.</p>
+        <p>Then it becomes more interesing with such type like array, which in most cases is just a set of pointers to other types. In the code we declare array via brackets: <code>[</code> and <code>]</code>, and inside of these brackets we list its pointers or elements. For example, that's how we declare an array in JavaScript:</p>
         <pre><code class="js language-js">/* In JavaScript we can use different types 
     of elements in array as it's dynamic language */
 
@@ -129,14 +129,14 @@ public interface Information {
   void give(Teacher teacher, Student student, Information information);
 }
 </code></pre>
-        <p>So, which of these three varations is correct? Or maybe all them are correct? You also might say that it depends, right? But how to decide the right way of representing behaviour in our program?</p>
+        <p>So, which of these four variations is correct? Or maybe all them are correct? Are any other? You also might say that it depends, right? But how to decide the right way of representing behaviour in our program?</p>
         <p>Looking at these interfaces you can simplify all the logic just in one simple function:</p>
         <pre><code class="js language-js">// Pseudo code
 Assessment assessment = givenAssessment(
   fromTeacher, toStudent, forInformation
 )
 </code></pre>
-        <p>where <code>Teacher</code>, <code>Student</code> and <code>Information</code> are just data structures for function <code>givenAssessment()</code> that produces another structure <code>Assessment</code>. And in this case we always deal with real data, because even though <code>givenAssessment()</code> is a function, it actually represents <code>Assesment</code> which is expressed in the name of the function. This is the reason actually why I use only nouns with verb adjectives in function names as it makes the code declarative. And if you name arguments properly, you can actually read the code like in plain English: </p>
+        <p>where <code>Teacher</code>, <code>Student</code> and <code>Information</code> are just data structures for function <code>givenAssessment()</code> that produces another structure <code>Assessment</code>. And in this case we always deal with real data, because even though <code>givenAssessment()</code> is a function, it actually represents <code>Assessment</code> which is expressed in the name of the function. This is the reason actually why I use only nouns with verb adjectives in function names as it makes the code declarative. And if you name arguments properly, you can actually read the code like in plain English: </p>
         <p>&ldquo;It's a given assessment from a teacher to a student for the information (which the teacher gave to the student).&rdquo;</p>
         <p><br></p>
         <h2 id="behaviourdoesnotbelongtoadatatype">Behaviour does not belong to a data type</h2>
@@ -153,22 +153,23 @@ Assessment assessment = givenAssessment(
         <p>we can write something like:</p>
         <pre><code class="js language-js">user = savedUserIntoDatabase(db, user)
 </code></pre>
-        <p>So, why is suggested approach better? Well, I can come up with some pros:
+        <p>So, why is the suggested approach better? Well, I can come up with some pros:
           <br><br></p>
         <ol>
           <li>We have only one single point of behaviour, which is a some function that can do the whole work.</li>
           <li>We don't have to build (or implment) types from their behaviour, the only thing we need is data. And when it's needed we can add functions that can process certain types of our data.</li>
-          <li>We don't have so called behavioural dualism in data types, where it's not clear why certain types are attached to certain methods, because it's not possible as we separate data from behaviour. It's really important, because sometimes when we mix them, we often create meaningless types, which are not even in our business logic.</li>
-          <li>Our code is decomposed. If we create proper functions, the only thing we need to do is just pass arguments and get result by invoking them.</li>
+          <li>We don't have so called behavioural dualism in data types, where it's not clear why certain types are attached to certain methods, because it's no longer possible as we separate data from behaviour. It's really important, because sometimes when we mix them, we often create meaningless types, which are not even in our business logic.</li>
+          <li>Our code is decomposed. If we create proper functions, the only thing we need to do is just to pass arguments and to get result by invoking them.</li>
           <li>Our code becomes more declarative if we use proper naming of functions. And by proper naming I mean that we express the whole idea of behaviour behind the function, the result that we get from it and maybe even sometimes arguments which are required for the function. So, instead of thinking about how we build result, we actually see the result. For example,</li>
         </ol>
         <pre><code class="java language-java">List&lt;User&gt; users = filteredUsersFromDatabaseByAgeAndGenderAndWhoIsFriendWithSpecifiedUser(db, 25, 'women', someUser)
 </code></pre>
-        <p>If you think that's very verbose, well… Just read it, and you'll see that there is nothing to remove from the name. And the only thing you need to do is just to read, you don't have to guess. After reading just the name of the function you'll understand what structure you get from the function (<code>User</code>), behaviour of the function (filtering) and of course what arguments you need for the function (database, age, gender, specified user who is friend).</p>
-        <p>Sure we can create dozen of interfaces like <code>DB</code>, <code>User</code>, <code>Gender</code>, <code>Friend</code> or some others and create a lot of complexity. But if just need to get real result, we just can do it with one function.</p>
+        <p>If you think that's very verbose, well… Just read it, and you'll see that there is nothing to remove from the name. And the only thing you need to do is just to read, you don't have to guess. After reading just the name of the function you'll understand what structure you get from the function (<code>List&lt;User&gt;</code>), behaviour of the function (filtering) and of course what arguments you need for the function (database, age, gender, specified user who is friend).</p>
+        <p>Sure we can create dozen of interfaces like <code>DB</code>, <code>User</code>, <code>Gender</code>, <code>Friend</code> or some others and create a lot of complexity. But if we just need to get real result, we just can do it with one function.</p>
         <p>I don't know about you, but I would gladly read such long code all the time. Because I like to read, I don't like to guess.</p>
         <p>This is it.</p>
-        <p><a href="https://news.ycombinator.com/item?id=23372478">HN Comments</a></p>
+        <p><a href="https://www.reddit.com/user/gyen/comments/gu6xc5/data_type_should_not_be_considered_as_a_source_of/">Reddit Comments</a>
+          <a href="https://medium.com/@guseynism/data-type-should-not-be-considered-as-a-source-of-its-behaviour-1f6becde1339">Medium</a></p>
       </div>
     </div>
   </body>
