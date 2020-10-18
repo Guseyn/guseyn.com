@@ -23,7 +23,7 @@ I write [posts](/../previews/1) about code design, code tricks and tech culture 
 I am working on a side project in my free time. It's called Unison and it's aimed to be a platform for creating and storing SVG music sheets using WYSIWYM concept. 
 
 ### Programmer
-I am a full-time full-stack software developer with more than 5 years of diverse experience: I was working as software developer in outsource company, in small startup with fully distributed international team, and as a researcher in international tech corporation. More information about my work experience you can find in my [LinkedIn profile](https://www.linkedin.com/in/guseyn-ismayylov-111bb1179/) and [resume](/../html/resume.html).
+I am a full-time full-stack software developer with more than 5 years of diverse experience: I was working as a software engineer at outsource company, at small startup with fully distributed international team, and as a researcher at international tech corporation. More information about my work experience you can find in my [LinkedIn profile](https://www.linkedin.com/in/guseyn-ismayylov-111bb1179/) and [resume](/../html/resume.html).
 
 In my work I appreciate clarity of information in documentation and code. 
 
