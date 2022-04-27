@@ -66,7 +66,7 @@
     "eslint-plugin-node": "^8.0.0",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
-    "grunt": "^1.0.4",
+    "grunt": "^1.5.2",
     "grunt-babel": "^8.0.0",
     "grunt-browserify": "^6.0.0",
     "grunt-contrib-uglify-es": "^3.3.0",
