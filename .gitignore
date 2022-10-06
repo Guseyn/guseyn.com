@@ -7,6 +7,10 @@ yarn-error.log*
 .DS_Store
 .idea/
 
+#secrets
+
+secrets
+
 # Runtime data
 pids
 *.pid

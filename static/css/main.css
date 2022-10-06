@@ -177,13 +177,18 @@ iframe {
 }
 
 .photo {
-  width: 80px;
-  height: 80px;
+  width: 150px;
+  height: 150px;
   display: block;
   margin: 0 auto;
   border-radius: 16px;
   float: left;
-  margin-right: 20px;
+}
+
+.photo.bigger {
+  width: 180px;
+  height: 180px;
+  float: none;
 }
 
 .menu {

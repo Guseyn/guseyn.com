@@ -11,8 +11,10 @@ const EchoEndpoint = require('./../endpoints/EchoEndpoint')
 const BigJSONEndpoint = require('./../endpoints/BigJSONEndpoint')
 const UrlToFSPathMapper = require('./UrlToFSPathMapper')
 const CuteUrlToFSPathForHtmlMapper = require('./CuteUrlToFSPathForHtmlMapper')
-const env = process.env.NODE_ENV || 'local'
-const headers = env === 'prod' ? { 'Cache-Control': 'cache, public, max-age=86400' } : {}
+
+const ENV = process.env.NODE_ENV || 'local'
+const HEADERS_FOR_MAIN_RESOURCES = { 'Cache-Control': 'no-cache' }
+const HEADERS_FOR_SUBRESOURCES = (ENV === 'prod') ? { 'Cache-Control': 'cache, public, max-age=86400' } : { 'Cache-Control': 'no-cache' }
 
 class CreatedCustomNotFoundEndpoint {
   constructor (config) {
@@ -34,11 +36,20 @@ module.exports = class {
       ),
       new Created(
         ServingFilesEndpoint,
-        new RegExp(/^\/(html|css|md|image|js|json|txt|yml|pdf|ttf)/),
+        new RegExp(/^\/(html)/),
         new UrlToFSPathMapper(
           new Value(config, 'static')
         ),
-        headers,
+        HEADERS_FOR_MAIN_RESOURCES,
+        new CreatedCustomNotFoundEndpoint(config)
+      ),
+      new Created(
+        ServingFilesEndpoint,
+        new RegExp(/^\/(css|md|image|js|json|txt|yml|pdf|ttf)/),
+        new UrlToFSPathMapper(
+          new Value(config, 'static')
+        ),
+        HEADERS_FOR_SUBRESOURCES,
         new CreatedCustomNotFoundEndpoint(config)
       ),
       new Created(
@@ -47,7 +58,7 @@ module.exports = class {
         new CuteUrlToFSPathForHtmlMapper(
           new Value(config, 'staticHtml')
         ),
-        headers,
+        HEADERS_FOR_MAIN_RESOURCES,
         new CreatedCustomNotFoundEndpoint(config)
       ),
       new Created(
