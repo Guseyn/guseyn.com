@@ -45,20 +45,20 @@ module.exports = class {
       ),
       new Created(
         ServingFilesEndpoint,
-        new RegExp(/^\/(css|md|image|js|json|txt|yml|pdf|ttf)/),
-        new UrlToFSPathMapper(
-          new Value(config, 'static')
-        ),
-        HEADERS_FOR_SUBRESOURCES,
-        new CreatedCustomNotFoundEndpoint(config)
-      ),
-      new Created(
-        ServingFilesEndpoint,
         new RegExp(/^\/(posts|rus-posts|previews|rus-previews|stuff|tags|rus-tags)/),
         new CuteUrlToFSPathForHtmlMapper(
           new Value(config, 'staticHtml')
         ),
         HEADERS_FOR_MAIN_RESOURCES,
+        new CreatedCustomNotFoundEndpoint(config)
+      ),
+      new Created(
+        ServingFilesEndpoint,
+        new RegExp(/^\/(css|md|image|js|json|txt|yml|pdf|ttf)/),
+        new UrlToFSPathMapper(
+          new Value(config, 'static')
+        ),
+        HEADERS_FOR_SUBRESOURCES,
         new CreatedCustomNotFoundEndpoint(config)
       ),
       new Created(
