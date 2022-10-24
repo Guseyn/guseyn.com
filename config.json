@@ -33,7 +33,7 @@
   "cert": "./cert.pem",
   "local": {
     "protocol": "http",
-    "port": 8000,
+    "port": 8005,
     "host": "127.0.0.1",
     "clusterMode": true
   },
