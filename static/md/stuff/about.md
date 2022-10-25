@@ -3,9 +3,12 @@
 
 <img src="/../../image/photo.jpg" class="photo bigger">
 
-I am the author of [Async Tree Pattern](#authorofasynctreepattern), creator of [EHTML](#creatorofehtml), [open source enthusiast](#opensourceenthusiast), [tech blogger](#techblogger), [entrepreneur](#entrepreneur), [programmer](#programmer), [chess&music lover](#chessmusiclover).
+I am a founder of [Unison](#unison), author of [Async Tree Pattern](#authorofasynctreepattern), creator of [EHTML](#creatorofehtml), [open source enthusiast](#opensourceenthusiast), [tech blogger](#techblogger), [entrepreneur](#entrepreneur), [programmer](#programmer), [chess&music lover](#chessmusiclover).
 
-You can find me on [Instagram](https://www.instagram.com/guseyn.4u/), [LinkedIn](https://www.linkedin.com/in/guseyn-ismayylov-111bb1179/), [GitHub](https://github.com/Guseyn/) and write an [email](mailto:guseynism@gmail.com). Also I have a Telegram [channel](https://t.me/guseyncom) where I write about what's new on my blog. I don't use other social networks.
+You can find me on [Instagram](https://www.instagram.com/guseyn.4u/), [LinkedIn](https://www.linkedin.com/in/guseyn-ismayylov-111bb1179/), [GitHub](https://github.com/Guseyn/), [Reddit](https://www.reddit.com/user/gyen) and write an [email](mailto:guseynism@gmail.com). Also I have a Telegram [channel](https://t.me/guseyncom) where I write about what's new on my blog. I don't use other social networks.
+
+### Unison
+[Unison](https://unisonofficial.com) is a platform where you can create sheet music just by describing them with simple words.
 
 ### Author of Async Tree Pattern
 [Async Tree Pattern](https://guseyn.com/pdf/Async_Tree_Pattern.pdf) is a design pattern, the main purpose of which is to
@@ -21,12 +24,12 @@ I am an author of many open source projects such as [Cutie](https://github.com/G
 I write [posts](/../previews/1) about code design, code tricks and tech culture in general. I make [videos](https://www.youtube.com/watch?v=lOf0NkNtWzI&feature=emb_title) and participate in [tech meetups](https://www.youtube.com/watch?v=Ptz6kJ3NXGI&feature=emb_title) as speaker. Also [some people](https://www.youtube.com/watch?v=Cx1kZbwkr5g&t=128s) talk about my projects.
 
 ### Entrepreneur
-I am working on a side project in my free time. It's called Unison and it's aimed to be a platform for creating and storing SVG music sheets using WYSIWYM concept. 
+I am working on a side project in my free time. It's called [Unison](unisonofficial.com) and it is a platform where you can create sheet music just by describing them with simple words.
 
 ### Programmer
-I am a full-time full-stack software developer with more than 5 years of diverse experience: I was working as a software engineer at outsource company, at small startup with fully distributed international team, and as a researcher at international tech corporation. More information about my work experience you can find in my [LinkedIn profile](https://www.linkedin.com/in/guseyn-ismayylov-111bb1179/) and [resume](/../html/resume.html).
+I am a full-time full-stack software developer with more than 6 years of diverse experience: I was working as a software engineer at outsource company, at small startup with fully distributed international team, and as a researcher at international tech corporation. More information about my work experience you can find in my [LinkedIn profile](https://www.linkedin.com/in/guseyn-ismayylov-111bb1179/) and [resume](/../html/resume.html).
 
-In my work I appreciate clarity of information in documentation and code. 
+In my work I appreciate clarity of the information in the documentation and the code.
 
 ### Chess&Music lover
 I like playing chess (you can challenge me on [liches](https://lichess.org/@/guseyn1245)). Also, I like music and making covers of popular songs on guitar and ukelele. [Here](/../stuff/covers) is some of them. More over, I am trying to make life of many musicians and composers much easier by creating Unison project.
