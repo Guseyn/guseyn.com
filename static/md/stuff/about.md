@@ -1,5 +1,5 @@
 # Guseyn Ismayylov
-<div class="date">17 October 2020 (last update)</div>
+<div class="date">25 October 2022 (last update)</div>
 
 <img src="/../../image/photo.jpg" class="photo bigger">
 
