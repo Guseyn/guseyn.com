@@ -3,11 +3,11 @@
 
 <img src="/../../image/photo.jpg" class="photo bigger">
 
-I am a founder of [Unison](#unison), author of [Async Tree Pattern](#authorofasynctreepattern), creator of [EHTML](#creatorofehtml), [open source enthusiast](#opensourceenthusiast), [tech blogger](#techblogger), [entrepreneur](#entrepreneur), [programmer](#programmer), [chess&music lover](#chessmusiclover).
+I am a founder of [Unison](#founderofunison), author of [Async Tree Pattern](#authorofasynctreepattern), creator of [EHTML](#creatorofehtml), [open source enthusiast](#opensourceenthusiast), [tech blogger](#techblogger), [entrepreneur](#entrepreneur), [programmer](#programmer), [chess&music lover](#chessmusiclover).
 
 You can find me on [Instagram](https://www.instagram.com/guseyn.4u/), [LinkedIn](https://www.linkedin.com/in/guseyn-ismayylov-111bb1179/), [GitHub](https://github.com/Guseyn/), [Reddit](https://www.reddit.com/user/gyen) and write an [email](mailto:guseynism@gmail.com). Also I have a Telegram [channel](https://t.me/guseyncom) where I write about what's new on my blog. I don't use other social networks.
 
-### Unison
+### Founder of Unison
 [Unison](https://unisonofficial.com) is a platform where you can create sheet music just by describing them with simple words.
 
 ### Author of Async Tree Pattern
