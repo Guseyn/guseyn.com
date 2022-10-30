@@ -85,6 +85,10 @@ a {
   vertical-align: middle;
 }
 
+.skill-set {
+  font-size: 0.9em;
+}
+
 @media only screen and (min-width: 850px), print {
   .intro {
     float: left;
