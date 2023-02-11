@@ -1,5 +1,5 @@
 #!/bin/bash
-ssh -i deploy_rsa root@209.97.128.89 bash -c "'
+ssh -i guseyn_rsa root@46.101.16.208 bash -c "'
 sudo apt update && sudo apt upgrade
 sudo git clone https://github.com/letsencrypt/letsencrypt /opt/letsencrypt
 killall -s KILL node

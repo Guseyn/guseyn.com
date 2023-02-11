@@ -72,7 +72,7 @@ static/js/bundle.js
 static/js/bundle.min.js
 
 # keys
-deploy_rsa
-deploy_rsa.pub
+guseyn_rsa
+guseyn_rsa.pub
 key.pem
 cert.pem
