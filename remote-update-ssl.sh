@@ -1,5 +1,5 @@
 #!/bin/bash
-ssh -i deploy_rsa root@209.97.128.89 bash -c "'
+ssh -i guseyn_rsa root@46.101.16.208 bash -c "'
 sudo apt update && sudo apt upgrade
 cd /opt/letsencrypt
 sudo -H ./letsencrypt-auto certonly --standalone --renew-by-default -d guseyn.com -d www.guseyn.com

@@ -1,20 +1,19 @@
 #!/bin/bash
 ssh -i guseyn_rsa root@46.101.16.208 bash -c "'
-if [ ! -d guseyn.com ]
+if [ ! -d guseyn ]
 then
-  git clone https://github.com/Guseyn/guseyn.com.git guseyn.com
+  git clone git@github.com:Guseyn/guseyn.com.git
   git config --global user.email \"guseyn@guseyn.com\"
-  cd guseyn.com
-  mkdir logs
+  cd guseyn
   npm install
-  npm run guseyn:prod
+  mkdir logs
+  npm run guseyn-prod-setup
 else
-  killall -s KILL node
-  cd guseyn.com
+  cd guseyn
   git fetch --all
   git reset --hard origin/master
   git pull
   npm install
-  npm run guseyn:prod
+  npm run guseyn-prod-setup
 fi
 '"
