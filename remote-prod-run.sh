@@ -10,7 +10,6 @@ then
 else
   killall -s KILL node
   cd guseyn.com
-  mkdir logs
   git fetch --all
   git reset --hard origin/master
   git pull
