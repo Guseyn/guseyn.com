@@ -1,20 +1,61 @@
 {
   "env": {
+    "node": "true",
     "browser": true,
     "commonjs": true,
-    "es6": true,
-    "node": true
+    "es2021": true
   },
-  "extends": "standard",
-  "globals": {
-    "Atomics": "readonly",
-    "SharedArrayBuffer": "readonly"
-  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:node/recommended"
+  ],
+  "overrides": [
+  ],
   "parserOptions": {
-    "ecmaVersion": 2018
+    "ecmaVersion": "latest"
   },
   "rules": {
+    "indent": [
+      "error",
+      2,
+      { "SwitchCase": 1 }
+    ],
+    "quotes": [
+      "error",
+      "single",
+      "avoid-escape"
+    ],
+    "allowTemplateLiterals": 0,
+    "semi": [
+      "error",
+      "never"
+    ],
     "no-useless-constructor": [
+      "off", "always"
+    ],
+    "no-template-curly-in-string": [
+      "off", "always"
+    ],
+    "no-unused-vars": [
+      "error",
+      { "args": "none" }
+    ],
+    "no-case-declarations": [
+      "off", "always"
+    ],
+    "no-useless-catch": [
+      "off", "always"
+    ],
+    "no-prototype-builtins": [
+      "off", "always"
+    ],
+    "no-process-exit": [
+      "off", "always"
+    ],
+    "node/no-unsupported-features/es-syntax": [
+      "off", "always"
+    ],
+    "node/no-unsupported-features/node-builtins": [
       "off", "always"
     ]
   }

@@ -1,24 +1,18 @@
 {
   "name": "guseyn.com",
-  "version": "1.0.245",
+  "version": "2.0.0",
   "description": "My blog.",
   "main": "index.js",
   "directories": {
     "example": "example"
   },
   "scripts": {
-    "test": "node test-executor",
-    "build-local": "NODE_ENV=local node build",
-    "build-dev": "NODE_ENV=dev node build",
-    "build-test": "NODE_ENV=test node build",
-    "build-stage": "NODE_ENV=stage node build",
-    "build-prod": "NODE_ENV=prod node build",
-    "run-local": "NODE_ENV=local node server/run",
-    "run-dev": "NODE_ENV=dev node server/run",
-    "run-test": "NODE_ENV=test node server/run",
-    "run-stage": "NODE_ENV=stage node server/run",
-    "run-prod": "NODE_ENV=prod node server/run",
-    "resume": "node generate-pdf-resume"
+    "lint": "node deployment/lint",
+    "cache:subresources:version:update": "node deployment/update-cache-version-for-subresources",
+    "guseyn": "NODE_ENV=local node deployment/guseyn",
+    "guseyn:restart": "NODE_ENV=local node deployment/guseyn-restart",
+    "guseyn:prod": "NODE_ENV=prod node deployment/guseyn",
+    "guseyn:prod:restart": "NODE_ENV=prod node deployment/guseyn-restart"
   },
   "author": "guseyn",
   "license": "MIT",
@@ -26,49 +20,12 @@
     "access": "public"
   },
   "dependencies": {
-    "@cuties/array-iteration": "^1.1.5",
-    "@cuties/assert": "^1.2.2",
-    "@cuties/async": "^1.0.1",
-    "@cuties/buffer": "^1.2.3",
-    "@cuties/cluster": "^1.1.2",
-    "@cuties/created": "^1.0.2",
-    "@cuties/cutie": "^1.7.5",
-    "@cuties/fs": "^1.2.4",
-    "@cuties/http": "^1.3.4",
-    "@cuties/https": "^1.1.4",
-    "@cuties/if-else": "^1.1.1",
-    "@cuties/is": "^1.1.2",
-    "@cuties/json": "^1.1.1",
-    "@cuties/object": "^1.1.6",
-    "@cuties/path": "^1.1.1",
-    "@cuties/rest": "^1.2.12",
-    "@cuties/scripts": "^1.1.1",
-    "@cuties/spawn": "^1.0.2",
-    "@cuties/wall": "^1.1.2",
-    "@page-libs/ajax": "^1.1.4",
-    "@page-libs/cutie": "^1.1.2",
-    "@page-libs/dom": "^1.1.1",
-    "@page-libs/md2html": "^1.1.4",
-    "@page-libs/static-generator": "^1.1.3",
-    "@page-libs/unit": "^1.1.3",
-    "cheerio": "^1.0.0-rc.2",
-    "html-pdf": "^3.0.1",
-    "showdown": "^1.9.1",
-    "test-executor": "^1.2.4"
+    "cross-port-killer": "^1.4.0",
+    "find-process": "^1.4.7",
+    "log-timestamp": "^0.3.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.1.2",
-    "@babel/preset-env": "^7.1.0",
-    "eslint": "^5.11.0",
-    "eslint-config-standard": "^12.0.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-node": "^8.0.0",
-    "eslint-plugin-promise": "^4.0.1",
-    "eslint-plugin-standard": "^4.0.0",
-    "grunt": "^1.0.4",
-    "grunt-babel": "^8.0.0",
-    "grunt-browserify": "^6.0.0",
-    "grunt-contrib-uglify-es": "^3.3.0",
-    "load-grunt-tasks": "^4.0.0"
+    "eslint": "^8.30.0",
+    "eslint-plugin-node": "^11.1.0"
   }
 }

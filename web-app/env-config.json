@@ -1,0 +1,21 @@
+{
+  "local": {
+    "protocol": "http",
+    "port": 8001,
+    "host": "127.0.0.1"
+  },
+  "prod": {
+    "protocol": "https",
+    "port": 443,
+    "host": "146.190.232.49",
+    "domain": "guseyn.com",
+    "key": "/etc/letsencrypt/live/guseyn.com/privkey.pem",
+    "cert": "/etc/letsencrypt/live/guseyn.com/cert.pem",
+    "ca": "/etc/letsencrypt/live/guseyn.com/fullchain.pem",
+    "proxy": {
+      "protocol": "http",
+      "port": 80,
+      "host": "146.190.232.49"
+    }
+  }
+}
