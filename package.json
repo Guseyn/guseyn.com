@@ -12,7 +12,7 @@
     "guseyn": "NODE_ENV=local node deployment/guseyn",
     "guseyn:restart": "NODE_ENV=local node deployment/guseyn-restart",
     "guseyn:prod": "NODE_ENV=prod node deployment/guseyn",
-    "unison:prod:setup": "NODE_ENV=prod SETUP_MODE=true node deployment/guseyn",
+    "guseyn:prod:setup": "NODE_ENV=prod SETUP_MODE=true node deployment/guseyn",
     "guseyn:prod:restart": "NODE_ENV=prod node deployment/guseyn-restart"
   },
   "author": "guseyn",
