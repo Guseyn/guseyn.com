@@ -17,11 +17,11 @@ module.exports = new RestApi(
   new Created(
     ProxyEndpoint,
     new Value(
-      as('ENV_CONFIG_WITH_ENTERED_DETAILS'),
+      as('ENV_CONFIG'),
       'proxy.port'
     ),
     new Value(
-      as('ENV_CONFIG_WITH_ENTERED_DETAILS'),
+      as('ENV_CONFIG'),
       'port'
     )
   )
