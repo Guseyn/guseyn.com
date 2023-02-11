@@ -8,12 +8,6 @@ then
   npm install
   npm run guseyn:prod
 else
-  killall -s KILL node
-  cd guseyn.com
-  git fetch --all
-  git reset --hard origin/master
-  git pull
-  npm install
-  npm run guseyn:prod
+  node -v
 fi
 '"
