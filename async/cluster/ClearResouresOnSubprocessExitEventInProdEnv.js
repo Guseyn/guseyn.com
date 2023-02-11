@@ -7,12 +7,12 @@ const { LoggedToOutput } = require(`${__root}/async/log/index`)
 const { If } = require(`${__root}/async/logic/index`)
 
 class ClearResouresOnSubprocessExitEventInProdEnv extends AsyncObject {
-  constructor (proxyServer) {
-    super(proxyServer)
+  constructor (server, proxyServer) {
+    super(server, proxyServer)
   }
 
   syncCall () {
-    return (proxyServer) => {
+    return (server, proxyServer) => {
       return (code, signal) => {
         new If(
           server.listening,
