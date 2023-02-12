@@ -27,11 +27,11 @@ How to pick an idea? Just answer on one simple question: "Is this something I wo
 
 If you're full stack developer you already have a good knowledge on how to implement something from the scratch. Try to avoid over engineering and keep it simple. I would suggest a really good book on how you can achieve that: [Getting Real](https://basecamp.com/gettingreal) (it's absolutely free).
 
-Try to find people/resource that can help you to learn and increase your knowledge on something that you're lacking at the moment.
+Try to find people/resources that can help you to learn and increase your knowledge on something that you're lacking at the moment.
 
 I think the most important thing about the implemetation of the ideas is that you need to work on it everyday. If you cannot do something today because you don't have enough time or you're struggling with something, just try to write down you plans, or at least how you would approach some problems in the future.
 
-It's better to do little everyday than something big once in a while. The more consistent you are, the more chances that you would value your work and will continue the implmentation. And again, if you've chosem the right idea, being consistent is not a huge problem.  
+It's better to do something little everyday than something big once in a while. The more consistent you are, the more chances that you would value your work and will continue the implmentation. And again, if you've chosen the right idea, being consistent is not a huge problem.  
 
 ### Rely on yourself
 
@@ -39,7 +39,7 @@ If you can find a partner who can help you and who is as passionate about the id
 
 ### Promotion
 
-There are lot of different approaches you can choose to promote your product. I think that the most efficient, sustainable and organic one is through education. I will probably write more about this one, because this is something I need to learn myself now. But I think that just reachng out to the people and describing the problems and how you can solve them can be very crucial and powerful. And you don't even need to mention your product, you just can describe something in general or have many other related thoughts that you potential clients may find very inspiring and interesting.
+There are lot of different approaches you can choose to promote your product. I think that the most efficient, sustainable and organic one is through education. I will probably write more about this one, because this is something I need to learn myself now. But I think that just reachng out to the people and describing problems and how you can solve them can be very crucial and powerful. And you don't even need to mention your product, you just can describe something in general or have many other related thoughts that you potential clients may find very inspiring and interesting.
 
 ### Don't try conquer the world
 
