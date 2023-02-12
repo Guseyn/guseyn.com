@@ -17,7 +17,7 @@ If you as a programmer know only how to code, you will be struggling to find a r
 
 ### Stupid ideas
 
-Try to avoid stupid ideas. Most ideas that you will come up with are not worth to be implmented. Stupid ideas are attracted to the people with little knowledge about our world. This is why this section is tightly related to the previous one. Try to increase your vast knowledge. I really think that it's very important to find something that is really useful for the people. But in order to find something, you need to dig into the promlems that your potential clients encounter.
+Try to avoid stupid ideas. Most ideas that you will come up with are not worth to be implmented. Stupid ideas are attractive to the people with little knowledge about our world. This is why this section is tightly related to the previous one. Try to increase your vast knowledge. I really think that it's very important to find something that is really useful for the people. But in order to find something, you need to dig into the promlems that your potential clients encounter.
 
 ### Idea for the lifetime
 
@@ -29,13 +29,13 @@ If you're full stack developer you already have a good knowledge on how to imple
 
 Try to find people/resources that can help you to learn and increase your knowledge on something that you're lacking at the moment.
 
-I think the most important thing about the implemetation of the ideas is that you need to work on it everyday. If you cannot do something today because you don't have enough time or you're struggling with something, just try to write down you plans, or at least how you would approach some problems in the future.
+I think the most important thing about the implemetation of the ideas is that you need to work on it everyday. If you cannot do something today because you don't have enough time or you're struggling with something, just try to write down your plans, or at least how you would approach some problems in the future.
 
 It's better to do something little everyday than something big once in a while. The more consistent you are, the more chances that you would value your work and will continue the implmentation. And again, if you've chosen the right idea, being consistent is not a huge problem.  
 
 ### Rely on yourself
 
-If you can find a partner who can help you and who is as passionate about the idea as you are, it's really awesome. But in the majority of cases you probably cannot find a partner, or just cannot afford one. In this case, just try to do it by yourself. It only may sound difficult, but you don't have to be in rush, everything can be done slowly and at the right pace for you. And don't be afraid to learn more than you're supposed to know. You must enjoy of learning new things, that's what keeps you interested in the process.
+If you can find a partner(s) who can help you and who is as passionate about the idea as you are, it's really awesome. But in the majority of cases you probably cannot find a partner, or just cannot afford one. In this case, just try to do it by yourself. It only may sound difficult, but you don't have to be in rush, everything can be done slowly and at the right pace for you. And don't be afraid to learn more than you're supposed to know. You must enjoy of learning new things, that's what keeps you interested in the process.
 
 ### Promotion
 
