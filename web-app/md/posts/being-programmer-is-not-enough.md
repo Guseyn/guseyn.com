@@ -3,7 +3,7 @@
 
 In the global economy that we are living right now there are some unspoken but well known rules. One of them is that we are as programmers in majority of cases cannot claim some profit share of the business we're working for. Sure, in some locations on our globe you can find really good jobs with really good salaries. And after many years of work you can even afford to buy an aparment/house, make a family and live a happy office life. Sure, it's possible. But in majority of cases, the amount of hours you put into the work is not comparable to the amount of profit you get.
 
-You may disagree with me what's fair and what's not. And you even may think that it's okay to have billioners who get richer and richer just by hiring large number of really cheap labor and firing them when it's time to reduce costs. Sure...
+You may argue with me on what's fair and what's not. And you even may think that it's okay to have billioners who get richer and richer just by hiring large number of really cheap labor and firing them when it's time to reduce costs. Sure...
 
 But the reality is that you as a programmer would be happy to afford really good quality of life for yourself, your family and secure your future and the lifestyle you're used to when you get old (believe me, it can happen). I am not sure, whether you will be still happy to work for your big boss in your 40s or 50s. Well, I will just try to suggest some alternative for you.
 
@@ -25,7 +25,7 @@ How to pick an idea? Just answer on one simple question: "Is this something I wo
 
 ### Implementation
 
-If you're full stack developer you already have a good knowledge on how to implement something from the scratch. Try to avoid over engineering and keep it simple. I would suggest a really good book on how you can achieve that: [Getting Real](https://basecamp.com/gettingreal) (it's absolutely free).
+If you're full stack developer, you already have a good knowledge on how to implement something from the scratch. Try to avoid over engineering and keep it simple. I would suggest a really good book on how you can achieve that: [Getting Real](https://basecamp.com/gettingreal) (it's absolutely free).
 
 Try to find people/resources that can help you to learn and increase your knowledge on something that you're lacking at the moment.
 
