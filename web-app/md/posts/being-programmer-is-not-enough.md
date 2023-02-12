@@ -43,7 +43,7 @@ There are lot of different approaches you can choose to promote your product. I 
 
 ### Don't try conquer the world
 
-If you can get even one client, it's really awesome. Don't underpreciate such little things, try to find source of motivation to push forward with every little win. You don't need millions of users, not at the start for sure. You need to build sustainable and robust product. The slower you grow, the more time you have to build one. Put the freedom over the money, this way you will be more happy.
+If you can get even one client, it's really awesome. Don't underappreciate such little things, try to find source of motivation to push forward with every little win. You don't need millions of users, not at the start for sure. You need to build sustainable and robust product. The slower you grow, the more time you have to build one. Put the freedom over the money, this way you will be more happy.
 
 ### Put a price tag
 
@@ -58,8 +58,7 @@ I guess you can hire people only when you can afford to share profit with them. 
 
 If we all try to found our little businesses and implement profit shared models in those businesses, then we would have more sustainable future and freedom. We will not be dependant on corporations and companies who's the only goal is to get as much profit as they can without securing our future.
 
-[Reddit Comments](https://www.reddit.com/user/gyen/comments/1102618/being_a_programmer_isnt_enough/) /
-[HN Comments](https://news.ycombinator.com/item?id=34757952)
+[Reddit Comments](https://www.reddit.com/user/gyen/comments/1102618/being_a_programmer_isnt_enough/) / [HN Comments](https://news.ycombinator.com/item?id=34757952) / [Medium Comments](https://medium.com/@guseynism/being-a-programmer-isnt-enough-6c3da6a15f95)
 
 <div class="refs">References</div>
 * [Getting Real](https://basecamp.com/gettingreal)
