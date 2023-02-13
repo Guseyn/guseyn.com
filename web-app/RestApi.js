@@ -36,7 +36,7 @@ module.exports = new RestApi(
   new CustomIndexEndpoint(INDEX_PAGE_PATH, NOT_FOUND_ENDPOINT),
   new VersionEndpoint(new RegExp(/^\/(version)/)),
   new AcmeChallengeEchoEndpoint(new RegExp(/^\/\.well-known\/acme-challenge/)),
-  new ServingFilesEndpoint(new RegExp(/^\/((html\/main-page-template\.html)|css|js|json|svg|image|md|ttf|yml)/), urlToFsMapper, HEADERS_FOR_SUBRESOURCES, NOT_FOUND_ENDPOINT),
+  new ServingFilesEndpoint(new RegExp(/^\/((html\/main-page-template\.html)|css|js|json|svg|image|md|pdf|ttf|yml)/), urlToFsMapper, HEADERS_FOR_SUBRESOURCES, NOT_FOUND_ENDPOINT),
   new ServingFilesEndpoint(new RegExp(/^\/(html)/), urlToFsMapper, HEADERS_FOR_MAIN_RESOURCES, NOT_FOUND_ENDPOINT),
   new ServingFilesEndpoint(new RegExp(/^\/logs/), urlToFsMapperForLogs, HEADERS_FOR_MAIN_RESOURCES, NOT_FOUND_ENDPOINT),
   new InternalServerErrorEndpoint(/^\/(internal-server-error)/),
