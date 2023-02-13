@@ -24,7 +24,7 @@ I am an author of many open source projects such as [Cutie](https://github.com/G
 I write [posts](/../previews/1) about code design, code tricks and tech culture in general. I make [videos](https://www.youtube.com/watch?v=lOf0NkNtWzI&feature=emb_title) and participate in [tech meetups](https://www.youtube.com/watch?v=Ptz6kJ3NXGI&feature=emb_title) as speaker. Also [some people](https://www.youtube.com/watch?v=Cx1kZbwkr5g&t=128s) talk about my projects.
 
 ### Entrepreneur
-I am working on a side project in my free time. It's called [Unison](unisonofficial.com) and it is a platform where you can create sheet music just by describing them with simple words.
+I am working on a side project in my free time. It's called [Unison](https://unisonofficial.com) and it is a platform where you can create sheet music just by describing them with simple words.
 
 ### Programmer
 I am a full-time full-stack software developer with more than 6 years of diverse experience: I was working as a software engineer at outsource company, at small startup with fully distributed international team, and as a researcher at international tech corporation. More information about my work experience you can find in my [LinkedIn profile](https://www.linkedin.com/in/guseyn-ismayylov-111bb1179/) and [resume](/../html/resume.html).
