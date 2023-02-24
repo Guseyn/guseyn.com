@@ -1,4 +1,4 @@
-# Being a programmer isn't enough
+# Being a Programmer Isn't enough
 <div class="date">12 February 2023</div>
 
 In the global economy that we are living right now there are some unspoken but well known rules. One of them is that we are as programmers in majority of cases cannot claim some profit share of the business we're working for. Sure, in some locations on our globe you can find really good jobs with really good salaries. And after many years of work you can even afford to buy an apartment/house, make a family and live a happy office life. Sure, it's possible. But in majority of cases, the amount of hours you put into the work is not comparable to the amount of profit you get.
