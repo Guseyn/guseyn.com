@@ -5,7 +5,7 @@ In the global economy that we are living right now there are some unspoken but w
 
 You may argue with me on what's fair and what's not. And you even may think that it's okay to have billionaires who get richer and richer just by hiring large number of really cheap labor and firing them when it's time to reduce costs. Sure...
 
-But the reality is that you as a programmer would be happy to afford really good quality of life for yourself, your family and secure your future and the lifestyle you're used to when you get old (believe me, it can happen). I am not sure, whether you will be still happy to work for your big boss in your 40s or 50s. Well, I will just try to suggest some alternative for you.
+But the reality is that you as a programmer would be happy to afford really good quality of life for yourself, your family and secure your future and the lifestyle you're used to when you get old (trust me, it can happen). I am not sure, whether you will be still happy to work for your big boss in your 40s or 50s. Well, I will just try to suggest some alternative for you.
 
 So, are there any ways to achieve the goals I described above? The only sensible approch I can think of is to start a business. Or in another words, to start doing something that some people can value and find useful and would pay to you as a compensation for your work/service.
 
@@ -17,11 +17,11 @@ If you as a programmer know only how to code, you will be struggling to find a r
 
 ### Stupid ideas
 
-Try to avoid stupid ideas. Most ideas that you will come up with are not worth to be implmented. Stupid ideas are attractive to the people with little knowledge about our world. This is why this section is tightly related to the previous one. Try to increase your vast knowledge. I really think that it's very important to find something that is really useful for the people. But in order to find something, you need to dig into the promlems that your potential clients encounter.
+Try to avoid stupid ideas. Most ideas that you will come up with are not worth to be implemented. Stupid ideas are attractive to the people with little knowledge about our world. This is why this section is tightly related to the previous one. Try to increase your vast knowledge. I really think that it's very important to find something that is really useful for the people. But in order to find something, you need to dig into the promlems that your potential clients encounter.
 
 ### Idea for the lifetime
 
-How to pick an idea? Just answer on one simple question: "Is this something I would spend my life on?". If the answer is yes, then go for it. If the answer is no, probably you need to find something else. You may disagree with me on this one. But if the idea is not powerful enough for you, who can guarantee that you'll will not quit? And believe me, it is really easy to give up, especially if you've chosen something that you don't really like.
+How to pick an idea? Just answer on one simple question: "Is this something I would spend my life on?". If the answer is yes, then go for it. If the answer is no, probably you need to find something else. You may disagree with me on this one. But if the idea is not powerful enough for you, who can guarantee that you'll will not quit? And trust me, it is really easy to give up, especially if you've chosen something that you don't really like.
 
 ### Implementation
 
@@ -31,7 +31,7 @@ Try to find people/resources that can help you to learn and increase your knowle
 
 I think the most important thing about the implemetation of the ideas is that you need to work on it everyday. If you cannot do something today because you don't have enough time or you're struggling with something, just try to write down your plans, or at least how you would approach some problems in the future.
 
-It's better to do something little everyday than something big once in a while. The more consistent you are, the more chances that you would value your work and will continue the implmentation. And again, if you've chosen the right idea, being consistent is not a huge problem.  
+It's better to do something little everyday than something big once in a while. The more consistent you are, the more chances that you would value your work and will continue the implementation. And again, if you've chosen the right idea, being consistent is not a huge problem.  
 
 ### Rely on yourself
 
