@@ -1,7 +1,7 @@
 # Async Objects Instead of Async Calls
 <div class="date">26 January 2018</div>
 
-No secret, OOP in JS is not perfect. At least it's not so mature as it's in Java, for example. And actually I don't see that anybody from the JavaScript world would use this paradigm as the main concept for their applications. In the modern software development the ideas of the object-oriented programming (as itself) are becoming less and less popular and giving way to the ideas of functional programming. But I think we should not give up such a powerful and wonderful tool/mechanism that can simplify our complex systems. In this article, I'll try to introduce the idea of **async objects** and show how they can help us to get rid of the main problem in asyncronious enviroment... Of course, I am talking about **callbacks**.
+In this article, I'll try to introduce the idea of **async objects** and show how they can help us to get rid of the main problem in asynchronous environment... Of course, I am talking about **callbacks**.
 
 Every library or driver in Node.js has <b>async calls</b>, and all them have similar signature:
 
@@ -95,7 +95,7 @@ A1 (
 
 where `A1, A2, A3, A4, A5` are async objects and `a1, a2, a3, a4, a5` are just simple arguments. Then corresponding async tree for this composition would be:
 ![Async Tree Patter](https://github.com/Guseyn/async-tree-patern/blob/master/async-tree.png?raw=true)
-Every node has child nodes as their arguments. So, `a1, a2, a3, a4, a5, A5` are leaves of the tree and they are being called first at the same time. When their results are recieved, their parents will be ready to be invoked (`a1, a2, a3, a4, a5` are already ready in that case, so we just add them to the argumets of their parent). `A1` is root of the tree, so we invoke it last. `A2` never waits for result of `A3` or `A4`, beacuse `A2` just does not need them. But `A3` waits for result of `A4`, and `A1` waits for results of `A2, A3, A5`.
+Every node has child nodes as their arguments. So, `a1, a2, a3, a4, a5, A5` are leaves of the tree and they are being called first at the same time. When their results are recieved, their parents will be ready to be invoked (`a1, a2, a3, a4, a5` are already ready in that case, so we just add them to the arguments of their parent). `A1` is root of the tree, so we invoke it last. `A2` never waits for result of `A3` or `A4`, beacuse `A2` just does not need them. But `A3` waits for result of `A4`, and `A1` waits for results of `A2, A3, A5`.
 
 Then the sequence of the calls is
 
@@ -245,3 +245,4 @@ So, that's it. I do hope you enjoyed reading this article.
 
 [Reddit Comments](https://www.reddit.com/r/javascript/comments/azy7pb/async_objects_instead_of_async_calls/) /
 [HN Comments](https://news.ycombinator.com/item?id=19361241)
+[Medium Comments](https://medium.com/@guseynism/async-objects-instead-of-async-calls-ccdd3046b1e2)

@@ -219,7 +219,7 @@ Reads body of request in `body(request, response)` method of `Endpoint` implemen
 
 ### `ServingFilesEndpoint(regexpUrl, mapper, headers, notFoundEndpoint)`
 
-Extends `Endpoint` and serves files on url that mathes `regexpUrl` with `mapper` function that gets location of a file on a disk by the url of incoming request. Also it's required to declare `notFoundEndpoint` that handles the cases when a file is not found. You also can specify headers in response(no need to specify the `'Content-Type'`, library makes it for you).
+Extends `Endpoint` and serves files on url that matches `regexpUrl` with `mapper` function that gets location of a file on a disk by the url of incoming request. Also it's required to declare `notFoundEndpoint` that handles the cases when a file is not found. You also can specify headers in response(no need to specify the `'Content-Type'`, library makes it for you).
 
 ### `CachedServingFilesEndpoint(regexpUrl, mapper, headers, notFoundEndpoint)`
 
@@ -329,6 +329,8 @@ curl http://127.0.0.1:8000/bad-url
 # 404: Not found
 
 ```
+
+[Medium Comments](https://medium.com/@guseynism/declarative-rest-api-57b459ad508f)
 
 <div class="refs">References</div>
 

@@ -88,6 +88,8 @@ For testing your access token you can also use [this service](https://jwt.io/). 
 
 Also, I just released [cutie-jwt](https://github.com/Guseyn/cutie-jwt). So, if you want to use JWT in the declarative style, you should definitely try it.
 
+[Medium Comments](https://medium.com/@guseynism/simple-jwt-implementation-in-node-js-asymmetric-variation-301f9cb22b20)
+
 <div class="refs">References</div>
 
 * [JWT.io](https://jwt.io/)
