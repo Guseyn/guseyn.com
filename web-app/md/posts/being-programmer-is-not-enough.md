@@ -56,7 +56,7 @@ I guess you can hire people only when you can afford to share profit with them. 
 
 ### Thousands of small businesses are better than few monopolies
 
-If we all try to found our little businesses and implement profit shared models in those businesses, then we would have more sustainable future and freedom. We will not be dependant on corporations and companies who's the only goal is to get as much profit as they can without securing our future.
+If we all try to found our little businesses and implement profit shared models in those businesses, then we would have more sustainable future and freedom. We will not be dependent on corporations and companies who's the only goal is to get as much profit as they can without securing our future.
 
 [Reddit Comments](https://www.reddit.com/user/gyen/comments/1102618/being_a_programmer_isnt_enough/) / [HN Comments](https://news.ycombinator.com/item?id=34757952) / [Medium Comments](https://medium.com/@guseynism/being-a-programmer-isnt-enough-6c3da6a15f95)
 
