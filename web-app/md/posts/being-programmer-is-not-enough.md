@@ -7,7 +7,7 @@ You may argue with me on what's fair and what's not. And you even may think that
 
 But the reality is that you as a programmer would be happy to afford really good quality of life for yourself, your family and secure your future and the lifestyle you're used to when you get old (trust me, it can happen). I am not sure, whether you will be still happy to work for your big boss in your 40s or 50s. Well, I will just try to suggest some alternative for you.
 
-So, are there any ways to achieve the goals I described above? The only sensible approch I can think of is to start a business. Or in another words, to start doing something that some people can value and find useful and would pay to you as a compensation for your work/service.
+So, are there any ways to achieve the goals I described above? The only sensible approach I can think of is to start a business. Or in another words, to start doing something that some people can value and find useful and would pay to you as a compensation for your work/service.
 
 So, let me explain how we can increase our chances to succeed on this path.
 
