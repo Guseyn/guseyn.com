@@ -5,7 +5,7 @@ In this article, I am going to explain how you can write basic blog application 
 
 **EHTML (extended HTML)** is a frontend library/framework that allows you to build web apps just by focusing on HTML, meaning that the logic/functionality that you would usually write in JavaScript, you can now express via HTML.
 
-You can find the app that I am going describe in this article in GitHub [here](https://github.com/Guseyn/simple-oauth-app).  You can also watch the demo [here](http://www.youtube.com/watch?feature=player_embedded&v=lOf0NkNtWzI).
+You can find the app that I am going to describe in this article in GitHub [here](https://github.com/Guseyn/simple-oauth-app).  You can also watch the demo [here](http://www.youtube.com/watch?feature=player_embedded&v=lOf0NkNtWzI).
 
 Let's start with following page:
 
