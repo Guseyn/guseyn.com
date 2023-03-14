@@ -41,7 +41,7 @@ If you can find a partner(s) who can help you and who is as passionate about the
 
 There are lot of different ways you can choose to promote your product. I think that the most efficient, sustainable and organic one is through education. I will probably write more about this one, because this is something I need to learn myself now. But I think that just reaching out to the people and describing problems and how you can solve them can be very crucial and powerful. And you don't even need to mention your product, you just can describe something in general or have many other related thoughts that you potential clients may find very inspiring and interesting.
 
-### Don't try conquer the world
+### Don't try to conquer the world
 
 If you can get even one client, it's really awesome. Don't underappreciate such little things, try to find source of motivation to push forward with every little win. You don't need millions of users, not at the start for sure. You need to build sustainable and robust product. The slower you grow, the more time you have to build one. Put the freedom over the money, this way you will be more happy.
 
