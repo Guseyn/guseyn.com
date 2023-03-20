@@ -324,6 +324,10 @@ iframe {
   clear: both;
 }
 
+.youtube-video {
+  border-radius: 12px;
+}
+
 .youtube-video.no-mt, iframe.no-mt {
   margin-top: 0.4em;
 }
