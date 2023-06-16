@@ -3,7 +3,7 @@
 
 <img src="/../../image/photo.jpg" class="photo bigger">
 
-I am a founder of [Unison](#founder-of-unison), author of [Async Tree Pattern](#author-of-async-tree-pattern), creator of [EHTML](#creator-of-ehtml), [open source enthusiast](#open-source-enthusiast), [tech blogger](#tech-blogger), [entrepreneur](#entrepreneur), [programmer](#programmer), [chess&music lover](#chessmusic-lover).
+I am a founder of [Unison](#founder-of-unison), author of [Async Tree Pattern](#author-of-async-tree-pattern), creator of [EHTML](#creator-of-ehtml), [open source enthusiast](#open-source-enthusiast), [tech blogger](#tech-blogger), [entrepreneur](#entrepreneur), [streamer](#streamer), [programmer](#programmer), [chess&music lover](#chessmusic-lover).
 
 You can find me on [Instagram](https://www.instagram.com/guseyn.4u/), [LinkedIn](https://www.linkedin.com/in/guseyn-ismayylov-111bb1179/), [GitHub](https://github.com/Guseyn/), [Reddit](https://www.reddit.com/user/gyen) and write an [email](mailto:guseynism@gmail.com). Also I have a Telegram [channel](https://t.me/guseyncom) where I write about what's new on my blog. I don't use other social networks.
 
@@ -25,6 +25,9 @@ I write [posts](/../../html/all-posts.html) about code design, code tricks and t
 
 ### Entrepreneur
 I am working on a side project in my free time. It's called [Unison](https://unisonofficial.com) and it is a platform where you can create sheet music just by describing them with simple words.
+
+### Streamer
+You can find [my streams here](https://www.twitch.tv/unisonofficial) on how I test, develop and use my programs, like for example [Unison](https://unisonofficial.com). Also I talk on general subjects in software development.
 
 ### Programmer
 I am a full-time full-stack software developer with more than 6 years of diverse experience: I was working as a software engineer at outsource company, at small startup with fully distributed international team, and as a researcher at international tech corporation. More information about my work experience you can find in my [LinkedIn profile](https://www.linkedin.com/in/guseyn-ismayylov-111bb1179/) and [resume](/../html/resume.html).
