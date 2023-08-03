@@ -13,7 +13,7 @@ const Endpoint = require('./Endpoint')
 
 class IndexEndpoint extends Endpoint {
   constructor () {
-    super(new RegExp(/^(\/|)$/), 'GET')
+    super(new RegExp(/^(\/||(\/\?\S{0,})|\?\S{0,})$/), 'GET')
   }
 
   body (request, response) {
