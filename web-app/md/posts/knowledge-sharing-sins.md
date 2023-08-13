@@ -1,4 +1,4 @@
-# 3 Sins of Knowledge Sharing
+# Knowledge Sharing?
 <div class="date">11 Apr 2023</div>
 
 <div class="quote">
