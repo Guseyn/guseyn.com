@@ -12,7 +12,11 @@ class WrittenResponse extends AsyncObject {
   asyncCall () {
     return (response, chunk, encoding, callback) => {
       this.response = response
-      response.write(chunk, encoding, callback)
+      if (!response.writableEnded && !response.destroyed) {
+        response.write(chunk, encoding, callback)
+      } else {
+        callback(null, response)
+      }
     }
   }
 

@@ -11,7 +11,9 @@ class ResponseWithHeader extends AsyncObject {
 
   syncCall () {
     return (response, name, value) => {
-      response.setHeader(name, value)
+      if (!response.headersSent) {
+        response.setHeader(name, value)
+      }
       return response
     }
   }
