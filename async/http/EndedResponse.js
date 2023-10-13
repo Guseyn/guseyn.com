@@ -12,7 +12,11 @@ class EndedResponse extends AsyncObject {
   asyncCall () {
     return (response, data, encoding, callback) => {
       this.response = response
-      response.end(data, encoding, callback)
+      if (!response.writableEnded && !response.destroyed) {
+        response.end(data, encoding, callback)
+      } else {
+        callback(null, response)
+      }
     }
   }
 

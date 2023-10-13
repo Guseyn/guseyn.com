@@ -11,8 +11,10 @@ class ResponseWithHeaders extends AsyncObject {
 
   syncCall () {
     return (response, headers) => {
-      for (let name in headers) {
-        response.setHeader(name, headers[name])
+      if (!response.headersSent) {
+        for (let name in headers) {
+          response.setHeader(name, headers[name])
+        }
       }
       return response
     }
