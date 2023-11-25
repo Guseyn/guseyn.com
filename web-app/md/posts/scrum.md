@@ -44,6 +44,6 @@ It's extremely difficult to achieve such autonomy. As a team, you must work real
 At this point, I think, it's obvious why SCRUM does not work. Daily scrums and meetings force people to gather together at the same time, at the same physical or virtual place, limiting your ability to build your own schedule. Constant "huddles" prevent people from easily sharing and accessing written information in a centralized knowledge storage, which you can use to be more autonomous. Retrospectives and poker planning simply create an illusion of solutions for the problems we created ourselves by overhiring a large number of people. And when it's time to realize that we don't need that many people, we just letting them go. That's the reason for high turnovers in the tech industry, especially in web development.
 <br>
 
-## What's the alternative?
+## What's the Alternative?
 Capitalism limits our options. However, it's interesting because if we cut through the nonsense, we can easily understand that businesses based on web development can be accomplished with much fewer resources, time, and headaches.
 That's how simple the web actually is, I believe. But it's still extremely hard; not everyone has the desire, skill, and will to sacrifice time to achieve freedom. I believe SCRUM is here for a long time, and only lucky people have the potential to avoid it.
