@@ -1,11 +1,11 @@
 # Scrum is Inevitable (Unfortunately)
 <div class="date">25 November 2023</div>
 
-In this blog post, I will attempt to explain the reasons why web development faces significant issues, including SCRUM, and why such a state of affairs is unlikely to change in our lifetime.
+In this blog post, I will attempt to explain the reasons why web development faces significant issues, including scrum, and why such a state of affairs is unlikely to change in our lifetime.
 <br>
 
 ## The Real Problem
-SCRUM is a natural consequence of capitalism. That's right. And as long as capitalism persists, SCRUM is not going anywhere. There may be other "methodoliges" or "methodologies" with different names, but the underlying issues will remain the same.
+scrum is a natural consequence of capitalism. That's right. And as long as capitalism persists, scrum is not going anywhere. There may be other "methodoliges" or "methodologies" with different names, but the underlying issues will remain the same.
 
 We are living in a system where, in order to survive or enjoy a good standard of living, we must earn money, and we must earn it right now. If you had a passion and opportunity in school or university and acquired useful skills for your future career, then you are truly fortunate, as it significantly helps in starting your professional journey. For others, it seems logical to seek jobs that yield the highest profit with the least effort.
 <br>
@@ -27,7 +27,7 @@ When you complicate things, it's really tough to manage your time and to fight w
 <br>
 
 ## Motivation
-Before jumping into why SCRUM really sucks, we need to talk about motivation. The main motivation in most cases is money. Again, in order to survive in capitalistic system, we must earn money. But when you have money, you start to appreciate other things. For me, personally, it is always freedom. I can even sacrifice some money for more freedom. 
+Before jumping into why scrum really sucks, we need to talk about motivation. The main motivation in most cases is money. Again, in order to survive in capitalistic system, we must earn money. But when you have money, you start to appreciate other things. For me, personally, it is always freedom. I can even sacrifice some money for more freedom. 
 And by freedom, I mean the hours of life that I can spend on my own goals, firends, family, health, hobbies and dreams. People often confuse being busy with being productive. The main point of productivity is to do the same amount of job for less time.
 
 If the only thing I get after finishing some tasks earlier is another bunch of tasks, I don't feel motivated to be productive. You may argue that it's important to reach certain milestones, and that's why there's an emphasis on doing more and more. But if I achieve a milestone, am I allowed to rest? Am I allowed to avoid burnout? Am I allowed to care about my health?
@@ -40,13 +40,15 @@ The answer is **autonomy**. The less you are dependent on other people in your w
 It's extremely difficult to achieve such autonomy. As a team, you must work really hard; you must adopt a certain style that makes everybody less and less dependent on each other. And that style of work does not show the benefits right away because it really shines in the long term. In order to be truly autonomous, you must avoid practices where you need to synchronize every single step with other people. You must appreciate and know how to communicate with many people at the same time while still being able to continue your work without any blockers. It's called asynchronous communication. I'm not going to dive into this topic in this article; I just want to let you know that there is such a thing that helps to be more free.
 <br>
 
-## SCRUM Limits Your Freedom
-At this point, I think, it's obvious why SCRUM does not work. Daily scrums and meetings force people to gather together at the same time, at the same physical or virtual place, limiting your ability to build your own schedule. Constant "huddles" prevent people from easily sharing and accessing written information in a centralized knowledge storage, which you can use to be more autonomous. Retrospectives and poker planning simply create an illusion of solutions for the problems we created ourselves by overhiring a large number of people. And when it's time to realize that we don't need that many people, we just letting them go. That's the reason for high turnovers in the tech industry, especially in web development.
+## Scrum Limits Your Freedom
+At this point, I think, it's obvious why scrum does not work. Daily scrums and meetings force people to gather together at the same time, at the same physical or virtual place, limiting your ability to build your own schedule. Constant "huddles" prevent people from easily sharing and accessing written information in a centralized knowledge storage, which you can use to be more autonomous. Retrospectives and poker planning simply create an illusion of solutions for the problems we created ourselves by overhiring a large number of people. And when it's time to realize that we don't need that many people, we just letting them go. That's the reason for high turnovers in the tech industry, especially in web development.
+
+Scrum is popular because it doesn't require you to work on problems; it simply provides 'fun' ceremonies where you can pretend to be working on them. Simplifying things is hard work, and it's not something suitable for teams who prefer to appear smart by complicating things, which is much easier than solving real issues.
 <br>
 
 ## What's the Alternative?
 Capitalism limits our options. However, it's interesting because if we cut through the nonsense, we can easily understand that businesses based on web development can be accomplished with much fewer resources, time, and headaches.
-That's how simple the web actually is, I believe. But it's still extremely hard; not everyone has the desire, skill, and will to sacrifice time to achieve freedom. I believe SCRUM is here for a long time, and only lucky people have the potential to avoid it.
+That's how simple the web actually is, I believe. But it's still extremely hard; not everyone has the desire, skill, and will to sacrifice time to achieve freedom. I believe scrum is here for a long time, and only lucky people have the potential to avoid it.
 
 
 [Reddit Comments](https://www.reddit.com/r/Frontend/comments/183h0m7/scrum_is_inevitable_unfortunately/) 
