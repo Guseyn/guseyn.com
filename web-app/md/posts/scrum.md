@@ -5,7 +5,7 @@ In this blog post, I will attempt to explain the reasons why web development fac
 <br>
 
 ## The Real Problem
-scrum is a natural consequence of capitalism. That's right. And as long as capitalism persists, scrum is not going anywhere. There may be other "methodoliges" or "methodologies" with different names, but the underlying issues will remain the same.
+Scrum is a natural consequence of capitalism. That's right. And as long as capitalism persists, scrum is not going anywhere. There may be other "methodoliges" or "methodologies" with different names, but the underlying issues will remain the same.
 
 We are living in a system where, in order to survive or enjoy a good standard of living, we must earn money, and we must earn it right now. If you had a passion and opportunity in school or university and acquired useful skills for your future career, then you are truly fortunate, as it significantly helps in starting your professional journey. For others, it seems logical to seek jobs that yield the highest profit with the least effort.
 <br>
