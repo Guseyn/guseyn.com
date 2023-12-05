@@ -1,5 +1,8 @@
 # My talks
 
+***EHTML: New Demo, 6 Dec 2023***
+<div class="youtube-video no-mt" id="s5uhTC6LHbjpyT9U"></div>
+
 ***Declarative Unit Testing in Node.js (In Russian)***
 <div class="youtube-video no-mt" id="Ptz6kJ3NXGI"></div>
 
