@@ -186,5 +186,7 @@ I don't know about you, but I would gladly read such long code all the time. Bec
 
 This is it.
 
+<br>
+
 [Reddit Comments](https://www.reddit.com/user/gyen/comments/gu6xc5/data_type_should_not_be_considered_as_a_source_of/)
 [Medium](https://medium.com/@guseynism/data-type-should-not-be-considered-as-a-source-of-its-behaviour-1f6becde1339)

@@ -307,4 +307,6 @@ But it's sooo much more boring than selling the idea that everyone makes OOP wro
 
 That's it.
 
+<br>
+
 [Reddit Comments](https://www.reddit.com/r/OOP/comments/f98pcs/whats_wrong_with_eo/)

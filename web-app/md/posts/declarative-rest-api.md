@@ -330,6 +330,8 @@ curl http://127.0.0.1:8000/bad-url
 
 ```
 
+<br>
+
 [Medium Comments](https://medium.com/@guseynism/declarative-rest-api-57b459ad508f)
 
 <div class="refs">References</div>

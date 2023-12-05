@@ -34,5 +34,7 @@ The most demotivating factor of hackathons is, of course, the final presentation
 
 <b>The main point</b> of this post is that you don't need hackathons. If you have ideas, and you believe in them, just realize and make them properly, <b>respect yourself</b>. Don't wait for next hackathon in your town where you can ruin your ideas.
 
+<br>
+
 [Reddit Comments](https://www.reddit.com/r/ITdept/comments/b048uh/no_more_hackathons_please/?) / 
 [HN Comments](https://news.ycombinator.com/item?id=19365751)

@@ -29,4 +29,6 @@ I don't think many(or any to be honest) people would agree with me on what I wan
 ## Summary
 A happier person is a freer person. If you eliminate meetings, slack communication, it would create a foundation that prevents monopolies of knowledge keepers. They just cannot exist in such environment. Is it difficult? Hell Yeah! Is it worth it? Totally!
 
+<br>
+
 [Reddit Comments](https://www.reddit.com/user/gyen/comments/12j1wh4/3_sins_of_knowledge_sharing/) / [Medium Comments](https://medium.com/@guseynism/3-sins-of-knowledge-sharing-7df09df466d8)

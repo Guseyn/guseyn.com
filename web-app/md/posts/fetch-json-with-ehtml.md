@@ -92,6 +92,8 @@ I have good news for you - you can do this, and not only. [EHTML](https://github
 
 As you see, just by declaring `template` tag with indicator `e-json` and some attributes where you specify source of JSON and mapping object name, you can pull JSON and map it inside of template via `data-text` attribute, where you can also apply functions for data-structures. **EHTML** also allows you to loop objects, to put conditions and many other things.
 
+<br>
+
 [Reddit Comments](https://www.reddit.com/user/gyen/comments/11v423g/fetching_and_mapping_json_just_by_using_html/) / [Medium Comments](https://medium.com/@guseynism/fetching-and-mapping-json-just-by-using-html-b8bcecade82c)
 
 <div class="refs">References</div>

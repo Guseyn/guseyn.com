@@ -50,5 +50,6 @@ Scrum is popular because it doesn't require you to work on problems; it simply p
 Capitalism limits our options. However, it's interesting because if we cut through the nonsense, we can easily understand that businesses based on web development can be accomplished with much fewer resources, time, and headaches.
 That's how simple the web actually is, I believe. But it's still extremely hard; not everyone has the desire, skill, and will to sacrifice time to achieve freedom. I believe scrum is here for a long time, and only lucky people have the potential to avoid it.
 
+<br>
 
 [Reddit Comments](https://www.reddit.com/r/Frontend/comments/183h0m7/scrum_is_inevitable_unfortunately/) 

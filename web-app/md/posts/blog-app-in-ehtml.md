@@ -386,6 +386,8 @@ You can notice that we parse our url with pagination params: `size` and `page` v
 
 So, it's quite straightforward and declarative approach how you can encapsulate the logic right into the HTML.
 
+<br>
+
 [Reddit Comments](https://www.reddit.com/user/gyen/comments/11lbupc/blog_app_in_ehtml/) / [HN Comments](https://news.ycombinator.com/newest) / [Medium Comments](https://medium.com/@guseynism/blog-app-in-ehtml-93a0aacaed1d)
 
 <div class="refs">References</div>
