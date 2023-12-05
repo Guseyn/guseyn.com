@@ -13,7 +13,7 @@ Let's start with following page:
 
 This is an index page, let's take a look at the source:
 
-```hmtl
+```html
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
