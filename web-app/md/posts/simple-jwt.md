@@ -131,6 +131,8 @@ For testing your access token I would suggest [this service](https://jwt.io/).
 
 So, that's it. You can also check [this sample app](https://github.com/Guseyn/simple-oauth-app) that can show how you can use **JWT** with **Google OAuth** and **GitHub OAuth**. 
 
+<br>
+
 [Medium Comments](https://medium.com/@guseynism/simple-jwt-implementation-in-node-js-symmetric-variation-284a02b0bec9)
 
 <div class="refs">References</div>

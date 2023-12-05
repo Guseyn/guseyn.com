@@ -366,4 +366,6 @@ Well, it's up to you to decide. But I don't see too much sence in objects for wr
 
 This is it.
 
+<br>
+
 [Reddit Comments](https://www.reddit.com/r/OOP/comments/ftbdym/objectoriented_programming_what_else_did_you/)

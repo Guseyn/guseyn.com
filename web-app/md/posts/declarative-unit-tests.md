@@ -54,5 +54,7 @@ It's amazing, isn't? What do you think?
 
 * [cutie-assert on GitHub](https://github.com/Guseyn/cutie-assert)
 
+<br>
+
 [Reddit Comments](https://www.reddit.com/r/node/comments/b29vpi/declarative_unit_testing/?) / 
 [HN Comments](https://news.ycombinator.com/item?id=19416508)

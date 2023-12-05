@@ -28,10 +28,14 @@ body {
   background: #555; 
 }
 
+h1 {
+  margin: 0 0;
+  clear: both;
+  line-height: 1.1em;
+}
+
 h3 {
   font-size: 1em;
-  margin-top: 1.6em;
-  margin-bottom: -1em;
   display: block;
 }
 
@@ -42,35 +46,13 @@ h4 {
   display: block;
 }
 
-p {
-  padding-top: 1em;
-  clear: both;
-}
-
 a {
   color: #111111;
   cursor: pointer;
 }
 
-h1 {
-  clear: both;
-  font-size: 1.8em;
-  line-height: 1.1em;
-}
-
-h1 a {
-  text-decoration: none;
-  font-size: 1em;
-  line-height: 1em;
-  color: #111111;
-}
-
 ol, ul {
   padding: 0 1.14em;
-}
-
-ol {
-  margin-top: -0.5em;
 }
 
 li {
@@ -225,7 +207,7 @@ iframe {
 }
 
 .post-title-with-link {
-  margin-bottom: 0.45em;
+  margin-top: 0.45em;
   font-size: 1.1em;
 }
 
@@ -235,16 +217,6 @@ iframe {
 
 .post-title-with-link a:hover {
   text-decoration: underline;
-}
-
-.post-link, .posts-by-tag {
-  text-align: center;
-}
-
-.posts-by-tag {
-  font-weight: bold;
-  font-size: 1.3em;
-  margin-top: 1em;
 }
 
 .post-link {
@@ -279,7 +251,8 @@ iframe {
 .date {
   font-size: 0.8721em;
   color: #656565;
-  margin-top: -1.0em;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
 }
 
 .pagination {
