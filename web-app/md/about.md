@@ -15,7 +15,7 @@ You can find me on [Instagram](https://www.instagram.com/guseyn.4u/), [LinkedIn]
 provide a convenient way to write declarative code in the asynchronous environment via async tree, which is the core idea of this pattern.
 
 ### Creator of EHTML
-[EHTML](https://github.com/Guseyn/EHTML)  (or Extended HTML) can be described as a set of custom elements that you can put on HTML page for different purposes and use cases. The main idea and goal of this library is to provide a convenient way to get rid of JavaScript code on the client side as much as it's possible for basic and routine stuff.
+[EHTML](https://e-html.org)  (or Extended HTML) can be described as a set of custom elements that you can put on HTML page for different purposes and use cases. The main idea and goal of this library is to provide a convenient way to get rid of JavaScript code on the client side as much as it's possible for basic and routine stuff.
 
 ### Open Source Enthusiast
 I am an author of many open source projects such as [Cutie](https://github.com/Guseyn/cutie)(and its [extensions](https://github.com/Guseyn?tab=repositories&q=cutie&type=&language=)), [Page](https://github.com/Guseyn/page), [Test executor](https://github.com/Guseyn/node-test-executor), [Broken XML](https://github.com/Guseyn/broken-xml). Also I contribute to existing project such as [Rewrite](https://github.com/openrewrite/) by finding issues and creating example projects like [Rewrite Java Definitions](https://github.com/Guseyn/rewrite-java-definitions).
