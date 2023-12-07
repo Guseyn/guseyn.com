@@ -67,7 +67,7 @@ branches:
     - master
 ```
 
-<img style="max-width: 280px;" src="/../../image/build-pushed-pr.png">
+<img style="max-width: 280px;" src="/image/build-pushed-pr.png">
 
 ### before_deploy
 
@@ -131,7 +131,7 @@ You can use command [`npm version`](https://docs.npmjs.com/cli/version.html) for
 
 As a result you get GitHub releases that look something like this:
 
-![git-release](/../../image/git-release.png)
+![git-release](/image/git-release.png)
 
 You might ask *"Why don't I use git tags for deploying?"*. Well, for some strange reason tags disappear after merging `release branch` into `master` and deployment does not run. I tried find out why this is happening, but with no results. If you have any ideas on this, please share in the comments.
 
