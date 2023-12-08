@@ -1,7 +1,7 @@
 # HTML Templates Instead of Reactivity
 <div class="date">8 December 2023</div>
 
-In this post, I will try to convince you that the amount of complexity you bring into you project to synchronize your application state with what a user sees on a screen is not worth it. **Reactivity** is not worth it. It's not worth it to use weird abstractions like **JSX** or other languages which produces **HTML** or **JS**. Bringing in build systems, package managers with tons of dependencies and other type of complexity like **Virtual DOM** just to build the frontend of your application is also not worth it.
+In this post, I will try to convince you that the amount of complexity you bring into your project to synchronize your application state with what a user sees on a screen is not worth it. **Reactivity** is not worth it. It's not worth it to use weird abstractions like **JSX** or other languages which produces **HTML** or **JS**. Bringing in build systems, package managers with tons of dependencies and other type of complexity like **Virtual DOM** just to build the frontend of your application is also not worth it.
 <br>
 
 ## What's the Selling Point of Modern Frameworks?
