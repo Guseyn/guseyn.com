@@ -365,6 +365,6 @@ I am not going to dive into how `mapToTemplate` [is implemented](https://github.
 
 ## Conclusion
 
-You can give me many arguments on why such approach sucks. Like for example, you can say that manipulating **DOM** directly is slow, only to then turn around use a library which calculates diff between **DOM** and **Virtual DOM** and does those direct manipulations anyway. I apologize, but I find it difficult to take such arguments seriously anymore.
+You can give me many arguments on why such approach sucks. Like for example, you can say that manipulating **DOM** directly is slow, only to then turn around and use a library which calculates diff between **DOM** and **Virtual DOM** and does those direct manipulations anyway. I apologize, but I find it difficult to take such arguments seriously anymore.
 
 At the very least, I hope you understand the importance of trying to achieve good results with basic technologies like **HTML** and **JS** before diving into modern frameworks.
