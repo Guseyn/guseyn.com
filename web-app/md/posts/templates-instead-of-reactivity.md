@@ -186,7 +186,7 @@ To be more specific about how we are going to render our template, let's improve
   </script>
 </head>
 <body>
-  <div class="box"></div>
+  <div class="id"></div>
   <template
     id="template"
     is="reusable"
@@ -220,7 +220,7 @@ By using `data-where-to-place`, we can specify element selector where our templa
   </script>
 </head>
 <body>
-  <div class="box">
+  <div class="id">
     <button onclick="handleClick(this)">
       Clicked 3 times
     </button>
@@ -242,7 +242,7 @@ By using `data-where-to-place`, we can specify element selector where our templa
 We can use `data-how-to-place="append"`, our **HTML** code will look like:
 
 ```html
-  <div class="box">
+  <div class="id">
     <button onclick="handleClick(this)">Clicked 1 times</button>
     <button onclick="handleClick(this)">Clicked 2 times</button>
     <button onclick="handleClick(this)">Clicked 3 times</button>
@@ -263,7 +263,7 @@ We can use `data-how-to-place="append"`, our **HTML** code will look like:
 Or we can use `data-how-to-place="prepend"`, then our code would look like:
 
 ```html
-  <div class="box">
+  <div class="id">
     <button onclick="handleClick(this)">Clicked 3 times</button>
     <button onclick="handleClick(this)">Clicked 2 times</button>
     <button onclick="handleClick(this)">Clicked 1 times</button>
@@ -303,7 +303,7 @@ It's silly, sure. But it shows the power of such mechanism. You can already imag
   </script>
 </head>
 <body>
-  <div class="box"></div>
+  <div class="id"></div>
   <template
     id="template"
     is="reusable"
@@ -329,7 +329,7 @@ As you can see, we can even potentially use such things like "for-each" template
 
 ```html
 <body>
-  <div class="box">
+  <div class="id">
     <button onclick="handleClick(this)">Clicked 3 times</button>
     <input value="value, value, value, value">
     <div>4</div>
