@@ -6,7 +6,7 @@
 
 I am a founder of [Unison](#founder-of-unison), author of [Async Tree Pattern](#author-of-async-tree-pattern), creator of [EHTML](#creator-of-ehtml), [open source enthusiast](#open-source-enthusiast), [tech blogger](#tech-blogger), [entrepreneur](#entrepreneur), [streamer](#streamer), [programmer](#programmer), [chess&music lover](#chessmusic-lover).
 
-You can find me on [Instagram](https://www.instagram.com/guseyn.4u/), [LinkedIn](https://www.linkedin.com/in/guseyn-ismayylov-111bb1179/), [GitHub](https://github.com/Guseyn/), [Reddit](https://www.reddit.com/user/gyen) and write an [email](mailto:guseynism@gmail.com). Also I have a Telegram [channel](https://t.me/guseyncom) where I write about what's new on my blog. I don't use other social networks.
+You can find me on [Instagram](https://www.instagram.com/guseyn.4u/), [LinkedIn](https://www.linkedin.com/in/gusein-ismaiylov-111bb1179/), [GitHub](https://github.com/Guseyn/), [Reddit](https://www.reddit.com/user/gyen) and write an [email](mailto:guseynism@gmail.com). Also I have a Telegram [channel](https://t.me/guseyncom) where I write about what's new on my blog. I don't use other social networks.
 
 ## Founder of Unison
 [Unison](https://unisonofficial.com) is a platform where you can create sheet music just by describing them with simple words.
