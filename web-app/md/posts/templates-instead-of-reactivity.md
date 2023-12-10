@@ -29,7 +29,7 @@ The idea here is that you don't need to directly update the value of the button 
 I also understand that the same example in other frameworks like Svelte looks less weird. My point is here that we still can reduce the amount of complexity.
 <br>
 
-## Let's First Try VanillaJS (Attemp #1)
+## Let's First Try VanillaJS (Attempt #1)
 
 I think the example above can be rewritten in plain JS much easier:
 
@@ -64,7 +64,7 @@ The idea is that we must attach certain objects to specific elements or componen
 For some reason, it's okay to have DOM which is global within `window`. It's okay to have global structures like `sessionStorage` and `localStorage` and many other things within `window`. But it's not okay to separate global state of your application. To me it's seems inconsistent and quite harmful.
 <br>
 
-## Still VanillaJS (Attemp #2)
+## Still VanillaJS (Attempt #2)
 
 Let's use now global state:
 
@@ -101,7 +101,7 @@ There is a such thing in **HTML** like [&lt;template&gt; elements](https://devel
 The only problem is that there is no built-in solition about how you can map your object to that template and also there is no  default mechanism which allow you to release that template into DOM. But let's admit, it not something impossible to implement.
 <br>
 
-## Using &lt;template&gt; (Attemp #3)
+## Using &lt;template&gt; (Attempt #3)
 
 Image if you could do something like this right in **HTML**:
 
