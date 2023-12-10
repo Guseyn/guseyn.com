@@ -113,6 +113,10 @@ Image if you could do something like this right in **HTML**:
       count: 0
     }
     const template = document.querySelector('#template')
+
+    // Initial mapping
+    mapToTemplate(template, state)
+
     function handleClick() {
       state.count += 1
       mapToTemplate(template, state)
