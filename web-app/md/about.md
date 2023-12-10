@@ -2,7 +2,7 @@
 <div class="date">16 June 2023 (last update)</div>
 
 <img src="/image/photo.jpg" class="photo bigger">
-<div style="height: 20px;"></div>
+<p></p>
 
 I am a founder of [Unison](#founder-of-unison), author of [Async Tree Pattern](#author-of-async-tree-pattern), creator of [EHTML](#creator-of-ehtml), [open source enthusiast](#open-source-enthusiast), [tech blogger](#tech-blogger), [entrepreneur](#entrepreneur), [streamer](#streamer), [programmer](#programmer), [chess&music lover](#chessmusic-lover).
 
