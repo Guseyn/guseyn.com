@@ -232,8 +232,7 @@ By using `data-insert-into`, we can specify element selector where our template 
     id="template"
     is="reusable"
     data-object-name="state"
-    data-where-to-place="#box"
-    data-how-to-place="instead">
+    data-insert-into="#box">
     <button
       data-text="Clicked ${state.count} times"
       onclick="handleClick(this)">
@@ -254,8 +253,7 @@ We can use `data-append-to="#box"`, our **HTML** code will look like:
     id="template"
     is="reusable"
     data-object-name="state"
-    data-where-to-place="#box"
-    data-how-to-place="append">
+    data-append-to="#box">
     <button
       data-text="Clicked ${state.count} times"
       onclick="handleClick(this)">
@@ -275,8 +273,7 @@ Or we can use `data-prepend-to="#box"`, then our code would look like:
     id="template"
     is="reusable"
     data-object-name="state"
-    data-where-to-place="#box"
-    data-how-to-place="prepend">
+    data-prepend-to="#box">
     <button data-text="Clicked ${state.count} times" onclick="handleClick(this)">
     </button>
   </template>
