@@ -13,7 +13,7 @@ The whole appication contains just one HTML page on frontend. We have two phones
 
 <img src="/image/chat-app.png" />
 
-As we see, we have two phones with chat apps on them. First phone belongs to Alice, second one to Bob. The first phone belongs to Alice, and the second one belongs to Bob. Whenever Alice or Bob write and send messages, they appear on both devices. We are going to implement this page using [Web Sockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket). In the latest version of **EHTML**, we can can create connections to those sockets(for each phone) right in HTML code.
+As we see, we have two phones with chat apps on them. First phone belongs to Alice, second one to Bob. Whenever Alice or Bob write and send messages, they appear on both devices. We are going to implement this page using [Web Sockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket). In the latest version of **EHTML**, we can create connections to those sockets(for each phone) right in HTML code.
 
 ```
 <template 
@@ -177,5 +177,3 @@ So, you can use such quite straightforward and declarative approach where you en
 <div class="refs">References</div>
 * [Chat app on GitHub](https://github.com/Guseyn/ehtml-simple-chat-app)
 * [EHTML](https://github.com/Guseyn/EHTML)
-
-
