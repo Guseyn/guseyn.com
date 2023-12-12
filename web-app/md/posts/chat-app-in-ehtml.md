@@ -164,6 +164,7 @@ To send messages to the socket in **JSON** format, we can declare **&lt;e-form&g
 **&lt;e-form&gt;** allows us to send messages in **JSON** format. We are using `name` attributes as keys in that JSON payload. In this case, it's `userName`, `userColor` and `messageText`. As you, we also can add CSS classes for validation. In the button, we specify `data-socket`, it tells **&lt;e-form&gt;** that we send our message to specified socket. When you press that button, the form gets submitted (if it's valid). Also, there is a property `isValid` in the form that you can use in event listeners. Here, if everything is okay, we can also update a view with the message by `mapToTemplate()` function. In most cases web sockets on servers are implmented in a such way that you don't get your own messages, therefore you can just insert your message in the message box and adjust your scroll position as well.
 
 Instead of `document.querySelector('#message-text-1').value`, you can implement memory storage for messages. Also you combine all actions in one function somewhere in JavaScript.
+<br>
 
 # Conclusion
 
