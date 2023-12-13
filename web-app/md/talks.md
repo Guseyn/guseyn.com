@@ -1,7 +1,11 @@
 # My talks
 <br>
 
-***EHTML: New Demo, 6 Dec 2023***
+***EHTML: Chat App, 13 Dec 2023***
+<div class="youtube-video no-mt" id="iaP3Y4SW0MY"></div>
+
+<br>
+***EHTML: Blog App, 6 Dec 2023***
 <div class="youtube-video no-mt" id="dzrW3D_yIrc"></div>
 
 <br>
