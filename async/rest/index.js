@@ -6,11 +6,17 @@ module.exports = {
   InvokedEndpoint: require('./endpoint/InvokedEndpoint'),
   MatchedEndpoint: require('./endpoint/MatchedEndpoint'),
   NotFoundEndpoint: require('./endpoint/NotFoundEndpoint'),
+  ServingCompressedFilesEndpoint: require('./endpoint/ServingCompressedFilesEndpoint'),
   ServingFilesEndpoint: require('./endpoint/ServingFilesEndpoint'),
+  CORSEndpoint: require('./endpoint/CORSEndpoint'),
 
   ErrorEvent: require('./event/ErrorEvent'),
   InternalServerErrorEvent: require('./event/InternalServerErrorEvent'),
   NotFoundErrorEvent: require('./event/NotFoundErrorEvent'),
+
+  AllowedOrigin: require('./AllowedOrigin'),
+  HeadersWithAllowCredentialsHeader: require('./HeadersWithAllowCredentialsHeader'),
+  HeadersWithMaxAgeHeader: require('./HeadersWithMaxAgeHeader'),
 
   FSPathByUrl: require('./FSPathByUrl'),
   MimeTypeForExtension: require('./MimeTypeForExtension'),
