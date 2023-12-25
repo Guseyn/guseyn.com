@@ -1,6 +1,6 @@
 'use strict'
 
-const __root = `${__dirname.substring(0, __dirname.lastIndexOf('unison'))}unison`
+const __root = `${__dirname.substring(0, __dirname.lastIndexOf('guseyn.com'))}guseyn.com`
 const { AsyncObject } = require(`${__root}/async/core/index`)
 
 class AllowedOrigin extends AsyncObject {
