@@ -1,5 +1,6 @@
 module.exports = {
 
-  StringFromBuffer: require('./StringFromBuffer')
+  StringFromBuffer: require('./StringFromBuffer'),
+  ByteLength: require('./ByteLength')
 
 }
