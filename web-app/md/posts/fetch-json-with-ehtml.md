@@ -7,7 +7,7 @@ In HTML, there are different elements responsible for representing different res
 
 For example, with `<img>` you can load images and present them to the user:
 
-`<img src="/../../path/to/image.png">`
+`<img src="/path/to/image.png">`
 
 I always felt that we can do the same for more complex type of resource, like for example `JSON`. It's quite common that we just need to fetch some data in **JSON** format and map it on some HTML template. You can achieve this by fetching data using AJAX in JavaScript and build elements with mapped data from the response. Or you can use server rendering that combines and generates HTML with mapped data.
 
@@ -86,7 +86,7 @@ Imagine if we could do something like this:
 
 With some sprinkle of css, the page can look like this:
 
-<img src="/../image/info-on-cyprus.png">
+<img src="/image/info-on-cyprus.png">
 
 I have good news for you - you can do this, and not only. [EHTML](https://github.com/Guseyn/EHTML) provides custom elements that you can put on HTML page for different purposes and use cases. The main idea and goal of this library is to provide a convenient way to get rid of JavaScript code on the client side as much as it's possible for basic and routine stuff.
 

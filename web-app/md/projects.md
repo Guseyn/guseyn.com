@@ -2,7 +2,7 @@
 
 <br>
 
-1.  [<img class="project-logo" style="width: 52px; height: 130px;" src="/../image/unison-logo.svg">](https://unisonofficial.com) [Unison](https://unisonofficial.com) is an online tool that helps you generate music notation using written text. It means that you can just describe music and its structure with simple words and the tool will generate an image by that description.
+1.  [<img class="project-logo" style="width: 52px; height: 130px;" src="/image/unison-logo.svg">](https://unisonofficial.com) [Unison](https://unisonofficial.com) is an online tool that helps you generate music notation using written text. It means that you can just describe music and its structure with simple words and the tool will generate an image by that description.
 
 1. [Rewrite Java Definitions](https://github.com/Guseyn/rewrite-java-definitions). This project contains set of visitors from the [docs](https://docs.openrewrite.org/java/refactoring-java-source-code) of [Rewrite](https://github.com/openrewrite/rewrite) project. The main purpose of this project is to show how java definitions can be used in the code. Also this project is real life example of what you can see in the docs of Rewrite project.
 
@@ -19,13 +19,13 @@
 1. Set of [Cutie](https://github.com/Guseyn/cutie) extensions for different modules in [Node.js](https://nodejs.org/dist/latest/docs/api/) and some objects in [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects).
 <details>
   <summary><b>cuties</b></summary><br>
-  <e-html data-src="/../../html/cuties.html"></e-html>
+  <e-html data-src="/html/cuties.html"></e-html>
 </details>
 
 5. Set of libraries for [Page](https://github.com/Guseyn/cutie) framework. All of them are based on [Async Tree Pattern](/pdf/Async_Tree_Pattern.pdf?v={version}).
 <details>
   <summary><b>page-libs</b></summary><br>
-  <e-html data-src="/../../html/page-libs.html"></e-html>
+  <e-html data-src="/html/page-libs.html"></e-html>
 </details>
 
 1. [My blog](https://github.com/Guseyn/guseyn.com). Based on [Page](https://github.com/Guseyn/page).
