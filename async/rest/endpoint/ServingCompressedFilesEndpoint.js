@@ -14,7 +14,7 @@ const FSPathByUrl = require('./../FSPathByUrl')
 const MimeTypeForExtension = require('./../MimeTypeForExtension')
 const AllowedOrigin = require('./../AllowedOrigin')
 
-class ServingFilesCompressedEndpoint extends Endpoint {
+class ServingCompressedFilesEndpoint extends Endpoint {
   constructor (regexpUrl, mapper, headers, notFoundEndpoint, allowedOrigins) {
     super(regexpUrl, 'GET')
     this.mapper = mapper
@@ -88,4 +88,4 @@ class ServingFilesCompressedEndpoint extends Endpoint {
   }
 }
 
-module.exports = ServingFilesCompressedEndpoint
+module.exports = ServingCompressedFilesEndpoint
