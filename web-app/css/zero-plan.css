@@ -17,10 +17,10 @@ a {
 
 @font-face {
   font-family: 'Monoton-Regular';
-  src: url('/../ttf/Monoton-Regular.ttf'); /* IE9 Compat Modes */
-  src: url('/../ttf/Monoton-Regular.ttf?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('/../ttf/Monoton-Regular.ttf') format('woff'), /* Modern Browsers */
-       url('/../ttf/Monoton-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+  src: url('/ttf/Monoton-Regular.ttf'); /* IE9 Compat Modes */
+  src: url('/ttf/Monoton-Regular.ttf?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/ttf/Monoton-Regular.ttf') format('woff'), /* Modern Browsers */
+       url('/ttf/Monoton-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
 }
 
 .logo {

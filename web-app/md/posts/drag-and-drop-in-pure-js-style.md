@@ -361,11 +361,11 @@ function directCursor (y, x, elm) {
 }
 ```
 
-So, that's it. Hope, this article was useful for you. You can find demo [here](/../html/demo/drag-drop-resize.html) and all code [here](https://github.com/Guseyn/drag_drop_resize) (if you have questions, don't hesitate submiting issue there).
+So, that's it. Hope, this article was useful for you. You can find demo [here](/html/demo/drag-drop-resize.html) and all code [here](https://github.com/Guseyn/drag_drop_resize) (if you have questions, don't hesitate submiting issue there).
 
 <div class="refs">References</div>
 
 * [Window Coordinates](https://javascript.info/coordinates)
 * [Event Listeners](https://www.w3schools.com/js/js_htmldom_eventlistener.asp)
-* [Demo](/../html/demo/drag-drop-resize.html)
+* [Demo](/html/demo/drag-drop-resize.html)
 * [Code](https://github.com/Guseyn/drag_drop_resize)

@@ -135,7 +135,7 @@ As a result you get GitHub releases that look something like this:
 
 You might ask *"Why don't I use git tags for deploying?"*. Well, for some strange reason tags disappear after merging `release branch` into `master` and deployment does not run. I tried find out why this is happening, but with no results. If you have any ideas on this, please share in the comments.
 
-[Here](/../../yml/travis.yml) is complete configuration.
+[Here](/yml/travis.yml) is complete configuration.
 
 **Update:** It's important to mention that you need to merge pull requests in github via option: "Rebase and merge".
 

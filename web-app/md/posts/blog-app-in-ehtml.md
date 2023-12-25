@@ -21,17 +21,17 @@ This is an index page, let's take a look at the source:
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Guseyn">
-    <link rel="shortcut icon" type="image/png" href="/../image/favicon.png">
-    <link rel="stylesheet" href="/../css/normalize.css" type="text/css">
-    <link rel="stylesheet" href="/../css/main.css" type="text/css">
-    <script src="/../js/ehtml.js" type="text/javascript"></script>
+    <link rel="shortcut icon" type="image/png" href="/image/favicon.png">
+    <link rel="stylesheet" href="/css/normalize.css" type="text/css">
+    <link rel="stylesheet" href="/css/main.css" type="text/css">
+    <script src="/js/ehtml.js" type="text/javascript"></script>
   </head>
 
   <body class="main">
     <div class="base">
       
-      <e-html data-src="/../html/add-post.html"></e-html>
-      <e-turbolink class="page-link" data-href="/../html/posts.html?page=0&size=3">
+      <e-html data-src="/html/add-post.html"></e-html>
+      <e-turbolink class="page-link" data-href="/html/posts.html?page=0&size=3">
         Show All Posts
       </e-turbolink>
 
@@ -95,15 +95,15 @@ Let's take a look at the form that we're a going to build:
       data-validation-error-class-for-message-box="message-error"></textarea>
 
     <button
-      data-request-url="/../post/new/"
+      data-request-url="/post/new/"
       data-request-method="POST"
       data-ajax-icon=".ajax-icon"
       onclick="this.form.submit(this)"
       data-response-name="response"
-      data-actions-on-response="turboRedirect('/../html/post.html?id=${response.body.id}')">
+      data-actions-on-response="turboRedirect('/html/post.html?id=${response.body.id}')">
       POST
     </button>
-    <img class="ajax-icon" src="/../images/ajax-icon.svg"/>
+    <img class="ajax-icon" src="/images/ajax-icon.svg"/>
   </e-form>
 
 </div>
@@ -146,11 +146,11 @@ Let's see how we can build the page above:
       <div class="blog-box">
         
         <e-json 
-          data-src="/../post?id=${urlParams.id}" 
+          data-src="/post?id=${urlParams.id}" 
           data-ajax-icon="#post-ajax-icon"
           data-response-name="postResponse"
           data-actions-on-response="mapToTemplate('${postResponse}', '#post-template');">
-          <img class="ajax-icon" id="post-ajax-icon" src="/../images/ajax-icon.svg"/>
+          <img class="ajax-icon" id="post-ajax-icon" src="/images/ajax-icon.svg"/>
 
           <template id="post-template" data-object-name="postResponse">
 
@@ -226,7 +226,7 @@ Let's see how we can build the page above:
                     name="content"></textarea>
 
                   <button
-                    data-request-url="/../comment/new?postId=${postResponse.body.id}"
+                    data-request-url="/comment/new?postId=${postResponse.body.id}"
                     data-request-method="POST"
                     data-ajax-icon="#comment-ajax-icon"
                     data-response-name="response"
@@ -240,7 +240,7 @@ Let's see how we can build the page above:
                   >
                     Send
                   </button>
-                  <img class="ajax-icon" id="comment-ajax-icon" src="/../images/ajax-icon.svg"/>
+                  <img class="ajax-icon" id="comment-ajax-icon" src="/images/ajax-icon.svg"/>
                 </e-form>
 
               </div>
@@ -253,11 +253,11 @@ Let's see how we can build the page above:
 
       </div>
 
-      <e-turbolink class="page-link" data-href="/../html/posts.html?page=0&size=3">
+      <e-turbolink class="page-link" data-href="/html/posts.html?page=0&size=3">
         Go To All Posts
       </e-turbolink>
 
-      <e-turbolink class="page-link" data-href="/../html/index.html">
+      <e-turbolink class="page-link" data-href="/html/index.html">
         Add New One
       </e-turbolink>
 
@@ -308,11 +308,11 @@ Let's take a look at the source:
       <div class="blog-box">
 
         <e-json 
-          data-src="/../posts?page=${urlParams.page}&size=${urlParams.size}"
+          data-src="/posts?page=${urlParams.page}&size=${urlParams.size}"
           data-ajax-icon="#posts-ajax-icon"
           data-response-name="postsResponse"
           data-actions-on-response="mapToTemplate('${postsResponse}', '#posts-template');">
-          <img class="ajax-icon" id="posts-ajax-icon" src="/../images/ajax-icon.svg"/>
+          <img class="ajax-icon" id="posts-ajax-icon" src="/images/ajax-icon.svg"/>
           
           <template id="posts-template" data-object-name="postsResponse">
             
@@ -334,7 +334,7 @@ Let's take a look at the source:
                   <div class="title">
                     <e-turbolink 
                       data-text="${post.title}"
-                      data-href="/../html/post.html?id=${post.id}">    
+                      data-href="/html/post.html?id=${post.id}">    
                     </e-turbolink>
                   </div>
                   <div class="user-email" data-text="${post.userEmail}"></div>
@@ -367,7 +367,7 @@ Let's take a look at the source:
 
             </template>
 
-            <e-turbolink class="page-link" data-href="/../html/index.html">
+            <e-turbolink class="page-link" data-href="/html/index.html">
               Add new post
             </e-turbolink>
 

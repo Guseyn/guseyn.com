@@ -10,7 +10,7 @@ window.initYoutubeVideos = (proportion) => {
     youtubeVideos[v].style['background-size'] = '100% 100%'
     const youtubeButton = document.createElement('img')
     youtubeButton.setAttribute('class', 'youtube-video-play')
-    youtubeButton.setAttribute('src', '/../image/youtube_64dp.png')
+    youtubeButton.setAttribute('src', '/image/youtube_64dp.png')
     youtubeVideos[v].appendChild(youtubeButton)
     const youtubeWrapper = document.createElement('div')
     youtubeWrapper.style['width'] = '100%'

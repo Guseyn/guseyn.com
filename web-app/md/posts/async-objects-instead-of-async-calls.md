@@ -25,11 +25,11 @@ Let's say we want to read content from a file and write it to another one. And a
 So, instead of writing something like this:
 
 ```js
-fs.readFile('./../file1.txt', 'utf8', (err, result) => {
+fs.readFile('./file1.txt', 'utf8', (err, result) => {
   if (err != null) {
     throw err;
   }
-  fs.writeFile('/../file2.txt', result, (err) => {  
+  fs.writeFile('/file2.txt', result, (err) => {  
     if (err != null) {
       throw err
     }
@@ -41,8 +41,8 @@ we can design our code in the following style:
 
 ```js
 new WrittenFile(
-  './../file2.txt',
-  new ReadDataByPath('./../file1.txt', 'utf8')
+  './file2.txt',
+  new ReadDataByPath('./file1.txt', 'utf8')
 ).call()
 ```
 Objects `WrittenFile` and `ReadDataByPath` are async objects, and they have the same arguments that their corresponding async calls have, except callbacks. So, here the first argument of `WrittenFile` is a path of a file we want to write content to, and the second one is the content we want to write. And as you noticed, second argument is represented here as `ReadDataByPath`. It means that method `call` of `WrittenFile` invoke first `ReadDataByPath` and use its result as content for `WrittenFile`.
@@ -52,24 +52,24 @@ It's good, but it could be better. For making this declarative abstraction flexi
 For example, we can use second argument of `WrittenFile` as a string:
 
 ```js
-new WrittenFile('./../file2.txt', 'content to write').call()
+new WrittenFile('./file2.txt', 'content to write').call()
 ```
 
 or use the fist argument as something that has been read from another file:
 
 ```js
 /* here file3.txt contains information
-    for the first argument of WrittenFile: './../file2.txt' */
+    for the first argument of WrittenFile: './file2.txt' */
 new WrittenFile(
-  new ReadDataByPath('./../file3.txt', 'utf8'),
-  new ReadDataByPath('./../file1.txt', 'utf8')
+  new ReadDataByPath('./file3.txt', 'utf8'),
+  new ReadDataByPath('./file1.txt', 'utf8')
 ).call()
 ```
 
 or even just use every async object independently:
 
 ```js
-new ReadDataByPath('./../file.txt', 'utf8').call()
+new ReadDataByPath('./file.txt', 'utf8').call()
 ```
 
 It's very cute, isn't? But it's quite not easy to implement. Well, at least to me: it took 3 days or something for consideration how to do everything properly.
@@ -183,7 +183,7 @@ class ParsedJSON extends AsyncObject {
 }
 
 // usage
-new ParsedJSON('./../file.txt', 'utf8').call()
+new ParsedJSON('./file.txt', 'utf8').call()
 ```
 
 `ParsedJSON` also could be designed like this:
@@ -203,7 +203,7 @@ class ParsedJSON extends ReadDataByPath {
 }
 
 // usage
-new ParsedJSON('./../file.txt', 'utf8').call()
+new ParsedJSON('./file.txt', 'utf8').call()
 ```
 
 Or you can use ReadDataByPath with ParsedJSON that looks like this:
@@ -228,7 +228,7 @@ class ParsedJSON extends AsyncObject {
 
 // usage
 new ParsedJSON(
-  new ReadDataByPath('./../file.txt', 'utf8')
+  new ReadDataByPath('./file.txt', 'utf8')
 ).call()
 ```
 

@@ -23,7 +23,7 @@ new DeepStrictEqualAssertion(
 ).call()
 ```
 
-`DeepStrictEqualAssertion` is a wrapper around `assert.deepStrictEqual`. So, here the first argument is actual object, and second one is expected object. As it's been said in [this article](/../async-objects-instead-of-async-calls) composition of async objects can be very flexible. So, the following code also works.
+`DeepStrictEqualAssertion` is a wrapper around `assert.deepStrictEqual`. So, here the first argument is actual object, and second one is expected object. As it's been said in [this article](/async-objects-instead-of-async-calls) composition of async objects can be very flexible. So, the following code also works.
 
 ```js
 const { DeepStrictEqualAssertion } = require('@cuties/assert')
