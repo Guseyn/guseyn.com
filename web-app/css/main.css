@@ -234,6 +234,7 @@ iframe {
 
 .content {
   width: 100%;
+  min-height: 250px;
   height: auto;
   clear: both;
   background: transparent;
@@ -241,6 +242,26 @@ iframe {
   padding: 1.16em;
   font-family: 'PT Serif', serif;
   word-wrap: break-word;
+}
+
+@keyframes shadowAnimation {
+  0%, 100% {
+    box-shadow: inset 0 0 20px #487eb0;
+  }
+  25% {
+    box-shadow: inset 0 0 20px #b0487e;
+  }
+  50% {
+    box-shadow: inset 0 0 20px #b07a48;
+  }
+  75% {
+    box-shadow: inset 0 0 20px #48b07a;
+  }
+}
+
+.color-changing-box {
+  transition: box-shadow 0.5s ease-in-out;
+  animation: shadowAnimation 4s linear infinite;
 }
 
 .continue {
