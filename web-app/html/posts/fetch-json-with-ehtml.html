@@ -28,7 +28,16 @@
   <body class="main">
     <template is="e-wrapper" data-src="/html/main-page-template.html?v=2.0.61" data-where-to-place="#mid-content" data-how-to-place="instead">
       <div class="content">
-        <e-markdown data-src="/md/posts/fetch-json-with-ehtml.md?v=2.0.61" data-apply-code-highlighting="true"></e-markdown>
+        <e-markdown
+          data-src="/md/posts/fetch-json-with-ehtml.md?v=2.0.61"
+          data-apply-code-highlighting="true"
+          data-actions-on-progress-start="
+            document.querySelector('.content').classList.toggle('color-changing-box')
+          "
+          data-actions-on-progress-end="
+            document.querySelector('.content').classList.toggle('color-changing-box')
+          "
+        ></e-markdown>
       </div>
     </template>
   </body>
