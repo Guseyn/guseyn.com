@@ -24,6 +24,8 @@ I am an author of many open source projects such as [Cutie](https://github.com/G
 ## Tech Blogger
 I write [posts](/html/all-posts.html) about code design, code tricks and tech culture in general. I make [videos](https://www.youtube.com/watch?v=lOf0NkNtWzI&feature=emb_title) and participate in [tech meetups](https://www.youtube.com/watch?v=Ptz6kJ3NXGI&feature=emb_title) as speaker. Also [some people](https://www.youtube.com/watch?v=Cx1kZbwkr5g&t=128s) talk about my projects.
 
+I also like to write [papers](/html/papers.html). I wrote paper on [Async Tree Pattern](https://guseyn.com/pdf/Async_Tree_Pattern.pdf), and I created web page [Mathematics of Neural Network](https://guseyn.github.io/nn-math-web/).
+
 ## Entrepreneur
 I am working on a side project in my free time. It's called [Unison](https://unisonofficial.com) and it is a platform where you can create sheet music just by describing them with simple words.
 
