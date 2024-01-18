@@ -1,5 +1,5 @@
 # Guseyn Ismayylov
-<div class="date">16 June 2023 (last update)</div>
+<div class="date">18 January 2024 (last update)</div>
 
 <img src="/image/photo.jpg" class="photo bigger">
 <p></p>
@@ -33,7 +33,7 @@ I am working on a side project in my free time. It's called [Unison](https://uni
 You can find [my streams here](https://www.twitch.tv/unisonofficial) on how I test, develop and use my programs, like for example [Unison](https://unisonofficial.com). Also I talk on general subjects in software development.
 
 ## Programmer
-I am a full-time full-stack software developer with more than 6 years of diverse experience: I was working as a software engineer at outsource company, at small startup with fully distributed international team, and as a researcher at international tech corporation. More information about my work experience you can find in my [LinkedIn profile](https://www.linkedin.com/in/gusein-ismaiylov-111bb1179/) and [resume](/html/resume.html).
+I am a full-time full-stack software developer with more than 7 years of diverse experience: I was working as a software engineer at outsource company, at small startup with fully distributed international team, and as a researcher at international tech corporation. More information about my work experience you can find in my [LinkedIn profile](https://www.linkedin.com/in/gusein-ismaiylov-111bb1179/) and [resume](/html/resume.html).
 
 In my work, I appreciate clarity of the information in the documentation and the code.
 
