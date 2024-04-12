@@ -4,10 +4,14 @@ window.setStyle = () => {
   const githubGistStyle = document.getElementById('github-gist-night')
   if (localStyle === 'night') {
     mainNightStyle.disabled = false
-    githubGistStyle.disabled = false
+    if (githubGistStyle) {
+      githubGistStyle.disabled = false
+    }
   } else {
     mainNightStyle.disabled = true
-    githubGistStyle.disabled = true
+    if (githubGistStyle) {
+      githubGistStyle.disabled = true
+    }
   }
 }
 
