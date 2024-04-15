@@ -39,11 +39,11 @@ const METHOD_NOT_ALLOWED_ENDPOINT = new MethodNotAllowedEndpoint(new RegExp(/\/m
 const INTERNAL_SERVER_ERROR_ENDPOINT = new CustomInternalServerErrorEndpoint()
 
 const CORS_OPTIONS = (ENV === 'prod') ? {
-  allowedOrigins: [ 'unisonofficial.com', 'unisonofficial.b-cdn.net' ],
+  allowedOrigins: [ 'guseyn.com', 'cdn.guseyn.com' ],
   allowedMethods: [ 'GET', 'OPTIONS' ],
   maxAge: 86400
 } : {
-  allowedOrigins: [ '192.168.1.92:8000', '127.0.0.1:8000' ],
+  allowedOrigins: [ '127.0.0.1:8001' ],
   allowedMethods: [ 'GET', 'OPTIONS' ],
   maxAge: 86400
 }
