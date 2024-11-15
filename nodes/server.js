@@ -59,8 +59,8 @@ module.exports = function server(app) {
       }
       if (itIsProd) {
         proxyServer(
-          global.config.host,
           global.config.proxy.port,
+          global.config.host,
           global.config.port
         )()
       }
