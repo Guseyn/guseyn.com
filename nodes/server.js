@@ -65,10 +65,7 @@ module.exports = function server(app) {
     //     )()
     //   }
     // }
-    server.listen({
-      port: global.config.port,
-      host: global.config.host
-    }, () => {
+    server.listen(global.config.port, global.config.host, () => {
       global.log(`HTTP/2 server running at https://${global.config.host}:${global.config.port}`)
     })
   }
