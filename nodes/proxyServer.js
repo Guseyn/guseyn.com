@@ -36,7 +36,10 @@ module.exports = function proxyServer(
     }
   })
   return function serverListener() {
-    server.listen(proxyPort, targetServerHost, () => {
+    server.listen({
+      port: proxyPort,
+      host: targetServerHost
+    }, () => {
       global.log(`HTTP proxy server running at http://0.0.0.0:${proxyPort}`)
     })
   }

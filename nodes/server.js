@@ -60,11 +60,15 @@ module.exports = function server(app) {
       if (itIsProd) {
         proxyServer(
           global.config.host,
-          global.config.proxy.port
+          global.config.proxy.port,
+          global.config.port
         )()
       }
     }
-    server.listen(global.config.port, global.config.host, () => {
+    server.listen({
+      port: global.config.port,
+      host: global.config.host
+    }, () => {
       global.log(`HTTP/2 server running at https://${global.config.host}:${global.config.port}`)
     })
   }
