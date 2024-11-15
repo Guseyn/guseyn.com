@@ -8,6 +8,6 @@ const path = require('path')
 
 global.log(`\x1b[33m${txtLogo}\n\nversion: ${version}, environment: ${environment}\x1b[0m`)
 
-const prepareStaticFilesWithCdnAndCacheVersions = require('./prepareStaticFilesWithCdnAndCacheVersions')
+// const prepareStaticFilesWithCdnAndCacheVersions = require('./prepareStaticFilesWithCdnAndCacheVersions')
 
-prepareStaticFilesWithCdnAndCacheVersions()
+// prepareStaticFilesWithCdnAndCacheVersions()
