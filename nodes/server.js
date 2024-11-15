@@ -10,6 +10,8 @@ const readSecrets = require('./readSecrets')
 
 const proxyServer = require('./proxyServer')
 
+const http1xhandler = require('./http1xhandler')
+
 module.exports = function server(app) {
   global.config.key = global.config.key || 'key.pem'
   global.config.cert = global.config.cert || 'cert.pem'
@@ -26,7 +28,7 @@ module.exports = function server(app) {
       })
       callback(null, ctx)
     }
-  })
+  }, http1xhandler)
 
   server.on('stream', (stream, headers) => {
     constructDomain(server, stream).run(async () => {

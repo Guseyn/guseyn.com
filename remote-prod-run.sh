@@ -5,5 +5,7 @@ git fetch --all
 git reset --hard origin/master
 git pull
 npm install
+kill -9 $(lsof -t -i:443)
+kill -9 $(lsof -t -i:80)
 npm run guseyn:prod:start
 '"
