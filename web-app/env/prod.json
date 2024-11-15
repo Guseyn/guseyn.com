@@ -1,10 +1,10 @@
 {
   "protocol": "http",
-  "port": 8001,
+  "port": 443,
   "host": "0.0.0.0",
-  "key": "./web-app/ssl/key.pem",
-  "cert": "./web-app/ssl/cert.pem",
+  "key": "/etc/letsencrypt/live/guseyn.com/privkey.pem",
+  "cert": "/etc/letsencrypt/live/guseyn.com/cert.pem",
   "proxy": {
-    "port": 8002
+    "port": 80
   }
 }
