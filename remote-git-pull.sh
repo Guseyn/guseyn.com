@@ -4,6 +4,5 @@ cd guseyn.com
 git fetch --all
 git reset --hard origin/master
 git pull
-node use-cdn.js clean https://guseyn.com https://cdn.guseyn.com
-node use-cdn.js update https://guseyn.com https://cdn.guseyn.com
+npm run guseyn:pull
 '"
