@@ -52,6 +52,9 @@ module.exports = function server(app) {
   })
   
   return function serverListener() {
+    server.listen(global.config.port, global.config.host, () => {
+      global.log(`HTTP/2 server running at https://${global.config.host}:${global.config.port}`)
+    })
     // if (process.env.ENV) {
     //   const itIsProd = process.env.ENV.startsWith('prod')
     //   if (itIsProd && !global.config.proxy.port) {
@@ -59,14 +62,10 @@ module.exports = function server(app) {
     //   }
     //   if (itIsProd) {
     //     proxyServer(
-    //       global.config.proxy.port,
     //       global.config.host,
-    //       global.config.port
+    //       global.config.proxy.port
     //     )()
     //   }
     // }
-    server.listen(global.config.port, global.config.host, () => {
-      global.log(`HTTP/2 server running at https://${global.config.host}:${global.config.port}`)
-    })
   }
 }
