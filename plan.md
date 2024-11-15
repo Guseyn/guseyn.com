@@ -15,6 +15,3 @@
 
 - [ ] Java EMEA Remote
 - [ ] Java Cyprus Remote
-
-- [ ] Java relocation Netherlands
-- [ ] Java relocation Netherlands
