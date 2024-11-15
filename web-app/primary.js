@@ -10,19 +10,4 @@ global.log(`\x1b[33m${txtLogo}\n\nversion: ${version}, environment: ${environmen
 
 const prepareStaticFilesWithCdnAndCacheVersions = require('./prepareStaticFilesWithCdnAndCacheVersions')
 
-const proxyServer = require('./../nodes/proxyServer')
-
-prepareStaticFilesWithCdnAndCacheVersions().then(() => {
-  if (process.env.ENV) {
-    const itIsProd = process.env.ENV.startsWith('prod')
-    if (itIsProd && !global.config.proxy.port) {
-      throw new Error('In prod environment you must specifiy a port for HTTP proxy server in cofing with key: `proxy: { port: <value> }`')
-    }
-    if (itIsProd) {
-      proxyServer(
-        global.config.host,
-        global.config.proxy.port
-      )()
-    }
-  }
-})
+prepareStaticFilesWithCdnAndCacheVersions()

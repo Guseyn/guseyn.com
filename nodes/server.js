@@ -8,6 +8,8 @@ const handleRequests = require('./handleRequests')
 const constructDomain = require('./constructDomain')
 const readSecrets = require('./readSecrets')
 
+const proxyServer = require('./proxyServer')
+
 const http1xhandler = require('./http1xhandler')
 
 module.exports = function server(app) {
@@ -50,6 +52,18 @@ module.exports = function server(app) {
   })
   
   return function serverListener() {
+    if (process.env.ENV) {
+      const itIsProd = process.env.ENV.startsWith('prod')
+      if (itIsProd && !global.config.proxy.port) {
+        throw new Error('In prod environment you must specifiy a port for HTTP proxy server in cofing with key: `proxy: { port: <value> }`')
+      }
+      if (itIsProd) {
+        proxyServer(
+          global.config.host,
+          global.config.proxy.port
+        )()
+      }
+    }
     server.listen(global.config.port, global.config.host, () => {
       global.log(`HTTP/2 server running at https://${global.config.host}:${global.config.port}`)
     })
