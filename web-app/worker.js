@@ -23,7 +23,7 @@ const corsOptions = (environment === 'prod') ? {
   maxAge: 86400
 }
 
-const cacheControl = (environment === 'local') ? {
+const cacheControl = (environment === 'prod') ? {
   cacheControl: 'cache, public, max-age=432000'
 } : {
   cacheControl: 'no-cache'
