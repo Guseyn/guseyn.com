@@ -52,19 +52,19 @@ module.exports = function server(app) {
   })
   
   return function serverListener() {
-    if (process.env.ENV) {
-      const itIsProd = process.env.ENV.startsWith('prod')
-      if (itIsProd && !global.config.proxy.port) {
-        throw new Error('In prod environment you must specifiy a port for HTTP proxy server in cofing with key: `proxy: { port: <value> }`')
-      }
-      if (itIsProd) {
-        proxyServer(
-          global.config.proxy.port,
-          global.config.host,
-          global.config.port
-        )()
-      }
-    }
+    // if (process.env.ENV) {
+    //   const itIsProd = process.env.ENV.startsWith('prod')
+    //   if (itIsProd && !global.config.proxy.port) {
+    //     throw new Error('In prod environment you must specifiy a port for HTTP proxy server in cofing with key: `proxy: { port: <value> }`')
+    //   }
+    //   if (itIsProd) {
+    //     proxyServer(
+    //       global.config.proxy.port,
+    //       global.config.host,
+    //       global.config.port
+    //     )()
+    //   }
+    // }
     server.listen({
       port: global.config.port,
       host: global.config.host

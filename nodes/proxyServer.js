@@ -40,7 +40,7 @@ module.exports = function proxyServer(
       port: proxyPort,
       host: targetServerHost
     }, () => {
-      global.log(`HTTP proxy server running at http://0.0.0.0:${proxyPort}`)
+      global.log(`HTTP proxy server running at http://${targetServerHost}:${proxyPort}`)
     })
   }
 }
