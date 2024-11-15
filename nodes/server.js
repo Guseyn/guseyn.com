@@ -27,7 +27,8 @@ module.exports = function server(app) {
         cert: fs.readFileSync(global.config.cert)
       })
       callback(null, ctx)
-    }
+    },
+    allowHTTP1: true
   }, http1xhandler)
 
   server.on('stream', (stream, headers) => {
