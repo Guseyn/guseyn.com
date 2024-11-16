@@ -15,19 +15,23 @@ const http1xhandler = require('./http1xhandler')
 module.exports = function server(app) {
   const certAndKeyExists = fs.existsSync(global.config.cert) &&
     fs.existsSync(global.config.key)
-
-  global.config.key = certAndKeyExists ? global.config.key : './web-app/ssl/key.tmp.pem'
-  global.config.cert = certAndKeyExists ? global.config.cert : './web-app/ssl/cert.tmp.pem'
+  const keyFile = certAndKeyExists ? global.config.key : global.config.tmpKey
+  const certFile = certAndKeyExists ? global.config.cert : global.config.tmpCert
+  
   global.config.host = global.config.host || 'localhost'
   global.config.port = global.config.port || 8004
 
   const server = http2.createSecureServer({
-    key: fs.readFileSync(global.config.key),
-    cert: fs.readFileSync(global.config.cert),
+    key: fs.readFileSync(keyFile),
+    cert: fs.readFileSync(certFile),
     SNICallback: (servername, callback) => {
+      const certAndKeyExists = fs.existsSync(global.config.cert) &&
+        fs.existsSync(global.config.key)
+      const keyFile = certAndKeyExists ? global.config.key : global.config.tmpKey
+      const certFile = certAndKeyExists ? global.config.cert : global.config.tmpCert
       const ctx = tls.createSecureContext({
-        key: fs.readFileSync(global.config.key),
-        cert: fs.readFileSync(global.config.cert)
+        key: fs.readFileSync(keyFile),
+        cert: fs.readFileSync(certFile)
       })
       callback(null, ctx)
     },
