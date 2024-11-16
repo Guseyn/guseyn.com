@@ -11,7 +11,7 @@ const config = JSON.parse(
 )
 let logFile
 if (process.env.ENV === 'prod') {
-  logFile = './output.log'
+  // logFile = './output.log'
 }
 
 cluster('web-app/primary.js', 'web-app/worker.js')({

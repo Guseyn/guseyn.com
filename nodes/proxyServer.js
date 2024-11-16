@@ -4,9 +4,11 @@ const fs = require('fs')
 
 const acmeChallengeUrlPattern = /^\/\.well-known\/acme-challenge/
 
-module.exports = function proxyServer(
-  proxyPort, targetServerHost, targetServerPort
-) {
+module.exports = function proxyServer({
+  proxyPort,
+  host,
+  port
+}) {
   const server = http.createServer((req, res) => {
     let reqUrl = req.url
     if (req.url === '/') {
@@ -29,7 +31,7 @@ module.exports = function proxyServer(
     }
     // Proxy Logic
     res.writeHead(301, {
-      'Location': `https://${targetServerHost}:${targetServerPort}${reqUrl}`
+      'Location': `https://${host}:${port}${reqUrl}`
     })
     if (!res.writableEnded && !res.destroyed) {
       res.end()
@@ -37,10 +39,10 @@ module.exports = function proxyServer(
   })
   return function serverListener() {
     server.listen({
-      port: proxyPort,
-      host: targetServerHost
+      host: host,
+      port: proxyPort
     }, () => {
-      global.log(`HTTP proxy server running at http://${targetServerHost}:${proxyPort}`)
+      global.log(`HTTP proxy server running at http://${host}:${proxyPort}`)
     })
   }
 }
