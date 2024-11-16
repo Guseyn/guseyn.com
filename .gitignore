@@ -75,4 +75,5 @@ static/js/bundle.min.js
 guseyn_rsa
 guseyn_rsa.pub
 key.pem
+privkey.pem
 cert.pem
