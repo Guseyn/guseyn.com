@@ -14,8 +14,8 @@ services:
       - ./web-app/.well-known/acme-challenge:/app/web-app/.well-known/acme-challenge  # Mount ACME challenge folder
       - ./web-app/ssl:/app/web-app/ssl  # Mount folder for SSL certs inside app/guseyn.com/ssl
     ports:
-      - "8001:443"  # Prime HTTP(S)/2 
-      - "8002:80"   # Proxy
+      - "443:443"  # Prime HTTP(S)/2 
+      - "80:80"   # Proxy
     networks:
       - app-network
     # Override CMD in Dockerfile with my ENV variable
