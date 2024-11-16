@@ -17,9 +17,10 @@ module.exports = function proxyServer({
     const reqHost = req.headers.host
     // Acme Challenge for HTTPS setup 
     if (acmeChallengeUrlPattern.test(req.url)) {
-      const url = request.url
       try {
+        const parsedUrl = url.parse(req.url, true)
         if (!fs.existsSync(parsedUrl.pathname)) {
+          console.log(parsedUrl.pathname)
           res.writeHead(404, {
             'content-type': 'text/plain'
           })
@@ -29,10 +30,10 @@ module.exports = function proxyServer({
         res.writeHead(200, {
           'content-type': 'text/plain'
         })
-        const parsedUrl = url.parse(req.url, true)
         const token = fs.readFilySync(parsedUrl.pathname)
         res.end(token)
       } catch (err) {
+        console.log(err)
         res.end()
       }
       return
