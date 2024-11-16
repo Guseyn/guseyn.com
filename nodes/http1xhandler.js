@@ -48,7 +48,7 @@ module.exports = function http1xhandler(req, res) {
     responseHeaders['X-Handled-By'] = 'http1'
 
     // Send the response to the HTTP/1.x client
-    res.writeHead(statusCode, headers)
+    res.writeHead(statusCode, responseHeaders)
     http2Request.pipe(res)
   })
 
