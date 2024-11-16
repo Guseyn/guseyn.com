@@ -15,5 +15,5 @@ docker volume prune -f || echo "No volumes to prune"
 # Remove all images
 docker rmi -f \$(docker images -q) || echo "No images to remove"
 
-DOMAIN=guseyn.com,www.guseyn.com DOMAIN_EMAIL=guseyn@guseyn.com docker-compose -f docker-compose.prod.yml up --build --force-recreate --remove-orphans
+DOMAIN=guseyn.com DOMAIN_EMAIL=guseyn@guseyn.com docker-compose -f docker-compose.prod.yml up --build --force-recreate --remove-orphans
 '"
