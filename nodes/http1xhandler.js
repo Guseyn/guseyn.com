@@ -15,22 +15,27 @@ module.exports = function http1xhandler(req, res) {
   const headers = {
     ':method': req.method,
     ':path': req.url,
+    ':authority': req.headers.host,
     ...req.headers,
   }
 
   // Remove HTTP/1.x-specific headers
   delete headers['connection']
+  delete headers['host']
   delete headers['upgrade']
   delete headers['keep-alive']
   delete headers['proxy-connection']
   delete headers['transfer-encoding']
+  delete headers['upgrade-insecure-requests']
 
   console.log(headers)
   // Forward the HTTP/1.x request to the HTTP/2 server
   const http2Request = client.request(headers)
 
   // Pipe the HTTP/1.x request body to the HTTP/2 server
-  req.pipe(http2Request)
+  if (req.method.toUpperCase() !== 'GET') {
+    req.pipe(http2Request)
+  }
 
   // Handle the HTTP/2 response
   http2Request.on('response', (http2Headers) => {
