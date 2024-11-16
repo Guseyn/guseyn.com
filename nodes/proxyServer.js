@@ -18,10 +18,17 @@ module.exports = function proxyServer({
     // Acme Challenge for HTTPS setup 
     if (acmeChallengeUrlPattern.test(req.url)) {
       const url = request.url
-      res.writeHead(200, {
-        'content-type': 'text/plain'
-      })
       try {
+        if (!fs.existsSync(parsedUrl.pathname)) {
+          res.writeHead(404, {
+            'content-type': 'text/plain'
+          })
+          res.end(`${parsedUrl.pathname} not found`)
+          return
+        }
+        res.writeHead(200, {
+          'content-type': 'text/plain'
+        })
         const parsedUrl = url.parse(req.url, true)
         const token = fs.readFilySync(parsedUrl.pathname)
         res.end(token)
