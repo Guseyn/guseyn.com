@@ -13,22 +13,27 @@ const proxyServer = require('./proxyServer')
 const http1xhandler = require('./http1xhandler')
 
 module.exports = function server(app) {
+
   const certAndKeyExists = fs.existsSync(global.config.cert) &&
-    fs.existsSync(global.config.key)
+    fs.existsSync(global.config.key) &&
+    fs.statSync(global.config.cert).size !== 0 &&
+    fs.statSync(global.config.key).size !== 0
   const keyFile = certAndKeyExists ? global.config.key : global.config.tmpKey
   const certFile = certAndKeyExists ? global.config.cert : global.config.tmpCert
   
   global.config.host = global.config.host || 'localhost'
   global.config.port = global.config.port || 8004
 
-  console.log(keyFile, certFile)
-
   const server = http2.createSecureServer({
     key: fs.readFileSync(keyFile),
     cert: fs.readFileSync(certFile),
     SNICallback: (servername, callback) => {
+
       const certAndKeyExists = fs.existsSync(global.config.cert) &&
-        fs.existsSync(global.config.key)
+        fs.existsSync(global.config.key) &&
+        fs.statSync(global.config.cert).size !== 0 &&
+        fs.statSync(global.config.key).size !== 0
+
       const keyFile = certAndKeyExists ? global.config.key : global.config.tmpKey
       const certFile = certAndKeyExists ? global.config.cert : global.config.tmpCert
       const ctx = tls.createSecureContext({
