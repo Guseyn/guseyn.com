@@ -31,8 +31,7 @@ services:
     image: certbot/certbot
     container_name: certbot
     depends_on:
-      app:
-        condition: service_healthy
+      - app
     volumes:
       - ./web-app/.well-known/acme-challenge:/.well-known/acme-challenge  # ACME challenge folder
       - ./web-app/ssl:/etc/letsencrypt  # Mount SSL cert folder
