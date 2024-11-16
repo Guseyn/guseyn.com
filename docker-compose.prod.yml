@@ -33,13 +33,12 @@ services:
     depends_on:
       - app
     volumes:
-      - ./web-app/.well-known/acme-challenge:/.well-known/acme-challenge  # ACME challenge folder
+      - ./web-app/.well-known/acme-challenge:/var/www/html/.well-known/acme-challenge  # ACME challenge folder
       - ./web-app/ssl:/etc/letsencrypt  # Mount SSL cert folder
     command: >
       certonly
       --non-interactive
       --webroot
-      --webroot-path=/.well-known/acme-challenge
       --email ${DOMAIN_EMAIL}
       --agree-tos
       -d ${DOMAIN},www.${DOMAIN}
