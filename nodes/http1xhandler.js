@@ -18,6 +18,13 @@ module.exports = function http1xhandler(req, res) {
     ...req.headers,
   }
 
+  // Remove HTTP/1.x-specific headers
+  delete headers['connection']
+  delete headers['upgrade']
+  delete headers['keep-alive']
+  delete headers['proxy-connection']
+  delete headers['transfer-encoding']
+
   // Forward the HTTP/1.x request to the HTTP/2 server
   const http2Request = client.request(headers)
 
@@ -28,11 +35,17 @@ module.exports = function http1xhandler(req, res) {
   http2Request.on('response', (http2Headers) => {
     // Map HTTP/2 headers back to HTTP/1.x headers
     const statusCode = http2Headers[':status'] || 200
-    const headers = { ...http2Headers }
-    delete headers[':status'] // Remove pseudo-headers
+    const responseHeaders = { ...http2Headers }
+
+    // Remove HTTP/2 pseudo-headers
+    delete responseHeaders[':status']
+    delete responseHeaders[':method']
+    delete responseHeaders[':path']
+    delete responseHeaders[':authority']
+    delete responseHeaders[':scheme']
 
     // Add custom header to indicate the response was handled by HTTP/1
-    headers['X-Handled-By'] = 'http1'
+    responseHeaders['X-Handled-By'] = 'http1'
 
     // Send the response to the HTTP/1.x client
     res.writeHead(statusCode, headers)
