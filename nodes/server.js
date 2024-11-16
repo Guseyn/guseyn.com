@@ -70,7 +70,8 @@ module.exports = function server(app) {
         proxyServer({
           proxyPort: global.config.proxy.port,
           host: global.config.host,
-          port: global.config.port
+          port: global.config.port,
+          webroot: global.config.webroot
         })()
       }
     }

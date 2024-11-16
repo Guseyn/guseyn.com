@@ -7,7 +7,8 @@ const acmeChallengeUrlPattern = /^\/\.well-known\/acme-challenge/
 module.exports = function proxyServer({
   proxyPort,
   host,
-  port
+  port,
+  webroot
 }) {
   const server = http.createServer((req, res) => {
     let reqUrl = req.url
@@ -19,18 +20,19 @@ module.exports = function proxyServer({
     if (acmeChallengeUrlPattern.test(req.url)) {
       try {
         const parsedUrl = url.parse(req.url, true)
-        if (!fs.existsSync(parsedUrl.pathname)) {
-          console.log(parsedUrl.pathname)
+        const challengeFile = `${global.config.webroot}/${parsedUrl.pathname}`
+        if (!fs.existsSync(challengeFile)) {
+          console.log(challengeFile)
           res.writeHead(404, {
             'content-type': 'text/plain'
           })
-          res.end(`${parsedUrl.pathname} not found`)
+          res.end(`${challengeFile} not found`)
           return
         }
         res.writeHead(200, {
           'content-type': 'text/plain'
         })
-        const token = fs.readFilySync(parsedUrl.pathname)
+        const token = fs.readFilySync(challengeFile)
         res.end(token)
       } catch (err) {
         console.log(err)
