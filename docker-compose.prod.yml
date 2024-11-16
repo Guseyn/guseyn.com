@@ -41,7 +41,8 @@ services:
           -d ${DOMAIN},www.${DOMAIN};
       else
         certbot renew;
-      fi"
+      fi;
+      while true; do sleep 3600; done"
     networks:
       - app-network
 
