@@ -21,6 +21,8 @@ module.exports = function server(app) {
   global.config.host = global.config.host || 'localhost'
   global.config.port = global.config.port || 8004
 
+  console.log(keyFile, certFile)
+
   const server = http2.createSecureServer({
     key: fs.readFileSync(keyFile),
     cert: fs.readFileSync(certFile),

@@ -6,16 +6,16 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: guseyn.com
+    container_name: ${DOMAIN}
     volumes:
       - ./output.log:/app/output.log
       - ./nodes:/app/nodes
       - ./web-app:/app/web-app
       - ./web-app/.well-known/acme-challenge:/app/web-app/.well-known/acme-challenge  # Mount ACME challenge folder
-      - ./web-app/ssl:/app/web-app/ssl  # Mount folder for SSL certs inside app/guseyn.com/ssl
+      - ./web-app/ssl:/app/web-app/ssl  # Mount folder for SSL certs inside app/${DOMAIN}/ssl
     ports:
       - "443:443"  # Prime HTTP(S)/2 
-      - "80:80"   # Proxy
+      - "80:80"    # Proxy
     networks:
       - app-network
     # Override CMD in Dockerfile with my ENV variable
@@ -28,7 +28,8 @@ services:
       - app
     volumes:
       - ./web-app/.well-known/acme-challenge:/var/www/html/.well-known/acme-challenge  # ACME challenge folder
-      - ./web-app/ssl:/etc/letsencrypt  # Mount SSL cert folder
+      - ./web-app/ssl/key.pem:/etc/letsencrypt/live/${DOMAIN}/privkey.pem  # Mount SSL key
+      - ./web-app/ssl/cert.pem:/etc/letsencrypt/live/${DOMAIN}/cert.pem  # Mount SSL key
     entrypoint: >
       sh -c "
       if [ ! -f /etc/letsencrypt/live/${DOMAIN}/fullchain.pem ]; then
