@@ -31,17 +31,16 @@ services:
       - ./web-app/ssl:/etc/letsencrypt  # Mount SSL cert folder
     entrypoint: >
       sh -c "
-      if [ ! -f /etc/letsencrypt/live/${DOMAIN}/fullchain.pem ]; 
-      then 
-        certbot certonly 
-          --non-interactive 
-          --webroot 
-          --webroot-path=/var/www/html 
-          --email ${DOMAIN_EMAIL} 
-          --agree-tos 
-          -d ${DOMAIN},www.${DOMAIN}; 
-      else 
-        certbot renew; 
+      if [ ! -f /etc/letsencrypt/live/${DOMAIN}/fullchain.pem ]; then
+        certbot certonly \
+          --non-interactive \
+          --webroot \
+          --webroot-path=/var/www/html \
+          --email ${DOMAIN_EMAIL} \
+          --agree-tos \
+          -d ${DOMAIN},www.${DOMAIN};
+      else
+        certbot renew;
       fi"
     networks:
       - app-network
