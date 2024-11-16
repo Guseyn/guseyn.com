@@ -5,5 +5,6 @@ git fetch --all
 git reset --hard origin/master
 git pull
 npm install
+pkill node
 npm run guseyn:prod:start
 '"
