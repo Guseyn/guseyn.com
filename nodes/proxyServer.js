@@ -32,10 +32,13 @@ module.exports = function proxyServer({
         res.writeHead(200, {
           'content-type': 'text/plain'
         })
-        const token = fs.readFilySync(challengeFile)
+        const token = fs.readFileSync(challengeFile)
         res.end(token)
       } catch (err) {
         console.log(err)
+        res.writeHead(500, {
+          'content-type': 'text/plain'
+        })
         res.end()
       }
       return
