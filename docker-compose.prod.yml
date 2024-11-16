@@ -46,18 +46,18 @@ services:
     networks:
       - app-network
 
-  certbot-cron:
-    image: alpine
-    container_name: certbot-cron
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock # Required to restart or run containers
-    entrypoint: >
-      sh -c "
-      echo '0 */12 * * * docker-compose run certbot' > /etc/crontabs/root &&
-      crond -f -d 8
-      "
-    networks:
-      - app-network
+  # certbot-cron:
+  #   image: alpine
+  #   container_name: certbot-cron
+  #   volumes:
+  #     - /var/run/docker.sock:/var/run/docker.sock # Required to restart or run containers
+  #   entrypoint: >
+  #     sh -c "
+  #     echo '0 */12 * * * docker-compose run certbot' > /etc/crontabs/root &&
+  #     crond -f -d 8
+  #     "
+  #   networks:
+  #     - app-network
 
 networks:
   app-network:
