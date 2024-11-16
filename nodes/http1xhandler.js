@@ -25,6 +25,7 @@ module.exports = function http1xhandler(req, res) {
   delete headers['proxy-connection']
   delete headers['transfer-encoding']
 
+  console.log(headers)
   // Forward the HTTP/1.x request to the HTTP/2 server
   const http2Request = client.request(headers)
 
