@@ -39,6 +39,7 @@ services:
       certonly
       --non-interactive
       --webroot
+      --webroot-path=/var/www/html
       --email ${DOMAIN_EMAIL}
       --agree-tos
       -d ${DOMAIN},www.${DOMAIN}
