@@ -3,6 +3,7 @@ WORKDIR /app
 
 COPY . .
 
+RUN touch output.log
 RUN touch web-app/ssl/cert.pem
 RUN touch web-app/ssl/privkey.pem
 RUN npm install 
