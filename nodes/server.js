@@ -13,8 +13,11 @@ const proxyServer = require('./proxyServer')
 const http1xhandler = require('./http1xhandler')
 
 module.exports = function server(app) {
-  global.config.key = global.config.key || 'key.pem'
-  global.config.cert = global.config.cert || 'cert.pem'
+  const certAndKeyExists = fs.existsSync(global.config.cert) &&
+    fs.existsSync(global.config.key)
+
+  global.config.key = certAndKeyExists ? global.config.key : 'ssl/key.tmp.pem'
+  global.config.cert = certAndKeyExists ? global.config.cert : 'ssl/cert.tmp.pem'
   global.config.host = global.config.host || 'localhost'
   global.config.port = global.config.port || 8004
 
