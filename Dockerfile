@@ -4,7 +4,7 @@ WORKDIR /app
 COPY . .
 
 RUN touch web-app/ssl/cert.pem
-RUN touch web-app/ssl/key.pem
+RUN touch web-app/ssl/privkey.pem
 RUN npm install 
 
 EXPOSE 8001
