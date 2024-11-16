@@ -35,10 +35,11 @@ services:
         certbot certonly \
           --non-interactive \
           --webroot \
-          --webroot-path=/var/www/html \
+          --webroot-path /var/www/html \
           --email ${DOMAIN_EMAIL} \
           --agree-tos \
-          -d ${DOMAIN},www.${DOMAIN};
+          -d ${DOMAIN},www.${DOMAIN} \
+          --debug --verbose;
       else
         certbot renew;
       fi;
