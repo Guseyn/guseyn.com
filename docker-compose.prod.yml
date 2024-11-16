@@ -27,9 +27,9 @@ services:
     depends_on:
       - app
     volumes:
-      - ./web-app/.well-known/acme-challenge:/app/web-app/.well-known/acme-challenge  # ACME challenge folder
+      - ./web-app/.well-known/acme-challenge:/.well-known/acme-challenge  # ACME challenge folder
       - ./web-app/ssl:/etc/letsencrypt  # Mount SSL cert folder
-    command: certonly --webroot --webroot-path=/app/web-app/.well-known/acme-challenge --email ${DOMAIN_EMAIL} --agree-tos --no-eff-email --staging -d ${DOMAIN} # Replace with your domain
+    command: certonly --webroot --webroot-path=/.well-known/acme-challenge --email ${DOMAIN_EMAIL} --agree-tos --no-eff-email --staging -d ${DOMAIN} # Replace with your domain
     networks:
       - app-network
 
