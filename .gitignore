@@ -77,3 +77,4 @@ guseyn_rsa.pub
 key.pem
 privkey.pem
 cert.pem
+web-app/ssl/live/guseyn.com
