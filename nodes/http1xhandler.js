@@ -48,19 +48,23 @@ module.exports = function http1xhandler(req, res) {
     responseHeaders['X-Handled-By'] = 'http1'
 
     // Send the response to the HTTP/1.x client
-    res.writeHead(statusCode, responseHeaders)
+    if (res.headersSent) {
+      res.writeHead(statusCode, responseHeaders)
+    }
     http2Request.pipe(res)
   })
 
   // Handle errors
   http2Request.on('error', (err) => {
-    global.log('Error with HTTP/2 request:', err)
-    res.writeHead(500, { 'Content-Type': 'text/plain' })
+    console.log('Error with HTTP/2 request:', err)
+    if (!res.headersSent) {
+      res.writeHead(500, { 'Content-Type': 'text/plain' })
+    }
     res.end('Internal Server Error')
   })
 
   req.on('error', (err) => {
-    global.log('Error with HTTP/1.x request:', err)
+    console.log('Error with HTTP/1.x request:', err)
     client.destroy()
   })
 
