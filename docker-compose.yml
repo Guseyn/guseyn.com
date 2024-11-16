@@ -10,9 +10,9 @@ services:
     volumes:
       - ./output.log:/app/output.log
       - ./nodes:/app/nodes
-      - ./guseyn.com:/app/guseyn.com
-      - ./guseyn.com/.well-known/acme-challenge:/app/.well-known/acme-challenge  # Mount ACME challenge folder
-      - ./guseyn.com/ssl:/app/guseyn.com/ssl  # Mount folder for SSL certs inside app/guseyn.com/ssl
+      - ./web-app:/app/web-app
+      - ./web-app/.well-known/acme-challenge:/app/.well-known/acme-challenge  # Mount ACME challenge folder
+      - ./web-app/ssl:/app/web-app/ssl  # Mount folder for SSL certs inside app/guseyn.com/ssl
     ports:
       - "8001:8001"
     networks:
