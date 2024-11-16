@@ -6,6 +6,6 @@
   "cert": "./web-app/ssl/cert.pem",
   "webroot": "web-app",
   "proxy": {
-    "port": 80,
+    "port": 80
   }
 }
