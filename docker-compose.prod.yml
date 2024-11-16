@@ -20,12 +20,6 @@ services:
       - app-network
     # Override CMD in Dockerfile with my ENV variable
     command: sh -c "npm run guseyn:prod:start"
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://174.138.15.193:80"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 10s
 
   certbot:
     image: certbot/certbot
@@ -35,14 +29,33 @@ services:
     volumes:
       - ./web-app/.well-known/acme-challenge:/var/www/html/.well-known/acme-challenge  # ACME challenge folder
       - ./web-app/ssl:/etc/letsencrypt  # Mount SSL cert folder
-    command: >
-      certonly
-      --non-interactive
-      --webroot
-      --webroot-path=/var/www/html
-      --email ${DOMAIN_EMAIL}
-      --agree-tos
-      -d ${DOMAIN},www.${DOMAIN}
+    entrypoint: >
+      sh -c "
+      if [ ! -f /etc/letsencrypt/live/${DOMAIN}/fullchain.pem ]; 
+      then 
+        certbot certonly 
+          --non-interactive 
+          --webroot 
+          --webroot-path=/var/www/html 
+          --email ${DOMAIN_EMAIL} 
+          --agree-tos 
+          -d ${DOMAIN},www.${DOMAIN}; 
+      else 
+        certbot renew; 
+      fi"
+    networks:
+      - app-network
+
+  certbot-cron:
+    image: alpine
+    container_name: certbot-cron
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock # Required to restart or run containers
+    entrypoint: >
+      sh -c "
+      echo '0 */12 * * * docker-compose run certbot' > /etc/crontabs/root &&
+      crond -f -d 8
+      "
     networks:
       - app-network
 
