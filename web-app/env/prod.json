@@ -2,7 +2,7 @@
   "protocol": "http",
   "port": 443,
   "host": "0.0.0.0",
-  "key": "./web-app/ssl/key.pem",
+  "key": "./web-app/ssl/privkey.pem",
   "cert": "./web-app/ssl/cert.pem",
   "tmpKey": "./web-app/ssl/key.tmp.pem",
   "tmpCert": "./web-app/ssl/cert.tmp.pem",

@@ -2,6 +2,6 @@
   "protocol": "http",
   "port": 8001,
   "host": "0.0.0.0",
-  "key": "./web-app/ssl/key.pem",
-  "cert": "./web-app/ssl/cert.pem"
+  "key": "./web-app/ssl/key.tmp.pem",
+  "cert": "./web-app/ssl/cert.tmp.pem"
 }

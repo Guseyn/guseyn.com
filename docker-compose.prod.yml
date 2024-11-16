@@ -28,8 +28,7 @@ services:
       - app
     volumes:
       - ./web-app/.well-known/acme-challenge:/var/www/html/.well-known/acme-challenge  # ACME challenge folder
-      - ./web-app/ssl/key.pem:/etc/letsencrypt/live/${DOMAIN}/privkey.pem  # Mount SSL key
-      - ./web-app/ssl/cert.pem:/etc/letsencrypt/live/${DOMAIN}/cert.pem  # Mount SSL key
+      - ./web-app/ssl:/etc/letsencrypt/live/${DOMAIN} # Mount SSL keys
     entrypoint: >
       sh -c "
       if [ ! -f /etc/letsencrypt/live/${DOMAIN}/fullchain.pem ]; then
@@ -43,8 +42,7 @@ services:
           --debug --verbose;
       else
         certbot renew;
-      fi;
-      while true; do sleep 3600; done"
+      fi;"
     networks:
       - app-network
 
