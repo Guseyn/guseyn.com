@@ -14,6 +14,7 @@ module.exports = function proxyServer({
     if (req.url === '/') {
       reqUrl = ''
     }
+    const reqHost = req.headers.host
     // Acme Challenge for HTTPS setup 
     if (acmeChallengeUrlPattern.test(req.url)) {
       const url = request.url
@@ -31,7 +32,7 @@ module.exports = function proxyServer({
     }
     // Proxy Logic
     res.writeHead(301, {
-      'Location': `https://${host}:${port}${reqUrl}`
+      'Location': `https://${reqHost}:${port}${reqUrl}`
     })
     if (!res.writableEnded && !res.destroyed) {
       res.end()

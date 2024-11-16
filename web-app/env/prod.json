@@ -1,7 +1,7 @@
 {
   "protocol": "http",
   "port": 443,
-  "host": "174.138.15.193",
+  "host": "0.0.0.0",
   "key": "./web-app/ssl/key.pem",
   "cert": "./web-app/ssl/cert.pem",
   "proxy": {
