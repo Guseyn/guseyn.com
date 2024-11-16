@@ -27,18 +27,18 @@ services:
       retries: 3
       start_period: 10s
 
-  # certbot:
-  #   image: certbot/certbot
-  #   container_name: certbot
-  #   depends_on:
-  #     app:
-  #       condition: service_healthy
-  #   volumes:
-  #     - ./web-app/.well-known/acme-challenge:/.well-known/acme-challenge  # ACME challenge folder
-  #     - ./web-app/ssl:/etc/letsencrypt  # Mount SSL cert folder
-  #   command: certonly --webroot --webroot-path=/.well-known/acme-challenge --email ${DOMAIN_EMAIL} --agree-tos --no-eff-email --staging -d ${DOMAIN} # Replace with your domain
-  #   networks:
-  #     - app-network
+  certbot:
+    image: certbot/certbot
+    container_name: certbot
+    depends_on:
+      app:
+        condition: service_healthy
+    volumes:
+      - ./web-app/.well-known/acme-challenge:/.well-known/acme-challenge  # ACME challenge folder
+      - ./web-app/ssl:/etc/letsencrypt  # Mount SSL cert folder
+    command: certonly --webroot --webroot-path=/.well-known/acme-challenge --email ${DOMAIN_EMAIL} --agree-tos --no-eff-email --staging -d ${DOMAIN} # Replace with your domain
+    networks:
+      - app-network
 
 networks:
   app-network:
