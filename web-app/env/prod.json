@@ -1,9 +1,9 @@
 {
   "protocol": "http",
   "port": 443,
-  "host": "46.101.16.208",
-  "key": "/etc/letsencrypt/live/guseyn.com/privkey.pem",
-  "cert": "/etc/letsencrypt/live/guseyn.com/cert.pem",
+  "host": "0.0.0.0",
+  "key": "./web-app/ssl/key.pem",
+  "cert": "./web-app/ssl/cert.pem",
   "proxy": {
     "port": 80
   }
