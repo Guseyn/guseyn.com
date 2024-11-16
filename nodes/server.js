@@ -64,11 +64,11 @@ module.exports = function server(app) {
         throw new Error('In prod environment you must specifiy a port for HTTP proxy server in cofing with key: `proxy: { port: <value> }`')
       }
       if (itIsProd) {
-        proxyServer({
-          proxyPort: global.config.proxy.port,
-          host: global.config.host,
-          port: global.config.port
-        })()
+        // proxyServer({
+        //   proxyPort: global.config.proxy.port,
+        //   host: global.config.host,
+        //   port: global.config.port
+        // })()
       }
     }
   }
