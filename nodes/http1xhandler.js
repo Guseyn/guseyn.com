@@ -28,7 +28,6 @@ module.exports = function http1xhandler(req, res) {
   delete headers['transfer-encoding']
   delete headers['upgrade-insecure-requests']
 
-  console.log(headers)
   // Forward the HTTP/1.x request to the HTTP/2 server
   const http2Request = client.request(headers)
 
