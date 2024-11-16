@@ -20,18 +20,25 @@ services:
       - app-network
     # Override CMD in Dockerfile with my ENV variable
     command: sh -c "npm run guseyn:prod:start"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://174.138.15.193:80"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
 
-  # certbot:
-  #   image: certbot/certbot
-  #   container_name: certbot
-  #   depends_on:
-  #     - app
-  #   volumes:
-  #     - ./web-app/.well-known/acme-challenge:/.well-known/acme-challenge  # ACME challenge folder
-  #     - ./web-app/ssl:/etc/letsencrypt  # Mount SSL cert folder
-  #   command: certonly --webroot --webroot-path=/.well-known/acme-challenge --email ${DOMAIN_EMAIL} --agree-tos --no-eff-email --staging -d ${DOMAIN} # Replace with your domain
-  #   networks:
-  #     - app-network
+  certbot:
+    image: certbot/certbot
+    container_name: certbot
+    depends_on:
+      app:
+        condition: service_healthy
+    volumes:
+      - ./web-app/.well-known/acme-challenge:/.well-known/acme-challenge  # ACME challenge folder
+      - ./web-app/ssl:/etc/letsencrypt  # Mount SSL cert folder
+    command: certonly --webroot --webroot-path=/.well-known/acme-challenge --email ${DOMAIN_EMAIL} --agree-tos --no-eff-email --staging -d ${DOMAIN} # Replace with your domain
+    networks:
+      - app-network
 
 networks:
   app-network:
