@@ -6,7 +6,7 @@ In this article, I'll try to introduce the idea of **async objects** and show ho
 Every library or driver in Node.js has <b>async calls</b>, and all them have similar signature:
 
 ```js
-module.asyncCall(...args, (err, result) =&gt; {
+module.asyncCall(...args, (err, result) => {
   if (err != null) {
     // everything is ok, we can use result here
   } else {
@@ -25,11 +25,11 @@ Let's say we want to read content from a file and write it to another one. And a
 So, instead of writing something like this:
 
 ```js
-fs.readFile('./file1.txt', 'utf8', (err, result) =&gt; {
+fs.readFile('./file1.txt', 'utf8', (err, result) => {
   if (err != null) {
     throw err;
   }
-  fs.writeFile('/file2.txt', result, (err) =&gt; {  
+  fs.writeFile('/file2.txt', result, (err) => {  
     if (err != null) {
       throw err
     }
@@ -132,7 +132,7 @@ class WrittenFile extends AsyncObject {
   }
 
   asyncCall () {
-    return (path, content, callback) =&gt; {
+    return (path, content, callback) => {
       this.path = path
       fs.writeFile(path, content, callback)
     }

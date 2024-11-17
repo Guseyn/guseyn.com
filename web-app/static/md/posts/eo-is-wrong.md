@@ -50,7 +50,7 @@ And let's say we have another object `Library` which contains a list of books:
 ```java
 final class Library {
 
-  private final List&lt;Book&gt; books;
+  private final List<Book> books;
 
   public Library(final Book ...books) {
     this.books = Arrays.asList(books);
@@ -174,7 +174,7 @@ And other object `LibraryAsJSON`
 ```java
 class LibraryAsJSON {
 
-  private final List&lt;BookAsJSON&gt; books;
+  private final List<BookAsJSON> books;
 
   public Library(BookAsJSON ...books) {
     this.books = Arrays.asList(books);

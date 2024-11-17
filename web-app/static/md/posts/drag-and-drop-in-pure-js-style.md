@@ -6,9 +6,9 @@ Although there are a lot of libraries doing such simple things like *drag&drop* 
 Let's start with *drag&drop*. Consider we have an element in another one where it could be dragged and drop. We would have something like the following html code:
 
 ```html
-&lt;div id="wrapElm"&gt;
-    &lt;div id="elm"&gt;&lt;/div&gt;
-&lt;/div&gt;
+<div id="wrapElm">
+    <div id="elm"></div>
+</div>
 ```
 and corresponding styles:
 
@@ -175,7 +175,7 @@ function dragAndDrop (elm, wrapElm) {
   document.onmouseup = function() {
     /*  Removing all mousemove event listeners 
         and restoring zIndexes properties to their initial values */
-    for (let i = 0 i &lt; elms.length i++) {
+    for (let i = 0 i < elms.length i++) {
       document.removeEventListener('mousemove', mouseMoveEvents[i])
       elms[i].style.zIndex = zIndexes[i]
       elms[i].style.cursor = 'default'
@@ -237,16 +237,16 @@ function dragAndDrop (elm, wrapElm) {
             is changing)
             otherwise, the element adjoins to the edje 
             of the wrapper element */
-        if (curElmTop &lt; topLimit) {
+        if (curElmTop < topLimit) {
           elm.style.top = '0px'
-        } else if (curElmBottom &gt; bottomLimit) {
+        } else if (curElmBottom > bottomLimit) {
           elm.style.top = bottomLimit - elmHeight - topLimit + 'px'
         } else {
           elm.style.top = yMove - topLimit + 'px'
         }
-        if (curElmLeft &lt; leftLimit) {
+        if (curElmLeft < leftLimit) {
           elm.style.left = '0px'
-        } else if (curElmRight &gt; rightLimit) {
+        } else if (curElmRight > rightLimit) {
           elm.style.left = rightLimit - elmWidth - leftLimit + 'px'
         } else {
           elm.style.left = xMove - leftLimit + 'px'
@@ -270,9 +270,9 @@ function dragAndDrop (elm, wrapElm) {
 Now let's look at how *drag&resize* could be implemented. Consider the following html template for element that can be dragged&resized.
 
 ```html
-&lt;div id="elm" style=""&gt;
-  &lt;div id="resize-drag-elm"&gt;&lt;/div&gt;
-&lt;/div&gt;
+<div id="elm" style="">
+  <div id="resize-drag-elm"></div>
+</div>
 ```
 
 ```css
@@ -339,7 +339,7 @@ function dragAndResize (elm, resizeDragElm, minH, minW) {
           let newHeight = elmHeight + y;
           let newWidth = elmWidth + x;
           // Changing height and width of the elm considering minH and minW
-          if (newHeight &gt;= minH && newWidth &gt;= minW) {
+          if (newHeight >= minH && newWidth >= minW) {
             directCursor(y, x, resizeDragElm);
             elm.style.height = newHeight + 'px';
             elm.style.width = newWidth + 'px';
@@ -353,9 +353,9 @@ function dragAndResize (elm, resizeDragElm, minH, minW) {
 
 // Changing cursor type that depends on direction of resizing
 function directCursor (y, x, elm) {
-  if ((y &gt;= 0 && x &gt;= 0) || (y &lt;= 0 && x &lt; 0)) {
+  if ((y >= 0 && x >= 0) || (y <= 0 && x < 0)) {
     elm.style.cursor = 'nwse-resize';
-  } else if ((y &gt;= 0 && x &lt; 0) || (y &lt;= 0 && x &gt;= 0)) {
+  } else if ((y >= 0 && x < 0) || (y <= 0 && x >= 0)) {
     elm.style.cursor = 'nesw-resize';
   }
 }

@@ -1,4 +1,4 @@
-# Scrum is Inevitable (Unfortunately)
+# Scrum is Inevitable
 <div class="date">25 November 2023</div>
 
 In this blog post, I will attempt to explain the reasons why web development faces significant issues, including scrum, and why such a state of affairs is unlikely to change in our lifetime.

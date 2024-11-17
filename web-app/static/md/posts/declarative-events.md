@@ -8,9 +8,9 @@ There is another abstraction in Node that must be considered. And this is the *e
 Let's look at the most popular example in Node:
 
 ```js
-http.createServer((request, response) =&gt; {
+http.createServer((request, response) => {
     // send back a response every time you get a request
-}).listen(8080, '127.0.0.1', () =&gt; {
+}).listen(8080, '127.0.0.1', () => {
     console.log('server is listening on 127.0.0.1:8080')
 })
 ```
@@ -45,7 +45,7 @@ class Event {
 }
 ```
 
-&lt;br/&gt;
+<br/>
 **How to create an Event**
 
 Let's say we have a `ReadStream` and we need to be able to attach an `'open'` event to it. So, we need to create an async object `ReadStreamWithOpenEvent` that represents `ReadStream` with attached `'open'` event.
@@ -61,7 +61,7 @@ class ReadStreamWithOpenEvent extends AsyncObject {
   }
 
   syncCall () {
-    return (readStream, event) =&gt; {
+    return (readStream, event) => {
       readStream.on('open', event)
       return readStream
     }
@@ -72,7 +72,7 @@ class ReadStreamWithOpenEvent extends AsyncObject {
 Actually `readStream` with `'open'` event has the following signature:
 
 ```js
-readStream.on('open', (fd) =&gt; {
+readStream.on('open', (fd) => {
   // here we work with fd  
 })
 ```
@@ -110,9 +110,9 @@ class OpenEvent extends AsyncObject {
   }
 
   syncCall () {
-    return (...resultsFromAsyncObjects) =&gt; {
+    return (...resultsFromAsyncObjects) => {
       // This is body of the event
-      return (fd) =&gt; {
+      return (fd) => {
         /* now you can use here not only fd but also
             ...resultsFromAsyncObjects */
       }

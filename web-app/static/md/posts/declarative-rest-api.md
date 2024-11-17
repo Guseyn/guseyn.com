@@ -178,13 +178,13 @@ const CustomIndexEndpoint = require('./example/CustomIndexEndpoint')
 const notFoundEndpoint = new CustomNotFoundEndpoint(new RegExp(/\/not-found/))
 const internalServerErrorEndpoint = new CustomInternalServerErrorEndpoint(new RegExp(/^\/internal-server-error/))
 
-const mapper = (url) =&gt; {
-  let parts = url.split('/').filter(part =&gt; part !== '')
+const mapper = (url) => {
+  let parts = url.split('/').filter(part => part !== '')
   return path.join(...parts)
 }
 
-const cacheMapper = (url) =&gt; {
-  let parts = url.split('/').filter(part =&gt; part !== '').slice(1)
+const cacheMapper = (url) => {
+  let parts = url.split('/').filter(part => part !== '').slice(1)
   parts.unshift('files')
   return path.join(...parts)
 }

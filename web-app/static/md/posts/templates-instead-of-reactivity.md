@@ -17,9 +17,9 @@ function MyButton() {
   }
 
   return (
-    &lt;button onClick={handleClick}&gt;
+    <button onClick={handleClick}>
       Clicked {count} times
-    &lt;/button&gt;
+    </button>
   );
 }
 ```
@@ -27,50 +27,50 @@ function MyButton() {
 The idea here is that you don't need to directly update the value of the button when the value of `count` is being changed. I understand that real examples are way more complex, and while this specific example may not appear particularly impressive, it serves as a demonstration of the framework's functionality.
 
 I also understand that the same example in other frameworks like Svelte looks less weird. My point is here that we still can reduce the amount of complexity.
-&lt;br&gt;
+<br>
 
 ## Let's First Try VanillaJS (Attempt #1)
 
 I think the example above can be rewritten in plain JS much easier:
 
 ```html
-&lt;head&gt;
-  &lt;script&gt;
+<head>
+  <script>
     function handleClick(button) {
       let count = button.getAttribute('data-count') * 1
       count += 1
       button.setAttribute('data-count', count)
       button.innerHTML = `Clicked ${count} times`
     }
-  &lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;button
+  </script>
+</head>
+<body>
+  <button
     data-count="0"
-    onclick="handleClick(this)"&gt;
+    onclick="handleClick(this)">
     Clicked 0 times
-  &lt;/button&gt;
-&lt;/body&gt;
+  </button>
+</body>
 
 ```
 
 While I write these words, I can already hear the voices of people complaining about how this is insufficient, how it's silly to update the DOM directly, and how it's insane to keep the application state right within the attributes of elements. It's funny because I don't really have an application state here; all I have is the DOM that contains useful information which I can extract and use. And yes, for large projects, the solution above may not be the best approach because large applications actually must have some state. So, let's talk about **application state...**
-&lt;br&gt;
+<br>
 
 ## Application State Must Be Global
 
 The idea is that we must attach certain objects to specific elements or components cause us a lot of troubles. For some reason, we decided that global objects are evil. However, I don't see any real objective reason to think like that. Sure, there may be name collisions, but those issues are easily detectable and avoidable simply by naming things in a more concrete and distinctive way.
 
 For some reason, it's okay to have DOM which is global within `window`. It's okay to have global structures like `sessionStorage` and `localStorage` and many other things within `window`. But it's not okay to separate global state of your application. To me it's seems inconsistent and quite harmful.
-&lt;br&gt;
+<br>
 
 ## Still VanillaJS (Attempt #2)
 
 Let's use now global state:
 
 ```html
-&lt;head&gt;
-  &lt;script&gt;
+<head>
+  <script>
     const state = {
       count: 0
     }
@@ -78,37 +78,37 @@ Let's use now global state:
       state.count += 1
       button.innerHTML = `Clicked ${state.count} times`
     }
-  &lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;button
-    onclick="handleClick(this)"&gt;
+  </script>
+</head>
+<body>
+  <button
+    onclick="handleClick(this)">
     Clicked 0 times
-  &lt;/button&gt;
-&lt;/body&gt;
+  </button>
+</body>
 
 ```
 
 As you can see, it's a bit better because we don't need the `data-count` attribute. In this case, we do use the application state, and yes, it's global.
 
-But what if we have many more elements that must visualize data? What if we cannot attach event handlers in such a way where we can easily access our elements? I hear you, and I have a solution: `&lt;template&gt;`.
-&lt;br&gt;
+But what if we have many more elements that must visualize data? What if we cannot attach event handlers in such a way where we can easily access our elements? I hear you, and I have a solution: `<template>`.
+<br>
 
 ## So What About Templates
 
-There is a such thing in **HTML** like [&lt;template&gt; elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template). The interesting thing about this element is that it's not rendered on page load, but we can instantiate it later in JavaScript code. Just imagine that you can use such an element to rerender your view each time the application state changes.
+There is a such thing in **HTML** like [`<template>` elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template). The interesting thing about this element is that it's not rendered on page load, but we can instantiate it later in JavaScript code. Just imagine that you can use such an element to rerender your view each time the application state changes.
 
 The only problem is that there is no built-in solition about how you can map your object to that template and also there is no  default mechanism which allow you to release that template into DOM. But let's admit, it not something impossible to implement.
-&lt;br&gt;
+<br>
 
-## Using &lt;template&gt; (Attempt #3)
+## Using `<template>` (Attempt #3)
 
 Image if you could do something like this right in **HTML**:
 
 
 ```html
-&lt;head&gt;
-  &lt;script&gt;
+<head>
+  <script>
     const state = {
       count: 0
     }
@@ -121,26 +121,26 @@ Image if you could do something like this right in **HTML**:
       state.count += 1
       mapToTemplate(template, state)
     }
-  &lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;template
+  </script>
+</head>
+<body>
+  <template
     id="template"
-    data-object-name="state"&gt;
-    &lt;button
+    data-object-name="state">
+    <button
       data-text="Clicked ${state.count} times"
-      onclick="handleClick(this)"&gt;
-    &lt;/button&gt;
-  &lt;/template&gt;
-&lt;/body&gt;
+      onclick="handleClick(this)">
+    </button>
+  </template>
+</body>
 
 ```
 
 Imagine that we had a function `mapToTemplate(template, state)` that can map state to the template and inject whole content of the template directly into the **HTML**. In the end it would look like:
 
 ```html
-&lt;head&gt;
-  &lt;script&gt;
+<head>
+  <script>
     const state = {
       count: 0
     }
@@ -153,29 +153,29 @@ Imagine that we had a function `mapToTemplate(template, state)` that can map sta
       state.count += 1
       mapToTemplate(template, state)
     }
-  &lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;button onclick="handleClick(this)"&gt;
+  </script>
+</head>
+<body>
+  <button onclick="handleClick(this)">
     Clicked 0 times
-  &lt;/button&gt;
-  &lt;template
-    id="template" data-object-name="state"&gt;
-    &lt;button
+  </button>
+  <template
+    id="template" data-object-name="state">
+    <button
       data-text="Clicked ${state.count} times" 
-      onclick="handleClick(this)"&gt;
-    &lt;/button&gt;
-  &lt;/template&gt;
-&lt;/body&gt;
+      onclick="handleClick(this)">
+    </button>
+  </template>
+</body>
 ```
 
-As you see, we still have the possibility to release the initial **&lt;template&gt;**. By using `data-object-name`, we can define a variable name that we can reference in the **HTML** content inside the template. Attribute `data-text` indicates the inner text of the element once the value of the attribute is processed.
+As you see, we still have the possibility to release the initial **`<template>`**. By using `data-object-name`, we can define a variable name that we can reference in the **HTML** content inside the template. Attribute `data-text` indicates the inner text of the element once the value of the attribute is processed.
 
 To be more specific about how we are going to render our template, let's improve our solution:
 
 ```html
-&lt;head&gt;
-  &lt;script&gt;
+<head>
+  <script>
     const state = {
       count: 0
     }
@@ -187,28 +187,28 @@ To be more specific about how we are going to render our template, let's improve
       state.count += 1
       mapToTemplate(template, state)
     }
-  &lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;div id="box"&gt;&lt;/div&gt;
-  &lt;template
+  </script>
+</head>
+<body>
+  <div id="box"></div>
+  <template
     id="template"
     is="reusable"
     data-object-name="state"
-    data-insert-into="#box"&gt;
-    &lt;button
+    data-insert-into="#box">
+    <button
       data-text="Clicked ${state.count} times"
-      onclick="handleClick(this)"&gt;
-    &lt;/button&gt;
-  &lt;/template&gt;
-&lt;/body&gt;
+      onclick="handleClick(this)">
+    </button>
+  </template>
+</body>
 ```
 
 By using `data-insert-into`, we can specify element selector where our template will be rendered. In this case, we insert it inside of element `#box`. So, imagine that we clicked the button 3 times, this is how our **HTML** would look like:
 
 ```html
-&lt;head&gt;
-  &lt;script&gt;
+<head>
+  <script>
     const state = {
       count: 0
     }
@@ -220,25 +220,25 @@ By using `data-insert-into`, we can specify element selector where our template 
       state.count += 1
       mapToTemplate(template, state)
     }
-  &lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;div id="box"&gt;
-    &lt;button onclick="handleClick(this)"&gt;
+  </script>
+</head>
+<body>
+  <div id="box">
+    <button onclick="handleClick(this)">
       Clicked 3 times
-    &lt;/button&gt;
-  &lt;/div&gt;
-  &lt;template
+    </button>
+  </div>
+  <template
     id="template"
     is="reusable"
     data-object-name="state"
-    data-insert-into="#box"&gt;
-    &lt;button
+    data-insert-into="#box">
+    <button
       data-text="Clicked ${state.count} times"
-      onclick="handleClick(this)"&gt;
-    &lt;/button&gt;
-  &lt;/template&gt;
-&lt;/body&gt;
+      onclick="handleClick(this)">
+    </button>
+  </template>
+</body>
 ```
 
 We can use `data-append-to="#box"`, our **HTML** code will look like:

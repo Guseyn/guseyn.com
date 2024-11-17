@@ -62,7 +62,7 @@ function isValid (token, secret) {
   const signature = parts[2]
   const exp = payload.exp
   if (exp) {
-    if (exp &lt; new Date().getTime()) {
+    if (exp < new Date().getTime()) {
       return false
     }
   }

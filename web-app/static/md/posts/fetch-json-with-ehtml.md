@@ -69,19 +69,19 @@ As an example, consider an open API like `restcountries.com`. If we make a reque
 Imagine if we could do something like this:
 
 ```html
-&lt;template is="e-json" data-src="https://restcountries.com/v3.1/name/cyprus" data-object-name="response"&gt;
-  &lt;h3&gt;Information about &lt;span data-text="${response.body[0].name.official}:"&gt;&lt;/span&gt;&lt;/h3&gt;
-  &lt;p&gt;
-    &lt;span&gt;Capital is &lt;/span&gt;&lt;b data-text="${response.body[0].capital[0]}"&gt;&lt;/b&gt;&lt;br&gt;
-    &lt;span&gt;Localted in &lt;/span&gt;&lt;b data-text="${response.body[0].continents[0]}"&gt;&lt;/b&gt;&lt;br&gt;
-    &lt;span&gt;Localted more specifically in &lt;/span&gt;&lt;b data-text="${response.body[0].subregion}"&gt;&lt;/b&gt;&lt;br&gt;
-    &lt;span&gt;Flag looks like &lt;/span&gt;&lt;img class="flag" src="${response.body[0].flags.svg}"&gt;&lt;br&gt;
-    &lt;span&gt;Timezones are &lt;/span&gt;&lt;b data-text="${response.body[0].timezones.join(', ')}"&gt;&lt;/b&gt;&lt;br&gt;
-    &lt;span&gt;Population is &lt;/span&gt;&lt;b data-text="${response.body[0].population}"&gt;&lt;/b&gt;&lt;br&gt;
-    &lt;span&gt;Languages are &lt;/span&gt;&lt;b data-text="${Object.values(response.body[0].languages).join(', ')}"&gt;&lt;/b&gt;&lt;br&gt;
-    &lt;span&gt;Currencies are &lt;/span&gt;&lt;b data-text="${Object.keys(response.body[0].currencies).join(', ')}"&gt;&lt;/b&gt;&lt;br&gt;
-  &lt;/p&gt;
-&lt;/template&gt;
+<template is="e-json" data-src="https://restcountries.com/v3.1/name/cyprus" data-object-name="response">
+  <h3>Information about <span data-text="${response.body[0].name.official}:"></span></h3>
+  <p>
+    <span>Capital is </span><b data-text="${response.body[0].capital[0]}"></b><br>
+    <span>Localted in </span><b data-text="${response.body[0].continents[0]}"></b><br>
+    <span>Localted more specifically in </span><b data-text="${response.body[0].subregion}"></b><br>
+    <span>Flag looks like </span><img class="flag" src="${response.body[0].flags.svg}"><br>
+    <span>Timezones are </span><b data-text="${response.body[0].timezones.join(', ')}"></b><br>
+    <span>Population is </span><b data-text="${response.body[0].population}"></b><br>
+    <span>Languages are </span><b data-text="${Object.values(response.body[0].languages).join(', ')}"></b><br>
+    <span>Currencies are </span><b data-text="${Object.keys(response.body[0].currencies).join(', ')}"></b><br>
+  </p>
+</template>
 ```
 
 With some sprinkle of css, the page can look like this:
