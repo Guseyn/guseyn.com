@@ -4,9 +4,8 @@ WORKDIR /app
 COPY . .
 
 RUN touch output.log
-RUN touch web-app/ssl/cert.pem
-RUN touch web-app/ssl/privkey.pem
-RUN npm install 
+RUN /web-app/ssl/live
+RUN npm install
 
 EXPOSE 8001
 EXPOSE 8002

@@ -4,6 +4,6 @@ cd guseyn.com
 git fetch --all
 git reset --hard origin/master
 git pull
-npm install
-npm run guseyn:prod:restart
+
+docker exec -it guseyn.com npm run guseyn:prod:restart
 '"
