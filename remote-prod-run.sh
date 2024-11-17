@@ -15,5 +15,5 @@ docker volume prune -f || echo "No volumes to prune"
 # Remove all images
 docker rmi -f \$(docker images -q) || echo "No images to remove"
 
-DOMAIN=guseyn.com DOMAIN_EMAIL=guseyn@guseyn.com docker-compose -f docker-compose.prod.yml up --build
+DOMAIN=guseyn.com DOMAIN_EMAIL=guseyn@guseyn.com CERTBOT_MODE=generate docker-compose -f docker-compose.prod.yml up --build
 '"

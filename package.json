@@ -12,7 +12,7 @@
     "guseyn:local:restart": "ENV=local npm run guseyn:restart",
     "guseyn:prod:restart": "ENV=prod npm run guseyn:restart",
     "guseyn:docker:local:start": "docker-compose -f docker-compose.yml up --build --force-recreate --remove-orphans",
-    "guseyn:docker:prod:start": "DOMAIN=guseyn.com,www.guseyn.com DOMAIN_EMAIL=guseyn@guseyn.com docker-compose -f docker-compose.prod.yml up --build --force-recreate --remove-orphans",
+    "guseyn:docker:prod:start": "DOMAIN=guseyn.com,www.guseyn.com DOMAIN_EMAIL=guseyn@guseyn.com CERTBOT_MODE=generate docker-compose -f docker-compose.prod.yml up --build --force-recreate --remove-orphans",
     "guseyn:docker:local:restart": "docker exec -it guseyn.com npm run guseyn:local:restart",
     "guseyn:docker:prod:restart": "docker exec -it guseyn.com npm run guseyn:prod:restart",
     "guseyn:pull": "node web-app/pull.js"
