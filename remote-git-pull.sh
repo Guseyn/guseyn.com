@@ -4,5 +4,4 @@ cd guseyn.com
 git fetch --all
 git reset --hard origin/master
 git pull
-npm run guseyn:pull
 '"
