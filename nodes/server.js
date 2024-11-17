@@ -44,6 +44,13 @@ module.exports = function server(app) {
     },
     allowHTTP1: true
   }, (req, res) => {
+    if (req.httpVersion === '2.0') {
+      // we don't need emulation,
+      // we can go to server.on('stream') event
+      return
+    }
+    // let's emulate stream api for http/1,
+    // by incapsulating req, res in it
     const stream = emulateStreamForHttp1(req, res)
     constructDomain(server, stream).run(async () => {
       app.config = global.config
