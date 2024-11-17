@@ -14,11 +14,11 @@ If you don't know what **Elegant Objects**(or **EO**) conception is, you should 
 
 Accroding to the **EO** good program must have following structure:
 
-![composable](/image/composable.png)
+![composable](https://cdn.guseyn.com(/image/composable.png))
 
 So it should be composable. On the other hand, following picture shows us a bad structured program:
 
-![procedural](/image/procedural.png)
+![procedural](https://cdn.guseyn.com(/image/procedural.png))
 
 And I cannot agree more. I also think that a good program on the API level should have composable structure. But does it make sense to use objects for that?
 
@@ -140,7 +140,7 @@ I mean it's okay, but do we really make our code composable or we just create ob
 
 So, **EO** principles do not bring us the structure of code that we have on the first picture, it looks more like this:
 
-![procedural](/image/eo.png)
+![procedural](https://cdn.guseyn.com(/image/eo.png))
 
 On one hand it makes situation a bit better because at least we have compositions: the idea of breaking complex logic into smaller objects. And I like this idea. But connections between these composition are still "procedural" as you can imagine and it makes the whole situation even worse.
 

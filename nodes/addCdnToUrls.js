@@ -31,7 +31,7 @@ async function adjustPathsInHTML(htmlContent, cdnBaseUrl) {
 async function adjustPathsInMarkdown(mdContent, cdnBaseUrl) {
   // Step 1: Skip code blocks enclosed by triple backticks
   const codeBlocks = []
-  mdContent = mdContent.replace(/```[\s\S]*?```/g, (codeBlock) => {
+  mdContent = mdContent.replace(/```[\s\S]*?```|`[^`]*`/g, (codeBlock) => {
     // Save the code block in an array to avoid altering it
     codeBlocks.push(codeBlock)
     // Replace the code block with a placeholder
