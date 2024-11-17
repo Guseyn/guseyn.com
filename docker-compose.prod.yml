@@ -51,17 +51,17 @@ services:
     networks:
       - app-network
 
-  cron:
-    image: bash:latest
-    container_name: certbot-cron
-    depends_on:
-      - certbot
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
-    command: >
-      sh -c "
-      echo '0 0 * * * docker-compose run --rm certbot CERTBOT_MODE=renew' > /etc/crontab &&
-      crond -f"
+  # cron:
+  #   image: bash:latest
+  #   container_name: certbot-cron
+  #   depends_on:
+  #     - certbot
+  #   volumes:
+  #     - /etc/localtime:/etc/localtime:ro
+  #   command: >
+  #     sh -c "
+  #     echo '0 0 * * * docker-compose run --rm certbot CERTBOT_MODE=renew' > /etc/crontab &&
+  #     crond -f"
 
 networks:
   app-network:
