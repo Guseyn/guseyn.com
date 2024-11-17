@@ -7,7 +7,7 @@ const environment = process.env.ENV
 module.exports = async function prepareStaticFilesWithCdnAndCacheVersions() {
   await updateCacheVersionsInUrls('web-app/static')
   if (environment === 'prod') {
-    await removeCdnFromUrls('web-app/static', 'https://cdn.guseyn.com')
+    await addCdnToUrls('web-app/static', 'https://cdn.guseyn.com')
   } else {
     await removeCdnFromUrls('web-app/static', 'https://cdn.guseyn.com')
   }
