@@ -9,6 +9,8 @@ services:
     container_name: ${DOMAIN}
     volumes:
       - ./output.log:/app/output.log
+      - package.json:/app/package.json
+      - package-lock.json:/app/package-lock.json
       - ./nodes:/app/nodes
       - ./web-app:/app/web-app
       - ./web-app/.well-known/acme-challenge:/app/web-app/.well-known/acme-challenge  # Mount ACME challenge folder
