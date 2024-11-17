@@ -29,11 +29,12 @@ module.exports = function streamFile(
   const mappedMimeType = mimeType(file)
   const responseHeaders = {
     'content-type': mappedMimeType,
-    'content-length': stats.size,
     ':status': status
   }
   if (useGzip) {
     responseHeaders['content-encoding'] = 'gzip'
+  } else {
+    responseHeaders['content-length'] = stats.size
   }
   if (useCache) {
     responseHeaders['etag'] = lastModified
