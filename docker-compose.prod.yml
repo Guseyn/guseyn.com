@@ -14,8 +14,8 @@ services:
       - ./web-app/.well-known/acme-challenge:/app/web-app/.well-known/acme-challenge  # Mount ACME challenge folder
       - ./web-app/ssl:/app/web-app/ssl  # Mount folder for SSL certs inside app/${DOMAIN}/ssl
     ports:
-      - "8001:443"  # Prime HTTP(S)/2 
-      - "8002:80"    # Proxy
+      - "443:443"  # Prime HTTP(S)/2 
+      - "80:80"    # Proxy
     networks:
       - app-network
     # Override CMD in Dockerfile with my ENV variable
@@ -51,17 +51,17 @@ services:
     networks:
       - app-network
 
-  # cron:
-  #   image: bash:latest
-  #   container_name: certbot-cron
-  #   depends_on:
-  #     - certbot
-  #   volumes:
-  #     - /etc/localtime:/etc/localtime:ro
-  #   command: >
-  #     sh -c "
-  #     echo '0 0 * * * docker-compose run --rm certbot CERTBOT_MODE=renew' > /etc/crontab &&
-  #     crond -f"
+  cron:
+    image: bash:latest
+    container_name: certbot-cron
+    depends_on:
+      - certbot
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    command: >
+      sh -c "
+      echo '0 0 * * * docker-compose run --rm certbot CERTBOT_MODE=renew' > /etc/crontab &&
+      crond -f"
 
 networks:
   app-network:
