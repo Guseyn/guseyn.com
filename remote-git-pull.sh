@@ -4,5 +4,6 @@ cd guseyn.com
 git fetch --all
 git reset --hard origin/master
 git pull
-docker exec -it guseyn.com npm run guseyn:pull
+
+docker exec guseyn.com npm run guseyn:pull
 '"
