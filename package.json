@@ -16,6 +16,7 @@
     "guseyn:docker:local:restart": "docker exec -it guseyn.com npm run guseyn:local:restart",
     "guseyn:docker:prod:restart": "docker exec -it guseyn.com npm run guseyn:prod:restart",
     "guseyn:pull": "node web-app/pull.js"
+    "guseyn:prod:pull": "ENV=prod node web-app/pull.js"
   },
   "author": "guseyn",
   "license": "MIT",
