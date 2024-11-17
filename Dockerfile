@@ -4,7 +4,7 @@ WORKDIR /app
 COPY . .
 
 RUN touch output.log
-RUN /web-app/ssl/live
+RUN rm -r -f /web-app/ssl/live
 RUN npm install
 
 EXPOSE 8001
