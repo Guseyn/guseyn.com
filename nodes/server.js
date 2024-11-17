@@ -10,7 +10,7 @@ const readSecrets = require('./readSecrets')
 
 const proxyServer = require('./proxyServer')
 
-const http1xhandler = require('./http1xhandler')
+const emulateStreamForHttp1 = require('./emulateStreamForHttp1')
 
 module.exports = function server(app) {
 
@@ -43,7 +43,13 @@ module.exports = function server(app) {
       callback(null, ctx)
     },
     allowHTTP1: true
-  }, http1xhandler)
+  }, (req, res) => {
+    const stream = emulateStreamForHttp1(req, res)
+    constructDomain(server, stream).run(async () => {
+      app.config = global.config
+      await handleRequests(app, stream, stream.headers)
+    })
+  })
 
   server.on('stream', (stream, headers) => {
     constructDomain(server, stream).run(async () => {
