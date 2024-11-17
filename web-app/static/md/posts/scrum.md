@@ -23,7 +23,7 @@ If you offer a simple solution, you may be perceived as less competent than some
 <br>
 
 ## Overhiring
-When you complicate things, it's really tough to manage your time and to fight with the complications you encounter on a daily basis. Managers are often under the influence of people who are either scared or, worse, not even aware of simple solutions. They hire more people in the hope that it will help the situation. But when you hire more people, you have to manage them, communicate with them, and [share knowledge](/html/posts/knowledge-sharing-sins.html) that would help them to work. And it's hard, it's really really hard.
+When you complicate things, it's really tough to manage your time and to fight with the complications you encounter on a daily basis. Managers are often under the influence of people who are either scared or, worse, not even aware of simple solutions. They hire more people in the hope that it will help the situation. But when you hire more people, you have to manage them, communicate with them, and [share knowledge](https://guseyn.com/html/posts/knowledge-sharing-sins.html) that would help them to work. And it's hard, it's really really hard.
 <br>
 
 ## Motivation

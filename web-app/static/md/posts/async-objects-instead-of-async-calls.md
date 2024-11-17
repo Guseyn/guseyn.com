@@ -232,7 +232,7 @@ new ParsedJSON(
 ).call()
 ```
 
-I've called this conception **Async Tree Pattern**. You can read more about it and [cutie](https://github.com/Guseyn/cutie) in [this doc](/pdf/Async_Tree_Pattern.pdf).
+I've called this conception **Async Tree Pattern**. You can read more about it and [cutie](https://github.com/Guseyn/cutie) in [this doc](https://cdn.guseyn.com(/pdf/Async_Tree_Pattern.pdf)).
 
 There is a lot of work to do, because **Cutie** is just basic library that provides `AsyncObject` abstraction. So, my goal is now to make abstractions for most async calls in Node. For example, async objects for **fs** and **http** modules for beginning would be great. If you liked this idea, you can also transform Node's static async methods into the beautiful async objects.
 

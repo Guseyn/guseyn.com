@@ -22,9 +22,9 @@ provide a convenient way to write declarative code in the asynchronous environme
 I am an author of many open source projects such as [Cutie](https://github.com/Guseyn/cutie)(and its [extensions](https://github.com/Guseyn?tab=repositories&q=cutie&type=&language=)), [Page](https://github.com/Guseyn/page), [Test executor](https://github.com/Guseyn/node-test-executor), [Broken XML](https://github.com/Guseyn/broken-xml). Also I contribute to existing project such as [Rewrite](https://github.com/openrewrite/) by finding issues and creating example projects like [Rewrite Java Definitions](https://github.com/Guseyn/rewrite-java-definitions).
 
 ## Tech Blogger
-I write [posts](/html/all-posts.html) about code design, code tricks and tech culture in general. I make [videos](https://www.youtube.com/watch?v=lOf0NkNtWzI&feature=emb_title) and participate in [tech meetups](https://www.youtube.com/watch?v=Ptz6kJ3NXGI&feature=emb_title) as speaker. Also [some people](https://www.youtube.com/watch?v=Cx1kZbwkr5g&t=128s) talk about my projects.
+I write [posts](https://cdn.guseyn.com(/html/all-posts.html)) about code design, code tricks and tech culture in general. I make [videos](https://www.youtube.com/watch?v=lOf0NkNtWzI&feature=emb_title) and participate in [tech meetups](https://www.youtube.com/watch?v=Ptz6kJ3NXGI&feature=emb_title) as speaker. Also [some people](https://www.youtube.com/watch?v=Cx1kZbwkr5g&t=128s) talk about my projects.
 
-I also like to write [papers](/html/papers.html). I wrote paper on [Async Tree Pattern](https://guseyn.com/pdf/Async_Tree_Pattern.pdf), and I created web page [Mathematics of Neural Network](https://guseyn.github.io/nn-math-web/).
+I also like to write [papers](https://cdn.guseyn.com(/html/papers.html)). I wrote paper on [Async Tree Pattern](https://guseyn.com/pdf/Async_Tree_Pattern.pdf), and I created web page [Mathematics of Neural Network](https://guseyn.github.io/nn-math-web/).
 
 ## Entrepreneur
 I am working on a side project in my free time. It's called [Unison](https://unisonofficial.com) and it is a platform where you can create sheet music just by describing them with simple words.
@@ -33,9 +33,9 @@ I am working on a side project in my free time. It's called [Unison](https://uni
 You can find [my streams here](https://www.twitch.tv/unisonofficial) on how I test, develop and use my programs, like for example [Unison](https://unisonofficial.com). Also I talk on general subjects in software development.
 
 ## Programmer
-I am a full-time full-stack software developer with more than 7 years of diverse experience: I was working as a software engineer at outsource company, at small startup with fully distributed international team, and as a researcher at international tech corporation. More information about my work experience you can find in my [LinkedIn profile](https://www.linkedin.com/in/gusein-ismaiylov-111bb1179/) and [resume](/html/resume.html).
+I am a full-time full-stack software developer with more than 7 years of diverse experience: I was working as a software engineer at outsource company, at small startup with fully distributed international team, and as a researcher at international tech corporation. More information about my work experience you can find in my [LinkedIn profile](https://www.linkedin.com/in/gusein-ismaiylov-111bb1179/) and [resume](https://cdn.guseyn.com(/html/resume.html)).
 
 In my work, I appreciate clarity of the information in the documentation and the code.
 
 ## Chess&Music lover
-I like playing chess (you can challenge me on [liches](https://lichess.org/@/guseyn1245)). Also, I like music and making covers of popular songs on guitar and ukelele. [Here](/html/covers.html) is some of them. More over, I am trying to make life of many musicians and composers much easier by creating Unison project.
+I like playing chess (you can challenge me on [liches](https://lichess.org/@/guseyn1245)). Also, I like music and making covers of popular songs on guitar and ukelele. [Here](https://cdn.guseyn.com(/html/covers.html)) is some of them. More over, I am trying to make life of many musicians and composers much easier by creating Unison project.
