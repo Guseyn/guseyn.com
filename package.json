@@ -15,7 +15,7 @@
     "guseyn:docker:prod:start": "DOMAIN=guseyn.com,www.guseyn.com DOMAIN_EMAIL=guseyn@guseyn.com CERTBOT_MODE=generate docker-compose -f docker-compose.prod.yml up --build --force-recreate --remove-orphans",
     "guseyn:docker:local:restart": "docker exec -it guseyn.com npm run guseyn:local:restart",
     "guseyn:docker:prod:restart": "docker exec -it guseyn.com npm run guseyn:prod:restart",
-    "guseyn:pull": "node web-app/pull.js"
+    "guseyn:pull": "node web-app/pull.js",
     "guseyn:prod:pull": "ENV=prod node web-app/pull.js"
   },
   "author": "guseyn",
