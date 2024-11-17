@@ -48,11 +48,16 @@ module.exports = function server(app) {
       // we can go to server.on('stream') event
       return
     }
-    res.writeHead(426, {
-      'upgrade': 'HTTP/2.0',
-      'content-type': 'text/plain'
+    const stream = emulateStreamForHttp1(req, res)
+    constructDomain(server, stream).run(async () => {
+      app.config = global.config
+      await handleRequests(app, stream, stream.headers)
     })
-    res.end('Please upgrade to HTTP/2')
+    // res.writeHead(426, {
+    //   'upgrade': 'HTTP/2.0',
+    //   'content-type': 'text/plain'
+    // })
+    // res.end('Please upgrade to HTTP/2')
   })
 
   server.on('stream', (stream, headers) => {
