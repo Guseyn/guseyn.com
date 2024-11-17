@@ -37,8 +37,8 @@ server(
       src(/^\/((html\/main-page-template\.html)|css|js|json|svg|image|md|pdf|ttf|yml)/, {
         baseFolder,
         useGzip: true,
-        useCors,
-        ...corsOptions,
+        // useCors,
+        // ...corsOptions,
         useCache,
         ...cacheControl
       }),
