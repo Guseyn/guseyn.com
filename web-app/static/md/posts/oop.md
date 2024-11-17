@@ -28,7 +28,7 @@ I want to split this article into three parts:
 Why is the following code declarative?
 
 ```sql
-SELECT * FROM 'users' WHERE age &gt; 20;
+SELECT * FROM 'users' WHERE age > 20;
 ```
 
 I think it's because we don't know how exactly we select users who are older than 20 years. But we know we would get requested people if underlying program works correctly.
@@ -36,16 +36,16 @@ I think it's because we don't know how exactly we select users who are older tha
 Why is the next example declarative?
 
 ```html
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;title&gt;Object-oriented programming.&lt;/title&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;p&gt;
+<html>
+  <head>
+    <title>Object-oriented programming.</title>
+  </head>
+  <body>
+    <p>
       What else did you expect?
-    &lt;/p&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
+    </p>
+  </body>
+</html>
 ```
 
 I think it's declarative because we don't know how exactly this HTML page is rendered. But we know that we would see rendered page with expected title and text in it if our browser works properly.
@@ -80,7 +80,7 @@ So basically, in Java we have objects which can compute something via methods, s
 
 So, let's say our goal now is to represent our program as a declarative structure where our computing can be hidden. Let's try!
 
-&lt;br/&gt;
+<br/>
 ## Making it Declarative
 
 Let's take a look at the following example:
@@ -304,7 +304,7 @@ new Email(
 
 Is this code declarative? I would say it's still quite declarative, sure. But we spent so much energy and time doing that via objects in Java. Is it worth it? Well...
 
-&lt;br/&gt;
+<br/>
 ## Object-oriented programming. Is it the way to write declarative code?
 
 If you have read everything till this point, I can only say "Thank you for your time and energy! Thank you very much!".

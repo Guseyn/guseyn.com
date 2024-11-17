@@ -14,35 +14,35 @@ Let's start with following page:
 This is an index page, let's take a look at the source:
 
 ```html
-&lt;!DOCTYPE html&gt;
-&lt;html xmlns="http://www.w3.org/1999/xhtml" lang="en"&gt;
-  &lt;head&gt;
-    &lt;title&gt;Blog App&lt;/title&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
-    &lt;meta name="author" content="Guseyn"&gt;
-    &lt;link rel="shortcut icon" type="image/png" href="/image/favicon.png?v=fde14c79"&gt;
-    &lt;link rel="stylesheet" href="/css/normalize.css?v=fde14c79" type="text/css"&gt;
-    &lt;link rel="stylesheet" href="/css/main.css?v=23840f6c" type="text/css"&gt;
-    &lt;script src="/js/ehtml.js" type="text/javascript"&gt;&lt;/script&gt;
-  &lt;/head&gt;
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>Blog App</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Guseyn">
+    <link rel="shortcut icon" type="image/png" href="/image/favicon.png?v=fde14c79">
+    <link rel="stylesheet" href="/css/normalize.css?v=fde14c79" type="text/css">
+    <link rel="stylesheet" href="/css/main.css?v=23840f6c" type="text/css">
+    <script src="/js/ehtml.js" type="text/javascript"></script>
+  </head>
 
-  &lt;body class="main"&gt;
-    &lt;div class="base"&gt;
+  <body class="main">
+    <div class="base">
       
-      &lt;e-html data-src="/html/add-post.html"&gt;&lt;/e-html&gt;
-      &lt;e-turbolink class="page-link" data-href="/html/posts.html?page=0&size=3"&gt;
+      <e-html data-src="/html/add-post.html"></e-html>
+      <e-turbolink class="page-link" data-href="/html/posts.html?page=0&size=3">
         Show All Posts
-      &lt;/e-turbolink&gt;
+      </e-turbolink>
 
-    &lt;/div&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
+    </div>
+  </body>
+</html>
 ```
 
 There are few things that's worth attention:
 
-1. We load our ehtml lib just via `&lt;script&gt;` tag.
+1. We load our ehtml lib just via `<script>` tag.
 
 2. We're using `e-html` tag to load snippet of some of other html code. More info on this tag you can find [here](https://github.com/Guseyn/EHTML#supported-elements).
 
@@ -51,15 +51,15 @@ There are few things that's worth attention:
 Let's take a look at the form that we're a going to build:
 
 ```html
-&lt;div class="blog-box"&gt;
+<div class="blog-box">
   
-  &lt;div class="title"&gt;Add new post&lt;/div&gt;
+  <div class="title">Add new post</div>
 
-  &lt;e-form
+  <e-form
     data-validation-error-message="Enter correct data into the form, please"
-    data-validation-error-class-for-message-box="form-message-error"&gt;
-    &lt;div class="input-label"&gt;Your email&lt;/div&gt;
-    &lt;input
+    data-validation-error-class-for-message-box="form-message-error">
+    <div class="input-label">Your email</div>
+    <input
       type="email" 
       name="userEmail"
       required
@@ -67,46 +67,46 @@ Let's take a look at the form that we're a going to build:
       data-validation-bad-format-error-message="This is not proper email address"
       data-validation-absence-error-message="Email is required"
       data-validation-error-class-for-element="elm-error"
-      data-validation-error-class-for-message-box="message-error"&gt;
+      data-validation-error-class-for-message-box="message-error">
 
-    &lt;div class="input-label"&gt;Date&lt;/div&gt;
-    &lt;input
+    <div class="input-label">Date</div>
+    <input
       type="date"
       name="date"
       required
       data-validation-pattern="date"
       data-validation-absence-error-message="Post date is required"
       data-validation-error-class-for-element="elm-error"
-      data-validation-error-class-for-message-box="message-error"&gt;
+      data-validation-error-class-for-message-box="message-error">
 
-    &lt;div class="input-label"&gt;Title&lt;/div&gt;
-    &lt;input
+    <div class="input-label">Title</div>
+    <input
       type="text"
       name="title"
       required
       data-validation-error-class-for-element="elm-error"
-      data-validation-error-class-for-message-box="message-error"&gt;
+      data-validation-error-class-for-message-box="message-error">
 
-    &lt;div class="input-label"&gt;Content&lt;/div&gt;
-    &lt;textarea
+    <div class="input-label">Content</div>
+    <textarea
       name="content"
       required
       data-validation-error-class-for-element="elm-error"
-      data-validation-error-class-for-message-box="message-error"&gt;&lt;/textarea&gt;
+      data-validation-error-class-for-message-box="message-error"></textarea>
 
-    &lt;button
+    <button
       data-request-url="/post/new/"
       data-request-method="POST"
       data-ajax-icon=".ajax-icon"
       onclick="this.form.submit(this)"
       data-response-name="response"
-      data-actions-on-response="turboRedirect('/html/post.html?id=${response.body.id}')"&gt;
+      data-actions-on-response="turboRedirect('/html/post.html?id=${response.body.id}')">
       POST
-    &lt;/button&gt;
-    &lt;img class="ajax-icon" src="/images/ajax-icon.svg"/&gt;
-  &lt;/e-form&gt;
+    </button>
+    <img class="ajax-icon" src="/images/ajax-icon.svg"/>
+  </e-form>
 
-&lt;/div&gt;
+</div>
 ```
 
 Here we're declaring `e-form` tag with different validation messages(for the whole form and its input fields) and also css class names for them:
@@ -133,80 +133,80 @@ In the button in the form you can specify details of the endpoint that waits for
 
 When you open a post, you would see something like this:
 
-&lt;img src="/image/ehtml-blog-app-2.png?v=fde14c79" alt="post-page"&gt;
+<img src="/image/ehtml-blog-app-2.png?v=fde14c79" alt="post-page">
 
 Let's see how we can build the page above:
 
 ```html
-&lt;body class="main"&gt;
-  &lt;div class="base"&gt;
+<body class="main">
+  <div class="base">
     
-    &lt;template is="e-page-with-url" data-url-pattern="/html/post.html?{id}"&gt;
+    <template is="e-page-with-url" data-url-pattern="/html/post.html?{id}">
       
-      &lt;div class="blog-box"&gt;
+      <div class="blog-box">
         
-        &lt;e-json 
+        <e-json 
           data-src="/post?id=${urlParams.id}" 
           data-ajax-icon="#post-ajax-icon"
           data-response-name="postResponse"
-          data-actions-on-response="mapToTemplate('${postResponse}', '#post-template');"&gt;
-          &lt;img class="ajax-icon" id="post-ajax-icon" src="/images/ajax-icon.svg"/&gt;
+          data-actions-on-response="mapToTemplate('${postResponse}', '#post-template');">
+          <img class="ajax-icon" id="post-ajax-icon" src="/images/ajax-icon.svg"/>
 
-          &lt;template id="post-template" data-object-name="postResponse"&gt;
+          <template id="post-template" data-object-name="postResponse">
 
-            &lt;template is="e-if" data-condition-to-display="${postResponse.statusCode === 404}"&gt;
-              &lt;div class="not-found"&gt;Post Not Found&lt;/div&gt;
-            &lt;/template&gt;
+            <template is="e-if" data-condition-to-display="${postResponse.statusCode === 404}">
+              <div class="not-found">Post Not Found</div>
+            </template>
 
-            &lt;template is="e-if" data-condition-to-display="
+            <template is="e-if" data-condition-to-display="
               ${postResponse.statusCode === 200}
-            "&gt;
+            ">
 
-              &lt;div class="post-box"&gt;
-                &lt;div class="title" data-text="${postResponse.body.title}"&gt;&lt;/div&gt;
-                &lt;div class="user-email" data-text="${postResponse.body.userEmail}"&gt;&lt;/div&gt;
-                &lt;div class="date" data-text="${postResponse.body.date}"&gt;&lt;/div&gt;
-                &lt;div class="content" data-text="${postResponse.body.content}"&gt;&lt;/div&gt;
-              &lt;/div&gt;
+              <div class="post-box">
+                <div class="title" data-text="${postResponse.body.title}"></div>
+                <div class="user-email" data-text="${postResponse.body.userEmail}"></div>
+                <div class="date" data-text="${postResponse.body.date}"></div>
+                <div class="content" data-text="${postResponse.body.content}"></div>
+              </div>
 
-              &lt;div class="comments-box"&gt;
+              <div class="comments-box">
                 
-                &lt;b&gt;Comments:&lt;/b&gt;
-                &lt;template is="e-if" data-condition-to-display="
+                <b>Comments:</b>
+                <template is="e-if" data-condition-to-display="
                   ${postResponse.body.comments.length === 0}
-                "&gt;
-                  &lt;div id="no-comments-message"&gt;No Comments yet. Be the first to comment.&lt;/div&gt;
-                &lt;/template&gt;
+                ">
+                  <div id="no-comments-message">No Comments yet. Be the first to comment.</div>
+                </template>
 
-                &lt;template is="e-if" data-condition-to-display="
+                <template is="e-if" data-condition-to-display="
                   ${postResponse.body.comments.length !== 0}
-                "&gt;
+                ">
 
-                  &lt;template is="e-for-each"
+                  <template is="e-for-each"
                     data-list-to-iterate="${postResponse.body.comments}"
                     data-item-name="comment"
-                  &gt;
-                    &lt;div class="comment-box"&gt;
-                      &lt;div class="user-email" data-text="${comment.userEmail}"&gt;&lt;/div&gt; 
-                      &lt;div class="comment-content" data-text="${comment.content}"&gt;&lt;/div&gt; 
-                    &lt;/div&gt;
-                  &lt;/template&gt;
+                  >
+                    <div class="comment-box">
+                      <div class="user-email" data-text="${comment.userEmail}"></div> 
+                      <div class="comment-content" data-text="${comment.content}"></div> 
+                    </div>
+                  </template>
 
-                &lt;/template&gt;
+                </template>
                   
-                &lt;template id="comment-template" is="e-reusable" data-object-name="comment"&gt;
-                  &lt;div class="comment-box"&gt;
-                    &lt;div class="user-email" data-text="${comment.userEmail}"&gt;&lt;/div&gt; 
-                    &lt;div class="comment-content" data-text="${comment.content}"&gt;&lt;/div&gt; 
-                  &lt;/div&gt;
-                &lt;/template&gt;
+                <template id="comment-template" is="e-reusable" data-object-name="comment">
+                  <div class="comment-box">
+                    <div class="user-email" data-text="${comment.userEmail}"></div> 
+                    <div class="comment-content" data-text="${comment.content}"></div> 
+                  </div>
+                </template>
 
-                &lt;e-form 
+                <e-form 
                   style="margin-top: 2em;"
                   data-validation-error-message="Enter correct data into the form, please"
-                  data-validation-error-class-for-message-box="form-message-error"&gt;
-                  &lt;div class="input-label"&gt;Your email&lt;/div&gt;
-                  &lt;input
+                  data-validation-error-class-for-message-box="form-message-error">
+                  <div class="input-label">Your email</div>
+                  <input
                     id="email-input"
                     type="email" 
                     name="userEmail"
@@ -215,17 +215,17 @@ Let's see how we can build the page above:
                     data-validation-bad-format-error-message="This is not proper email address"
                     data-validation-absence-error-message="Email is required"
                     data-validation-error-class-for-element="elm-error"
-                    data-validation-error-class-for-message-box="message-error"&gt;
+                    data-validation-error-class-for-message-box="message-error">
 
-                  &lt;div class="input-label"&gt;Comment&lt;/div&gt;
-                  &lt;textarea 
+                  <div class="input-label">Comment</div>
+                  <textarea 
                     id="comment-text" 
                     required
                     data-validation-error-class-for-element="elm-error"
                     data-validation-error-class-for-message-box="message-error"
-                    name="content"&gt;&lt;/textarea&gt;
+                    name="content"></textarea>
 
-                  &lt;button
+                  <button
                     data-request-url="/comment/new?postId=${postResponse.body.id}"
                     data-request-method="POST"
                     data-ajax-icon="#comment-ajax-icon"
@@ -237,34 +237,34 @@ Let's see how we can build the page above:
                       changeValueOf('#comment-text', '');
                       hideElms('#no-comments-message');
                     "
-                  &gt;
+                  >
                     Send
-                  &lt;/button&gt;
-                  &lt;img class="ajax-icon" id="comment-ajax-icon" src="/images/ajax-icon.svg"/&gt;
-                &lt;/e-form&gt;
+                  </button>
+                  <img class="ajax-icon" id="comment-ajax-icon" src="/images/ajax-icon.svg"/>
+                </e-form>
 
-              &lt;/div&gt;
+              </div>
 
-            &lt;/template&gt;
+            </template>
 
-          &lt;/template&gt;
+          </template>
 
-        &lt;/e-json&gt;
+        </e-json>
 
-      &lt;/div&gt;
+      </div>
 
-      &lt;e-turbolink class="page-link" data-href="/html/posts.html?page=0&size=3"&gt;
+      <e-turbolink class="page-link" data-href="/html/posts.html?page=0&size=3">
         Go To All Posts
-      &lt;/e-turbolink&gt;
+      </e-turbolink>
 
-      &lt;e-turbolink class="page-link" data-href="/html/index.html"&gt;
+      <e-turbolink class="page-link" data-href="/html/index.html">
         Add New One
-      &lt;/e-turbolink&gt;
+      </e-turbolink>
 
-    &lt;/template&gt;
+    </template>
 
-  &lt;/div&gt;
-&lt;/body&gt;
+  </div>
+</body>
 ```
 
 You can see a lot of different elements in the page above, let go through them one by one.
@@ -278,12 +278,12 @@ Inside of `e-json` you can see first `e-if` template, it gets rendered if only s
 Another `e-if` template gets activated when status code is 200. There we got following snippet:
 
 ```
-&lt;div class="post-box"&gt;
-  &lt;div class="title" data-text="${postResponse.body.title}"&gt;&lt;/div&gt;
-  &lt;div class="user-email" data-text="${postResponse.body.userEmail}"&gt;&lt;/div&gt;
-  &lt;div class="date" data-text="${postResponse.body.date}"&gt;&lt;/div&gt;
-  &lt;div class="content" data-text="${postResponse.body.content}"&gt;&lt;/div&gt;
-&lt;/div&gt;
+<div class="post-box">
+  <div class="title" data-text="${postResponse.body.title}"></div>
+  <div class="user-email" data-text="${postResponse.body.userEmail}"></div>
+  <div class="date" data-text="${postResponse.body.date}"></div>
+  <div class="content" data-text="${postResponse.body.content}"></div>
+</div>
 ```
 
 As you see we can map the details of the post on the HTML element.
@@ -292,94 +292,94 @@ Like for the posts, we can create a form for the comments via `e-form`. There we
 
 This is how list of comments looks like:
 
-&lt;img src="/image/ehtml-blog-app-3.png?v=fde14c79" alt="main-page"&gt;
+<img src="/image/ehtml-blog-app-3.png?v=fde14c79" alt="main-page">
 
 Finally, let's explore how we can build a page with list of posts with pagination:
 
-&lt;img src="/image/ehtml-blog-app-4.png?v=fde14c79" alt="main-page"&gt;
+<img src="/image/ehtml-blog-app-4.png?v=fde14c79" alt="main-page">
 
 Let's take a look at the source:
 
 ```html
-&lt;body class="main"&gt;
-  &lt;div class="base"&gt;
+<body class="main">
+  <div class="base">
     
-    &lt;template is="e-page-with-url" data-url-pattern="/html/posts.html?{page}&{size}"&gt;
-      &lt;div class="blog-box"&gt;
+    <template is="e-page-with-url" data-url-pattern="/html/posts.html?{page}&{size}">
+      <div class="blog-box">
 
-        &lt;e-json 
+        <e-json 
           data-src="/posts?page=${urlParams.page}&size=${urlParams.size}"
           data-ajax-icon="#posts-ajax-icon"
           data-response-name="postsResponse"
-          data-actions-on-response="mapToTemplate('${postsResponse}', '#posts-template');"&gt;
-          &lt;img class="ajax-icon" id="posts-ajax-icon" src="/images/ajax-icon.svg"/&gt;
+          data-actions-on-response="mapToTemplate('${postsResponse}', '#posts-template');">
+          <img class="ajax-icon" id="posts-ajax-icon" src="/images/ajax-icon.svg"/>
           
-          &lt;template id="posts-template" data-object-name="postsResponse"&gt;
+          <template id="posts-template" data-object-name="postsResponse">
             
-            &lt;template is="e-if" data-condition-to-display="
+            <template is="e-if" data-condition-to-display="
               ${postsResponse.body.posts.length === 0}
-            "&gt;
-              &lt;div class="no-content-message"&gt;No posts yet&lt;/div&gt;
-            &lt;/template&gt;
+            ">
+              <div class="no-content-message">No posts yet</div>
+            </template>
             
-            &lt;template is="e-if" data-condition-to-display="
+            <template is="e-if" data-condition-to-display="
               ${postsResponse.body.posts.length !== 0}
-            "&gt;
+            ">
 
-              &lt;template is="e-for-each"
+              <template is="e-for-each"
                 data-list-to-iterate="postsResponse.body.posts"
-                data-item-name="post"&gt;
+                data-item-name="post">
                 
-                &lt;div class="post-box"&gt;
-                  &lt;div class="title"&gt;
-                    &lt;e-turbolink 
+                <div class="post-box">
+                  <div class="title">
+                    <e-turbolink 
                       data-text="${post.title}"
-                      data-href="/html/post.html?id=${post.id}"&gt;    
-                    &lt;/e-turbolink&gt;
-                  &lt;/div&gt;
-                  &lt;div class="user-email" data-text="${post.userEmail}"&gt;&lt;/div&gt;
-                  &lt;div class="date" data-text="${post.date}"&gt;&lt;/div&gt;
-                  &lt;div class="content" data-text="${post.content}"&gt;&lt;/div&gt;
-                &lt;/div&gt;
+                      data-href="/html/post.html?id=${post.id}">    
+                    </e-turbolink>
+                  </div>
+                  <div class="user-email" data-text="${post.userEmail}"></div>
+                  <div class="date" data-text="${post.date}"></div>
+                  <div class="content" data-text="${post.content}"></div>
+                </div>
 
-              &lt;/template&gt;
+              </template>
               
-              &lt;template is="e-if" data-condition-to-display="
-                ${urlParams.page * 1 &gt; 0 }"
-              &gt;
+              <template is="e-if" data-condition-to-display="
+                ${urlParams.page * 1 > 0 }"
+              >
 
-                &lt;e-turbolink class="page-link"
-                  data-href="/html/posts.html?page=${urlParams.page * 1 - 1}&size=${urlParams.size}"&gt;
-                  &lt;&lt; Show prev. page
-                &lt;/e-turbolink&gt;
+                <e-turbolink class="page-link"
+                  data-href="/html/posts.html?page=${urlParams.page * 1 - 1}&size=${urlParams.size}">
+                  << Show prev. page
+                </e-turbolink>
 
-              &lt;/template&gt;
+              </template>
 
-              &lt;template is="e-if"
-                data-condition-to-display="${!postsResponse.body.lastPage}"&gt;
+              <template is="e-if"
+                data-condition-to-display="${!postsResponse.body.lastPage}">
 
-                &lt;e-turbolink class="page-link"
-                  data-href="/html/posts.html?page=${urlParams.page * 1 + 1}&size=${urlParams.size}"&gt;
-                  Show next. page &gt;&gt;
-                &lt;/e-turbolink&gt;
+                <e-turbolink class="page-link"
+                  data-href="/html/posts.html?page=${urlParams.page * 1 + 1}&size=${urlParams.size}">
+                  Show next. page >>
+                </e-turbolink>
 
-              &lt;/template&gt;
+              </template>
 
-            &lt;/template&gt;
+            </template>
 
-            &lt;e-turbolink class="page-link" data-href="/html/index.html"&gt;
+            <e-turbolink class="page-link" data-href="/html/index.html">
               Add new post
-            &lt;/e-turbolink&gt;
+            </e-turbolink>
 
-          &lt;/template&gt;
+          </template>
 
-        &lt;/e-json&gt;
+        </e-json>
         
-      &lt;/div&gt;
-    &lt;/template&gt;
+      </div>
+    </template>
     
-  &lt;/div&gt;
-&lt;/body&gt;
+  </div>
+</body>
 ```
 
 You can notice that we parse our url with pagination params: `size` and `page` via attribute `data-url-pattern="/html/posts.html?{page}&{size}"`. This way we can use those params in `e-json` to get reqested articles and also we can detect whether we should put the link to the next page.
