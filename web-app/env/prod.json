@@ -1,6 +1,6 @@
 {
   "protocol": "http",
-  "port": 8001,
+  "port": 443,
   "host": "0.0.0.0",
   "key": "./web-app/ssl/live/guseyn.com/privkey.pem",
   "cert": "./web-app/ssl/live/guseyn.com/cert.pem",
@@ -8,6 +8,6 @@
   "tmpCert": "./web-app/ssl/cert.tmp.pem",
   "webroot": "web-app",
   "proxy": {
-    "port": 8002
+    "port": 80
   }
 }
