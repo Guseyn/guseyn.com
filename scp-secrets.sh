@@ -1,0 +1,1 @@
+scp secrets root@174.138.15.193:/secrets

@@ -1,5 +1,3 @@
-- [ ] Open source sponsors/companies 
-
 - [ ] Web Dev Contractor EMEA Remote
 - [ ] Node.js Contractor EMEA Remote
 - [ ] Java Contractor EMEA Remote
@@ -15,3 +13,9 @@
 
 - [ ] Java EMEA Remote
 - [ ] Java Cyprus Remote
+
+========================================
+
+- [ ] Rewrite Framento in nodes
+- [ ] Write very simple app for creating MDs online (first version for myself)
+- [ ] Rewrite Unison over weekends in nodes
