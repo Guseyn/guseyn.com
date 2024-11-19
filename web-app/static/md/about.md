@@ -1,6 +1,7 @@
 # Guseyn Ismayylov
 <div class="date">18 November 2024 (last update)</div>
 
+
 <img src="https://cdn.guseyn.com/image/photo.jpg?v=f0d3fcae" class="photo bigger">
 <p></p>
 
