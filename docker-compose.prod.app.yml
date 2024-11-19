@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: guseyn.com
+    volumes:
+      - ./output.log:/app/output.log
+      - ./package.json:/app/package.json
+      - ./package-lock.json:/app/package-lock.json
+      - ./nodes:/app/nodes
+      - ./web-app:/app/web-app
+      - ./web-app/.well-known/acme-challenge:/app/web-app/.well-known/acme-challenge  # Mount ACME challenge folder
+      - ./web-app/ssl:/app/web-app/ssl  # Mount folder for SSL certs
+    ports:
+      - "443:443"  # Prime HTTP(S)/2 
+      - "80:80"    # Proxy
+    networks:
+      - app-network
+    # Override CMD in Dockerfile with my ENV variable
+    command: sh -c "npm run guseyn:prod:start"
+
+networks:
+  app-network:
+    driver: bridge

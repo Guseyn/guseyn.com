@@ -6,7 +6,5 @@ git reset --hard origin/master
 git pull
 pkill node
 
-docker-compose build app -f docker-compose.prod.yml
-docker-compose run app --build -f docker-compose.prod.yml
-docker image prune -f
+docker-compose -f docker-compose.prod.app.yml up --build
 '"

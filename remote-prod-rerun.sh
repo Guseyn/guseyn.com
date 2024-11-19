@@ -1,9 +1,9 @@
 #!/bin/bash
-ssh -i guseyn_rsa root@174.138.15.193 bash -c "'
+ssh -i ~/.ssh/deploy_rsa root@174.138.15.193 bash -c "'
 cd guseyn.com
 git fetch --all
 git reset --hard origin/master
 git pull
 
-docker exec -it guseyn.com npm run guseyn:prod:restart
+docker exec guseyn.com npm run guseyn:prod:restart
 '"
