@@ -122,13 +122,13 @@ The most flexible format to handle incoming message is **JSON**. We can use **e-
 </template>
 ```
 
-Inside of **<template is="e-ws">** we declare **<e-json>**(also possible with **<template is="e-json">**), where we are using attribute `data-socket`. This informs **<e-json>** that, instead of the usual `data-src` attribute used for regular HTTP requests, we expect incoming messages in **JSON** format from the specified socket. Other things remain the same, such as `data-response-name` where you declare a variable for your response that you can use in `data-actions-on-response`.
+Inside of **`<template is="e-ws">`** we declare **`<e-json>`**(also possible with **`<template is="e-json">`**), where we are using attribute `data-socket`. This informs **`<e-json>`** that, instead of the usual `data-src` attribute used for regular HTTP requests, we expect incoming messages in **JSON** format from the specified socket. Other things remain the same, such as `data-response-name` where you declare a variable for your response that you can use in `data-actions-on-response`.
 
 In this case, we are mapping our incoming message on template with selector `#message-1`. Another important aspect is that we're adjusting scroll in message box, so that we can all new messages can be seen. As you see, `#message-1` template has attribute **is="e-reusable"**. That means, we can use this template multiple times. Each time we recieve a message, we map that template with incoming message.
 
 As we see, we can refer to `messageFromFirstIPhone` that we declared in `data-object-name` inside of the template `#message-1`. We can get color, user name and message text of the incoming message and visualize them.
 
-To send messages to the socket in **JSON** format, we can declare **<e-form>**. All that's needed is to declare the attribute `data-socket` where we refer to our socket. Right after **<e-json>**, we can declare our **<e-form>**:
+To send messages to the socket in **JSON** format, we can declare **`<e-form>`**. All that's needed is to declare the attribute `data-socket` where we refer to our socket. Right after **`<e-json>`**, we can declare our **`<e-form>`**:
 
 ```
 <!-- send messages -->
