@@ -37,7 +37,7 @@ As we see, we have two phones with chat apps on them. First phone belongs to Ali
 </template>
 ```
 
-Just by using **<template is="e-ws">**, we can create as many socket clients as we want. The attribute `data-socket-name` declares the name of our socket. You will be able to refer to this socket name as the source of your incoming messages and also as the destination where you can send messages to. You can use the attribute `data-connection-icon` to specify the progress icon while connections are being established. In the `data-actions-on-open-connection` attribute we can indicate somehow that the clients are connected and are ready to send and recieve messages. In this case, we are just going to show messages in the elements '#connetion-open-message-1' and '#connetion-open-message-2'.
+Just by using **`<template is="e-ws">`**, we can create as many socket clients as we want. The attribute `data-socket-name` declares the name of our socket. You will be able to refer to this socket name as the source of your incoming messages and also as the destination where you can send messages to. You can use the attribute `data-connection-icon` to specify the progress icon while connections are being established. In the `data-actions-on-open-connection` attribute we can indicate somehow that the clients are connected and are ready to send and recieve messages. In this case, we are just going to show messages in the elements '#connetion-open-message-1' and '#connetion-open-message-2'.
 
 Inside of each phone, let's add some visual elements:
 
@@ -161,7 +161,7 @@ To send messages to the socket in **JSON** format, we can declare **<e-form>**. 
 </e-form>
 ```
 
-**<e-form>** allows us to send messages in **JSON** format. We are using `name` attributes as keys in that JSON payload. In this case, it's `userName`, `userColor` and `messageText`. As you, we also can add CSS classes for validation. In the button, we specify `data-socket`, it tells **<e-form>** that we send our message to specified socket. When you press that button, the form gets submitted (if it's valid). Also, there is a property `isValid` in the form that you can use in event listeners. Here, if everything is okay, we can also update a view with the message by `mapToTemplate()` function. In most cases web sockets on servers are implmented in a such way that you don't get your own messages, therefore you can just insert your message in the message box and adjust your scroll position as well.
+**`<e-form>`** allows us to send messages in **JSON** format. We are using `name` attributes as keys in that JSON payload. In this case, it's `userName`, `userColor` and `messageText`. As you, we also can add CSS classes for validation. In the button, we specify `data-socket`, it tells **`<e-form>`** that we send our message to specified socket. When you press that button, the form gets submitted (if it's valid). Also, there is a property `isValid` in the form that you can use in event listeners. Here, if everything is okay, we can also update a view with the message by `mapToTemplate()` function. In most cases web sockets on servers are implmented in a such way that you don't get your own messages, therefore you can just insert your message in the message box and adjust your scroll position as well.
 
 Instead of `document.querySelector('#message-text-1').value`, you can implement memory storage for messages. Also you combine all actions in one function somewhere in JavaScript.
 <br>
