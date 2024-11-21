@@ -43,8 +43,7 @@ module.exports = function streamFile(
   }
   addCorsHeadersIfNeeded(
     responseHeaders,
-    requestAuthority,
-    requestMethod, {
+    requestAuthority, {
     useCors,
     allowedOrigins,
     allowedMethods,

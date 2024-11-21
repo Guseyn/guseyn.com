@@ -61,8 +61,7 @@ module.exports = async function handleRequests(app, stream, headers) {
         stream.respond = function respondWithCors(headers) {
           addCorsHeadersIfNeeded(
             headers,
-            requestAuthority,
-            requestMethod, {
+            requestAuthority, {
             useCors,
             allowedOrigins,
             allowedMethods,
