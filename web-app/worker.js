@@ -14,7 +14,7 @@ const environment = process.env.ENV || 'local'
 const useCors = (environment === 'prod')
 const useCache = (environment === 'prod')
 const corsOptions = (environment === 'prod') ? {
-  allowedOrigins: [ 'guseyn.com', 'cdn.guseyn.com' ],
+  allowedOrigins: [ 'guseyn.com:443', 'cdn.guseyn.com:443' ],
   allowedMethods: [ 'GET', 'OPTIONS' ],
   maxAge: 86400
 } : {
