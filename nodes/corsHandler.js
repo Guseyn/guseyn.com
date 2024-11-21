@@ -7,13 +7,11 @@ module.exports = function corsHandler({
   allowedHeaders,
   allowedCredentials,
   maxAge,
-  requestAuthority,
-  requestMethod,
+  requestAuthority
 }) {
   addCorsHeadersIfNeeded(
     headers,
-    requestAuthority,
-    requestMethod, {
+    requestAuthority, {
     useCors,
     allowedOrigins,
     allowedMethods,
