@@ -4,7 +4,7 @@ module.exports = function allowedOrigin(allowedOrigins, requestAuthority) {
   }
   if (requestAuthority) {
     if (allowedOrigins.indexOf(requestAuthority) !== -1) {
-      return requestAuthority
+      return allowedOrigins.join(',')
     }
   }
   return null
