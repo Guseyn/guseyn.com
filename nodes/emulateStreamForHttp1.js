@@ -44,6 +44,7 @@ module.exports = function emulateStreamForHttp1(req, res) {
   stream.headers = headers
   stream.respond = (responseHeaders) => {
     const status = responseHeaders[':status'] || 200
+    responseHeaders['x-authority'] = responseHeaders[':authority']
     delete responseHeaders[':status']
     delete responseHeaders[':method']
     delete responseHeaders[':path']
