@@ -4,7 +4,6 @@ cd guseyn.com
 git fetch --all
 git reset --hard origin/master
 git pull
-pkill node
 
 DOMAIN=guseyn.com DOMAIN_EMAIL=guseyn@guseyn.com CERTBOT_MODE=generate docker-compose -f docker-compose.prod.certbot.yml run --rm certbot
 
