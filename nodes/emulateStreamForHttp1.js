@@ -34,6 +34,7 @@ module.exports = function emulateStreamForHttp1(req, res) {
   // Just to avoid confusion in unified API, let's delete HTTP/1 specific headers
   delete headers['connection']
   delete headers['host']
+  delete headers['origin']
   delete headers['upgrade']
   delete headers['keep-alive']
   delete headers['proxy-connection']
