@@ -1,0 +1,30 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>TEST!!!</title>
+    <link rel="shortcut icon" type="image/png" href="/image/favicon.png?v=fde14c79">
+    <meta name="author" content="guseyn">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i">
+    <link rel="stylesheet" href="/css/normalize.css?v=fde14c79">
+    <link rel="stylesheet" href="/css/404.css?v=fde14c79">
+    <script src="/js/ehtml.light.bundle.min.js?v=3e7258a9" type="text/javascript"></script>
+  </head>
+  <body>
+    <div class = "data">
+      DEFAULT DATA
+    </div>
+  </body>
+  <script type="text/javascript">
+    window.addEventListener("message", function (event) {
+      if (!isJSONValid(event.data)) {
+        return;
+      }
+
+      const eventData = JSON.parse(event.data);
+      document.querySelector('.data').innerHTML = JSON.stringify(data)
+    });
+  </script>
+</html>
