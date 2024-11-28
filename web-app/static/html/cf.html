@@ -11,11 +11,69 @@
     <link rel="stylesheet" href="/css/normalize.css?v=fde14c79">
     <link rel="stylesheet" href="/css/404.css?v=fde14c79">
     <script src="/js/ehtml.light.bundle.min.js?v=3e7258a9" type="text/javascript"></script>
+    <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .profile-card {
+      width: 400px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+    }
+    .profile-card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+    .profile-card h2 {
+      margin: 0;
+      font-size: 24px;
+      color: #333;
+    }
+    .profile-card p {
+      margin: 5px 0;
+      color: #777;
+    }
+    .profile-card a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .profile-card a:hover {
+      background-color: #0056b3;
+    }
+  </style>
   </head>
   <body>
-    <div class = "data">
-      DEFAULT DATA
-    </div>
+    <template id="profile-card" data-object-name="profile">
+      <div class="profile-card">
+        <h2 data-text="${profile.name}"></h2>
+        <p><strong>Email:</strong> <span data-text="${profile.email}"></span></p>
+        <p><strong>Gender:</strong> <span data-text="${profile.gender}"></span></p>
+        <p><strong>Interest:</strong> <span data-text="${profile.interest}"></span></p>
+        <p><strong>Birth Date:</strong> <span data-text="${profile.birth_date}"></span></p>
+        <p><strong>Zodiac Sign:</strong> <span data-text="${profile.zodiac_sign}"></span></p>
+        <p><strong>Relationship Status:</strong> <span data-text="${profile.relationship_status}"></span></p>
+        <p><strong>Subscription Status:</strong> <span data-text="${profile.subscription_status}"></span></p>
+        <img data-src="${profile.palm}" alt="Palm">
+      </div>
+    </template>
   </body>
   <script type="text/javascript">
     function isJSONValid(jsonString) {
@@ -46,7 +104,7 @@
         relationship_status: eventData.data.contact.custom_attributes.relationship_status,
         subscription_status: eventData.data.contact.custom_attributes.subscription_status
       }
-      document.querySelector('.data').innerHTML = JSON.stringify(data)
+      window.mapToTemplate('#profile-card', data)
     });
   </script>
 </html>
