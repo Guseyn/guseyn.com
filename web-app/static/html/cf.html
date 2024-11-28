@@ -18,6 +18,7 @@
     </div>
   </body>
   <script type="text/javascript">
+    window.parent.postMessage('chatwoot-dashboard-app:fetch-info', '*')
     window.addEventListener("message", function (event) {
       if (!isJSONValid(event.data)) {
         return;
