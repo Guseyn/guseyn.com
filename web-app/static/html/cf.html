@@ -33,7 +33,20 @@
       }
 
       const eventData = JSON.parse(event.data);
-      document.querySelector('.data').innerHTML = JSON.stringify(eventData)
+      const data = {
+        name: eventData.data.contact.name,
+        email: eventData.data.contact.email,
+        thumbnail: eventData.data.contact.thumbnail,
+        last_activity_at: eventData.data.contact.last_activity_at,
+        palm: eventData.data.contact.custom_attributes.palm, // picture (jpg)
+        gender: eventData.data.contact.custom_attributes.gender,
+        interest: eventData.data.contact.custom_attributes.interest,
+        birth_date: eventData.data.contact.custom_attributes.birth_date,
+        zodiac_sign: eventData.data.contact.custom_attributes.zodiac_sign,
+        relationship_status: eventData.data.contact.custom_attributes.relationship_status,
+        subscription_status: eventData.data.contact.custom_attributes.subscription_status
+      }
+      document.querySelector('.data').innerHTML = JSON.stringify(data)
     });
   </script>
 </html>
