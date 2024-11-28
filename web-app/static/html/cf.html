@@ -18,6 +18,14 @@
     </div>
   </body>
   <script type="text/javascript">
+    function isJSONValid(jsonString) {
+      try {
+        JSON.parse(jsonString);
+        return true;
+      } catch (e) {
+        return false;
+      }
+    }
     window.parent.postMessage('chatwoot-dashboard-app:fetch-info', '*')
     window.addEventListener("message", function (event) {
       if (!isJSONValid(event.data)) {
