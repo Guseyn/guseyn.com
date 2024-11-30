@@ -52,7 +52,7 @@ And for validation we can use following function
 
 ```js
 // Returns true if token is valid, otherwise returns false
-function isValid (token, secret) {
+function isValid (token, publicKey) {
   const parts = token.split('.')
   const header = base64UrlDecodeToJSON(parts[0])
   const payload = base64UrlDecodeToJSON(parts[1])
