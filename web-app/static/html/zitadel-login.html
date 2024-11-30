@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zitadel JWT Authentication</title>
+  <script>
+    const config = {
+      clientId: '296091720393752579', // Replace with your Zitadel Client ID
+      redirectUri: `${window.location.origin}/static/auth.html`, // Redirect URI configured in Zitadel
+      authority: 'https://zitadel.gemba.dev', // Replace with your Zitadel issuer URL
+    };
+
+    console.log(`${window.location.origin}/static/auth.html`)
+
+    function login() {
+      const authUrl = `${config.authority}/oauth/v2/authorize` +
+        `?client_id=${config.clientId}` +
+        `&redirect_uri=${encodeURIComponent(config.redirectUri)}` +
+        `&response_type=code` + // Include token and id_token
+        `&scope=openid profile email`;
+
+      window.location.href = authUrl;
+    }
+
+    function getCodeFromURL() {
+      if (!window.location.search) {
+        return ''
+      }
+      return window.location.search.split('?')[1].split('&').filter(pair => pair.startsWith('code='))[0].split('=')[1];
+    }
+
+    async function exchangeCodeForToken(authCode) {
+      const tokenUrl = `${config.authority}/oauth/v2/token`;
+
+      const response = await fetch(tokenUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+          grant_type: 'authorization_code',
+          code: authCode,
+          redirect_uri: config.redirectUri,
+          client_id: config.clientId,
+        }),
+      });
+
+      const tokens = await response.json();
+      return tokens; // Contains access_token, id_token, and optionally refresh_token
+    }
+
+    async function fetchUserInfo(accessToken) {
+      const userInfoUrl = `${config.authority}/oauth/v2/userinfo`;
+
+      const response = await fetch(userInfoUrl, {
+        headers: { Authorization: `Bearer ${accessToken}` },
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to fetch user info');
+      }
+
+      const userInfo = await response.json();
+      return userInfo; // Contains user claims such as name, email, etc.
+    }
+
+    async function displayJWT() {
+      const code = getCodeFromURL();
+      if (code) {
+        console.log(code)
+        const tokens = await exchangeCodeForToken(code)
+        document.getElementById('jwt').textContent = tokens.access_token;
+      }
+    }
+
+    function logout() {
+      window.location.href = `${config.authority}/oauth/v2/logout?client_id=${config.clientId}&post_logout_redirect_uri=${encodeURIComponent(config.redirectUri)}`;
+    }
+
+    window.onload = displayJWT;
+  </script>
+</head>
+<body>
+<h1>Zitadel JWT Authentication Example</h1>
+<button onclick="login()">Login</button>
+<button onclick="logout()">Logout</button>
+<h3>JWT Tokens:</h3>
+<pre id="jwt">Login to see your JWT tokens...</pre>
+</body>
+</html>
