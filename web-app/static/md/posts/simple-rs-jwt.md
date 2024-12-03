@@ -2,7 +2,7 @@
 
 <div class="date">7 April 2019</div>
 
-[In the previous article](https://guseyn.com/posts/simple-jwt), I explained how you can implement authorization and authentication via JWT using symmetric algorithms such as **HS256**. Now, I'll try to  explain asymmetric approach (**RS256**). 
+[In the previous article](https://guseyn.com/html/posts/simple-jwt.html), I explained how you can implement authorization and authentication via JWT using symmetric algorithms such as **HS256**. Now, I'll try to  explain asymmetric approach (**RS256**). 
 
 You might ask, *why do we need another way of creating JWT*? Well, [this answer](https://stackoverflow.com/questions/39239051/rs256-vs-hs256-whats-the-difference/39239395#39239395) can help you to understand why.
 
