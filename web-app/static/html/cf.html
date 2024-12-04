@@ -85,6 +85,7 @@
       }
     }
     window.parent.postMessage('chatwoot-dashboard-app:fetch-info', '*')
+    console.log(window.parent)
     window.addEventListener("message", function (event) {
       if (!isJSONValid(event.data)) {
         return;
