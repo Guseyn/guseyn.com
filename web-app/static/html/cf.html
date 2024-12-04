@@ -89,6 +89,7 @@
       if (!isJSONValid(event.data)) {
         return;
       }
+      console.log(event.data);
 
       const eventData = JSON.parse(event.data);
       const data = {
