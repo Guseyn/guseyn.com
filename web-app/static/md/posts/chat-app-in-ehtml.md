@@ -11,7 +11,7 @@ You can find the app that I am going to describe in this article on GitHub [here
 
 The whole appication contains just one HTML page on frontend. We have two phones on one page, and we can communicate between those two phones:
 
-<img src="/image/chat-app.png?v=d6e643cb" />
+<img src="/image/chat-app.png?v=9fa6c416" />
 
 As we see, we have two phones with chat apps on them. First phone belongs to Alice, second one to Bob. Whenever Alice or Bob write and send messages, they appear on both devices. We are going to implement this page using [Web Sockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket). In the latest version of **EHTML**, we can create connections to those sockets(for each phone) right in HTML code.
 
