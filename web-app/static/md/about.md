@@ -1,12 +1,12 @@
 # Guseyn Ismayylov
 <div class="date">18 November 2024 (last update)</div>
 
-<img src="/image/photo.jpg?v=fde14c79" class="photo bigger">
+<img src="/image/photo.jpg?v=66dd3db3" class="photo bigger">
 <p></p>
 
 I am a founder of [Unison](#founder-of-unison), author of [Nodes.js Backend Framework](#author-of-nodesjs-backend-framework), creator of [EHTML](#creator-of-ehtml), [open source enthusiast](#open-source-enthusiast), [tech blogger](#tech-blogger), [entrepreneur](#entrepreneur), [streamer](#streamer), [programmer](#programmer), [chess&music lover](#chessmusic-lover).
 
-You can find me on [Instagram](https://www.instagram.com/guseyn.4u/), [LinkedIn](https://www.linkedin.com/in/gusein-ismaiylov-111bb1179/), [GitHub](https://github.com/Guseyn/), [Reddit](https://www.reddit.com/user/gyen) and write an [email](mailto:guseynism@gmail.com). Also I have a Telegram [channel](https://t.me/guseyncom) where I write about what's new on my blog. I don't use other social networks.
+You can find me on [Instagram](https://www.instagram.com/guseyn_dot_com/), [LinkedIn](https://www.linkedin.com/in/gusein-ismaiylov-111bb1179/), [GitHub](https://github.com/Guseyn/), [Reddit](https://www.reddit.com/user/gyen) and write an [email](mailto:guseynism@gmail.com). Also I have a Telegram [channel](https://t.me/guseyncom) where I write about what's new on my blog. I don't use other social networks.
 
 ## Founder of Unison
 [Unison](https://unisonofficial.com) is a platform where you can create sheet music just by describing them with simple words.

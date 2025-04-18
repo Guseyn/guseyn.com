@@ -149,7 +149,7 @@ Here we tell Travis to trigger only on changes in `master` branch. Also, you hav
 
 ___CODE_BLOCK_3___
 
-<img style="max-width: 280px;" src="/image/build-pushed-pr.png?v=fde14c79">
+<img style="max-width: 280px;" src="/image/build-pushed-pr.png?v=66dd3db3">
 
 ### before_deploy
 
@@ -342,7 +342,7 @@ Here we tell Travis to trigger only on changes in `master` branch. Also, you hav
 
 ___CODE_BLOCK_3___
 
-<img style="max-width: 280px;" src="/image/build-pushed-pr.png?v=fde14c79">
+<img style="max-width: 280px;" src="/image/build-pushed-pr.png?v=66dd3db3">
 
 ### before_deploy
 
@@ -430,7 +430,7 @@ Here we tell Travis to trigger only on changes in `master` branch. Also, you hav
 
 ___CODE_BLOCK_3___
 
-<img style="max-width: 280px;" src="/image/build-pushed-pr.png?v=fde14c79">
+<img style="max-width: 280px;" src="/image/build-pushed-pr.png?v=66dd3db3">
 
 ### before_deploy
 
@@ -571,7 +571,7 @@ Here we tell Travis to trigger only on changes in `master` branch. Also, you hav
 
 ___CODE_BLOCK_3___
 
-<img style="max-width: 280px;" src="/image/build-pushed-pr.png?v=fde14c79">
+<img style="max-width: 280px;" src="/image/build-pushed-pr.png?v=66dd3db3">
 
 ### before_deploy
 
