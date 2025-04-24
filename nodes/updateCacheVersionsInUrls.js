@@ -57,45 +57,7 @@ async function processUrlsInHtmlOrMd(content, baseFolder, srcMapper) {
 
 
   // Step 4: Extract and process import maps
-  content = await content.replace(/(^[ \t]*)(<script\b[^>]*type=['"]importmap['"][^>]*>)([\s\S]*?)(<\/script>)/gim,
-      async (match, indent, openTag, jsonText, closeTag) => {
-      let updatedJsonText = jsonText
-      try {
-        const importMap = JSON.parse(jsonText)
-        if (importMap.imports) {
-          for (const [key, url] of Object.entries(importMap.imports)) {
-            if (
-              typeof url === 'string' &&
-              !url.startsWith('http') &&
-              !url.startsWith('data:') &&
-              !url.startsWith('/') &&
-              !url.startsWith('./') &&
-              !url.startsWith('../')
-            ) continue
-
-            try {
-              const filePath = pathByUrl(url, srcMapper, baseFolder)
-              const fileStats = await fs.stat(filePath)
-              const fileHash = await getFileHash(fileStats)
-              const versionedUrl = url.includes('?v=') ? url.replace(/(\?v=).*$/, `?v=${fileHash}`) : `${url}?v=${fileHash}`
-              importMap.imports[key] = versionedUrl
-            } catch (err) {
-              console.warn(`Import map file not found for ${url}:`, err.message)
-            }
-          }
-
-          updatedJsonText = JSON.stringify(importMap, null, 2)
-            .split('\n')
-            .map(line => indent + line)
-            .join('\n')
-        }
-      } catch (e) {
-        console.warn('Failed to parse importmap JSON:', e.message)
-      }
-
-      return `${openTag}${indent}${updatedJsonText}${indent}${closeTag}`
-    }
-  )
+  content = await updateImportMaps(content, baseFolder, srcMapper)
 
   return content
 }
@@ -130,6 +92,64 @@ async function processDirectory(baseFolder, folderPath, srcMapper) {
 async function getFileHash(fileStats) {
   const hash = crypto.createHash('sha256').update(fileStats.mtime.toString()).digest('hex').slice(0, 8) // Get first 8 chars of the hash
   return hash;
+}
+
+async function updateImportMaps(content, baseFolder, srcMapper) {
+  const regex = /(^[ \t]*)(<script\b[^>]*type=['"]importmap['"][^>]*>)([\s\S]*?)(<\/script>)/gim
+  const parts = []
+  let lastIndex = 0
+
+  let match
+  while ((match = regex.exec(content)) !== null) {
+    const [fullMatch, indent, openTag, jsonText, closeTag] = match
+
+    // Push the content before the match
+    parts.push(content.slice(lastIndex, match.index))
+
+    let updatedJsonText = jsonText
+    try {
+      const importMap = JSON.parse(jsonText)
+      if (importMap.imports) {
+        for (const [key, url] of Object.entries(importMap.imports)) {
+          if (
+            typeof url === 'string' &&
+            !url.startsWith('http') &&
+            !url.startsWith('data:') &&
+            !url.startsWith('/') &&
+            !url.startsWith('./') &&
+            !url.startsWith('../')
+          ) {
+            continue
+          }
+
+          try {
+            const filePath = pathByUrl(url, srcMapper, baseFolder)
+            const fileStats = await fs.stat(filePath)
+            const fileHash = await getFileHash(fileStats)
+            const versionedUrl = url.includes('?v=') ? url.replace(/(\?v=).*$/, `?v=${fileHash}`) : `${url}?v=${fileHash}`
+            importMap.imports[key] = versionedUrl
+          } catch (err) {
+            console.warn(`Import map file not found for ${url}:`, err.message)
+          }
+        }
+
+        updatedJsonText = JSON.stringify(importMap, null, 2)
+          .split('\n')
+          .map(line => indent + line)
+          .join('\n')
+      }
+    } catch (e) {
+      console.warn('Failed to parse importmap JSON:', e.message)
+    }
+
+    parts.push(`${indent}${openTag}\n${updatedJsonText}\n${indent}${closeTag}`)
+    lastIndex = regex.lastIndex
+  }
+
+  // Append the rest of the content
+  parts.push(content.slice(lastIndex))
+
+  return parts.join('')
 }
 
 module.exports = async function updateCacheVersionsInUrls(folderPath, srcMapper) {
