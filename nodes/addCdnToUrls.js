@@ -4,28 +4,55 @@ const path = require('path')
 async function adjustPathsInHTML(htmlContent, cdnBaseUrl) {
   const tagRegex = /<(a|img|script|link|audio|video|source|e-html|e-svg|e-markdown|e-json|e-json-view|template\s+is="e-json"|template\s+is="e-wrapper")([^>]*)>/g
 
-  return htmlContent.replace(tagRegex, (match, tagName, attributes) => {
-    if (tagName === 'a') {
-      return match
-    }
-    if (tagName === 'e-json') {
-      return match
-    }
-    if (/template\s+is="e-json"/.test(tagName)) {
+  // First update attribute-based URLs
+  htmlContent = htmlContent.replace(tagRegex, (match, tagName, attributes) => {
+    if (['a', 'e-json'].includes(tagName) || /template\s+is="e-json"/.test(tagName)) {
       return match
     }
 
-    // Update the href or src attributes within the tag
     attributes = attributes.replace(/(href|src|data-src)="(\/[^"]+)"/g, (attrMatch, attribute, path) => {
-      // Only adjust if the path is relative (starts with '/')
       if (path.startsWith('/')) {
         return `${attribute}="${cdnBaseUrl}${path}"`
       }
-      return attrMatch // No change for non-relative paths
+      return attrMatch
     })
 
     return `<${tagName}${attributes}>`
   })
+
+  // Then process import maps
+  htmlContent = htmlContent.replace(
+    /<script\s+type=["']importmap["'][^>]*>([\s\S]*?)<\/script>/g,
+    (match, scriptContent) => {
+      try {
+        const json = JSON.parse(scriptContent)
+
+        const updateMap = (obj) => {
+          for (const key in obj) {
+            const value = obj[key]
+            if (typeof value === 'string' && value.startsWith('/')) {
+              obj[key] = `${cdnBaseUrl}${value}`
+            }
+          }
+        }
+
+        if (json.imports) updateMap(json.imports)
+        if (json.scopes) {
+          for (const scope in json.scopes) {
+            updateMap(json.scopes[scope])
+          }
+        }
+
+        const newScript = JSON.stringify(json, null, 2)
+        return `<script type="importmap">\n${newScript}\n</script>`
+      } catch (e) {
+        console.warn('Failed to parse import map JSON:', e)
+        return match // Return original if parsing fails
+      }
+    }
+  )
+
+  return htmlContent
 }
 
 async function adjustPathsInMarkdown(mdContent, cdnBaseUrl) {

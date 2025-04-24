@@ -86,7 +86,7 @@ Imagine if we could do something like this:
 
 With some sprinkle of css, the page can look like this:
 
-<img src="/image/info-on-cyprus.png?v=66dd3db3">
+<img src="https://cdn.guseyn.com/image/info-on-cyprus.png?v=fde14c79">
 
 I have good news for you - you can do this, and not only. [EHTML](https://github.com/Guseyn/EHTML) provides custom elements that you can put on HTML page for different purposes and use cases. The main idea and goal of this library is to provide a convenient way to get rid of JavaScript code on the client side as much as it's possible for basic and routine stuff.
 

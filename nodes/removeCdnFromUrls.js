@@ -4,7 +4,7 @@ const path = require('path')
 async function removeCdnUrlsFromHtml(htmlContent, cdnBaseUrl) {
   const tagRegex = /<(a|img|script|link|audio|video|source|e-html|e-svg|e-markdown|e-json|e-json-view|template\s+is="e-json"|template\s+is="e-wrapper")([^>]*)>/g
 
-  return htmlContent.replace(tagRegex, (match, tagName, attributes) => {
+  let updatedHtml = htmlContent.replace(tagRegex, (match, tagName, attributes) => {
     attributes = attributes.replace(/(href|src)="(https?:\/\/[^"]+)"/g, (attrMatch, attribute, fullUrl) => {
       if (fullUrl.startsWith(cdnBaseUrl)) {
         const relativePath = fullUrl.replace(cdnBaseUrl, '')
@@ -14,6 +14,26 @@ async function removeCdnUrlsFromHtml(htmlContent, cdnBaseUrl) {
     })
     return `<${tagName}${attributes}>`
   })
+
+  // Process <script type="importmap">...</script> blocks
+  updatedHtml = updatedHtml.replace(/<script\s+type=["']importmap["']>([\s\S]*?)<\/script>/g, (match, jsonContent) => {
+    try {
+      const parsed = JSON.parse(jsonContent)
+      if (parsed.imports) {
+        for (const key in parsed.imports) {
+          if (parsed.imports[key].startsWith(cdnBaseUrl)) {
+            parsed.imports[key] = parsed.imports[key].replace(cdnBaseUrl, '')
+          }
+        }
+      }
+      return `<script type="importmap">${JSON.stringify(parsed, null, 2)}</script>`
+    } catch (e) {
+      console.warn('Failed to parse importmap JSON:', e)
+      return match // leave it untouched
+    }
+  })
+
+  return updatedHtml
 }
 
 async function removeCdnUrlsFromMarkdown(mdContent, cdnBaseUrl) {
