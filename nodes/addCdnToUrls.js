@@ -22,8 +22,8 @@ async function adjustPathsInHTML(htmlContent, cdnBaseUrl) {
 
   // Then process import maps
   htmlContent = htmlContent.replace(
-    /<script\s+type=["']importmap["'][^>]*>([\s\S]*?)<\/script>/g,
-    (match, scriptContent) => {
+    /(^[ \t]*)(<script\b[^>]*type=['"]importmap['"][^>]*>)([\s\S]*?)(<\/script>)/gim,
+    (match, indent, openTag, scriptContent, closeTag) => {
       try {
         const json = JSON.parse(scriptContent)
 
@@ -44,7 +44,10 @@ async function adjustPathsInHTML(htmlContent, cdnBaseUrl) {
         }
 
         const newScript = JSON.stringify(json, null, 2)
-        return `<script type="importmap">\n${newScript}\n</script>`
+          .split('\n')
+          .map(line => indent + line)
+          .join('\n')
+        return `${indent}${openTag}\n${newScript}\n</script>${closeTag}`
       } catch (e) {
         console.warn('Failed to parse import map JSON:', e)
         return match // Return original if parsing fails
