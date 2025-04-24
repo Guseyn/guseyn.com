@@ -2,7 +2,6 @@ const fs = require('fs').promises
 const path = require('path')
 const crypto = require('crypto')
 
-const defaultSrcMapper = require('./defaultSrcMapper')
 const pathByUrl = require('./pathByUrl')
 
 async function processUrlsInHtmlOrMd(content, baseFolder, srcMapper) {
@@ -54,6 +53,43 @@ async function processUrlsInHtmlOrMd(content, baseFolder, srcMapper) {
   // Step 3: Restore the skipped code blocks
   codeBlocks.forEach((codeBlock, index) => {
     content = content.replace(`___CODE_BLOCK_${index}___`, codeBlock)
+  })
+
+
+  // Step 4: Extract and process import maps
+  content = await content.replace(/<script\s+type="importmap">([\s\S]*?)<\/script>/g, async (match, jsonText) => {
+    let updatedJsonText = jsonText
+    try {
+      const importMap = JSON.parse(jsonText)
+      if (importMap.imports) {
+        for (const [key, url] of Object.entries(importMap.imports)) {
+          if (
+            typeof url === 'string' &&
+            !url.startsWith('http') &&
+            !url.startsWith('data:') &&
+            !url.startsWith('/') &&
+            !url.startsWith('./') &&
+            !url.startsWith('../')
+          ) continue
+
+          try {
+            const filePath = pathByUrl(url, srcMapper, baseFolder)
+            const fileStats = await fs.stat(filePath)
+            const fileHash = await getFileHash(fileStats)
+            const versionedUrl = url.includes('?v=') ? url.replace(/(\?v=).*$/, `?v=${fileHash}`) : `${url}?v=${fileHash}`
+            importMap.imports[key] = versionedUrl
+          } catch (err) {
+            console.warn(`Import map file not found for ${url}:`, err.message)
+          }
+        }
+
+        updatedJsonText = JSON.stringify(importMap, null, 2)
+      }
+    } catch (e) {
+      console.warn('Failed to parse importmap JSON:', e.message)
+    }
+
+    return `<script type="importmap">\n${updatedJsonText}\n</script>`
   })
 
   return content

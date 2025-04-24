@@ -16,7 +16,8 @@
     "guseyn:docker:local:restart": "docker exec -it guseyn.com npm run guseyn:local:restart",
     "guseyn:docker:prod:restart": "docker exec -it guseyn.com npm run guseyn:prod:restart",
     "guseyn:pull": "node web-app/pull.js",
-    "guseyn:prod:pull": "ENV=prod node web-app/pull.js"
+    "guseyn:prod:pull": "ENV=prod node web-app/pull.js",
+    "ehtml:update": "rm -rf web-app/static/js/ehtml && cp -r ../EHTML/src web-app/static/js/ehtml"
   },
   "author": "guseyn",
   "license": "MIT",

@@ -9,24 +9,104 @@
     <meta name="keywords" content="guseyn, fan of yours, blog, IT, programming, coding, tech, culture, ideas, guseyn, ismayylov">
     <meta name="google-site-verification" content="vGxE5xshQhWEvbfiGVWZ4qmfLx_1WW8P82ZW0RP0mwg">
     <title>Data Type Should Not Be Considered As a Source of Its Behaviour</title>
-    <link rel="shortcut icon" type="image/png" href="/image/favicon.png?v=66dd3db3">
-        <link rel="preload" href="/html/main-page-template.html?v=8dc75008" as="fetch" crossorigin="anonymous" />
-    <link rel="preload" href="/md/posts/type-is-not-source-of-behaviour.md?v=8dc75008" as="fetch" crossorigin="anonymous" />
+    <link rel="shortcut icon" type="image/png" href="/image/favicon.png?v=fde14c79">
+        <link rel="preload" href="/html/main-page-template.html?v=ebf9f79f" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" href="/md/posts/type-is-not-source-of-behaviour.md?v=ebf9f79f" as="fetch" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i|Source+Sans+Pro:400,400i,700,700i" type="text/css">
-    <link rel="stylesheet" href="/css/normalize.css?v=66dd3db3" type="text/css">
-    <link rel="stylesheet" href="/css/main.css?v=91a6eb27" type="text/css">
-    <link rel="stylesheet" href="/css/main-night.css?v=66dd3db3" disabled id="main-night" type="text/css">
-    <link rel="stylesheet" href="/css/github-gist.css?v=66dd3db3" type="text/css">
-    <link rel="stylesheet" href="/css/github-gist-night.css?v=66dd3db3" disabled id="github-gist-night" type="text/css">
-    <script src="/js/day-night.js?v=bbdb6663" type="text/javascript"></script>
-    <script src="/js/ehtml.bundle.min.js?v=e19fdea2" type="text/javascript"></script>
+    <link rel="stylesheet" href="/css/normalize.css?v=fde14c79" type="text/css">
+    <link rel="stylesheet" href="/css/main.css?v=23840f6c" type="text/css">
+    <link rel="stylesheet" href="/css/main-night.css?v=fde14c79" disabled id="main-night" type="text/css">
+    <link rel="stylesheet" href="/css/github-gist.css?v=fde14c79" type="text/css">
+    <link rel="stylesheet" href="/css/github-gist-night.css?v=fde14c79" disabled id="github-gist-night" type="text/css">
+    <script src="/js/day-night.js?v=809e5be5" type="text/javascript"></script>
+    <script type="importmap">
+    {
+      "imports": {
+        "ehtml/E/e-for-each-template": "/js/ehtml/E/e-for-each-template.js",
+        "ehtml/E/e-form-dynamic-value": "/js/ehtml/E/e-form-dynamic-value.js",
+        "ehtml/E/e-form": "/js/ehtml/E/e-form.js",
+        "ehtml/E/e-github-oauth-button": "/js/ehtml/E/e-github-oauth-button.js",
+        "ehtml/E/e-html": "/js/ehtml/E/e-html.js",
+        "ehtml/E/e-if-template": "/js/ehtml/E/e-if-template.js",
+        "ehtml/E/e-json-template": "/js/ehtml/E/e-json-template.js",
+        "ehtml/E/e-json-view": "/js/ehtml/E/e-json-view.js",
+        "ehtml/E/e-json": "/js/ehtml/E/e-json.js",
+        "ehtml/E/e-local-storage-value": "/js/ehtml/E/e-local-storage-value.js",
+        "ehtml/E/e-markdown": "/js/ehtml/E/e-markdown.js",
+        "ehtml/E/e-page-with-url-template": "/js/ehtml/E/e-page-with-url-template.js",
+        "ehtml/E/e-reusable-template": "/js/ehtml/E/e-reusable-template.js",
+        "ehtml/E/e-select": "/js/ehtml/E/e-select.js",
+        "ehtml/E/e-session-storage-value": "/js/ehtml/E/e-session-storage-value.js",
+        "ehtml/E/e-session-value": "/js/ehtml/E/e-session-value.js",
+        "ehtml/E/e-svg": "/js/ehtml/E/e-svg.js",
+        "ehtml/E/e-wrapper-template": "/js/ehtml/E/e-wrapper-template.js",
+        "ehtml/E/e-ws-template": "/js/ehtml/E/e-ws-template.js",
+        "ehtml/E/exports": "/js/ehtml/E/exports.js",
+        "ehtml/actions/addHTMLInto": "/js/ehtml/actions/addHTMLInto.js",
+        "ehtml/actions/addTextInto": "/js/ehtml/actions/addTextInto.js",
+        "ehtml/actions/changeValueOf": "/js/ehtml/actions/changeValueOf.js",
+        "ehtml/actions/disableElms": "/js/ehtml/actions/disableElms.js",
+        "ehtml/actions/enableElms": "/js/ehtml/actions/enableElms.js",
+        "ehtml/actions/hideElms": "/js/ehtml/actions/hideElms.js",
+        "ehtml/actions/insertHTMLInto": "/js/ehtml/actions/insertHTMLInto.js",
+        "ehtml/actions/insertTextInto": "/js/ehtml/actions/insertTextInto.js",
+        "ehtml/actions/loadAndAddHTMLInto": "/js/ehtml/actions/loadAndAddHTMLInto.js",
+        "ehtml/actions/loadAndAddTextInto": "/js/ehtml/actions/loadAndAddTextInto.js",
+        "ehtml/actions/loadHTMLInto": "/js/ehtml/actions/loadHTMLInto.js",
+        "ehtml/actions/loadTextInto": "/js/ehtml/actions/loadTextInto.js",
+        "ehtml/actions/mapToTemplate": "/js/ehtml/actions/mapToTemplate.js",
+        "ehtml/actions/redirect": "/js/ehtml/actions/redirect.js",
+        "ehtml/actions/releaseTemplate": "/js/ehtml/actions/releaseTemplate.js",
+        "ehtml/actions/reload": "/js/ehtml/actions/reload.js",
+        "ehtml/actions/removeElms": "/js/ehtml/actions/removeElms.js",
+        "ehtml/actions/scrollIntoViewOf": "/js/ehtml/actions/scrollIntoViewOf.js",
+        "ehtml/actions/scrollToHash": "/js/ehtml/actions/scrollToHash.js",
+        "ehtml/actions/showElms": "/js/ehtml/actions/showElms.js",
+        "ehtml/actions/toggleElms": "/js/ehtml/actions/toggleElms.js",
+        "ehtml/actions/updateAttributeOf": "/js/ehtml/actions/updateAttributeOf.js",
+        "ehtml/actions/exports": "/js/ehtml/actions/exports.js",
+        "ehtml/third-party/katex/auto-render": "/js/ehtml/third-party/katex/auto-render.js",
+        "ehtml/third-party/katex/katex": "/js/ehtml/third-party/katex/katex.min.js",
+        "ehtml/third-party/showdown-katex/showdown-katex": "/js/ehtml/third-party/showdown-katex/showdown-katex.js",
+        "ehtml/third-party/showdown-katex/asciimath-to-tex": "/js/ehtml/third-party/showdown-katex/asciimath-to-tex.min.js",
+        "ehtml/third-party/he": "/js/ehtml/third-party/he.js",
+        "ehtml/third-party/highlight": "/js/ehtml/third-party/highlight.min.js",
+        "ehtml/third-party/json-pretty-html": "/js/ehtml/third-party/json-pretty-html.js",
+        "ehtml/third-party/showdown-highlight": "/js/ehtml/third-party/showdown-highlight.js",
+        "ehtml/third-party/showdown": "/js/ehtml/third-party/showdown.min.js",
+        "ehtml/elm": "/js/ehtml/elm.js",
+        "ehtml/elms": "/js/ehtml/elms.js",
+        "ehtml/evaluateStringWithActionsOnCloseConnection": "/js/ehtml/evaluateStringWithActionsOnCloseConnection.js",
+        "ehtml/evaluateStringWithActionsOnOpenConnection": "/js/ehtml/evaluateStringWithActionsOnOpenConnection.js",
+        "ehtml/evaluateStringWithActionsOnProgress": "/js/ehtml/evaluateStringWithActionsOnProgress.js",
+        "ehtml/evaluateStringWithActionsOnResponse": "/js/ehtml/evaluateStringWithActionsOnResponse.js",
+        "ehtml/evaluatedStringWithParams": "/js/ehtml/evaluatedStringWithParams.js",
+        "ehtml/evaluatedStringWithParamsFromState": "/js/ehtml/evaluatedStringWithParamsFromState.js",
+        "ehtml/isTemplate": "/js/ehtml/isTemplate.js",
+        "ehtml/isTemplateWithType": "/js/ehtml/isTemplateWithType.js",
+        "ehtml/isTemplateWithTypeExclusively": "/js/ehtml/isTemplateWithTypeExclusively.js",
+        "ehtml/nodeIsNotForEHTML": "/js/ehtml/nodeIsNotForEHTML.js",
+        "ehtml/nodeName": "/js/ehtml/nodeName.js",
+        "ehtml/observeNodeAttributes": "/js/ehtml/observeNodeAttributes.js",
+        "ehtml/observeNodeWithItsChildNodes": "/js/ehtml/observeNodeWithItsChildNodes.js",
+        "ehtml/registerShowdownExtension": "/js/ehtml/registerShowdownExtension.js",
+        "ehtml/releaseTemplateWithItsContent": "/js/ehtml/releaseTemplateWithItsContent.js",
+        "ehtml/responseFromAjaxRequest": "/js/ehtml/responseFromAjaxRequest.js",
+        "ehtml/turnEhtmlMutationObserverOff": "/js/ehtml/turnEhtmlMutationObserverOff.js",
+        "ehtml/turnEhtmlMutationObserverOn": "/js/ehtml/turnEhtmlMutationObserverOn.js",
+        "ehtml/unwrappedChildrenOfParent": "/js/ehtml/unwrappedChildrenOfParent.js",
+        "ehtml/main": "/js/ehtml/main.js"
+      }
+    }
+    </script>
+    <script type="module">import "ehtml/main"</script>
   </head>
 
   <body class="main">
-    <template is="e-wrapper" data-src="/html/main-page-template.html?v=8dc75008" data-where-to-place="#mid-content" data-how-to-place="instead">
+    <template is="e-wrapper" data-src="/html/main-page-template.html?v=ebf9f79f" data-where-to-place="#mid-content" data-how-to-place="instead">
       <div class="content">
         <e-markdown 
-          data-src="/md/posts/type-is-not-source-of-behaviour.md?v=8dc75008"
+          data-src="/md/posts/type-is-not-source-of-behaviour.md?v=ebf9f79f"
           data-apply-code-highlighting="true"
           data-actions-on-progress-start="
             document.body.classList.toggle('progress-opacity')
