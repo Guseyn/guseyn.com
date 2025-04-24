@@ -16,22 +16,28 @@ async function removeCdnUrlsFromHtml(htmlContent, cdnBaseUrl) {
   })
 
   // Process <script type="importmap">...</script> blocks
-  updatedHtml = updatedHtml.replace(/<script\s+type=["']importmap["']>([\s\S]*?)<\/script>/g, (match, jsonContent) => {
-    try {
-      const parsed = JSON.parse(jsonContent)
-      if (parsed.imports) {
-        for (const key in parsed.imports) {
-          if (parsed.imports[key].startsWith(cdnBaseUrl)) {
-            parsed.imports[key] = parsed.imports[key].replace(cdnBaseUrl, '')
+  updatedHtml = updatedHtml.replace(/(^[ \t]*)(<script\b[^>]*type=['"]importmap['"][^>]*>)([\s\S]*?)(<\/script>)/gim,
+    (match, indent, openTag, scriptContent, closeTag) => {
+      try {
+        const parsed = JSON.parse(scriptContent)
+        if (parsed.imports) {
+          for (const key in parsed.imports) {
+            if (parsed.imports[key].startsWith(cdnBaseUrl)) {
+              parsed.imports[key] = parsed.imports[key].replace(cdnBaseUrl, '')
+            }
           }
         }
+        const updatedJSON = JSON.stringify(parsed, null, 2)
+          .split('\n')
+          .map(line => indent + line)
+          .join('\n')
+        return `${openTag}${indent}${JSON.stringify(parsed, null, 2)}${indent}${closeTag}`
+      } catch (e) {
+        console.warn('Failed to parse importmap JSON:', e)
+        return match // leave it untouched
       }
-      return `<script type="importmap">${JSON.stringify(parsed, null, 2)}</script>`
-    } catch (e) {
-      console.warn('Failed to parse importmap JSON:', e)
-      return match // leave it untouched
     }
-  })
+  )
 
   return updatedHtml
 }

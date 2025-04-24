@@ -57,40 +57,45 @@ async function processUrlsInHtmlOrMd(content, baseFolder, srcMapper) {
 
 
   // Step 4: Extract and process import maps
-  content = await content.replace(/<script\s+type="importmap">([\s\S]*?)<\/script>/g, async (match, jsonText) => {
-    let updatedJsonText = jsonText
-    try {
-      const importMap = JSON.parse(jsonText)
-      if (importMap.imports) {
-        for (const [key, url] of Object.entries(importMap.imports)) {
-          if (
-            typeof url === 'string' &&
-            !url.startsWith('http') &&
-            !url.startsWith('data:') &&
-            !url.startsWith('/') &&
-            !url.startsWith('./') &&
-            !url.startsWith('../')
-          ) continue
+  content = await content.replace(/(^[ \t]*)(<script\b[^>]*type=['"]importmap['"][^>]*>)([\s\S]*?)(<\/script>)/gim,
+      async (match, indent, openTag, jsonText, closeTag) => {
+      let updatedJsonText = jsonText
+      try {
+        const importMap = JSON.parse(jsonText)
+        if (importMap.imports) {
+          for (const [key, url] of Object.entries(importMap.imports)) {
+            if (
+              typeof url === 'string' &&
+              !url.startsWith('http') &&
+              !url.startsWith('data:') &&
+              !url.startsWith('/') &&
+              !url.startsWith('./') &&
+              !url.startsWith('../')
+            ) continue
 
-          try {
-            const filePath = pathByUrl(url, srcMapper, baseFolder)
-            const fileStats = await fs.stat(filePath)
-            const fileHash = await getFileHash(fileStats)
-            const versionedUrl = url.includes('?v=') ? url.replace(/(\?v=).*$/, `?v=${fileHash}`) : `${url}?v=${fileHash}`
-            importMap.imports[key] = versionedUrl
-          } catch (err) {
-            console.warn(`Import map file not found for ${url}:`, err.message)
+            try {
+              const filePath = pathByUrl(url, srcMapper, baseFolder)
+              const fileStats = await fs.stat(filePath)
+              const fileHash = await getFileHash(fileStats)
+              const versionedUrl = url.includes('?v=') ? url.replace(/(\?v=).*$/, `?v=${fileHash}`) : `${url}?v=${fileHash}`
+              importMap.imports[key] = versionedUrl
+            } catch (err) {
+              console.warn(`Import map file not found for ${url}:`, err.message)
+            }
           }
+
+          updatedJsonText = JSON.stringify(importMap, null, 2)
+            .split('\n')
+            .map(line => indent + line)
+            .join('\n')
         }
-
-        updatedJsonText = JSON.stringify(importMap, null, 2)
+      } catch (e) {
+        console.warn('Failed to parse importmap JSON:', e.message)
       }
-    } catch (e) {
-      console.warn('Failed to parse importmap JSON:', e.message)
-    }
 
-    return `<script type="importmap">\n${updatedJsonText}\n</script>`
-  })
+      return `${openTag}${indent}${updatedJsonText}${indent}${closeTag}`
+    }
+  )
 
   return content
 }
