@@ -47,7 +47,7 @@ async function adjustPathsInHTML(htmlContent, cdnBaseUrl) {
           .split('\n')
           .map(line => indent + line)
           .join('\n')
-        return `${indent}${openTag}\n${newScript}\n</script>${closeTag}`
+        return `${indent}${openTag}\n${updatedJSON}\n${indent}${closeTag}`
       } catch (e) {
         console.warn('Failed to parse import map JSON:', e)
         return match // Return original if parsing fails

@@ -31,7 +31,7 @@ async function removeCdnUrlsFromHtml(htmlContent, cdnBaseUrl) {
           .split('\n')
           .map(line => indent + line)
           .join('\n')
-        return `${openTag}${indent}${JSON.stringify(parsed, null, 2)}${indent}${closeTag}`
+        return `${indent}${openTag}\n${updatedJSON}\n${indent}${closeTag}`
       } catch (e) {
         console.warn('Failed to parse importmap JSON:', e)
         return match // leave it untouched
