@@ -43,7 +43,7 @@ async function adjustPathsInHTML(htmlContent, cdnBaseUrl) {
           }
         }
 
-        const newScript = JSON.stringify(json, null, 2)
+        const updatedJSON = JSON.stringify(json, null, 2)
           .split('\n')
           .map(line => indent + line)
           .join('\n')
