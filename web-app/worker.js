@@ -34,7 +34,7 @@ server(
     indexFile: './web-app/static/html/all-posts.html', 
     api: [],
     static: [
-      src(/^\/((html\/main-page-template\.html)|css|js|json|svg|image|md|pdf|ttf|yml)/, {
+      src(/^\/((html\/main-page-template\.html)|(html\/frammento-main-page-template\.html)|css|js|json|svg|image|md|pdf|font|ttf|yml|magenta-soundfonts)/, {
         baseFolder,
         useGzip: true,
         useCors,
