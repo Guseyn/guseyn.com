@@ -1,10 +1,10 @@
 # Guseyn Ismayylov
-<div class="date">18 November 2024 (last update)</div>
+<div class="date">26 May 2025 (last update)</div>
 
-<img src="/image/photo.jpg?v=fde14c79" class="photo bigger">
+<img src="/image/photo.jpg?v=79a543ad" class="photo bigger">
 <p></p>
 
-I am a founder of [Unison](#founder-of-unison), author of [Nodes.js Backend Framework](#author-of-nodesjs-backend-framework), creator of [EHTML](#creator-of-ehtml), [open source enthusiast](#open-source-enthusiast), [tech blogger](#tech-blogger), [entrepreneur](#entrepreneur), [streamer](#streamer), [programmer](#programmer), [chess&music lover](#chessmusic-lover).
+I am a founder of [Unison](#founder-of-unison), author of [Nodes.js Backend Framework](#author-of-nodesjs-backend-framework), creator of [EHTML](#creator-of-ehtml), [writer](#writer), [open source enthusiast](#open-source-enthusiast), [tech blogger](#tech-blogger), [entrepreneur](#entrepreneur), [streamer](#streamer), [programmer](#programmer), [chess&music lover](#chessmusic-lover).
 
 You can find me on [Instagram](https://www.instagram.com/guseyn_dot_com/), [LinkedIn](https://www.linkedin.com/in/gusein-ismaiylov-111bb1179/), [GitHub](https://github.com/Guseyn/), [Reddit](https://www.reddit.com/user/gyen) and write an [email](mailto:guseynism@gmail.com). Also I have a Telegram [channel](https://t.me/guseyncom) where I write about what's new on my blog. I don't use other social networks.
 
@@ -16,6 +16,10 @@ You can find me on [Instagram](https://www.instagram.com/guseyn_dot_com/), [Link
 
 ## Creator of EHTML
 [EHTML](https://e-html.org)  (or Extended HTML) can be described as a set of custom elements that you can put on HTML page for different purposes and use cases. The main idea and goal of this library is to provide a convenient way to get rid of JavaScript code on the client side as much as it's possible for basic and routine stuff.
+
+## Writer
+
+I'm currently working on my first online book, Guitar by Notes. Here’s a [sample chapter]((/html/intervals.html) you can check out.
 
 ## Open Source Enthusiast
 I am an author of many open source projects such as [Cutie](https://github.com/Guseyn/cutie)(and its [extensions](https://github.com/Guseyn?tab=repositories&q=cutie&type=&language=)), [Page](https://github.com/Guseyn/page), [Test executor](https://github.com/Guseyn/node-test-executor), [Broken XML](https://github.com/Guseyn/broken-xml). Also I contribute to existing project such as [Rewrite](https://github.com/openrewrite/) by finding issues and creating example projects like [Rewrite Java Definitions](https://github.com/Guseyn/rewrite-java-definitions).

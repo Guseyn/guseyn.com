@@ -9,7 +9,7 @@ You can find the app that I am going to describe in this article on GitHub [here
 
 Let's start with following page:
 
-<img src="/image/ehtml-blog-app-1.png?v=fde14c79" alt="main-page">
+<img src="/image/ehtml-blog-app-1.png?v=79a543ad" alt="main-page">
 
 This is an index page, let's take a look at the source:
 
@@ -133,7 +133,7 @@ In the button in the form you can specify details of the endpoint that waits for
 
 When you open a post, you would see something like this:
 
-<img src="/image/ehtml-blog-app-2.png?v=fde14c79" alt="post-page">
+<img src="/image/ehtml-blog-app-2.png?v=79a543ad" alt="post-page">
 
 Let's see how we can build the page above:
 
@@ -292,11 +292,11 @@ Like for the posts, we can create a form for the comments via `e-form`. There we
 
 This is how list of comments looks like:
 
-<img src="/image/ehtml-blog-app-3.png?v=fde14c79" alt="main-page">
+<img src="/image/ehtml-blog-app-3.png?v=79a543ad" alt="main-page">
 
 Finally, let's explore how we can build a page with list of posts with pagination:
 
-<img src="/image/ehtml-blog-app-4.png?v=fde14c79" alt="main-page">
+<img src="/image/ehtml-blog-app-4.png?v=79a543ad" alt="main-page">
 
 Let's take a look at the source:
 

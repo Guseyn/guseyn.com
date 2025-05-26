@@ -1,0 +1,7 @@
+{
+  "name": "SGM",
+  "instruments": {
+    "0": "acoustic_grand_piano"
+  },
+  "durationSeconds": 4
+}
