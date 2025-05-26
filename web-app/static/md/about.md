@@ -19,7 +19,7 @@ You can find me on [Instagram](https://www.instagram.com/guseyn_dot_com/), [Link
 
 ## Writer
 
-I'm currently working on my first online book, Guitar by Notes. Here’s a [sample chapter]((/html/intervals.html) you can check out.
+I'm currently working on my first online book, Guitar by Notes. Here’s a [sample chapter](/html/intervals.html) you can check out.
 
 ## Open Source Enthusiast
 I am an author of many open source projects such as [Cutie](https://github.com/Guseyn/cutie)(and its [extensions](https://github.com/Guseyn?tab=repositories&q=cutie&type=&language=)), [Page](https://github.com/Guseyn/page), [Test executor](https://github.com/Guseyn/node-test-executor), [Broken XML](https://github.com/Guseyn/broken-xml). Also I contribute to existing project such as [Rewrite](https://github.com/openrewrite/) by finding issues and creating example projects like [Rewrite Java Definitions](https://github.com/Guseyn/rewrite-java-definitions).
