@@ -372,11 +372,11 @@ The main point here is that intervals follow a logical sequence: Augmented to Ma
     <tbody>
       <tr>
         <td>Augmented Unison (A1)</td>
-        <td>1 tone</td>
+        <td>1 semitone</td>
       </tr>
       <tr>
         <td>diminished Unison (d1)</td>
-        <td>-1 tone</td>
+        <td>-1 semitone</td>
       </tr>
       <tr>
         <td>Augmented fourth (A4)</td>
