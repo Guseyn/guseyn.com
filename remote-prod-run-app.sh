@@ -1,19 +1,31 @@
 #!/bin/bash
-ssh -i ~/.ssh/deploy_rsa root@174.138.15.193 bash -c "'
-cd guseyn.com
-git fetch --all
-git reset --hard origin/master
-git pull
-pkill node
+set -euo pipefail
 
-# Remove all containers
-docker rm -f \$(docker ps -aq) || echo "No containers to remove"
+echo "🚀 Starting production rebuild on guseyn.com..."
 
-# Remove unused volumes
-docker volume prune -f || echo "No volumes to prune"
+ssh -A -t -i ~/.ssh/deploy_rsa root@174.138.15.193 "bash -l -c '
+  set -euo pipefail
+  export PATH=/usr/bin:/usr/sbin:/bin:/sbin:/usr/local/bin:\$PATH
 
-# Remove all images
-docker rmi -f \$(docker images -q) || echo "No images to remove"
+  cd guseyn.com
 
-docker-compose -f docker-compose.prod.app.yml up --build
+  echo \"🌐 Fetching latest repo changes...\"
+  git fetch --all
+  git reset --hard origin/main
+  git pull origin main --no-rebase
+
+  echo \"💀 Stopping container guseyn.com...\"
+  docker stop guseyn.com 2>/dev/null || echo \"Container not running.\"
+
+  echo \"🗑 Removing container guseyn.com...\"
+  docker rm guseyn.com 2>/dev/null || echo \"Already removed.\"
+
+  echo \"🧼 Removing dangling images...\"
+  docker image prune -f
+
+  echo \"🚢 Building and starting new production container...\"
+  docker compose -f docker-compose.prod.app.yml up --build -d
+
+  echo \"🎉 Deployment completed successfully!\"
 '"
+
