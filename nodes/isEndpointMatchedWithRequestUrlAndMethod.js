@@ -1,8 +1,22 @@
-module.exports = function isEndpointMatchedWithRequestUrlAndMethod(endpoint, requestUrl, requestMethod) {
+/**
+ * Checks if an endpoint matches a given request URL and HTTP method.
+ *
+ * @param {Object} endpoint - The endpoint object containing method, URL pattern, and optional CORS settings.
+ * @param {string} requestUrl - The URL of the incoming request.
+ * @param {string} requestMethod - The HTTP method of the incoming request (e.g., `GET`, `POST`, `OPTIONS`).
+ * @returns {boolean} `true` if the endpoint matches the request URL and method, otherwise `false`.
+ *
+ * @description
+ * This function determines whether a given request matches an endpoint based on:
+ * - The HTTP method.
+ * - The URL pattern.
+ * - Whether the endpoint supports CORS.
+ */
+export default function isEndpointMatchedWithRequestUrlAndMethod(endpoint, requestUrl, requestMethod) {
   let match = false
   if (endpoint.method && requestMethod) {
     endpoint.method = endpoint.method.trim()
-    const isEndpointCors = endpoint.allowedOrigins !== undefined
+    const isEndpointCors = endpoint.useCors || endpoint.allowedOrigins !== undefined
     if (isEndpointCors) {
       endpoint.method += ',OPTIONS'
     }
@@ -30,10 +44,6 @@ function matchUrlPattern(pattern, url) {
     return false
   }
 
-  if (patternQueryParts.length !== urlQueryParts.length) {
-    return false
-  }
-  
   for (let i = 0; i < patternPathParts.length; i++) {
     const patternPathPart = patternPathParts[i]
     const urlPathPart = urlPathParts[i]
@@ -50,15 +60,5 @@ function matchUrlPattern(pattern, url) {
       return false
     }
   }
-
-  for (let i = 0; i < patternQueryParts.length; i++) {
-    const patternQueryPart = patternQueryParts[i]
-    const urlQueryPart = urlQueryParts[i]
-    
-    if (urlQueryPart.split('=')[0] !== patternQueryPart) {
-      return false
-    }
-  }
-  
   return true
 }

@@ -1,7 +1,7 @@
 # Guseyn Ismayylov
 <div class="date">26 May 2025 (last update)</div>
 
-<img src="/image/photo.jpg?v=79a543ad" class="photo bigger">
+<img src="/image/photo.jpg?v=46765fb5" class="photo bigger">
 <p></p>
 
 I am a founder of [Unison](#founder-of-unison), author of [Nodes.js Backend Framework](#author-of-nodesjs-backend-framework), creator of [EHTML](#creator-of-ehtml), [writer](#writer), [open source enthusiast](#open-source-enthusiast), [tech blogger](#tech-blogger), [entrepreneur](#entrepreneur), [streamer](#streamer), [programmer](#programmer), [chess&music lover](#chessmusic-lover).

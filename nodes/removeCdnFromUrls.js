@@ -1,10 +1,17 @@
-const fs = require('fs').promises // Use fs.promises for async/await
-const path = require('path')
+import fs from 'fs/promises'
+import path from 'path'
 
+/**
+ * Removes CDN URLs from HTML content by replacing them with relative paths.
+ *
+ * @param {string} htmlContent - The HTML content to process.
+ * @param {string} cdnBaseUrl - The base URL of the CDN to be removed.
+ * @returns {Promise<string>} A promise that resolves to the updated HTML content.
+ */
 async function removeCdnUrlsFromHtml(htmlContent, cdnBaseUrl) {
   const tagRegex = /<(a|img|script|link|audio|video|source|e-html|e-svg|e-markdown|e-json|e-json-view|template\s+is="e-json"|template\s+is="e-wrapper")([^>]*)>/g
 
-  let updatedHtml = htmlContent.replace(tagRegex, (match, tagName, attributes) => {
+  return htmlContent.replace(tagRegex, (match, tagName, attributes) => {
     attributes = attributes.replace(/(href|src)="(https?:\/\/[^"]+)"/g, (attrMatch, attribute, fullUrl) => {
       if (fullUrl.startsWith(cdnBaseUrl)) {
         const relativePath = fullUrl.replace(cdnBaseUrl, '')
@@ -14,34 +21,15 @@ async function removeCdnUrlsFromHtml(htmlContent, cdnBaseUrl) {
     })
     return `<${tagName}${attributes}>`
   })
-
-  // Process <script type="importmap">...</script> blocks
-  updatedHtml = updatedHtml.replace(/(^[ \t]*)(<script\b[^>]*type=['"]importmap['"][^>]*>)([\s\S]*?)(<\/script>)/gim,
-    (match, indent, openTag, scriptContent, closeTag) => {
-      try {
-        const parsed = JSON.parse(scriptContent)
-        if (parsed.imports) {
-          for (const key in parsed.imports) {
-            if (parsed.imports[key].startsWith(cdnBaseUrl)) {
-              parsed.imports[key] = parsed.imports[key].replace(cdnBaseUrl, '')
-            }
-          }
-        }
-        const updatedJSON = JSON.stringify(parsed, null, 2)
-          .split('\n')
-          .map(line => indent + line)
-          .join('\n')
-        return `${indent}${openTag}\n${updatedJSON}\n${indent}${closeTag}`
-      } catch (e) {
-        console.warn('Failed to parse importmap JSON:', e)
-        return match // leave it untouched
-      }
-    }
-  )
-
-  return updatedHtml
 }
 
+/**
+ * Removes CDN URLs from Markdown content by replacing them with relative paths.
+ *
+ * @param {string} mdContent - The Markdown content to process.
+ * @param {string} cdnBaseUrl - The base URL of the CDN to be removed.
+ * @returns {Promise<string>} A promise that resolves to the updated Markdown content.
+ */
 async function removeCdnUrlsFromMarkdown(mdContent, cdnBaseUrl) {
   // Step 1: Skip code blocks enclosed by triple backticks and inline code enclosed by single backticks
   const codeBlocks = []
@@ -82,6 +70,13 @@ async function removeCdnUrlsFromMarkdown(mdContent, cdnBaseUrl) {
   return mdContent
 }
 
+/**
+ * Recursively removes CDN URLs from HTML and Markdown files within a directory.
+ *
+ * @param {string} dirPath - The path to the directory to process.
+ * @param {string} cdnBaseUrl - The base URL of the CDN to be removed.
+ * @returns {Promise<void>} A promise that resolves when all files are processed.
+ */
 async function removeCdnFromUrls(dirPath, cdnBaseUrl) {
   try {
     // Read all files and directories in the given directory
@@ -118,4 +113,4 @@ async function removeCdnFromUrls(dirPath, cdnBaseUrl) {
   }
 }
 
-module.exports = removeCdnFromUrls
+export default removeCdnFromUrls

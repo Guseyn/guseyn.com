@@ -1,10 +1,10 @@
-const updateCacheVersionsInUrls = require('./../nodes/updateCacheVersionsInUrls')
-const addCdnToUrls = require('./../nodes/addCdnToUrls')
-const removeCdnFromUrls = require('./../nodes/removeCdnFromUrls')
+import updateCacheVersionsInUrls from '#nodes/updateCacheVersionsInUrls.js'
+import addCdnToUrls from '#nodes/addCdnToUrls.js'
+import removeCdnFromUrls from '#nodes/removeCdnFromUrls.js'
 
 const environment = process.env.ENV
 
-module.exports = async function prepareStaticFilesWithCdnAndCacheVersions() {
+export default async function prepareStaticFilesWithCdnAndCacheVersions() {
   await removeCdnFromUrls('web-app/static', 'https://cdn.guseyn.com')
   await updateCacheVersionsInUrls('web-app/static')
   if (environment === 'prod') {

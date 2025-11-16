@@ -3,6 +3,7 @@
   "version": "2.0.82",
   "description": "My blog.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "lint": "npx eslint",
     "guseyn:start": "node web-app/main.js",
@@ -17,12 +18,18 @@
     "guseyn:docker:prod:restart": "docker exec -it guseyn.com npm run guseyn:prod:restart",
     "guseyn:pull": "node web-app/pull.js",
     "guseyn:prod:pull": "ENV=prod node web-app/pull.js",
-    "ehtml:update": "rm -rf web-app/static/js/ehtml && cp -r ../EHTML/src web-app/static/js/ehtml"
+    "ehtml:update": "yes | cp -rf ../../node-projects/EHTML/src/ web-app/static/js/ehtml",
+    "nodes:update": "yes | cp -rf ../../node-projects/nodes.js/nodes/ nodes/",
+    "ehtml:update:reverse": "yes | cp -rf web-app/static/js/ehtml/ ../../node-projects/EHTML/src/",
+    "nodes:update:reverse": "yes | cp -rf nodes/ ../../node-projects/nodes.js/nodes/"
   },
   "author": "guseyn",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
+  },
+  "imports": {
+    "#nodes/*": "./nodes/*"
   },
   "dependencies": {
     "cross-port-killer": "^1.4.0",

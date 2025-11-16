@@ -1,4 +1,12 @@
-module.exports = {
+/**
+ * Mapping of file extensions to their MIME types.
+ *
+ * @description
+ * This object provides a comprehensive mapping of file extensions to MIME types. It is useful
+ * for determining the appropriate `Content-Type` header for HTTP responses or processing files
+ * based on their types.
+ */
+export default {
   evy: 'application/envoy',
   fif: 'application/fractals',
   spl: 'application/futuresplash',
@@ -126,6 +134,7 @@ module.exports = {
   aifc: 'audio/x-aiff',
   aiff: 'audio/x-aiff',
   m3u: 'audio/x-mpegurl',
+  m3u8: 'application/vnd.apple.mpegurl',
   ra: 'audio/x-pn-realaudio',
   ram: 'audio/x-pn-realaudio',
   wav: 'audio/x-wav',
@@ -144,6 +153,7 @@ module.exports = {
   ras: 'image/x-cmu-raster',
   cmx: 'image/x-cmx',
   ico: 'image/x-icon',
+  png: 'image/png',
   pnm: 'image/x-portable-anymap',
   pbm: 'image/x-portable-bitmap',
   pgm: 'image/x-portable-graymap',
@@ -194,6 +204,7 @@ module.exports = {
 
   flr: 'x-world/x-vrml',
   vrml: 'x-world/x-vrml',
+  webm: 'video/webm',
   wrl: 'x-world/x-vrml',
   wrz: 'x-world/x-vrml',
   xaf: 'x-world/x-vrml',

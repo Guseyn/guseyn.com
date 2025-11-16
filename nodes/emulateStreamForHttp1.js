@@ -1,17 +1,48 @@
-const { Duplex } = require('stream')
+import { Duplex } from 'stream'
 
-module.exports = function emulateStreamForHttp1(req, res) {
+/**
+ * Emulates an HTTP/2-like stream for HTTP/1.1 requests and responses.
+ *
+ * @param {Object} req - The HTTP/1.1 request object.
+ * @param {Object} res - The HTTP/1.1 response object.
+ * @returns {Duplex} A Duplex stream that emulates an HTTP/2-like stream interface.
+ *
+ * @description
+ * This function creates a Duplex stream that bridges the gap between HTTP/1.1 and an HTTP/2-like API.
+ * It allows handling HTTP/1.1 requests and responses using a stream-like interface commonly used with HTTP/2.
+ *
+ * ### Key Features:
+ * - Implements a readable stream from the incoming `req` data.
+ * - Implements a writable stream to the `res` object.
+ * - Provides HTTP/2-style headers (`:method`, `:path`, etc.).
+ * - Handles `respond` and `pushStream` methods for API compatibility.
+ *
+ * ### Example Usage
+ * ```javascript
+ * const http = require('http');
+ * const emulateStreamForHttp1 = require('./emulateStreamForHttp1');
+ *
+ * const server = http.createServer((req, res) => {
+ *   const stream = emulateStreamForHttp1(req, res);
+ *   stream.on('data', (chunk) => {
+ *     console.log('Received chunk:', chunk.toString());
+ *   });
+ *   stream.respond({
+ *     ':status': 200,
+ *     'content-type': 'text/plain'
+ *   });
+ *   stream.end('Hello, world!');
+ * });
+ *
+ * server.listen(3000, () => {
+ *   console.log('Server running on http://localhost:3000');
+ * });
+ * ```
+ */
+export default function emulateStreamForHttp1(req, res) {
   const stream = new Duplex({
     // Implement the readable side (data coming from req)
-    read() {
-      req.on('data', (chunk) => {
-        this.push(chunk)
-      })
-
-      req.on('end', () => {
-        this.push(null) // Signal end of stream
-      })
-    },
+    read() {},
 
     // Implement the writable side (data going to res)
     write(chunk, encoding, callback) {
@@ -22,6 +53,14 @@ module.exports = function emulateStreamForHttp1(req, res) {
       res.end()
       callback()
     }
+  })
+
+  req.on('data', (chunk) => {
+    stream.push(chunk)
+  })
+
+  req.on('end', () => {
+    stream.push(null) // Signal end of stream
   })
 
   const headers = {
@@ -44,7 +83,9 @@ module.exports = function emulateStreamForHttp1(req, res) {
   stream.headers = headers
   stream.respond = (responseHeaders) => {
     const status = responseHeaders[':status'] || 200
-    responseHeaders['x-authority'] = headers[':authority']
+    if (headers[':authority']) {
+      responseHeaders['x-authority'] = headers[':authority']
+    }
     delete responseHeaders[':status']
     delete responseHeaders[':method']
     delete responseHeaders[':path']
@@ -52,24 +93,8 @@ module.exports = function emulateStreamForHttp1(req, res) {
     responseHeaders['x-handled-by-http1-stream-emulation'] = true
     res.writeHead(status, responseHeaders)
   }
-  stream.write = (chunk) => {
-    res.write(chunk)
-  }
-  stream.end = (data) => {
-    res.end(data)
-  }
-  stream.destroy = (error) => {
-    if (error) {
-      res.destroy(error)
-    } else {
-      res.destroy()
-    }
-  }
   stream.setTimeout = (ms, callback) => {
     res.setTimeout(ms, callback)
-  }
-  stream.on = (event, handler) => {
-    res.on(event, handler)
   }
   stream.pushStream = (headers, callback) => {
     if (callback) {
