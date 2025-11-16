@@ -1,16 +1,18 @@
-import elm from 'ehtml/elm'
-import isTemplate from 'ehtml/isTemplate'
-import isTemplateWithType from 'ehtml/isTemplateWithType'
-import observeNodeAttributes from 'ehtml/observeNodeAttributes'
-import evaluatedStringWithParamsFromState from 'ehtml/evaluatedStringWithParamsFromState'
-import releaseTemplateWithItsContent from 'ehtml/releaseTemplateWithItsContent'
+import elm from '#ehtml/elm.js?v=21adcdae'
+import isTemplate from '#ehtml/isTemplate.js?v=e3182ac2'
+import isTemplateWithType from '#ehtml/isTemplateWithType.js?v=32c9a935'
+import observeNodeAttributes from '#ehtml/observeNodeAttributes.js?v=b46e4e7c'
+import evaluatedStringWithParamsFromState from '#ehtml/evaluatedStringWithParamsFromState.js?v=e2d7e253'
+import releaseTemplateWithItsContent from '#ehtml/releaseTemplateWithItsContent.js?v=17aa3204'
 
 export default function mapToTemplate (elmSelectorOrElm, obj) {
   const mappingElement = elm(elmSelectorOrElm)
   if (mappingElement === null || mappingElement === undefined) {
+    console.log(elmSelectorOrElm, mappingElement, obj)
     throw new Error('Mapping element is not found')
   }
   if (!isTemplate(mappingElement)) {
+    console.log(elmSelectorOrElm, mappingElement, obj)
     throw new Error('Mapping element must be <template>')
   }
   if (isTemplateWithType(mappingElement, 'e-if')) {

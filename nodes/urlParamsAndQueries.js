@@ -1,4 +1,30 @@
-module.exports = function urlParamsAndQueries(pattern, url) {
+/**
+ * Extracts parameters and query values from a URL based on a specified pattern.
+ *
+ * @param {string|RegExp} pattern - The URL pattern to match. If it's a string, it may include parameter placeholders (e.g., `:id`).
+ * @param {string} url - The actual URL to extract parameters and queries from.
+ * @returns {Object} An object containing `params` and `queries` extracted from the URL.
+ * @property {Object} params - An object mapping parameter names to their values.
+ * @property {Object} queries - An object mapping query keys to their values.
+ *
+ * @description
+ * This function parses a URL based on a given pattern and extracts:
+ * - Path parameters: Identified by `:` in the pattern (e.g., `/user/:id`).
+ * - Query values: Based on matching keys in the query string.
+ *
+ * ### Example Usage
+ * ```javascript
+ * const urlParamsAndQueries = require('./urlParamsAndQueries');
+ *
+ * const pattern = '/user/:id?name';
+ * const url = '/user/123?name=John';
+ *
+ * const { params, queries } = urlParamsAndQueries(pattern, url);
+ * console.log(params); // { id: '123' }
+ * console.log(queries); // { name: 'John' }
+ * ```
+ */
+export default function urlParamsAndQueries(pattern, url) {
   const params = {}
   const queries = {}
 
@@ -22,13 +48,24 @@ module.exports = function urlParamsAndQueries(pattern, url) {
 
     for (let i = 0; i < patternQueryParts.length; i++) {
       const patternQueryPart = patternQueryParts[i]
-      const urlQueryPart = urlQueryParts[i]
+      const urlQueryPart = urlQueryParts
+        .find(urlQueryPart => urlQueryPart.split('=')[0] === patternQueryPart)
       
-      const urlQueryPartKeyAndValue = urlQueryPart.split('=')
-      const urlQueryPartKey = urlQueryPartKeyAndValue[0]
-      const urlQueryPartValue = urlQueryPartKeyAndValue[1]
-      if (urlQueryPartKey === patternQueryPart && urlQueryPartValue) {
-        queries[patternQueryPart] = urlQueryPartValue
+      if (urlQueryPart !== undefined && urlQueryPart !== null) {
+        const urlQueryPartKeyAndValue = urlQueryPart.split('=')
+        const urlQueryPartKey = urlQueryPartKeyAndValue[0]
+        const urlQueryPartValue = urlQueryPartKeyAndValue[1]
+        if (urlQueryPartKey === patternQueryPart && urlQueryPartValue) {
+          queries[patternQueryPart] = urlQueryPartValue
+        }
+      }
+    }
+  } else {
+    const [urlPath, queryString] = url.split('?')
+    if (queryString) {
+      const searchParams = new URLSearchParams(queryString)
+      for (const [key, value] of searchParams.entries()) {
+        queries[key] = value
       }
     }
   }

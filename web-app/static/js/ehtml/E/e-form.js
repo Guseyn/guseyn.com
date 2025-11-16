@@ -1,7 +1,8 @@
-import responseFromAjaxRequest from 'ehtml/responseFromAjaxRequest'
-import evaluatedStringWithParamsFromState from 'ehtml/evaluatedStringWithParamsFromState'
-import evaluateStringWithActionsOnProgress from 'ehtml/evaluateStringWithActionsOnProgress'
-import evaluateStringWithActionsOnResponse from 'ehtml/evaluateStringWithActionsOnResponse'
+import responseFromAjaxRequest from '#ehtml/responseFromAjaxRequest.js?v=4d85ec20'
+import evaluatedStringWithParamsFromState from '#ehtml/evaluatedStringWithParamsFromState.js?v=e2d7e253'
+import evaluateStringWithActionsOnProgress from '#ehtml/evaluateStringWithActionsOnProgress.js?v=c20d640c'
+import evaluateStringWithActionsOnResponse from '#ehtml/evaluateStringWithActionsOnResponse.js?v=2edf1120'
+import nodeName from '#ehtml/nodeName.js?v=3a6378ad'
 
 const VALIDATION_PATTERNS = {
   date: /\d\d\d\d-\d\d-\d\d/,
@@ -18,9 +19,8 @@ const VALIDATION_PATTERNS = {
 
 export default (node) => {
   const form = replaceWithForm(node)
-  setupForm(form)
   form.addEventListener('allChildNodesAreObservedByEHTML', () => {
-    if (form.hasAttribute('data-request-url')) {
+    if (form.hasAttribute('data-request-url') || form.hasAttribute('data-socket')) {
       submit(form, true)
     }
   })
@@ -36,10 +36,33 @@ function replaceWithForm (node) {
       node.attributes[i].value
     )
   }
-  onsubmit = () => {
+  window.onsubmit = (event) => {
     return false
   }
-  form.submit = submit
+  form.addEventListener('keydown', (event) => {
+    if (
+      event.key === 'Enter' &&
+      event.target.tagName === 'INPUT'
+    ) {
+      event.preventDefault()
+      event.stopPropagation()
+      const closestForm = event.target.closest('form')
+      if (form !== closestForm) {
+        return false
+      }
+      const firstElmWithRequestUrl = closestForm.querySelector('[data-request-url]')
+      if (!firstElmWithRequestUrl) {
+        return false
+      }
+      if (firstElmWithRequestUrl.closest('form') !== form) {
+        return false
+      }
+      if (firstElmWithRequestUrl.hasAttribute('data-do-not-trigger-on-enter')) {
+        return false
+      }
+      submit(firstElmWithRequestUrl)
+    }
+  })
   form.validationErrorBoxes = []
   form.elementsWithValidationError = []
   while (node.firstChild) {
@@ -47,22 +70,30 @@ function replaceWithForm (node) {
     form.appendChild(child)
   }
   node.parentNode.replaceChild(form, node)
+  form.setupForm = setupForm
+  form.updateForm = setupForm
+  form.submit = submit
+  setupForm(form)
   return form
 }
 
 function setupForm (form) {
-  form.progressBars = form.getElementsByTagName('progress')
-  form.inputs = form.getElementsByTagName('input')
-  form.selects = form.getElementsByTagName('select')
-  form.textareas = form.getElementsByTagName('textarea')
-  form.localStorageValues = form.getElementsByTagName('e-local-storage-value')
-  form.sessionStorageValues = form.getElementsByTagName('e-session-storage-value')
-  form.dynamicValues = form.getElementsByTagName('e-form-dynamic-value')
-  form.buttons = form.getElementsByTagName('button')
-  form.submit = submit
+  form.progressBars = filterApplicableFormElements(form, [...form.getElementsByTagName('progress')])
+  form.inputs = filterApplicableFormElements(form, [...form.getElementsByTagName('input')])
+  form.selects = filterApplicableFormElements(form, [...form.getElementsByTagName('select')])
+  form.textareas = filterApplicableFormElements(form, [...form.getElementsByTagName('textarea')])
+  form.localStorageValues = filterApplicableFormElements(form, [...form.getElementsByTagName('e-local-storage-value')])
+  form.sessionStorageValues = filterApplicableFormElements(form, [...form.getElementsByTagName('e-session-storage-value')])
+  form.dynamicValues = filterApplicableFormElements(form, [...form.getElementsByTagName('e-form-dynamic-value')])
+  form.buttons = filterApplicableFormElements(form, [...form.getElementsByTagName('button')])
   tuneFileInputs(filteredFileInputs(form.inputs))
   prepareDifferentFormElements(form)
+  disableDefaultSubmitForButtons(form.buttons)
   prepareProgressBars(form.progressBars)
+}
+
+function filterApplicableFormElements (form, elms) {
+  return elms.filter(e => !e.hasAttribute('data-ignore')).filter(e => e.closest('form') === form)
 }
 
 function tuneFileInputs (fileInputs) {
@@ -72,12 +103,16 @@ function tuneFileInputs (fileInputs) {
 }
 
 function tuneFileInput (fileInput) {
+  if (fileInput.isTunedByEHTML) {
+    return
+  }
   const readProgressBar = document.querySelector(
     fileInput.getAttribute('data-read-progress-bar')
   )
   fileInput.addEventListener('change', () => {
     readFilesContentForRequestBody(fileInput, readProgressBar)
   })
+  fileInput.isTunedByEHTML = true
 }
 
 function readFilesContentForRequestBody (fileInput, readProgressBar) {
@@ -108,7 +143,7 @@ function readFileContentForRequestBody (fileInput, readProgressBar, index, files
     }
   }
   reader.onprogress = (event) => {
-    if (event.lengthComputable) {
+    if (event.lengthComputable && readProgressBar) {
       readProgressBar.style.display = ''
       const percentComplete = parseInt((event.loaded / event.total) * 100)
       readProgressBar.value = percentComplete
@@ -116,10 +151,12 @@ function readFileContentForRequestBody (fileInput, readProgressBar, index, files
   }
   reader.onloadend = () => {
     filesRead.count += 1
-    if (filesRead.count === filesLength) {
-      readProgressBar.style.display = 'none'
-    } else {
-      readProgressBar.value = 0
+    if (readProgressBar) {
+      if (filesRead.count === filesLength) {
+        readProgressBar.style.display = 'none'
+      } else {
+        readProgressBar.value = 0
+      }
     }
   }
   reader.onerror = function () {
@@ -154,6 +191,9 @@ function prepareDifferentFormElements (form) {
 function prepareFormElements (form, elms) {
   for (let index = 0; index < elms.length; index++) {
     const elm = elms[index]
+    if (elm.isPreparedByEHTML) {
+      continue
+    }
     form.allElements.push(elm)
     const ajaxIcon = document.querySelector(
       elm.getAttribute('data-ajax-icon')
@@ -161,6 +201,14 @@ function prepareFormElements (form, elms) {
     if (ajaxIcon) {
       ajaxIcon.style.display = 'none'
     }
+    elm.isPreparedByEHTML = true
+  }
+}
+
+function disableDefaultSubmitForButtons (buttons) {
+  for (let index = 0; index < buttons.length; index++) {
+    const button = buttons[index]
+    button.setAttribute('type', 'button')
   }
 }
 
@@ -168,9 +216,13 @@ function prepareProgressBars (progressBars) {
   for (let index = 0; index < progressBars.length; index++) {
     if (progressBars[index]) {
       const progressBar = progressBars[index]
+      if (progressBar.isPreparedByEHTML) {
+        continue
+      }
       progressBar.max = 100
       progressBar.value = 0
       progressBar.style.display = 'none'
+      progressBar.isPreparedByEHTML = true
     }
   }
 }
@@ -183,9 +235,9 @@ function urlWithQueryParams (url, queryObject) {
     queryStringBuffer.push(`${key}=${value}`)
   }
   if (queryStringBuffer.length > 0) {
-    return encodeURI(`${url}?${queryStringBuffer.join('&')}`)
+    return `${url}?${queryStringBuffer.join('&')}`
   }
-  return encodeURI(url)
+  return url
 }
 
 function submit (target, targetIsForm) {
@@ -193,6 +245,19 @@ function submit (target, targetIsForm) {
   if (!form) {
     throw new Error('you must pass form in submit method like: \'this.submit(this)\'')
   }
+  if (target.closest('form') !== form) {
+    return false
+  }
+
+  form.progressBars = form.progressBars.filter(e => form.contains(e) && e.closest('form') === form)
+  form.inputs = form.inputs.filter(e => form.contains(e) && e.closest('form') === form)
+  form.selects = form.selects.filter(e => form.contains(e) && e.closest('form') === form)
+  form.textareas = form.textareas.filter(e => form.contains(e) && e.closest('form') === form)
+  form.localStorageValues = form.localStorageValues.filter(e => form.contains(e) && e.closest('form') === form)
+  form.sessionStorageValues = form.sessionStorageValues.filter(e => form.contains(e) && e.closest('form') === form)
+  form.dynamicValues = form.dynamicValues.filter(e => form.contains(e) && e.closest('form') === form)
+  form.buttons = form.buttons.filter(e => form.contains(e) && e.closest('form') === form)
+
   const validations = []
 
   const socketName = target.getAttribute('data-socket')
@@ -211,13 +276,12 @@ function submit (target, targetIsForm) {
   if (target.hasAttribute('data-button-ajax-class') && !targetIsForm && !socketName) {
     target.classList.add(target.getAttribute('data-button-ajax-class'))
   }
-  if (target.hasAttribute('data-button-ajax-text') && !targetIsForm && !socketName) {
+  if (target.hasAttribute('data-button-ajax-text') && !targetIsForm && !socketName && target.nodeName.toLowerCase() === 'button') {
     target.originalInnerText = target.innerText
     target.innerText = target.getAttribute('data-button-ajax-text')
   }
 
   const { requestBody, queryObject } = requestBodyAndQueryObject(form)
-
   hideAllErrorsForForm(form)
   validateDifferentFormElements(form, requestBody, queryObject, validations)
 
@@ -239,6 +303,39 @@ function submit (target, targetIsForm) {
       return
     }
 
+    if (!target.hasAttribute('data-request-url')) {
+      throw new Error('e-form must have "data-request-url" attribute in the element that submits it')
+    }
+
+    if (target.getAttribute('data-request-url') === 'echo/request/body') {
+      if (!targetIsForm) {
+        target.removeAttribute('disabled')
+      }
+      if (ajaxIcon) {
+        ajaxIcon.style.display = 'none'
+      }
+      if (target.hasAttribute('data-button-ajax-class') && !targetIsForm) {
+        target.classList.remove(target.getAttribute('data-button-ajax-class'))
+      }
+      if (target.originalInnerText) {
+        target.innerText = target.originalInnerText
+      }
+      evaluateStringWithActionsOnResponse(
+        target.getAttribute('data-actions-on-response'),
+        target.getAttribute('data-response-name'),
+        {
+          body: requestBody,
+          statusCode: 200,
+          headers: {
+            'content-type': 'application/json',
+            ':status': 200
+          }
+        },
+        target
+      )
+      return
+    }
+
     const downloadResponseBodyAsFileWithName = target.getAttribute('data-download-response-body-as-file-with-name')
 
     const uploadProgressBarSelector = target.getAttribute('data-upload-progress-bar')
@@ -252,10 +349,6 @@ function submit (target, targetIsForm) {
         target.getAttribute('data-actions-on-progress'),
         target
       )
-    }
-
-    if (!target.hasAttribute('data-request-url')) {
-      throw new Error('e-form must have "data-request-url" attribute in the element that submits it')
     }
 
     responseFromAjaxRequest({
@@ -385,8 +478,13 @@ function validateFormElements (form, elements, requestBody, queryObject, validat
 function validateFormElement (form, element, requestBody, queryObject) {
   const validationPatternAttribute = element.getAttribute('data-validation-pattern')
   const requiredAttribute = element.hasAttribute('required')
-  const nameAttribute = element.getAttribute('name')
-  let value = (requestBody[nameAttribute] === undefined) ? queryObject[nameAttribute] : requestBody[nameAttribute]
+  const valueIsForQueryObject = element.getAttribute('data-is-query-param')
+  const properyPath = []
+  buildFullPathOfProperyForRequestBodyByFormElementPosition(
+    element, properyPath, valueIsForQueryObject
+  )
+  const obj = valueIsForQueryObject ? queryObject : requestBody
+  let value = returnValueByPropertyPath(obj, properyPath)
   if (typeof value === 'string') {
     value = value.trim()
   }
@@ -432,6 +530,9 @@ function validateFormElement (form, element, requestBody, queryObject) {
     }
   }
   if (validationPatternAttribute) {
+    if (value === '' && !requiredAttribute) {
+      return true
+    }
     const validationPattern = VALIDATION_PATTERNS[validationPatternAttribute] || new RegExp(validationPatternAttribute, 'ig')
     if (!validationPattern.test(value)) {
       showErrorForFormElement(
@@ -533,6 +634,244 @@ function scrollToFirstErrorBox (form) {
   }
 }
 
+function assignAndReturnValueToRequestBody (requestBodySubObject, remainingPropertyPath, properyValue) {
+  const currentPathPart = remainingPropertyPath[0]
+  const restPathParts = remainingPropertyPath.slice(1)
+
+  if (!currentPathPart) {
+    return null
+  }
+
+  if (currentPathPart.isLiteral) {
+    if (Array.isArray(requestBodySubObject)) {
+      if (requestBodySubObject[currentPathPart.index] === undefined) {
+        requestBodySubObject[currentPathPart.index] = properyValue
+      }
+      return requestBodySubObject[currentPathPart.index]
+    }
+    requestBodySubObject[currentPathPart.name] = properyValue
+    return requestBodySubObject[currentPathPart.name]
+  }
+
+  if (currentPathPart.isArray) {
+    if (Array.isArray(requestBodySubObject)) {
+      if (requestBodySubObject[currentPathPart.index] === undefined) {
+        requestBodySubObject[currentPathPart.index] = []
+      }
+      return assignAndReturnValueToRequestBody(
+        requestBodySubObject[currentPathPart.index],
+        restPathParts,
+        properyValue
+      )
+    }
+    if (requestBodySubObject[currentPathPart.name] === undefined) {
+      requestBodySubObject[currentPathPart.name] = []
+    }
+    return assignAndReturnValueToRequestBody(
+      requestBodySubObject[currentPathPart.name],
+      restPathParts,
+      properyValue
+    )
+  }
+
+  if (currentPathPart.isObject) {
+    if (Array.isArray(requestBodySubObject)) {
+      if (requestBodySubObject[currentPathPart.index] === undefined) {
+        requestBodySubObject[currentPathPart.index] = {}
+      }
+      return assignAndReturnValueToRequestBody(
+        requestBodySubObject[currentPathPart.index],
+        restPathParts,
+        properyValue
+      )
+    }
+    if (requestBodySubObject[currentPathPart.name] === undefined) {
+      requestBodySubObject[currentPathPart.name] = {}
+    }
+    return assignAndReturnValueToRequestBody(
+      requestBodySubObject[currentPathPart.name],
+      restPathParts,
+      properyValue
+    )
+  }
+
+  return null
+}
+
+function returnValueByPropertyPath (requestBodySubObject, remainingPropertyPath) {
+  const currentPathPart = remainingPropertyPath[0]
+  const restPathParts = remainingPropertyPath.slice(1)
+
+  if (!currentPathPart) {
+    return null
+  }
+
+  if (currentPathPart.isLiteral) {
+    if (Array.isArray(requestBodySubObject)) {
+      return requestBodySubObject[currentPathPart.index]
+    }
+    return requestBodySubObject[currentPathPart.name]
+  }
+
+  if (currentPathPart.isArray) {
+    if (Array.isArray(requestBodySubObject)) {
+      return returnValueByPropertyPath(
+        requestBodySubObject[currentPathPart.index],
+        restPathParts
+      )
+    }
+    return returnValueByPropertyPath(
+      requestBodySubObject[currentPathPart.name],
+      restPathParts
+    )
+  }
+
+  if (currentPathPart.isObject) {
+    if (Array.isArray(requestBodySubObject)) {
+      return returnValueByPropertyPath(
+        requestBodySubObject[currentPathPart.index],
+        restPathParts
+      )
+    }
+    return returnValueByPropertyPath(
+      requestBodySubObject[currentPathPart.name],
+      restPathParts
+    )
+  }
+
+  return null
+}
+
+function buildFullPathOfProperyForRequestBodyByFormElementPosition (formElement, properyPath, valueIsForQueryObject) {
+  if (valueIsForQueryObject) {
+    properyPath.unshift({
+      name: formElement.name,
+      isLiteral: true
+    })
+    return
+  }
+
+  const isArray = nodeName(formElement) === 'e-form-array'
+  const isObject = nodeName(formElement) === 'e-form-object'
+  const isLiteral = !isArray && !isObject
+
+  const closestForm = formElement.closest('form')
+
+  let closestFormArray
+  let closestFormObject
+  if (isArray) {
+    closestFormArray = formElement.parentElement.closest('e-form-array')
+    closestFormObject = formElement.closest('e-form-object')
+  } else if (isObject) {
+    closestFormArray = formElement.closest('e-form-array')
+    closestFormObject = formElement.parentElement.closest('e-form-object')
+  } else {
+    closestFormArray = formElement.closest('e-form-array')
+    closestFormObject = formElement.closest('e-form-object')
+  }
+
+  let theMostClosest = closestForm
+  if (
+    formElement !== closestFormArray && (
+      (closestFormArray && !closestFormObject && closestForm.contains(closestFormArray)) ||
+      (closestFormObject && closestFormArray && closestFormObject.contains(closestFormArray))
+    )
+  ) {
+    theMostClosest = closestFormArray
+  } else if (
+    formElement !== closestFormObject && (
+      (closestFormObject && !closestFormArray && closestForm.contains(closestFormObject)) ||
+      (closestFormObject && closestFormArray && closestFormArray.contains(closestFormObject))
+    )
+  ) {
+    theMostClosest = closestFormObject
+  }
+
+  if (closestForm === theMostClosest) {
+    properyPath.unshift({
+      name: formElement.name,
+      isLiteral,
+      isArray,
+      isObject
+    })
+    return
+  }
+
+  if (closestFormArray === theMostClosest) {
+    const formElementQuerySelector = [
+      'input',
+      'select',
+      'textarea',
+      'e-local-storage-value',
+      'e-session-storage-value',
+      'e-form-dynamic-value',
+      'e-form-array',
+      'e-form-object'
+    ].join(', ')
+
+    const topLevelElements = [...closestFormArray.querySelectorAll(formElementQuerySelector)]
+      .filter((el) => {
+        if (el === formElement) {
+          return true
+        }
+
+        if (formElement.contains(el)) {
+          return false
+        }
+
+        if (el.contains(formElement)) {
+          return false
+        }
+
+        if (!closestFormArray.contains(el)) {
+          return false
+        }
+
+        const elClosestFormArray = el.closest('e-form-array')
+        const elClosestFormObject = el.closest('e-form-object')
+
+        if (elClosestFormArray !== el && elClosestFormArray !== closestFormArray) {
+          return false
+        }
+
+        if (elClosestFormObject !== el && elClosestFormObject !== closestFormObject) {
+          return false
+        }
+
+        return true
+      })
+    const formElementIndex = topLevelElements.indexOf(formElement)
+
+    properyPath.unshift({
+      name: formElement.name,
+      index: formElementIndex,
+      isLiteral,
+      isArray,
+      isObject
+    })
+    buildFullPathOfProperyForRequestBodyByFormElementPosition(
+      closestFormArray,
+      properyPath,
+      valueIsForQueryObject
+    )
+    return
+  }
+
+  if (closestFormObject === theMostClosest) {
+    properyPath.unshift({
+      name: formElement.name,
+      isLiteral,
+      isArray,
+      isObject
+    })
+    buildFullPathOfProperyForRequestBodyByFormElementPosition(
+      closestFormObject,
+      properyPath,
+      valueIsForQueryObject
+    )
+  }
+}
+
 function requestBodyAndQueryObject (form) {
   const requestBody = {}
   const queryObject = {}
@@ -551,29 +890,53 @@ function retrievedValuesFromInputsForRequestBodyAndQueryObject (inputs, requestB
     const valueIsForQueryObject = input.hasAttribute('data-is-query-param')
     const obj = valueIsForQueryObject ? queryObject : requestBody
     if (!input.name) {
-      throw new Error(`input ${input} has no name`)
+      continue
     }
+    const properyPath = []
+    buildFullPathOfProperyForRequestBodyByFormElementPosition(
+      input,
+      properyPath,
+      valueIsForQueryObject
+    )
     if (input.type.toLowerCase() === 'radio') {
       if (input.checked) {
-        obj[input.name] = input.value
+        assignAndReturnValueToRequestBody(
+          obj,
+          properyPath,
+          input.value
+        )
       }
     } else if (input.type.toLowerCase() === 'checkbox') {
-      if (!obj[input.name]) {
-        obj[input.name] = []
-      }
+      const exitingCheckboxValue = returnValueByPropertyPath(
+        obj,
+        properyPath
+      )
+      const requestBodyCheckboxPart = assignAndReturnValueToRequestBody(
+        obj,
+        properyPath,
+        exitingCheckboxValue || []
+      )
       const inputValue = input.value
       if (!inputValue) {
         throw new Error('checkbox must have \'value\' attribute')
       }
       if (input.checked) {
-        obj[input.name].push(inputValue)
+        requestBodyCheckboxPart.push(inputValue)
       } else if (input.hasAttribute('unchecked-value')) {
-        obj[input.name].push(input.getAttribute('unchecked-value'))
+        requestBodyCheckboxPart.push(input.getAttribute('unchecked-value'))
       }
     } else if (input.type.toLowerCase() === 'file') {
-      obj[input.name] = input.filesInfo
+      assignAndReturnValueToRequestBody(
+        obj,
+        properyPath,
+        input.filesInfo
+      )
     } else {
-      obj[input.name] = input.value
+      assignAndReturnValueToRequestBody(
+        obj,
+        properyPath,
+        input.value
+      )
     }
   }
 }
@@ -586,7 +949,17 @@ function retrievedValuesFromSelectsForRequestBodyAndQueryObject (selects, reques
     if (!select.name) {
       throw new Error(`select ${select} has no name`)
     }
-    obj[select.name] = select.value
+    const properyPath = []
+    buildFullPathOfProperyForRequestBodyByFormElementPosition(
+      select,
+      properyPath,
+      valueIsForQueryObject
+    )
+    assignAndReturnValueToRequestBody(
+      obj,
+      properyPath,
+      select.value
+    )
   }
 }
 
@@ -598,7 +971,17 @@ function retrievedValuesFromTextareasForRequestBodyAndQueryObject (textareas, re
     if (!textarea.name) {
       throw new Error(`textarea ${textarea} has no name`)
     }
-    obj[textarea.name] = textarea.value
+    const properyPath = []
+    buildFullPathOfProperyForRequestBodyByFormElementPosition(
+      textarea,
+      properyPath,
+      valueIsForQueryObject
+    )
+    assignAndReturnValueToRequestBody(
+      obj,
+      properyPath,
+      textarea.value
+    )
   }
 }
 
@@ -610,7 +993,17 @@ function retrievedValuesFromLocalStorageForRequestBodyAndQueryObject (localStora
     if (!localStorageValue.name) {
       throw new Error(`localStorageValue ${localStorageValue} has no name`)
     }
-    obj[localStorageValue.name] = localStorageValue.value()
+    const properyPath = []
+    buildFullPathOfProperyForRequestBodyByFormElementPosition(
+      localStorageValue,
+      properyPath,
+      valueIsForQueryObject
+    )
+    assignAndReturnValueToRequestBody(
+      obj,
+      properyPath,
+      localStorageValue.value
+    )
   }
 }
 
@@ -622,7 +1015,17 @@ function retrievedValuesFromSessionStorageForRequestBodyAndQueryObject (sessionS
     if (!sessionStorageValue.name) {
       throw new Error(`sessionStorageValue ${sessionStorageValue} has no name`)
     }
-    obj[sessionStorageValue.name] = sessionStorageValue.value()
+    const properyPath = []
+    buildFullPathOfProperyForRequestBodyByFormElementPosition(
+      sessionStorageValue,
+      properyPath,
+      valueIsForQueryObject
+    )
+    assignAndReturnValueToRequestBody(
+      obj,
+      properyPath,
+      sessionStorageValue.value
+    )
   }
 }
 
@@ -634,6 +1037,19 @@ function retrievedDynamicValuesForRequestBodyAndQueryObject (dynamicValues, requ
     if (!dynamicValue.name) {
       throw new Error(`dynamicValue ${dynamicValue} has no name`)
     }
-    obj[dynamicValue.name] = dynamicValue.value()
+    if (!dynamicValue.hasAttribute('data-bound-to')) {
+      throw new Error(`dynamicValue ${dynamicValue} has no data-bound-to attribute`)
+    }
+    const properyPath = []
+    buildFullPathOfProperyForRequestBodyByFormElementPosition(
+      dynamicValue,
+      properyPath,
+      valueIsForQueryObject
+    )
+    assignAndReturnValueToRequestBody(
+      obj,
+      properyPath,
+      dynamicValue.value()
+    )
   }
 }

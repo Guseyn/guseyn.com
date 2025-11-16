@@ -1,63 +1,47 @@
-const fs = require('fs').promises // Use fs.promises for async/await
-const path = require('path')
+import fs from 'fs/promises'
+import path from 'path'
 
+/**
+ * Adjusts paths in HTML content by prepending a CDN base URL to relative paths.
+ *
+ * @param {string} htmlContent - The content of the HTML file.
+ * @param {string} cdnBaseUrl - The base URL of the CDN to prepend to relative paths.
+ * @returns {Promise<string>} The updated HTML content with adjusted paths.
+ */
 async function adjustPathsInHTML(htmlContent, cdnBaseUrl) {
   const tagRegex = /<(a|img|script|link|audio|video|source|e-html|e-svg|e-markdown|e-json|e-json-view|template\s+is="e-json"|template\s+is="e-wrapper")([^>]*)>/g
 
-  // First update attribute-based URLs
-  htmlContent = htmlContent.replace(tagRegex, (match, tagName, attributes) => {
-    if (['a', 'e-json'].includes(tagName) || /template\s+is="e-json"/.test(tagName)) {
+  return htmlContent.replace(tagRegex, (match, tagName, attributes) => {
+    if (tagName === 'a') {
+      return match
+    }
+    if (tagName === 'e-json') {
+      return match
+    }
+    if (/template\s+is="e-json"/.test(tagName)) {
       return match
     }
 
+    // Update the href or src attributes within the tag
     attributes = attributes.replace(/(href|src|data-src)="(\/[^"]+)"/g, (attrMatch, attribute, path) => {
+      // Only adjust if the path is relative (starts with '/')
       if (path.startsWith('/')) {
         return `${attribute}="${cdnBaseUrl}${path}"`
       }
-      return attrMatch
+      return attrMatch // No change for non-relative paths
     })
 
     return `<${tagName}${attributes}>`
   })
-
-  // Then process import maps
-  htmlContent = htmlContent.replace(
-    /(^[ \t]*)(<script\b[^>]*type=['"]importmap['"][^>]*>)([\s\S]*?)(<\/script>)/gim,
-    (match, indent, openTag, scriptContent, closeTag) => {
-      try {
-        const json = JSON.parse(scriptContent)
-
-        const updateMap = (obj) => {
-          for (const key in obj) {
-            const value = obj[key]
-            if (typeof value === 'string' && value.startsWith('/')) {
-              obj[key] = `${cdnBaseUrl}${value}`
-            }
-          }
-        }
-
-        if (json.imports) updateMap(json.imports)
-        if (json.scopes) {
-          for (const scope in json.scopes) {
-            updateMap(json.scopes[scope])
-          }
-        }
-
-        const updatedJSON = JSON.stringify(json, null, 2)
-          .split('\n')
-          .map(line => indent + line)
-          .join('\n')
-        return `${indent}${openTag}\n${updatedJSON}\n${indent}${closeTag}`
-      } catch (e) {
-        console.warn('Failed to parse import map JSON:', e)
-        return match // Return original if parsing fails
-      }
-    }
-  )
-
-  return htmlContent
 }
 
+/**
+ * Adjusts paths in Markdown content by prepending a CDN base URL to relative paths.
+ *
+ * @param {string} mdContent - The content of the Markdown file.
+ * @param {string} cdnBaseUrl - The base URL of the CDN to prepend to relative paths.
+ * @returns {Promise<string>} The updated Markdown content with adjusted paths.
+ */
 async function adjustPathsInMarkdown(mdContent, cdnBaseUrl) {
   // Step 1: Skip code blocks enclosed by triple backticks
   const codeBlocks = []
@@ -106,6 +90,13 @@ async function adjustPathsInMarkdown(mdContent, cdnBaseUrl) {
   return mdContent
 }
 
+/**
+ * Recursively processes a directory, adjusting CDN URLs in HTML and Markdown files.
+ *
+ * @param {string} dirPath - The path to the directory to process.
+ * @param {string} cdnBaseUrl - The base URL of the CDN to prepend to relative paths.
+ * @returns {Promise<void>} Resolves when all files are processed.
+ */
 async function addCdnToUrsl(dirPath, cdnBaseUrl) {
   try {
     // Read all files and directories in the given directory
@@ -143,4 +134,4 @@ async function addCdnToUrsl(dirPath, cdnBaseUrl) {
   }
 }
 
-module.exports = addCdnToUrsl
+export default addCdnToUrsl
