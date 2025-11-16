@@ -11,8 +11,8 @@ ssh -A -t -i ~/.ssh/deploy_rsa root@174.138.15.193 "bash -l -c '
 
   echo \"🌐 Fetching latest repo changes...\"
   git fetch --all
-  git reset --hard origin/main
-  git pull origin main --no-rebase
+  git reset --hard origin/master
+  git pull origin master --no-rebase
 
   echo \"💀 Stopping container guseyn.com...\"
   docker stop guseyn.com 2>/dev/null || echo \"Container not running.\"
