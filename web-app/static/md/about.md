@@ -1,10 +1,10 @@
 # Guseyn Ismayylov
-<div class="date">26 May 2025 (last update)</div>
+<div class="date">16 Nov 2025 (last update)</div>
 
-<img src="/image/photo.jpg?v=46765fb5" class="photo bigger">
+<img src="/image/4T7A8796.jpg?v=46765fb5" class="photo bigger">
 <p></p>
 
-I am a founder of [Unison](#founder-of-unison), author of [Nodes.js Backend Framework](#author-of-nodesjs-backend-framework), creator of [EHTML](#creator-of-ehtml), [writer](#writer), [open source enthusiast](#open-source-enthusiast), [tech blogger](#tech-blogger), [entrepreneur](#entrepreneur), [streamer](#streamer), [programmer](#programmer), [chess&music lover](#chessmusic-lover).
+I am a founder of [Unison](#founder-of-unison), author of [Nodes.js Backend Framework](#author-of-nodesjs-backend-framework), creator of [EHTML](#creator-of-ehtml), [writer](#writer), [tech leader and business partner at InstruxMusic](#tech-leader-and-business-partner-at-instruxmusic), [open source enthusiast](#open-source-enthusiast), [tech blogger](#tech-blogger), [entrepreneur](#entrepreneur), [streamer](#streamer), [programmer](#programmer), [chess&music lover](#chessmusic-lover).
 
 You can find me on [Instagram](https://www.instagram.com/guseyn_dot_com/), [LinkedIn](https://www.linkedin.com/in/gusein-ismaiylov-111bb1179/), [GitHub](https://github.com/Guseyn/), [Reddit](https://www.reddit.com/user/gyen) and write an [email](mailto:guseynism@gmail.com). Also I have a Telegram [channel](https://t.me/guseyncom) where I write about what's new on my blog. I don't use other social networks.
 
@@ -21,8 +21,13 @@ You can find me on [Instagram](https://www.instagram.com/guseyn_dot_com/), [Link
 
 I'm currently working on my first online book, Guitar by Notes. Here’s a [sample chapter](https://guseyn.com/html/intervals.html) you can check out.
 
+## Tech Leader and Business Partner at InstruxMusic
+
+Since July 2025, I’ve been the Tech Leader and a Business Partner at [InstruxMusic](https://instruxmusic.com/). I build and maintain the main parts of our platform — scheduling, lesson tools, video-chat, payments, and the brand-builder — and also help shape the product and business.  
+Our goal is simple: make it easier for music schools and instructors to manage their work and teach students.
+
 ## Open Source Enthusiast
-I am an author of many open source projects such as [Cutie](https://github.com/Guseyn/cutie)(and its [extensions](https://github.com/Guseyn?tab=repositories&q=cutie&type=&language=)), [Page](https://github.com/Guseyn/page), [Test executor](https://github.com/Guseyn/node-test-executor), [Broken XML](https://github.com/Guseyn/broken-xml). Also I contribute to existing project such as [Rewrite](https://github.com/openrewrite/) by finding issues and creating example projects like [Rewrite Java Definitions](https://github.com/Guseyn/rewrite-java-definitions).
+I am an author of many open source projects such as [EHTML](https://e-html.org), [Nodes.js](https://github.com/Guseyn/nodes.js). I’m in the process of making my lifetime project, Unilang, open source. It’s a language that turns plain text descriptions into sheet music.
 
 ## Tech Blogger
 I write [posts](https://guseyn.com/html/all-posts.html) about code design, code tricks and tech culture in general. I make [videos](https://www.youtube.com/watch?v=lOf0NkNtWzI&feature=emb_title) and participate in [tech meetups](https://www.youtube.com/watch?v=Ptz6kJ3NXGI&feature=emb_title) as speaker. Also [some people](https://www.youtube.com/watch?v=Cx1kZbwkr5g&t=128s) talk about my projects.
