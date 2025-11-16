@@ -2,6 +2,7 @@
 import updateCacheVersionsInUrls from '#nodes/updateCacheVersionsInUrls.js'
 import setupFileLogging from '#nodes/setupFileLogging.js'
 import removeCdnFromUrls from '#nodes/removeCdnFromUrls.js'
+import addCdnToUrls from '#node/addCdnToUrls.js'
 
 /* ──────────────────────────────────────────────────────────────── */
 /* 🌍  ENVIRONMENT CHECK                                            */
