@@ -164,7 +164,7 @@ iframe {
 
 .photo {
   width: 150px;
-  height: 150px;
+  height: auto;
   display: block;
   margin: 0 auto;
   border-radius: 16px;
@@ -173,7 +173,7 @@ iframe {
 
 .photo.bigger {
   width: 180px;
-  height: 180px;
+  height: auto;
   float: none;
 }
 
