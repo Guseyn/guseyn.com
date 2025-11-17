@@ -4,7 +4,7 @@
 <img src="/image/4T7A8796.jpg?v=46765fb5" class="photo bigger">
 <p></p>
 
-I am a founder of [Unison](#founder-of-unison), author of [Nodes.js Backend Framework](#author-of-nodesjs-backend-framework), creator of [EHTML](#creator-of-ehtml), [writer](#writer), [tech leader and business partner at InstruxMusic](#tech-leader-and-business-partner-at-instruxmusic), [open source enthusiast](#open-source-enthusiast), [tech blogger](#tech-blogger), [entrepreneur](#entrepreneur), [streamer](#streamer), [programmer](#programmer), [chess&music lover](#chessmusic-lover).
+I am a founder of [Unison](#founder-of-unison), author of [Nodes.js Backend Framework](#author-of-nodesjs-backend-framework), creator of [EHTML](#creator-of-ehtml), [writer](#writer), [tech leader and business partner at InstruxMusic](#tech-leader-and-business-partner-at-instruxmusic), [open source enthusiast](#open-source-enthusiast), [tech blogger](#tech-blogger), [entrepreneur](#entrepreneur), [programmer](#programmer), [chess&music lover](#chessmusic-lover).
 
 You can find me on [Instagram](https://www.instagram.com/guseyn_dot_com/), [LinkedIn](https://www.linkedin.com/in/gusein-ismaiylov-111bb1179/), [GitHub](https://github.com/Guseyn/), [Reddit](https://www.reddit.com/user/gyen) and write an [email](mailto:guseynism@gmail.com). Also I have a Telegram [channel](https://t.me/guseyncom) where I write about what's new on my blog. I don't use other social networks.
 
@@ -37,8 +37,10 @@ I also like to write [papers](https://guseyn.com(/html/papers.html)). I wrote pa
 ## Entrepreneur
 I am working on a side project in my free time. It's called [Unison](https://unisonofficial.com) and it is a platform where you can create sheet music just by describing them with simple words.
 
+<!-- 
+TODO: replace with my future youtube channel
 ## Streamer
-You can find [my streams here](https://www.twitch.tv/unisonofficial) on how I test, develop and use my programs, like for example [Unison](https://unisonofficial.com). Also I talk on general subjects in software development.
+You can find [my streams here](https://www.twitch.tv/unisonofficial) on how I test, develop and use my programs, like for example [Unison](https://unisonofficial.com). Also I talk on general subjects in software development. -->
 
 ## Programmer
 I am a full-time full-stack software developer with more than 7 years of diverse experience: I was working as a software engineer at outsource company, at small startup with fully distributed international team, and as a researcher at international tech corporation. More information about my work experience you can find in my [LinkedIn profile](https://www.linkedin.com/in/gusein-ismaiylov-111bb1179/) and [resume](https://guseyn.com/html/resume.html).
