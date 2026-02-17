@@ -26,7 +26,7 @@ const corsOptions = (environment === 'prod') ? {
 const cacheControl = (environment === 'prod') ? {
   cacheControl: 'cache, public, max-age=432000'
 } : {
-  cacheControl: 'no-cache'
+  cacheControl: 'cache, public, max-age=432000'
 }
 
 server(

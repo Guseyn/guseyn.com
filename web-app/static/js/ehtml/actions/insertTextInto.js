@@ -1,4 +1,4 @@
-import elm from '#ehtml/elm.js?v=21adcdae'
+import elm from '#ehtml/elm.js'
 
 export default function insertTextInto (elmSelector, txt) {
   elm(elmSelector).textContent = txt

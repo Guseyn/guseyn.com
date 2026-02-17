@@ -18,10 +18,10 @@
     "guseyn:docker:prod:restart": "docker exec -it guseyn.com npm run guseyn:prod:restart",
     "guseyn:pull": "node web-app/pull.js",
     "guseyn:prod:pull": "ENV=prod node web-app/pull.js",
-    "ehtml:update": "yes | cp -rf ../../node-projects/EHTML/src/ web-app/static/js/ehtml",
-    "nodes:update": "yes | cp -rf ../../node-projects/nodes.js/nodes/ nodes/",
-    "ehtml:update:reverse": "yes | cp -rf web-app/static/js/ehtml/ ../../node-projects/EHTML/src/",
-    "nodes:update:reverse": "yes | cp -rf nodes/ ../../node-projects/nodes.js/nodes/"
+    "ehtml:update": "yes | cp -rf ../../my-projects/EHTML/src/ web-app/static/js/ehtml",
+    "nodes:update": "yes | cp -rf ../../my-projects/nodes.js/nodes/ nodes/",
+    "ehtml:update:reverse": "yes | cp -rf web-app/static/js/ehtml/ ../../my-projects/EHTML/src/",
+    "nodes:update:reverse": "yes | cp -rf nodes/ ../../my-projects/nodes.js/nodes/"
   },
   "author": "guseyn",
   "license": "MIT",

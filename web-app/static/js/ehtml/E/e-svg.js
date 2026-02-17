@@ -1,48 +1,91 @@
-import unwrappedChildrenOfParent from '#ehtml/unwrappedChildrenOfParent.js?v=dced24cf'
-import responseFromAjaxRequest from '#ehtml/responseFromAjaxRequest.js?v=4d85ec20'
-import evaluatedStringWithParamsFromState from '#ehtml/evaluatedStringWithParamsFromState.js?v=e2d7e253'
-import evaluateStringWithActionsOnProgress from '#ehtml/evaluateStringWithActionsOnProgress.js?v=c20d640c'
-import scrollToHash from '#ehtml/actions/scrollToHash.js?v=e7d61ab5'
+import getNodeScopedState from '#ehtml/getNodeScopedState.js'
+import unwrappedChildrenOfParent from '#ehtml/unwrappedChildrenOfParent.js'
+import responseFromAjaxRequest from '#ehtml/responseFromAjaxRequest.js'
+import evaluatedValueWithParamsFromState from '#ehtml/evaluatedValueWithParamsFromState.js'
+import evaluatedStringWithParamsFromState from '#ehtml/evaluatedStringWithParamsFromState.js'
+import evaluateActionsOnProgress from '#ehtml/evaluateActionsOnProgress.js'
+import scrollToHash from '#ehtml/actions/scrollToHash.js'
 
-export default (node) => {
-  if (node.hasAttribute('data-actions-on-progress-start')) {
-    evaluateStringWithActionsOnProgress(
-      node.getAttribute('data-actions-on-progress-start'),
-      node
+export default class ESvg extends HTMLElement {
+  constructor() {
+    super()
+    this.ehtmlActivated = false
+  }
+
+  connectedCallback() {
+    this.addEventListener(
+      'ehtml:activated',
+      this.#onEHTMLActivated,
+      { once: true }
     )
   }
-  if (!node.hasAttribute('data-src')) {
-    throw new Error('e-svg must have "data-src" attribute')
+
+  #onEHTMLActivated() {
+    if (this.ehtmlActivated) {
+      return
+    }
+    this.ehtmlActivated = true
+    this.#run()
   }
-  responseFromAjaxRequest({
-    url: encodeURI(
-      evaluatedStringWithParamsFromState(
-        node.getAttribute('data-src'),
-        node.__ehtmlState__,
-        node
+
+  #run() {
+    const state = getNodeScopedState(this)
+
+    if (this.hasAttribute('data-actions-on-progress-start')) {
+      evaluateActionsOnProgress(
+        this.getAttribute('data-actions-on-progress-start'),
+        this,
+        state
       )
-    ),
-    method: 'GET',
-    headers: JSON.parse(
+    }
+
+    if (!this.hasAttribute('data-src')) {
+      throw new Error('<e-svg> must have "data-src" attribute')
+    }
+
+    const url = encodeURI(
       evaluatedStringWithParamsFromState(
-        node.getAttribute('data-headers') || '{}',
-        node.__ehtmlState__,
-        node
+        this.getAttribute('data-src'),
+        state,
+        this
       )
     )
-  }, undefined, (err, resObj) => {
-    if (err) {
-      throw err
-    }
-    const svg = resObj.body
-    node.innerHTML = svg
-    unwrappedChildrenOfParent(node)
-    if (node.hasAttribute('data-actions-on-progress-end')) {
-      evaluateStringWithActionsOnProgress(
-        node.getAttribute('data-actions-on-progress-end'),
-        node
-      )
-    }
-    scrollToHash()
-  })
+
+    const headers = evaluatedValueWithParamsFromState(
+      this.getAttribute('data-headers') || '${{}}',
+      state,
+      this
+    )
+
+    responseFromAjaxRequest(
+      {
+        url: url,
+        method: 'GET',
+        headers: headers
+      },
+      undefined,
+      (err, resObj) => {
+        if (err) {
+          throw err
+        }
+
+        const svgText = resObj.body
+        this.innerHTML = svgText
+
+        unwrappedChildrenOfParent(this)
+
+        if (this.hasAttribute('data-actions-on-progress-end')) {
+          evaluateActionsOnProgress(
+            this.getAttribute('data-actions-on-progress-end'),
+            this,
+            state
+          )
+        }
+
+        scrollToHash()
+      }
+    )
+  }
 }
+
+customElements.define('e-svg', ESvg)
