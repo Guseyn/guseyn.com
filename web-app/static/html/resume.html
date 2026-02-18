@@ -9,85 +9,133 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i">
     <link rel="stylesheet" href="/css/normalize.css?v=54740e0a">
-    <link rel="stylesheet" href="/css/resume.css?v=58508652">
+    <link rel="stylesheet" href="/css/e-ui.css?v=58508652">
   </head>
   <body>
-    <div class="content">
-      <div class="intro">
-        <img src="/image/photo.jpg?v=46765fb5" class="photo">
-        <div class="basic-info">
-           <div class="name"><b>Legal Name:</b> Gusein Ismaiylov</div>
-           <div class="name"><b>Preferred Name:</b> Guseyn Ismayylov</div>
-           <div>Birth: 19 March, 1994</div>
-           <div><a href="mailto:guseyn@guseyn.com">Email</a>: guseyn@guseyn.com</div>
-           <div><a class="social-link" href="https://t.me/guseyn">Telegram</a>: @guseyn</div>
-           <div class="social-links">
-            <div><b>My blog: </b><a href="https://guseyn.com"><b>guseyn.com</b></a></div>
+    <main>
+      <div is="e-box"
+        data-block-center      
+        data-default-main-width
+        data-padding="xl">
+        <div is="e-row" data-align-items="center" data-gap="md" data-padding="md" data-border data-border-radius="lg" data-background="surface" data-keep-flex-direction-row-in-mobile>
+          <div is="stack">
+            <img data-border-radius="lg" data-height="2xl" src="/image/4T7A8796-2.jpg?v=46765fb5">
+          </div>
+          <div is="e-stack" data-gap="2xs" data-font-size="sm">
+            <div><b>Legal Name:</b> <span>Gusein Ismaiylov</span></div>
+            <div><b>Preferred Name:</b> <span>Guseyn Ismayylov</span></div>
+            <div><span>Birth:</span> <span>19 March, 1994</span></div>
+            <div><a href="mailto:guseyn@guseyn.com">Email:</a> <span>guseyn@guseyn.com</span></div>
+            <div><a href="https://t.me/guseyn">Telegram:</a> <span>@guseyn</span></div>
+            <div><span>My blog:</span> <a is="e-link" data-underlined href="https://guseyn.com">guseyn.com</a></div>
             <div>
-              <a class="social-link" href="https://github.com/Guseyn">GitHub</a> /
-              <a class="social-link" href="https://stackoverflow.com/users/8568641/guseyn-ismayylov">StackOverflow</a> /
-              <a class="social-link" href="https://linkedin.com/in/gusein-ismaiylov-111bb1179">LinkedIn</a> /
-              <a class="social-link" href="https://instagram.com/guseyn_dot_com">Instagram</a>
+              <a is="e-link" href="https://github.com/Guseyn" data-underlined>GitHub</a> /
+              <a is="e-link" href="https://stackoverflow.com/users/8568641/guseyn-ismayylov" data-underlined>StackOverflow</a> /
+              <a is="e-link" href="https://linkedin.com/in/gusein-ismaiylov-111bb1179" data-underlined>LinkedIn</a> /
+              <a is="e-link" href="https://instagram.com/guseyn_dot_com" data-underlined>Instagram</a>
             </div>
           </div>
         </div>
+        <div is="e-stack" data-gap="md" data-padding="md">
+          <p>
+            Founder of <a is="e-link" data-underlined href="https://unisonofficial.com">Unison</a>.
+            Creator of <a is="e-link" data-underlined href="https://github.com/Guseyn/nodes.js">nodes (Backend Framework for Node.js)</a> and <a is="e-link" data-underlined href="https://github.com/Guseyn/ehtml">EHTML (Frontend Framework).</a> Tech leader and business partner at <a is="e-link" data-underlined href="https://instruxmusic.com">InstruxMusic</a>. Full stack developer and a researcher with <b>10 years</b> in software engineering.
+          </p>
+          <p data-font-size="xs">
+            <b>Skill Set/Tech Stack:</b> JavaScript, TypeScript, Java, Node.js, Express, Fastify, NestJS, NX: Smart Monorepos, React, Next.js, Java, Spring Boot, HTML, EHTML, nodes.js, CSS, SVG, Web Components, UI/UX, PostgreSQL, MongoDB, MariaDB, ORM, Redis, GCP, AWS, Azure, Digital Ocean, Clickhouse, Grafana, Snowflake, Marble, Docker, Kubernetes, Github Actions, OpenTelemetry, New Relic, GrayLog, REST APIs, Web Sockets, Server-Sent events, WebRTC, Public APIs, Stripe (Payment System), Message Driven Architecture, Microservices, Test Containers.
+          </p>
+          <div is="e-stack" data-gap="xs">
+            <b data-font-size="2xl" is="e-h">Work Experience</b>
+            <p>
+              <b>InstruxMusic (Remote, Tbilisi): Jul 2025 - Present.</b> CTO and Business Partner. Helped to design and implemented whole platform from scratch as a solo developer. Platform includes advanced scheduling system, video lesson room, chat, invoicing system and payment integrations. I used my own custom solutions on frontend and backend to quicky build the platform. First version of the platform was finished in <b>3 months.</b> I am hugely involved in business decisions and pricing strategy of the platform. Right now, the platform in maintaince mode.
+            </p>
+            <p>
+              <b>Gemba (Remote, Tbilisi): Nov 2024 - Jun 2025.</b> Senior Software Engineer and Technical Consultant.
+              I implemented and maintained payment services for internal and external banking operations, ensuring secure and reliable transaction processing using systems like Marble. I designed workflow automations with n8n and integrated chat-based systems to enhance support and communication. I developed CI/CD pipelines to streamline deployments and improve system stability through testing, monitoring, and optimization. Additionally, I collaborated with cross-functional teams to align payment infrastructure with business goals and resolved production issues in payment and automation systems.
+            </p>
+            <p>
+              <b>Congrify (Remote, Tbilisi): Feb 2024 - Oct 2024. Team Lead: Senior Software Development Engineer.</b>
+              I resolved critical issues in AWS infrastructure and built a monitoring system to detect transaction anomalies and inconsistencies. I added data processing features, optimized workflows, and improved validation and performance metrics, while also reducing AWS Lambda costs by 20%. I enhanced concurrency in legacy microservices and completely redesigned the application’s frontend. Additionally, I improved performance, caching, error handling, and overall UX in the React application.
+            </p>
+            <p>
+              <b>FxPro (Cyprus, Limassol): Nov 2022 - Oct 2023. Senior Software Engineer.</b>
+              I managed infrastructure for over 60 microservices, achieving a 20% boost in reliability and a 15% reduction in downtime. I developed authentication and payment configuration services, including an Authentication Service integrated with Azure Active Directory and migrated configuration for 20+ payment systems across 50+ countries. My improvements to CI/CD pipelines reduced deployment time by 25%, and I integrated New Relic into 25 services to identify performance optimization opportunities. I also created internal tutorials and manuals for over 40 services to support team efficiency.
+            </p>
+            <p>
+              <b>Cognitran (Poland, Krakow): Sep 2021 - Oct 2022. Senior Software Engineer.</b>
+            </p>
+            <p>
+              <b>Alten (Poland, Krakow): Mar 2021 - Aug 2021. Senior Software Engineer.</b>
+            </p>
+            <p>
+              <b>
+                Huawei (Russia, Moscow): Jan 2020 - Mar 2021. Senior Software Engineer.
+              </b>
+            </p>
+            <p>
+              <b>
+                USMobile (Remote): Feb 2019 - Jan 2020. Senior Software Engineer.
+              </b>
+            </p>
+            <p>
+              <b>
+                Grid Dynamics: Dec 2015 - Jan 2019. From Intern Software Engineer to Senior Software Engineer.
+              </b>
+            </p>
+          </div>
+          <div is="e-stack" data-gap="xs">
+            <b data-font-size="md">Side project:</b>
+            <p data-font-size="sm">
+              <b>Unison (unisonofficial.com): 2019 Dec. - Present. CTO.</b> 
+              As CTO and Founder of Unison, I led the development of a long-lasting, technically robust platform that transforms text into dynamic music notation. Leveraging a solid tech stack—including Node.js, MongoDB, HTML, SVG, Markdown, EHTML — I combined hands-on engineering with strategic direction to build a maintainable, scalable solution at the intersection of music and technology.
+            </p>
+          </div>
+          <div is="e-stack" data-gap="xs">
+            <b data-font-size="md">Open Source Projects:</b>
+            <p data-font-size="sm">
+              <a is="e-link" data-underlined href="https://e-html.org">EHTML</a>,
+              <a is="e-link" data-underlined href="https://github.com/Guseyn/nodes.js">Nodes.js</a>,
+              <a is="e-link" data-underlined href="https://github.com/Guseyn/node-test-executor">Test executor</a>,
+              <a is="e-link" data-underlined href="https://github.com/Guseyn/broken-xml">Broken XML</a>,
+              <a is="e-link" data-underlined href="https://github.com/Guseyn/rewrite-java-definitions">Rewrite Java Definitions</a>,
+              <a is="e-link" data-underlined  href="https://guseyn.github.io/nn-math-web/">
+                Mathematics of Neural Network
+              </a>
+            </p>
+          </div>
+          <div is="e-stack" data-gap="xs">
+            <b data-font-size="md">Talks:</b>
+            <p data-font-size="sm">
+              <a is="e-link" data-underlined  href="https://youtube.com/watch?v=dzrW3D_yIrc">EHTML: New Demo (6 Dec 2023)</a>,
+              <a is="e-link" data-underlined  href="https://youtube.com/watch?v=Ptz6kJ3NXGI&feature=emb_title">Declarative Unit Testing in Node.js (in Russian, 1 Mar 2020)</a>,
+              <a is="e-link" data-underlined  href="https://youtu.be/xFLtvL-r34c">Declarative Node (in Russian, 8 Feb 2019)</a>,
+              <a is="e-link" data-underlined  href="https://youtube.com/watch?v=lOf0NkNtWzI&t=2s">EHTML: Simple Blog App (1 Dec 2019)</a>
+            </p>
+          </div>
+          <div is="e-stack" data-gap="xs">
+            <b data-font-size="md" is="e-h">Certifications:</b>
+            <p data-font-size="sm">
+              <a is="e-link" data-underlined href="https://youracclaim.com/badges/402c6cb4-d066-4f85-95b6-cd955d4a446f/public_url">Oracle Certified Associate Java SE 8 Programmer</a>
+            </p>
+          </div>
+          <div is="e-stack" data-gap="xs">
+            <span data-font-size="md"><b>Education:</b> Applied Mathematics and Computer Science: <i>Saratov State University, 2012 - 2016</i></span>
+            <p data-font-size="sm">
+              <a is="e-link" data-underlined href="https://youracclaim.com/badges/402c6cb4-d066-4f85-95b6-cd955d4a446f/public_url">Bachelor's Thesis: Cost Minimization of Energy on the Control of Satellite's Angular Motion (in Russian)</a>
+            </p>
+          </div>
+          <div is="e-stack" data-gap="xs">
+            <b>Rest of Life:</b>
+            <p>
+              I play guitar and ukulele, watch good movies, read useful books, learn chess, do sport activities (football, running), and travel a bit. More about me you can find <a is="e-link" data-underlined href="/html/about.html">here</a>.
+            </p>
+          </div>
+          <div is="e-row">
+            <img data-size="xs" src="/image/pdf.png?v=a08269b1">
+            <a is="e-link" data-underlined href="/pdf/detailed-resume.pdf">pdf version</a>
+          </div>
+        </div>
       </div>
-      <div class="main">
-        <div class="self-intro">
-          I'm a full stack (predominantly backend) developer and a researcher with more than 8 years in software engineering. I created <a href="https://unisonofficial.com">Unison</a>, <a href="https://github.com/Guseyn/nodes.js">Nodes.js Backend Framework</a>, <a href="https://e-html.org">EHTML</a> and <a href="https://guseyn.com/html/projects.html">many other things</a>.
-        </div>
-        <div class="info-box skill-set">
-          <b>Skill Set (Tech Stack)</b>: JavaScript, TypeScript, Node.js, Express, Fastify, NestJS, NX: Smart Monorepos, React, Next.js, Java, Spring Boot, Hibernate, Python, FastApi, HTML, EHTML, Nodes.js, CSS, SVG, Web Components, UI/UX, Scilab, LaTeX, Git, PostgreSQL, MongoDB, MariaDB, Liquibase, Flyway, migrate-mongo (library), Prisma, Drizzle, ORM, Redis, DI, GCP, AWS, Azure, Clickhouse, Grafana, Snowflake, Marble, n8n, Chat Bots, Docker, Kubernetes, Travis CI, Github Actions, OpenTelemetry, New Relic, GrayLog, REST APIs, Public APIs, Stripe (Payment System), Message Driven Architecture, Microservices, Test Containers, Junit, Test Mock Frameworks.
-        </div>
-        <div class="info-box">
-          <span class="title">Work Experience:</span> Read more about my responsibilities and achievements at different companies in the <a href="https://guseyn.com/pdf/detailed-resume.pdf">detailed resume</a>.
-        </div>
-        <div class="info-box">
-          <span class="title">Personal Proprietary Projects:</span>
-          <a href="https://unisonofficial.com">Unison</a> (Node.js, Async Tree Pattern, MongoDB, EHTML)
-        </div>
-        <div class="info-box">
-          <span class="title">Open Source Projects:</span>
-          <a href="https://e-html.org">EHTML</a>,
-          <a href="https://github.com/Guseyn/nodes.js">Nodes.js</a>,
-          <a href="https://github.com/Guseyn/node-test-executor">Test executor</a>,
-          <a href="https://github.com/Guseyn/broken-xml">Broken XML</a>,
-          <a href="https://github.com/Guseyn/rewrite-java-definitions">Rewrite Java Definitions</a>
-        </div>
-        <div class="info-box">
-          <span class="title">Papers:</span>
-          <a href="https://guseyn.github.io/nn-math-web/">
-            Mathematics of Neural Network
-          </a>, 
-          <a href="https://guseyn.com/pdf/Async_Tree_Pattern.pdf">
-            Async Tree Pattern
-          </a>
-        </div>
-        <div class="info-box">
-          <span class="title">Talks:</span>
-          <a href="https://youtube.com/watch?v=dzrW3D_yIrc">EHTML: New Demo (6 Dec 2023)</a>,
-          <a href="https://youtube.com/watch?v=Ptz6kJ3NXGI&feature=emb_title">Declarative Unit Testing in Node.js (in Russian, 1 Mar 2020)</a>,
-          <a href="https://youtu.be/xFLtvL-r34c">Declarative Node (in Russian, 8 Feb 2019)</a>,
-          <a href="https://youtube.com/watch?v=lOf0NkNtWzI">EHTML: Simple Blog App (1 Dec 2019)</a>
-        </div>
-        <div class="info-box">
-          <span class="title">Certifications:</span>
-          <a href="https://youracclaim.com/badges/402c6cb4-d066-4f85-95b6-cd955d4a446f/public_url">Oracle Certified Associate Java SE 8 Programmer</a>
-        </div>
-        <div class="info-box">
-          <span class="title">Education:</span> Applied Mathematics and Computer Science: <i>Saratov State University, 2012 - 2016</i>,
-          <a href="https://guseyn.com/pdf/diploma.pdf">
-            Bachelor's Thesis: Cost Minimization of Energy on the Control of Satellite's Angular Motion (in Russian)
-          </a>
-        </div>
-        <div class="info-box">
-          <span class="title">Rest of Life:</span> I play guitar and ukulele, watch good movies, read useful books, learn chess, do sport activities (football, running, gym), and travel a bit. More about me you can find <a href="/html/about.html">here</a>.
-        </div>
-        <div class="info-box">
-          <img class="left-to-link" src="/image/pdf.png?v=a08269b1">
-          <a href="/pdf/resume.pdf">pdf version</a>
-        </div>
-      </div>
-    </div>
+    </main>
   </body>
 </html>
