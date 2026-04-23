@@ -197,7 +197,7 @@
 }
 
 /* Utilities */
-*[data-padding="0"], [is^="e-"][data-padding="0"] {padding: 0; }
+*[data-padding="0"], [is^="e-"][data-padding="0"] { padding: 0; }
 *[data-padding="3xs"], [is^="e-"][data-padding="3xs"] {padding: var(--e-spacing-3xs); }
 *[data-padding="2xs"], [is^="e-"][data-padding="2xs"] { padding: var(--e-spacing-2xs); }
 *[data-padding="xs"], [is^="e-"][data-padding="xs"] { padding: var(--e-spacing-xs); }
@@ -352,6 +352,7 @@
 *[data-background="primary"], [is^="e-"][data-background="primary"] { background-color: var(--e-primary); }
 *[data-background="danger"], [is^="e-"][data-background="danger"] { background-color: var(--e-error); }
 *[data-background="success"], [is^="e-"][data-background="sueccess"] { background: var(--e-success); }
+*[data-background="primary-transparent"], [is^="e-"][data-background="primary-transparent"] { background: var(--e-primary-transparent-accent-bg); }
 *[data-background="danger-transparent"], [is^="e-"][data-background="danger"] { background: color-mix(in srgb, var(--e-error), transparent 90%); }
 *[data-background="success-transparent"], [is^="e-"][data-background="success-transparent"] { background-color: color-mix(in srgb, var(--e-success), transparent 90%); }
 *[data-background="blurred"], [is^="e-"][data-background="blurred"] { background-color: transparent; backdrop-filter: blur(var(--e-blur-lg)); -webkit-backdrop-filter: blur(var(--e-blur-lg)); }
@@ -366,6 +367,7 @@
 *[data-color="danger"], [is^="e-"][data-color="danger"] { color: var(--e-error); }
 *[data-color="success"], [is^="e-"][data-color="sueccess"] { color: var(--e-success); }
 
+*[data-border-color="primary"], [is^="e-"][data-border-color="primary"] { border-color: var(--e-primary) !important; }
 *[data-border-color="default"], [is^="e-"][data-border-color="default"] { border-color: var(--e-color-border) !important; }
 *[data-border-color="muted"], [is^="e-"][data-border-color="muted"]   { border-color: var(--e-divider) !important; }
 *[data-border-color="focus"], [is^="e-"][data-border-color="focus"]   { border-color: var(--e-color-focus) !important; }
