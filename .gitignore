@@ -8,6 +8,9 @@ yarn-error.log*
 .idea/
 
 #secrets
+prod.json
+preprod.json
+e2e.json
 
 secrets
 
