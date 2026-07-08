@@ -42,26 +42,18 @@
           </div>
         </div>
         <div is="e-stack" data-gap="sm" data-padding="md">
-        <p>
-          <strong>Senior QA Engineer</strong> (Test Automation) and <strong>Full-Stack Engineer</strong> with <strong>4+ years</strong> in software testing and <strong>3+ years</strong> building <strong>Python</strong> automation in production. Split roughly <strong>50/50 manual and automated</strong> work — explore new payment and B2B flows by hand, then lock them into regression suites. Deep <strong>FinTech / payments</strong> domain: Stripe, global payment configs, transaction pipelines, and complex billing logic. Comfortable with developers, business analysts, and release stakeholders across remote release cycles. Also author of <a is="e-link" data-underlined href="https://github.com/Guseyn/nodes.js">nodes.js</a> and <a is="e-link" data-underlined href="https://e-html.org/">EHTML</a>.
-        </p>
+          <p>
+            <strong>Applied Research Engineer</strong> with <strong>10 years</strong> in production software and deep <strong>fintech / payments</strong> domain experience — now focused on foundational deep learning for risk. Strong theoretical base in <strong>Applied Mathematics</strong>; hands-on training and evaluating models with <strong>Python, PyTorch, MLFlow, AWS, and Snowflake</strong>. End-to-end owner: dataset design → experiments → training runs → inference optimization → rigorous offline/online evaluation and business impact. Experienced with multimodal financial data — tabular, behavioral, transactional, time series, and text. Author of <a is="e-link" data-underlined href="https://guseyn.github.io/nn-math-web/">Mathematics of Neural Networks</a>; ships research code with <strong>Claude Code, OpenAI Codex, and Cursor</strong> daily.
+          </p>
           <hr>
           <div is="e-stack" data-gap="3xs">
             <b data-font-size="xl" is="e-h" data-color="primary">Skills</b>
             <p data-font-size="sm">
-              <strong>&#x2022; Test Automation (Python):</strong> pytest, unittest, requests, API test suites, page-object patterns, fixtures, parametrized tests, flaky-test stabilization, test data management, extending existing Python automation frameworks, coverage growth &amp; tech-debt cleanup.
+              <strong>&#x2022; Deep Learning &amp; ML Research (Primary):</strong> PyTorch, self-supervised learning on discrete event sequences, transformer architectures (BERT4Rec, SASRec, CoLES-style sequence encoders), embedding &amp; ranking models, credit risk / fraud / LTV downstream tasks, rigorous offline evaluation (AUC, PR-AUC, calibration, uplift), NLP &amp; representation learning for fintech, hyperparameter search, mixed-precision training.
               <br>
-              <strong>&#x2022; Manual &amp; Exploratory QA:</strong> Test strategy &amp; test plans, complex business-logic validation, B2B and payment-scenario testing, regression &amp; smoke cycles, defect reporting &amp; triage, acceptance criteria review with analysts.
+              <strong>&#x2022; MLOps &amp; Experimentation:</strong> MLFlow (tracking, registry, reproducible runs), dataset versioning &amp; data mixing strategies, feature stores on Snowflake, AWS (S3, EC2/GPU, Lambda, SageMaker-compatible workflows), Docker, GitLab CI/CD, parallel experiment sweeps, inference latency &amp; cost optimization.
               <br>
-              <strong>&#x2022; API &amp; Integration Testing:</strong> Postman (collections, environments, Newman), REST/GraphQL, Stripe webhooks, OAuth2 flows, contract-style checks between microservices.
-              <br>
-              <strong>&#x2022; Performance &amp; Load Testing:</strong> Load and stress testing of payment and async pipelines; bottleneck analysis under transactional surges; baseline metrics before releases.
-              <br>
-              <strong>&#x2022; CI/CD &amp; Reporting:</strong> GitLab CI/CD, GitHub Actions, Dockerized test runs, Allure reporting, gates on merge/release pipelines, parallel test execution.
-              <br>
-              <strong>&#x2022; Observability &amp; Debug (QA):</strong> Kibana, ElasticSearch, Grafana, Graylog, CloudWatch, New Relic — log-driven investigation during test failures and production-like staging issues.
-              <br>
-              <strong>&#x2022; QA Process:</strong> Agile/Scrum release cycles, risk-based testing, regression prioritization, workflow improvements, task distribution across day-to-day QA activities.
+              <strong>&#x2022; Python &amp; Data:</strong> Python (FastAPI, pandas, NumPy, scikit-learn), multimodal datasets — tabular, behavioral, transactional, device/network signals, text, time series, graph-like entity relationships; ClickHouse, Snowflake, PostgreSQL, DynamoDB, S3, Kafka, AWS SQS.
               <br>
               <strong>&#x2022; System Architecture:</strong> Distributed Systems, Microservices, Event-Driven Architecture (EDA), Multi-tenant SaaS, High-Load MVPs, System Design, Scalability, High Availability &amp; Reliability Engineering.
               <br>
@@ -77,7 +69,9 @@
               <br>
               <strong>&#x2022; Protocols &amp; Integrations:</strong> WebRTC (Xirsys), WebSockets, Stripe API (Payment Infrastructure), Postmark (Email Delivery), Azure AD (OAuth2/OIDC), Secure Identity Management.
               <br>
-              <strong>&#x2022; AI Integration &amp; Tools:</strong> LLM Middleware, AI Developer Tools (Claude Code, Codex, Cursor IDE, GitHub Copilot, Gemini), n8n.
+              <strong>&#x2022; Testing &amp; Quality Assurance:</strong> Rigorous model &amp; system evaluation, pytest, Testcontainers, A/B and shadow-mode validation, Jest/Vitest, Playwright, CI test gates, Allure reporting, load/performance testing.
+              <br>
+              <strong>&#x2022; AI Integration &amp; Tools:</strong> Claude Code, OpenAI Codex, Cursor IDE, GitHub Copilot, Gemini, LLM-assisted research prototyping, n8n.
             </p>
           </div>
           <hr>
@@ -86,18 +80,17 @@
             <p>
               <strong>InstruxMusic (Remote, USA) — Senior Full-Stack Developer, Tech Lead</strong>.
               <em>Nov 2024 – Present</em>
+              <br>
+              <em>Stack: Python · FastAPI · PostgreSQL · Stripe · Docker</em>
               <ul>
                 <li>
-                  &#x2022; Own quality for a multi-tenant B2B SaaS launch — manually validate scheduling, <strong>Stripe billing</strong>, invoicing, and notification flows before each release, then automate stable cases in <strong>Python (pytest)</strong>.
+                  &#x2022; Built behavioral feature pipelines from scheduling, billing, and engagement events — foundation for downstream <strong>LTV and churn</strong> experiments on ed-tech user sequences.
                 </li>
                 <li>
-                  &#x2022; Maintain <strong>Postman collections</strong> for REST APIs (auth, payments, webhooks); run Newman in CI on every deploy to DigitalOcean via GitHub Actions with <strong>Allure</strong> reports.
+                  &#x2022; Designed dataset schemas and idempotent Stripe webhook ingestion for clean, label-ready transactional timelines.
                 </li>
                 <li>
-                  &#x2022; Test complex business rules around multi-tenant scheduling, proration, and failed-payment retries — document scenarios with product stakeholders and fold edge cases into regression packs.
-                </li>
-                <li>
-                  &#x2022; Shipped production MVP in under 3 months while keeping a manual exploratory pass on video/WebRTC features alongside API automation.
+                  &#x2022; Shipped production MVP in under 3 months while maintaining reproducible data exports for offline model prototyping.
                 </li>
               </ul>
               <div>
@@ -105,48 +98,48 @@
               </div>
             </p>
             <p>
-              <strong>Congrify (Remote, Germany/Italy) — Full Stack Senior Software Engineer, Tech Lead</strong>.
+              <strong>Congrify (Remote, Germany/Italy) — Applied ML Engineer / Tech Lead</strong>.
               <em>Oct 2023 – Oct 2024</em>
               <br>
+              <em>Stack: Python · PyTorch · MLFlow · AWS · Snowflake · ClickHouse</em>
               <ul>
                 <li>
-                  &#x2022; Shared QA ownership on a <strong>B2B payment-intelligence platform</strong> — ~50/50 manual validation of merchant analytics features and extending the team's <strong>Python automation framework</strong> for API and data-pipeline regression.
+                  &#x2022; Led applied research on a <strong>payment-intelligence platform</strong> — self-supervised sequence encoders on discrete transaction events for <strong>anti-fraud anomaly detection</strong> and merchant risk scoring; tracked experiments in <strong>MLFlow</strong>, deployed winning checkpoints to AWS inference paths.
                 </li>
                 <li>
-                  &#x2022; Manually tested transaction anomaly alerts and payment reconciliation logic with analysts; automated recurring cases and reduced flaky suites by tightening async wait patterns and test data setup.
+                  &#x2022; Worked with multimodal fintech data — tabular merchant profiles, behavioral clickstreams, transactional timelines, device/network metadata — unified in Snowflake and ClickHouse for training and offline evaluation.
                 </li>
                 <li>
-                  &#x2022; API testing with <strong>Postman</strong> across Java, Python, and Node.js Lambdas; used <strong>Kibana</strong> and Grafana to trace failures through SQS/Kafka ingestion paths during staging runs.
+                  &#x2022; Prototyped transformer-style sequence models (SASRec/BERT4Rec-inspired) on high-cardinality event vocabularies; iterated on data mixing ratios and negative sampling to improve downstream PR-AUC on held-out fraud labels.
                 </li>
                 <li>
-                  &#x2022; Ran <strong>load tests</strong> on peak transaction ingestion scenarios before OLAP migrations to ClickHouse/Snowflake; flagged bottlenecks back to dev teams pre-release.
+                  &#x2022; Optimized GPU/CPU utilization for training and batch inference on AWS — mixed precision, dataloader tuning, and Lambda cost reduction (20% overall cloud savings on ML-adjacent runtimes).
                 </li>
                 <li>
-                  &#x2022; Integrated automated suites into <strong>GitLab CI/CD</strong> with Allure dashboards; collaborated with developers on release checklists and post-deploy smoke criteria.
+                  &#x2022; Owned end-to-end delivery: hypothesis → dataset curation → training runs → shadow-mode evaluation → Grafana/CloudWatch monitoring of model drift in production.
                 </li>
                 <li>
-                  &#x2022; Improved QA workflow — clearer test plans per sprint, shared regression ownership, and faster triage when payment data mismatches appeared in staging.
+                  &#x2022; Partnered with product and analysts on rigorous evaluation frameworks — baseline comparisons, segment-level metrics, and business-readable impact summaries for credit-risk-adjacent merchant analytics.
                 </li>
               </ul>
             </p>
             <p>
-              <strong>FxPro (On-site, Limassol, Cyprus) — Senior Software Engineer</strong>.
+              <strong>FxPro (On-site, Limassol, Cyprus) — Senior Software Engineer (Fintech Platform)</strong>.
               <em>Nov 2022 – Oct 2023</em>
+              <br>
+              <em>Stack: Python · Java · Node.js · PostgreSQL · Redis · AWS</em>
               <ul>
                 <li>
-                  &#x2022; Tested and stabilized APIs across <strong>60+ payment and trading microservices</strong> — manual exploratory testing of complex cross-border payment configs plus <strong>Python</strong> regression for critical REST paths.
+                  &#x2022; Operated inside <strong>60+ microservices</strong> across global trading and payments — deep exposure to transactional, behavioral, and cross-border financial data used for auth, limits, and payment routing.
                 </li>
                 <li>
-                  &#x2022; Validated migration of payment settings for <strong>20+ systems in 50+ countries</strong> — scenario matrices for currencies, limits, and provider rules; close work with business analysts on expected behaviour.
+                  &#x2022; Built data extraction and feature-prep pipelines for internal analytics on payment configurations across <strong>50+ countries</strong> — clean entity graphs linking users, accounts, and provider rules.
                 </li>
                 <li>
-                  &#x2022; Built Postman environments mirroring staging clusters; documented API contracts used by QA and downstream teams across 40+ services.
+                  &#x2022; Supported offline evaluation of rules-based and early ML risk heuristics on staging replicas; documented label definitions with compliance-aware stakeholders.
                 </li>
                 <li>
-                  &#x2022; Supported <strong>performance testing</strong> on auth and payment flows (PostgreSQL, Redis under load); wired automated checks into GitLab pipelines — contributed to 25% faster, safer release cycles.
-                </li>
-                <li>
-                  &#x2022; Used New Relic, Graylog, and Grafana during test investigations — same observability stack devs used in production incident response.
+                  &#x2022; Improved observability (New Relic, Graylog, Grafana) on high-throughput payment paths — same telemetry used to validate model-serving latency budgets.
                 </li>
               </ul>
               <div>
@@ -157,46 +150,51 @@
               <strong>Cognitran (On-site, Krakow, Poland) — Senior Software Engineer</strong>.
               <em>Mar 2021 – Oct 2022</em>
               <p>
-                &#x2022; Tested offline-first diagnostic software for Ford and Jaguar — manual validation of complex enterprise workflows plus automated checks on data-import pipelines; strict quality gates before client deliveries.
+                &#x2022; Developed high-throughput data translation and ETL pipelines for automotive enterprise clients — experience directly applicable to large-scale tabular + time-series dataset design for DL training.
               </p>
             </p>
             <p>
               <strong>Huawei (On-site, Moscow, Russia) — Senior Software Engineer</strong>.
               <em>Jan 2020 – Mar 2021</em>
               <p>
-                &#x2022; Established CI/CD quality practices across 50+ Java projects — smoke and regression hooks in pipelines, shared testing standards with distributed open-source teams.
+                &#x2022; Built high-throughput custom data parsers and automation tooling across 50+ codebases — early work on structured dataset extraction and reproducible batch processing at scale.
               </p>
             </p>
             <p>
               <strong>US Mobile (Remote, USA) — Senior Software Engineer</strong>.
               <em>Feb 2019 – Jan 2020</em>
+              <br>
+              <em>Stack: Python · GCP · BigQuery</em>
               <ul>
                 <li>
-                  &#x2022; Helped design technical solutions and created a roadmap for migrating infrastructure to Google Cloud Platform (GCP).
+                  &#x2022; Designed GCP migration roadmap and automated third-party report ingestion — large batch datasets into BigQuery for downstream analytics and modeling-ready tables.
                 </li>
                 <li>
-                  &#x2022; Successfully oversaw the implementation of this replatforming, ensuring a smooth and efficient transition.
-                </li>
-                <li>
-                  &#x2022; Spearheaded the full automation of report processing from third-party sources, utilizing GCP services to significantly improve data processing and operational efficiency.
+                  &#x2022; Oversaw replatforming cutover with validation checkpoints on data completeness and schema consistency.
                 </li>
               </ul>
             </p>
             <p>
               <strong>Grid Dynamics — Intern to Senior Software Engineer</strong>.
               <em>Dec 2015 – Jan 2019</em>
+              <br>
+              <em>Stack: Java · Python · Angular · GCP</em>
               <p>
-                &#x2022; Progressed from Intern to Senior Engineer; API and integration testing on financial data microservices for <strong>Raymond James</strong>, plus internal tooling for Google and Home Depot — early foundation in structured QA on enterprise systems.
+                &#x2022; Delivered microservices and data pipelines for <strong>Raymond James</strong> (financial advisor systems) and Google — first exposure to regulated financial data, entity relationships, and enterprise-scale ETL.
               </p>
             </p>
           </div>
           <hr>
           <div is="e-stack" data-gap="xs">
-            <b  data-font-size="lg" is="e-h" data-color="primary">Open Source Projects:</b>
+            <b  data-font-size="lg" is="e-h" data-color="primary">Research & Open Source</b>
             <p data-font-size="xs">
-              <a is="e-link" data-underlined href="https://github.com/Guseyn/node-test-executor">node-test-executor</a>,
+              <a is="e-link" data-underlined href="https://guseyn.github.io/nn-math-web/">Mathematics of Neural Networks</a> — interactive research notes on backprop, architectures, and optimization (Applied Math background),
+              <a is="e-link" data-underlined href="https://e-html.org">EHTML</a>,
               <a is="e-link" data-underlined href="https://github.com/Guseyn/nodes.js">Nodes.js</a>,
-              <a is="e-link" data-underlined href="https://e-html.org">EHTML</a>
+              <a is="e-link" data-underlined href="https://github.com/Guseyn/e-ui">e-ui</a>
+            </p>
+            <p data-font-size="xs">
+              Writing on ML and systems at <a is="e-link" data-underlined href="https://guseyn.com">guseyn.com</a> — technical articles on neural networks, backend architecture, and applied engineering.
             </p>
           </div>
           <hr>
@@ -208,13 +206,13 @@
           </div>
           <hr>
           <div is="e-stack" data-gap="xs">
-            <b  data-font-size="lg" is="e-h" data-color="primary">Education & Languages</b>
+            <b  data-font-size="lg" is="e-h" data-color="primary">Education &amp; Languages</b>
             <span>Applied Mathematics and Computer Science: <i>Saratov State University, 2012 - 2016</i></span>
             <p data-font-size="xs">
-              <a is="e-link" data-underlined href="https://guseyn.com/pdf/diploma.pdf">Bachelor's Thesis: Cost Minimization of Energy on the Control of Satellite's Angular Motion (in Russian)</a>
+              <a is="e-link" data-underlined href="https://guseyn.com/pdf/diploma.pdf">Bachelor's Thesis: Cost Minimization of Energy on the Control of Satellite's Angular Motion (in Russian)</a> — optimization &amp; control theory; strong mathematical foundation for ML research.
             </p>
             <p data-font-size="sm">
-              <strong>Languages:</strong> English — C1 (professional working proficiency; 10+ years in international teams). Russian — native.
+              <strong>Languages:</strong> English — C1 (10+ years in international remote teams). Russian — native.
             </p>
           </div>
         </div>
