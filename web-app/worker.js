@@ -42,7 +42,7 @@ server(
         useCache,
         ...cacheControl
       }),
-      src(/^\/(mov)/, {
+      src(/^\/mov/, {
         baseFolder,
         useCors,
         ...corsOptions,
