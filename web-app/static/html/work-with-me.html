@@ -21,6 +21,11 @@
         pointer-events: none;
         transition: opacity 0.2s ease;
       }
+      svg[data-height="sm"] {
+        height: var(--e-img-sm);
+        width: auto;
+        flex-shrink: 0;
+      }
     </style>
     <script type="importmap">
       {
@@ -35,7 +40,7 @@
   <body data-background="surface">
     <main is="e-main" data-centralized data-padding-top="xl" data-padding-bottom="3xl">
       <e-html
-        data-src="/html/content/work-with-me.html?v=y5a8c012"
+        data-src="/html/content/work-with-me.html?v=z6a9d123"
         data-actions-on-progress-start="
           document.body.classList.toggle('progress-opacity')
         "
