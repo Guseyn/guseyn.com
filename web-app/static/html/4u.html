@@ -1,0 +1,48 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Guseyn">
+    <meta name="description" content="Guseyn Ismayylov — creator, framework author, and senior full-stack engineer. Zero-bloat architecture, solo MVP delivery, one project at a time.">
+    <title>Let's work together</title>
+    <link rel="shortcut icon" type="image/png" href="/image/favicon.png?v=f80d70da">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i">
+    <link rel="stylesheet" href="/css/normalize.css?v=54740e0a">
+    <link rel="stylesheet" href="/css/e-ui.css?v=58508652">
+    <style>
+      :root {
+        --e-primary: #b33939;
+        --e-primary-fg: #ffffff;
+      }
+      .progress-opacity {
+        opacity: 0.35;
+        pointer-events: none;
+        transition: opacity 0.2s ease;
+      }
+    </style>
+    <script type="importmap">
+      {
+        "imports": {
+          "#ehtml/": "/js/ehtml/",
+          "#ehtml/main": "/js/ehtml/main.js?v=1a6f54c9"
+        }
+      }
+    </script>
+    <script type="module">import '#ehtml/main'</script>
+  </head>
+  <body data-background="surface">
+    <main is="e-main" data-centralized data-padding-top="xl" data-padding-bottom="3xl">
+      <e-markdown
+        data-src="/md/4u.md?v=h5j8k123"
+        data-actions-on-progress-start="
+          document.body.classList.toggle('progress-opacity')
+        "
+        data-actions-on-progress-end="
+          document.body.classList.toggle('progress-opacity')
+        "
+      ></e-markdown>
+    </main>
+  </body>
+</html>

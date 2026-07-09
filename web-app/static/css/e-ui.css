@@ -1245,7 +1245,7 @@ e-selectable-chip[data-selected='true'] {
 }
 
 mark[is="e-mark"] {
-  background-color: rgba(37, 99, 235, 0.15);
+  background-color: var(--e-primary-transparent-accent-bg);
   color: inherit;
   padding: 0 var(--e-spacing-3xs);
   border-radius: var(--e-radius-3xs);
