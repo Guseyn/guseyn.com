@@ -1,5 +1,9 @@
 import fs from 'fs'
 
+import updateCacheVersionsInUrls from '#nodes/updateCacheVersionsInUrls.js'
+import removeCdnFromUrls from '#nodes/removeCdnFromUrls.js'
+import addCdnToUrls from '#nodes/addCdnToUrls.js'
+
 const primaryProcessId = fs.readFileSync('primary.pid', 'utf-8') 
 const version = JSON.parse(fs.readFileSync('./package.json', 'utf-8')).version
 
