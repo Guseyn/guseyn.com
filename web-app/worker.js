@@ -42,6 +42,12 @@ server(
         useCache,
         ...cacheControl
       }),
+      src(/^\/(mov)/, {
+        baseFolder,
+        useCors,
+        ...corsOptions,
+        useCache
+      }),
       src(/^\/html/, {
         baseFolder,
         useGzip: true

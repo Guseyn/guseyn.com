@@ -1,0 +1,1 @@
+scp -r web-app/static/mov root@174.138.15.193:/web-app/static/mov

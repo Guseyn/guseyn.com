@@ -77,7 +77,7 @@ I build and maintain the core platform — scheduling, lesson tools, video chat,
 <span is="e-tag">Postmark</span>
 </div>
 <p data-font-size="sm" data-margin-top="sm">
-<a is="e-link" data-underlined href="https://instruxmusic.com">instruxmusic.com</a> · <a is="e-link" data-underlined href="https://guseyn.com/image/rev3.png">View Recommendations</a>
+<a is="e-link" data-underlined href="https://instruxmusic.com">instruxmusic.com</a> · <a is="e-link" data-underlined href="https://guseyn.com/image/rev3.png">View Recommendations</a> · <a is="e-link" data-underlined href="https://guseyn.com/mov/desktop.mov">Watch Demo (Desktop)</a> · <a is="e-link" data-underlined href="https://guseyn.com/mov/mobile.mov">Watch Demo (Mobile)</a>
 </p>
 </div>
 
