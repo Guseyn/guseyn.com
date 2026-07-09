@@ -211,7 +211,7 @@ I build and maintain the core platform — scheduling, lesson tools, video chat,
 
 <div is="e-info" data-padding="lg" data-width="full">
 <p data-font-size="sm">
-Author of <a is="e-link" data-underlined href="https://e-html.org">EHTML</a>, <a is="e-link" data-underlined href="https://github.com/Guseyn/nodes.js">Nodes.js</a>, and <a is="e-link" data-underlined href="https://github.com/Guseyn/e-ui">e-ui</a>. Open-sourcing <em>Unilang</em> — the language behind Unison's text-to-notation pipeline.
+Author of <a is="e-link" data-underlined href="https://e-html.org">EHTML</a>, <a is="e-link" data-underlined href="https://github.com/Guseyn/nodes.js">nodes.js</a>, and <a is="e-link" data-underlined href="https://github.com/Guseyn/e-ui">e-ui</a>. Open-sourcing <em>Unilang</em> — the language behind Unison's text-to-notation pipeline.
 </p>
 <p data-font-size="xs" data-margin-top="sm">
 Also: <a is="e-link" data-underlined href="https://guseyn.github.io/nn-math-web/">Mathematics of Neural Network</a> · <a is="e-link" data-underlined href="https://guseyn.com/html/intervals.html">Guitar by Notes — sample chapter</a>
