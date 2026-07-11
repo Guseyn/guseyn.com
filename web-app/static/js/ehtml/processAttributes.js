@@ -125,9 +125,6 @@ export default function processAttributes(node) {
       NATIVE_EVENT_LISTENERS.includes(name)
 
     if (ignore) {
-      if (name === 'data-src') {
-        console.log(node)
-      }
       continue
     }
 
