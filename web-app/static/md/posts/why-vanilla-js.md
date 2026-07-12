@@ -97,3 +97,7 @@ And honestly, you don't need AI to build with this approach or at very least you
 ## Conclusion 
 
 If you have read till this moment, I would like to thank you for reading. I hope that this article gave something to think about and maybe even reconsider how you build your applications.
+
+[Subscribe to my newsletter](/html/in-touch.html) to see more posts and updates.
+
+**P.S.** I am looking for a new contract — see my [profile](/html/work-with-me.html).
