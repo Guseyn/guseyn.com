@@ -14,204 +14,230 @@
       :root {
         --e-primary: #b33939;
         --e-primary-fg: #ffffff;
+        --e-border: #555555;
+        --e-divider: #666666;
+      }
+      main[data-cv-page] div[is="e-panel"],
+      main[data-cv-page] div[is="e-info"] {
+        border: 1px solid var(--e-border);
+        box-shadow: none;
+      }
+      main[data-cv-page] hr[is="e-divider"] {
+        border-top-color: var(--e-divider);
+      }
+      main[data-cv-page] img[data-border-radius] {
+        border: 1px solid var(--e-border);
+      }
+      [data-cv-sidebar] {
+        flex: 0 0 14rem;
+        max-width: 14rem;
+      }
+      [data-cv-main] {
+        flex: 1;
+        min-width: 0;
       }
       @media print {
         main[is="e-main"] {
           max-width: none;
           padding: 0;
         }
-      }
-      hr[is="e-divider"] {
-        margin: var(--e-spacing-xs) 0;
+        * {
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
       }
     </style>
   </head>
   <body data-background="surface">
-    <main is="e-main" data-centralized data-padding-top="md" data-padding-bottom="lg">
+    <main is="e-main" data-cv-page data-centralized data-padding-top="md" data-padding-bottom="lg">
       <div is="e-stack" data-gap="md" data-width="full">
 
-        <div is="e-stack" data-gap="md" data-align-items="center" data-text-align="center" data-width="full">
-          <img
-            src="/image/4T7A8796-2-compressed.jpg?v=46765fb5"
-            data-height="xl"
-            data-border-radius="md"
-            data-block-center
-            data-shrink="0"
-            alt="Guseyn Ismayylov"
-          >
+        <div is="e-panel" data-background="primary-transparent" data-padding="lg" data-border-radius="md" data-width="full">
+          <div is="e-stack" data-gap="md" data-align-items="center" data-text-align="center" data-width="full">
+            <img
+              src="/image/4T7A8796-2-compressed.jpg?v=46765fb5"
+              data-height="xl"
+              data-border-radius="md"
+              data-block-center
+              data-shrink="0"
+              alt="Guseyn Ismayylov"
+            >
 
-          <div is="e-stack" data-gap="2xs" data-align-items="center" data-text-align="center">
-            <h2 is="e-h" data-color="primary">Guseyn Ismayylov</h2>
-            <span is="e-caption" data-color="muted">Senior Full-Stack Software Engineer · Technical Leader</span>
-            <span is="e-caption" data-color="muted">Legal name: Gusein Ismaiylov · Remote · Georgia 🇬🇪</span>
-          </div>
-
-          <div is="e-stack" data-gap="2xs" data-font-size="sm" data-align-items="center" data-text-align="center">
-            <div is="e-row" data-gap="md" data-flex-wrap="wrap" data-justify-content="center" data-keep-flex-direction-row-in-mobile>
-              <span><a is="e-link" data-underlined href="mailto:guseyn@guseyn.com">guseyn@guseyn.com</a></span>
-              <span><a is="e-link" data-underlined href="tel:+995511458167">+995 511 458 167</a></span>
-              <span><a is="e-link" data-underlined href="https://t.me/guseyn">Telegram @guseyn</a></span>
-              <span><a is="e-link" data-underlined href="https://guseyn.com">guseyn.com</a></span>
+            <div is="e-stack" data-gap="2xs" data-align-items="center" data-text-align="center">
+              <h2 is="e-h" data-color="primary">Guseyn Ismayylov</h2>
+              <span is="e-caption" data-color="muted">Senior Full-Stack Software Engineer · Technical Leader</span>
+              <span is="e-caption" data-color="muted">Legal name: Gusein Ismaiylov · Remote · Georgia 🇬🇪</span>
             </div>
-            <div is="e-row" data-gap="xs" data-flex-wrap="wrap" data-justify-content="center" data-keep-flex-direction-row-in-mobile>
-              <a is="e-link" data-underlined href="https://github.com/Guseyn">GitHub</a>
-              <span data-color="muted">·</span>
-              <a is="e-link" data-underlined href="https://stackoverflow.com/users/8568641/guseyn-ismayylov">StackOverflow</a>
-              <span data-color="muted">·</span>
-              <a is="e-link" data-underlined href="https://linkedin.com/in/gusein-ismaiylov-111bb1179">LinkedIn</a>
-              <span data-color="muted">·</span>
-              <a is="e-link" data-underlined href="https://instagram.com/guseyn_dot_com">Instagram</a>
+
+            <div is="e-stack" data-gap="2xs" data-font-size="sm" data-align-items="center" data-text-align="center">
+              <div is="e-row" data-gap="md" data-flex-wrap="wrap" data-justify-content="center" data-keep-flex-direction-row-in-mobile>
+                <span><a is="e-link" data-underlined href="mailto:guseyn@guseyn.com">guseyn@guseyn.com</a></span>
+                <span><a is="e-link" data-underlined href="tel:+995511458167">+995 511 458 167</a></span>
+                <span><a is="e-link" data-underlined href="https://t.me/guseyn">Telegram @guseyn</a></span>
+                <span><a is="e-link" data-underlined href="https://guseyn.com">guseyn.com</a></span>
+              </div>
+              <div is="e-row" data-gap="xs" data-flex-wrap="wrap" data-justify-content="center" data-keep-flex-direction-row-in-mobile>
+                <a is="e-link" data-underlined href="https://github.com/Guseyn">GitHub</a>
+                <span data-color="muted">·</span>
+                <a is="e-link" data-underlined href="https://stackoverflow.com/users/8568641/guseyn-ismayylov">StackOverflow</a>
+                <span data-color="muted">·</span>
+                <a is="e-link" data-underlined href="https://linkedin.com/in/gusein-ismaiylov-111bb1179">LinkedIn</a>
+                <span data-color="muted">·</span>
+                <a is="e-link" data-underlined href="https://instagram.com/guseyn_dot_com">Instagram</a>
+              </div>
             </div>
           </div>
         </div>
 
-        <hr is="e-divider">
-
-        <section is="e-stack" data-gap="xs" data-width="full">
+        <div is="e-info" data-padding="md" data-width="full">
           <p data-font-size="md">
-            <strong>Senior Full-Stack AI Software Engineer (Node.js)</strong> with <strong>10 years</strong> building production platforms end to end — Node.js backends, React/Next.js frontends, PostgreSQL/Redis data layers, and AWS cloud infra. Deep <strong>Node.js</strong> expertise (Express, Fastify, NestJS); author of <a is="e-link" data-underlined href="https://github.com/Guseyn/nodes.js">nodes.js</a> backend framework. Production <strong>AI</strong> work: LLM middleware, agent-ready APIs, n8n automations, and AI-accelerated delivery (Cursor, Claude Code, Copilot). Also built <a is="e-link" data-underlined href="https://e-html.org/">EHTML</a> and <a is="e-link" data-underlined href="https://unisonofficial.com">Unison</a>. Applied Mathematics background; author of <a is="e-link" data-underlined href="https://guseyn.github.io/nn-math-web/">Mathematics of Neural Networks</a>.
+            <strong>Senior Full-Stack AI Software Engineer (Node.js)</strong> with <strong>10 years</strong> building production platforms end to end — Node.js backends, React/Next.js frontends, PostgreSQL/Redis data layers, and AWS cloud infra. Deep <strong>Node.js</strong> expertise (Express, Fastify, NestJS); author of <a is="e-link" data-underlined href="https://github.com/Guseyn/nodes.js">nodes.js</a> backend framework. Production <strong>AI</strong> work: agentic backends, LLM middleware, RAG pipelines, n8n automations, and AI-native delivery via <strong>Cursor</strong> (multi-model Composer) and <strong>Google Gemini</strong>. Also built <a is="e-link" data-underlined href="https://e-html.org/">EHTML</a> and <a is="e-link" data-underlined href="https://unisonofficial.com">Unison</a>. Applied Mathematics background; author of <a is="e-link" data-underlined href="https://guseyn.github.io/nn-math-web/">Mathematics of Neural Networks</a>.
+          </p>
+        </div>
+
+        <div
+          is="e-row"
+          data-cv-body
+          data-gap="md"
+          data-align-items="start"
+          data-keep-flex-direction-row-in-mobile
+          data-width="full"
+        >
+
+          <div is="e-panel" data-cv-sidebar data-background="primary-transparent" data-padding="md" data-border-radius="md" data-width="full">
+            <div is="e-stack" data-gap="md" data-width="full">
+              <section is="e-stack" data-gap="xs" data-width="full">
+                <h2 is="e-h" data-color="primary" data-font-size="lg">Skills</h2>
+                <p data-font-size="sm">
+                  <strong>Node.js (Primary):</strong> Express, Fastify, NestJS, TypeScript/JavaScript, async/event-loop, streams, worker threads &amp; cluster, HTTP/2, REST/GraphQL APIs, microservices, BFF patterns, serverless (AWS Lambda), custom framework design (<a is="e-link" data-underlined href="https://github.com/Guseyn/nodes.js">nodes.js</a>).
+            <br><br><strong>AI &amp; Intelligent Backends:</strong> LLM middleware &amp; agent orchestration on Node.js, RAG pipelines, vector search &amp; semantic retrieval, MCP/tool-calling APIs, streaming inference, prompt/tool-chain design, guardrails &amp; eval for production AI, n8n workflow automation, event-driven AI microservices.
+            <br><br><strong>AI-Native Development:</strong> Cursor IDE (Composer — Claude Opus/Sonnet, GPT, Gemini, Grok model routing), Google Gemini (API &amp; workspace), Claude Code, GitHub Copilot, Codex — AI-accelerated Node.js/TypeScript delivery, autonomous refactors, and test generation.
+            <br><br><strong>Generative AI Stack:</strong> OpenAI, Anthropic Claude, Google Gemini APIs; embeddings, function calling, structured outputs; Node.js LLM middleware patterns; Redis/DynamoDB/S3 hybrid retrieval tiers; token &amp; latency optimization.
+            <br><br><strong>System Architecture:</strong> Distributed Systems, Microservices, Event-Driven Architecture (EDA), Multi-tenant SaaS, High-Load MVPs, System Design, Scalability, High Availability &amp; Reliability Engineering.
+            <br><br><strong>Backend Ecosystem:</strong> Node.js (Express, Fastify, NestJS), JavaScript/TypeScript, Java (Spring Boot), PHP, Python (FastAPI), NX Monorepos, RESTful APIs, GraphQL, Serverless Architecture.
+            <br><br><strong>High-Performance UI/UX:</strong> Web Components, EHTML (Founder), React, Next.js, React Server Components (RSC), React Context, React Query, Tailwind CSS, Material UI, Zustand, Angular, Real-time SVG/Canvas Rendering, Shadow DOM, Micro-frontends, HTML5/CSS3, Vite, Esbuild.
+            <br><br><strong>Data Engineering &amp; Storage:</strong> PostgreSQL, MySQL, MariaDB, Redis (Caching, Pub/Sub), ClickHouse (OLAP), Snowflake, Supabase, Drizzle ORM, DynamoDB, Prisma, Apache Kafka, RabbitMQ, MongoDB, ElasticSearch, Database Optimization.
+            <br><br><strong>Cloud Platforms &amp; DevOps (IaC):</strong> AWS (EC2, ECS, S3, RDS, Lambda, DynamoDB, CloudWatch), GCP (Cloud Run, App Engine, BigQuery, VPC), Azure, DigitalOcean, Docker, Kubernetes (K8s), Terraform, GitHub Actions, GitLab CI/CD, Infrastructure as Code (IaC).
+            <br><br><strong>Observability &amp; Telemetry:</strong> OpenTelemetry, Prometheus, Grafana, New Relic, Graylog, Datadog, Distributed Tracing, Log Aggregation, Full-Stack Monitoring.
+            <br><br><strong>Protocols &amp; Integrations:</strong> WebRTC (Xirsys), WebSockets, Stripe API (Payment Infrastructure), Postmark (Email Delivery), Azure AD (OAuth2/OIDC), Secure Identity Management.
+            <br><br><strong>Testing &amp; Quality Assurance:</strong> Jest, Vitest, Supertest, Testcontainers, Playwright, LLM eval suites &amp; prompt regression, React Testing Library, API contract tests, Postman/Newman, TDD/BDD, coverage &amp; reporting (Allure, Istanbul), CI test gates, parallel test runs, load/performance testing.
+            <br><br><strong>AI &amp; Developer Tools:</strong> Cursor (Composer — Claude, GPT, Gemini, Grok models), Google Gemini, Claude Code, GitHub Copilot, Codex, n8n; LLM-assisted coding, review, and refactoring.
+                </p>
+              </section>
+
+              <section is="e-stack" data-gap="xs" data-width="full">
+                <h2 is="e-h" data-color="primary" data-font-size="lg">Open Source</h2>
+                <p data-font-size="sm">
+            <a is="e-link" data-underlined href="https://e-html.org">EHTML</a>,
+            <a is="e-link" data-underlined href="https://github.com/Guseyn/nodes.js">Nodes.js</a>,
+            <a is="e-link" data-underlined href="https://github.com/Guseyn/e-ui">e-ui</a>,
+            <a is="e-link" data-underlined href="https://guseyn.github.io/nn-math-web/">Mathematics of Neural Networks</a>
             </p>
-          </section>
+              </section>
 
-        <hr is="e-divider">
-
-        <section is="e-stack" data-gap="xs" data-width="full">
-          <h2 is="e-h" data-color="primary" data-font-size="lg">Skills</h2>
+              <section is="e-stack" data-gap="xs" data-width="full">
+                <h2 is="e-h" data-color="primary" data-font-size="lg">Education</h2>
+                <p data-font-size="sm">Applied Mathematics and Computer Science — <i>Saratov State University, 2012 - 2016</i></p>
           <p data-font-size="sm">
-            <strong>&#x2022; Node.js (Primary):</strong> Express, Fastify, NestJS, TypeScript/JavaScript, async/event-loop, streams, worker threads &amp; cluster, HTTP/2, REST/GraphQL APIs, microservices, BFF patterns, serverless (AWS Lambda), custom framework design (<a is="e-link" data-underlined href="https://github.com/Guseyn/nodes.js">nodes.js</a>).
-            <br>
-            <strong>&#x2022; AI &amp; Intelligent Backends:</strong> LLM middleware &amp; agent orchestration, AI workflow automation (n8n), streaming inference pipelines, RAG-style data tiers, prompt/tool-chain APIs, guardrails for production AI features, AI-native dev (Cursor, Claude Code, Copilot, Codex, Gemini).
-            <br>
-            <strong>&#x2022; System Architecture:</strong> Distributed Systems, Microservices, Event-Driven Architecture (EDA), Multi-tenant SaaS, High-Load MVPs, System Design, Scalability, High Availability &amp; Reliability Engineering.
-            <br>
-            <strong>&#x2022; Backend Ecosystem:</strong> Node.js (Express, Fastify, NestJS), JavaScript/TypeScript, Java (Spring Boot), PHP, Python (FastAPI), NX Monorepos, RESTful APIs, GraphQL, Serverless Architecture.
-            <br>
-            <strong>&#x2022; High-Performance UI/UX:</strong> Web Components, EHTML (Founder), React, Next.js, React Server Components (RSC), React Context, React Query, Tailwind CSS, Material UI, Zustand, Angular, Real-time SVG/Canvas Rendering, Shadow DOM, Micro-frontends, HTML5/CSS3, Vite, Esbuild.
-            <br>
-            <strong>&#x2022; Data Engineering &amp; Storage:</strong> PostgreSQL, MySQL, MariaDB, Redis (Caching, Pub/Sub), ClickHouse (OLAP), Snowflake, Supabase, Drizzle ORM, DynamoDB, Prisma, Apache Kafka, RabbitMQ, MongoDB, ElasticSearch, Database Optimization.
-            <br>
-            <strong>&#x2022; Cloud Platforms &amp; DevOps (IaC):</strong> AWS (EC2, ECS, S3, RDS, Lambda, DynamoDB, CloudWatch), GCP (Cloud Run, App Engine, BigQuery, VPC), Azure, DigitalOcean, Docker, Kubernetes (K8s), Terraform, GitHub Actions, GitLab CI/CD, Infrastructure as Code (IaC).
-            <br>
-            <strong>&#x2022; Observability &amp; Telemetry:</strong> OpenTelemetry, Prometheus, Grafana, New Relic, Graylog, Datadog, Distributed Tracing, Log Aggregation, Full-Stack Monitoring.
-            <br>
-            <strong>&#x2022; Protocols &amp; Integrations:</strong> WebRTC (Xirsys), WebSockets, Stripe API (Payment Infrastructure), Postmark (Email Delivery), Azure AD (OAuth2/OIDC), Secure Identity Management.
-            <br>
-            <strong>&#x2022; Testing &amp; Quality Assurance:</strong> Jest, Vitest, Supertest, Testcontainers, Playwright, LLM eval suites &amp; prompt regression, React Testing Library, API contract tests, Postman/Newman, TDD/BDD, coverage &amp; reporting (Allure, Istanbul), CI test gates, parallel test runs, load/performance testing.
-            <br>
-            <strong>&#x2022; AI Integration &amp; Tools:</strong> LLM Middleware, AI Developer Tools (Claude Code, Codex, Cursor IDE, GitHub Copilot, Gemini), n8n.
+            <a is="e-link" data-underlined href="https://guseyn.com/pdf/diploma.pdf">Bachelor's Thesis: Cost Minimization of Energy on the Control of Satellite's Angular Motion (in Russian)</a>
+          </p>
+              </section>
+
+              <section is="e-stack" data-gap="xs" data-width="full">
+                <h2 is="e-h" data-color="primary" data-font-size="lg">Certifications</h2>
+                <p data-font-size="sm">
+            <a is="e-link" data-underlined href="https://youracclaim.com/badges/402c6cb4-d066-4f85-95b6-cd955d4a446f/public_url">Oracle Certified Associate Java SE 8 Programmer</a>
             </p>
-          </section>
+              </section>
+            </div>
+          </div>
 
-        <hr is="e-divider">
+          <div is="e-panel" data-cv-main data-background="muted" data-padding="md" data-border-radius="md" data-width="full">
+            <div is="e-stack" data-gap="md" data-width="full">
+              <h2 is="e-h" data-color="primary" data-font-size="lg">Work Experience</h2>
 
-        <section is="e-stack" data-gap="md" data-width="full">
-          <h2 is="e-h" data-color="primary" data-font-size="lg">Work Experience</h2>
-          <div is="e-stack" data-gap="xs" data-width="full">
-            <div is="e-row" data-gap="sm" data-flex-wrap="wrap" data-justify-content="space-between" data-keep-flex-direction-row-in-mobile data-width="full">
+              <div is="e-stack" data-gap="xs" data-width="full">
+              <div is="e-row" data-gap="sm" data-flex-wrap="wrap" data-justify-content="space-between" data-keep-flex-direction-row-in-mobile data-width="full">
               <span is="e-bold">InstruxMusic — Senior Full-Stack AI Engineer (Node.js), Tech Lead</span>
               <span is="e-caption" data-color="muted">Nov 2024 – Present · Remote · USA</span>
               </div>
-            <em>Stack: Node.js · TypeScript · PostgreSQL · Redis · Stripe · Docker · Cursor · Claude Code</em>
-            <ul data-font-size="sm">
+              <em>Stack: Node.js · TypeScript · PostgreSQL · Redis · Stripe · Docker · Cursor · Claude Code</em>
+              <ul data-font-size="sm">
               <li>• Built full-stack ed-tech platform on <strong>Node.js</strong> — multi-tenant scheduling, Stripe billing, WebRTC video, Postmark notifications — production MVP in <strong>under 3 months</strong>.</li>
               <li>• AI-accelerated delivery with Cursor and Claude Code across the Node.js codebase — faster feature shipping, refactoring, and test generation without sacrificing architecture quality.</li>
               <li>• Designed webhook and event pipelines (Stripe, Postmark) as agent-ready hooks — idempotent async processing, Redis-backed queues, clean REST APIs for future LLM automations.</li>
               <li>• Applied nodes.js framework patterns for lean, high-performance backend services; full-stack ownership through React/Web Components UI and Docker deployment.</li>
               </ul>
-            <a is="e-link" data-underlined data-font-size="sm" href="https://guseyn.com/image/rev3.png">View Recommendations</a>
-            </div>
-          <div is="e-stack" data-gap="xs" data-width="full">
-            <div is="e-row" data-gap="sm" data-flex-wrap="wrap" data-justify-content="space-between" data-keep-flex-direction-row-in-mobile data-width="full">
+              <a is="e-link" data-underlined data-font-size="sm" href="https://guseyn.com/image/rev3.png">View Recommendations</a>
+              </div>
+              <div is="e-stack" data-gap="xs" data-width="full">
+              <div is="e-row" data-gap="sm" data-flex-wrap="wrap" data-justify-content="space-between" data-keep-flex-direction-row-in-mobile data-width="full">
               <span is="e-bold">Congrify — Senior Full-Stack Engineer (Node.js / AI), Tech Lead</span>
               <span is="e-caption" data-color="muted">Oct 2023 – Oct 2024 · Remote · Germany/Italy</span>
               </div>
-            <em>Stack: Node.js · AWS Lambda · DynamoDB · S3 · SQS · ClickHouse · React · Grafana</em>
-            <ul data-font-size="sm">
+              <em>Stack: Node.js · AWS Lambda · DynamoDB · S3 · SQS · ClickHouse · React · Grafana</em>
+              <ul data-font-size="sm">
               <li>• Engineered production <strong>AI middleware layer</strong> in Node.js on DynamoDB and S3 — real-time streaming data processing and intelligent payment analytics for enterprise fintech users.</li>
               <li>• Optimized <strong>Node.js AWS Lambda</strong> runtimes alongside Java and Python — 20% cost reduction via memory tuning, concurrency fixes, and improved async data-processing logic.</li>
               <li>• Built large-scale async ingestion pipelines (AWS SQS, Pub/Sub) in Node.js — zero-loss reliability under heavy transactional surges feeding AI analytical features.</li>
               <li>• Led React frontend redesign consuming Node.js BFF APIs; Grafana/CloudWatch observability for AI and payment anomaly detection.</li>
               <li>• Migrated analytical workloads to ClickHouse/Snowflake — high-performance retrieval layer for downstream Node.js intelligence services.</li>
               </ul>
-            </div>
-          <div is="e-stack" data-gap="xs" data-width="full">
-            <div is="e-row" data-gap="sm" data-flex-wrap="wrap" data-justify-content="space-between" data-keep-flex-direction-row-in-mobile data-width="full">
+              </div>
+              <div is="e-stack" data-gap="xs" data-width="full">
+              <div is="e-row" data-gap="sm" data-flex-wrap="wrap" data-justify-content="space-between" data-keep-flex-direction-row-in-mobile data-width="full">
               <span is="e-bold">FxPro — Senior Software Engineer (Node.js / NestJS)</span>
               <span is="e-caption" data-color="muted">Nov 2022 – Oct 2023 · Limassol, Cyprus</span>
               </div>
-            <em>Stack: Node.js · NestJS · Java · PostgreSQL · Redis · Azure AD · GitLab CI</em>
-            <ul data-font-size="sm">
+              <em>Stack: Node.js · NestJS · Java · PostgreSQL · Redis · Azure AD · GitLab CI</em>
+              <ul data-font-size="sm">
               <li>• Orchestrated <strong>60+ microservices</strong> including core <strong>Node.js (NestJS)</strong> services — 20% reliability gain, 15% downtime reduction in global trading infrastructure.</li>
               <li>• Built centralized Auth Service (Azure AD, OAuth2) and payment config APIs consumed by Node.js and Java services across 50+ countries.</li>
               <li>• Optimized PostgreSQL and Redis layers for high-throughput Node.js financial data flows; GitLab CI/CD — 25% faster deploy cycles.</li>
               <li>• Full-stack observability (New Relic, Graylog, Grafana) across 25+ Node.js/Java services; internal API docs for 40+ services.</li>
               </ul>
-            <a is="e-link" data-underlined data-font-size="sm" href="https://guseyn.com/image/rev1.png">View Recommendations</a>
-            </div>
-          <div is="e-stack" data-gap="xs" data-width="full">
-            <div is="e-row" data-gap="sm" data-flex-wrap="wrap" data-justify-content="space-between" data-keep-flex-direction-row-in-mobile data-width="full">
+              <a is="e-link" data-underlined data-font-size="sm" href="https://guseyn.com/image/rev1.png">View Recommendations</a>
+              </div>
+              <div is="e-stack" data-gap="xs" data-width="full">
+              <div is="e-row" data-gap="sm" data-flex-wrap="wrap" data-justify-content="space-between" data-keep-flex-direction-row-in-mobile data-width="full">
               <span is="e-bold">Cognitran — Senior Software Engineer</span>
               <span is="e-caption" data-color="muted">Mar 2021 – Oct 2022 · Krakow, Poland</span>
               </div>
-            <p data-font-size="sm">• Built Node.js backend services and automated documentation pipelines for Ford/Jaguar — offline-first data sync, AWS Lambda integrations, structured data extraction at enterprise scale.</p>
-            </div>
-          <div is="e-stack" data-gap="xs" data-width="full">
-            <div is="e-row" data-gap="sm" data-flex-wrap="wrap" data-justify-content="space-between" data-keep-flex-direction-row-in-mobile data-width="full">
+              <p data-font-size="sm">• Built Node.js backend services and automated documentation pipelines for Ford/Jaguar — offline-first data sync, AWS Lambda integrations, structured data extraction at enterprise scale.</p>
+              </div>
+              <div is="e-stack" data-gap="xs" data-width="full">
+              <div is="e-row" data-gap="sm" data-flex-wrap="wrap" data-justify-content="space-between" data-keep-flex-direction-row-in-mobile data-width="full">
               <span is="e-bold">Huawei — Senior Software Engineer</span>
               <span is="e-caption" data-color="muted">Jan 2020 – Mar 2021 · Moscow, Russia</span>
               </div>
-            <p data-font-size="sm">• Developed Node.js automation tooling and high-throughput data parsers across 50+ projects — API migration scripts, CI/CD pipelines, machine-processable data pipelines.</p>
-            </div>
-          <div is="e-stack" data-gap="xs" data-width="full">
-            <div is="e-row" data-gap="sm" data-flex-wrap="wrap" data-justify-content="space-between" data-keep-flex-direction-row-in-mobile data-width="full">
+              <p data-font-size="sm">• Developed Node.js automation tooling and high-throughput data parsers across 50+ projects — API migration scripts, CI/CD pipelines, machine-processable data pipelines.</p>
+              </div>
+              <div is="e-stack" data-gap="xs" data-width="full">
+              <div is="e-row" data-gap="sm" data-flex-wrap="wrap" data-justify-content="space-between" data-keep-flex-direction-row-in-mobile data-width="full">
               <span is="e-bold">US Mobile — Senior Software Engineer</span>
               <span is="e-caption" data-color="muted">Feb 2019 – Jan 2020 · Remote · USA</span>
               </div>
-            <ul data-font-size="sm">
+              <ul data-font-size="sm">
               <li>• Helped design technical solutions and created a roadmap for migrating infrastructure to Google Cloud Platform (GCP).</li>
               <li>• Successfully oversaw the implementation of this replatforming, ensuring a smooth and efficient transition.</li>
               <li>• Spearheaded the full automation of report processing from third-party sources, utilizing GCP services to significantly improve data processing and operational efficiency.</li>
               </ul>
-            </div>
-          <div is="e-stack" data-gap="xs" data-width="full">
-            <div is="e-row" data-gap="sm" data-flex-wrap="wrap" data-justify-content="space-between" data-keep-flex-direction-row-in-mobile data-width="full">
+              </div>
+              <div is="e-stack" data-gap="xs" data-width="full">
+              <div is="e-row" data-gap="sm" data-flex-wrap="wrap" data-justify-content="space-between" data-keep-flex-direction-row-in-mobile data-width="full">
               <span is="e-bold">Grid Dynamics — Intern to Senior Software Engineer</span>
               <span is="e-caption" data-color="muted">Dec 2015 – Jan 2019</span>
               </div>
-            <p data-font-size="sm">• Progressed from Intern to Senior; delivered <strong>Node.js microservices</strong> and internal tooling for Google, Raymond James, and Home Depot — early full-stack Node.js + React work at enterprise scale.</p>
+              <p data-font-size="sm">• Progressed from Intern to Senior; delivered <strong>Node.js microservices</strong> and internal tooling for Google, Raymond James, and Home Depot — early full-stack Node.js + React work at enterprise scale.</p>
+              </div>
+              </div>
+              </div>
+              </div>
+              </div>
             </div>
-          </section>
+          </div>
 
-        <hr is="e-divider">
-
-        <section is="e-stack" data-gap="xs" data-width="full">
-          <h2 is="e-h" data-color="primary" data-font-size="lg">Open Source</h2>
-          <p data-font-size="sm">
-            <a is="e-link" data-underlined href="https://e-html.org">EHTML</a>,
-            <a is="e-link" data-underlined href="https://github.com/Guseyn/nodes.js">Nodes.js</a>,
-            <a is="e-link" data-underlined href="https://github.com/Guseyn/e-ui">e-ui</a>,
-            <a is="e-link" data-underlined href="https://guseyn.github.io/nn-math-web/">Mathematics of Neural Networks</a>
-            </p>
-          </section>
-
-        <hr is="e-divider">
-
-        <section is="e-stack" data-gap="xs" data-width="full">
-          <h2 is="e-h" data-color="primary" data-font-size="lg">Certifications</h2>
-          <p data-font-size="sm">
-            <a is="e-link" data-underlined href="https://youracclaim.com/badges/402c6cb4-d066-4f85-95b6-cd955d4a446f/public_url">Oracle Certified Associate Java SE 8 Programmer</a>
-            </p>
-          </section>
-
-        <hr is="e-divider">
-
-        <section is="e-stack" data-gap="xs" data-width="full">
-          <h2 is="e-h" data-color="primary" data-font-size="lg">Education</h2>
-          <p data-font-size="sm">Applied Mathematics and Computer Science — <i>Saratov State University, 2012 - 2016</i></p>
-          <p data-font-size="sm">
-            <a is="e-link" data-underlined href="https://guseyn.com/pdf/diploma.pdf">Bachelor's Thesis: Cost Minimization of Energy on the Control of Satellite's Angular Motion (in Russian)</a>
-          </p>
-        </section>
+        </div>
 
       </div>
     </main>

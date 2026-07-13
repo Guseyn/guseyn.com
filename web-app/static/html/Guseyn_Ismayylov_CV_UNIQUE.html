@@ -14,181 +14,119 @@
       :root {
         --e-primary: #b33939;
         --e-primary-fg: #ffffff;
+        --e-border: #555555;
+        --e-divider: #666666;
+      }
+      main[data-cv-page] div[is="e-panel"],
+      main[data-cv-page] div[is="e-info"] {
+        border: 1px solid var(--e-border);
+        box-shadow: none;
+      }
+      main[data-cv-page] hr[is="e-divider"] {
+        border-top-color: var(--e-divider);
+      }
+      main[data-cv-page] img[data-border-radius] {
+        border: 1px solid var(--e-border);
+      }
+      [data-cv-sidebar] {
+        flex: 0 0 14rem;
+        max-width: 14rem;
+      }
+      [data-cv-main] {
+        flex: 1;
+        min-width: 0;
       }
       @media print {
         main[is="e-main"] {
           max-width: none;
           padding: 0;
         }
-      }
-      hr[is="e-divider"] {
-        margin: var(--e-spacing-xs) 0;
+        * {
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
       }
     </style>
   </head>
   <body data-background="surface">
-    <main is="e-main" data-centralized data-padding-top="md" data-padding-bottom="lg">
+    <main is="e-main" data-cv-page data-centralized data-padding-top="md" data-padding-bottom="lg">
       <div is="e-stack" data-gap="md" data-width="full">
 
-        <div is="e-stack" data-gap="md" data-align-items="center" data-text-align="center" data-width="full">
-          <img
-            src="/image/4T7A8796-2-compressed.jpg?v=46765fb5"
-            data-height="xl"
-            data-border-radius="md"
-            data-block-center
-            data-shrink="0"
-            alt="Guseyn Ismayylov"
-          >
+        <div is="e-panel" data-background="primary-transparent" data-padding="lg" data-border-radius="md" data-width="full">
+          <div is="e-stack" data-gap="md" data-align-items="center" data-text-align="center" data-width="full">
+            <img
+              src="/image/4T7A8796-2-compressed.jpg?v=46765fb5"
+              data-height="xl"
+              data-border-radius="md"
+              data-block-center
+              data-shrink="0"
+              alt="Guseyn Ismayylov"
+            >
 
-          <div is="e-stack" data-gap="2xs" data-align-items="center" data-text-align="center">
-            <h2 is="e-h" data-color="primary">Guseyn Ismayylov</h2>
-            <span is="e-caption" data-color="muted">Senior Full-Stack Software Engineer · Technical Leader</span>
-            <span is="e-caption" data-color="muted">Legal name: Gusein Ismaiylov · Remote · Georgia 🇬🇪</span>
-          </div>
-
-          <div is="e-stack" data-gap="2xs" data-font-size="sm" data-align-items="center" data-text-align="center">
-            <div is="e-row" data-gap="md" data-flex-wrap="wrap" data-justify-content="center" data-keep-flex-direction-row-in-mobile>
-              <span><a is="e-link" data-underlined href="mailto:guseyn@guseyn.com">guseyn@guseyn.com</a></span>
-              <span><a is="e-link" data-underlined href="tel:+995511458167">+995 511 458 167</a></span>
-              <span><a is="e-link" data-underlined href="https://t.me/guseyn">Telegram @guseyn</a></span>
-              <span><a is="e-link" data-underlined href="https://guseyn.com">guseyn.com</a></span>
+            <div is="e-stack" data-gap="2xs" data-align-items="center" data-text-align="center">
+              <h2 is="e-h" data-color="primary">Guseyn Ismayylov</h2>
+              <span is="e-caption" data-color="muted">Senior Full-Stack Software Engineer · Technical Leader</span>
+              <span is="e-caption" data-color="muted">Legal name: Gusein Ismaiylov · Remote · Georgia 🇬🇪</span>
             </div>
-            <div is="e-row" data-gap="xs" data-flex-wrap="wrap" data-justify-content="center" data-keep-flex-direction-row-in-mobile>
-              <a is="e-link" data-underlined href="https://github.com/Guseyn">GitHub</a>
-              <span data-color="muted">·</span>
-              <a is="e-link" data-underlined href="https://stackoverflow.com/users/8568641/guseyn-ismayylov">StackOverflow</a>
-              <span data-color="muted">·</span>
-              <a is="e-link" data-underlined href="https://linkedin.com/in/gusein-ismaiylov-111bb1179">LinkedIn</a>
-              <span data-color="muted">·</span>
-              <a is="e-link" data-underlined href="https://instagram.com/guseyn_dot_com">Instagram</a>
+
+            <div is="e-stack" data-gap="2xs" data-font-size="sm" data-align-items="center" data-text-align="center">
+              <div is="e-row" data-gap="md" data-flex-wrap="wrap" data-justify-content="center" data-keep-flex-direction-row-in-mobile>
+                <span><a is="e-link" data-underlined href="mailto:guseyn@guseyn.com">guseyn@guseyn.com</a></span>
+                <span><a is="e-link" data-underlined href="tel:+995511458167">+995 511 458 167</a></span>
+                <span><a is="e-link" data-underlined href="https://t.me/guseyn">Telegram @guseyn</a></span>
+                <span><a is="e-link" data-underlined href="https://guseyn.com">guseyn.com</a></span>
+              </div>
+              <div is="e-row" data-gap="xs" data-flex-wrap="wrap" data-justify-content="center" data-keep-flex-direction-row-in-mobile>
+                <a is="e-link" data-underlined href="https://github.com/Guseyn">GitHub</a>
+                <span data-color="muted">·</span>
+                <a is="e-link" data-underlined href="https://stackoverflow.com/users/8568641/guseyn-ismayylov">StackOverflow</a>
+                <span data-color="muted">·</span>
+                <a is="e-link" data-underlined href="https://linkedin.com/in/gusein-ismaiylov-111bb1179">LinkedIn</a>
+                <span data-color="muted">·</span>
+                <a is="e-link" data-underlined href="https://instagram.com/guseyn_dot_com">Instagram</a>
+              </div>
             </div>
           </div>
         </div>
 
-        <hr is="e-divider">
-
-        <section is="e-stack" data-gap="xs" data-width="full">
+        <div is="e-info" data-padding="md" data-width="full">
           <p data-font-size="md">
             <strong>Applied Research Engineer</strong> with <strong>10 years</strong> in production software and deep <strong>fintech / payments</strong> domain experience — now focused on foundational deep learning for risk. Strong theoretical base in <strong>Applied Mathematics</strong>; hands-on training and evaluating models with <strong>Python, PyTorch, MLFlow, AWS, and Snowflake</strong>. End-to-end owner: dataset design → experiments → training runs → inference optimization → rigorous offline/online evaluation and business impact. Experienced with multimodal financial data — tabular, behavioral, transactional, time series, and text. Author of <a is="e-link" data-underlined href="https://guseyn.github.io/nn-math-web/">Mathematics of Neural Networks</a>; ships research code with <strong>Claude Code, OpenAI Codex, and Cursor</strong> daily.
-            </p>
-          </section>
+          </p>
+        </div>
 
-        <hr is="e-divider">
+        <div
+          is="e-row"
+          data-cv-body
+          data-gap="md"
+          data-align-items="start"
+          data-keep-flex-direction-row-in-mobile
+          data-width="full"
+        >
 
-        <section is="e-stack" data-gap="xs" data-width="full">
-          <h2 is="e-h" data-color="primary" data-font-size="lg">Skills</h2>
-          <p data-font-size="sm">
-            <strong>&#x2022; Deep Learning &amp; ML Research (Primary):</strong> PyTorch, self-supervised learning on discrete event sequences, transformer architectures (BERT4Rec, SASRec, CoLES-style sequence encoders), embedding &amp; ranking models, credit risk / fraud / LTV downstream tasks, rigorous offline evaluation (AUC, PR-AUC, calibration, uplift), NLP &amp; representation learning for fintech, hyperparameter search, mixed-precision training.
-            <br>
-            <strong>&#x2022; MLOps &amp; Experimentation:</strong> MLFlow (tracking, registry, reproducible runs), dataset versioning &amp; data mixing strategies, feature stores on Snowflake, AWS (S3, EC2/GPU, Lambda, SageMaker-compatible workflows), Docker, GitLab CI/CD, parallel experiment sweeps, inference latency &amp; cost optimization.
-            <br>
-            <strong>&#x2022; Python &amp; Data:</strong> Python (FastAPI, pandas, NumPy, scikit-learn), multimodal datasets — tabular, behavioral, transactional, device/network signals, text, time series, graph-like entity relationships; ClickHouse, Snowflake, PostgreSQL, DynamoDB, S3, Kafka, AWS SQS.
-            <br>
-            <strong>&#x2022; System Architecture:</strong> Distributed Systems, Microservices, Event-Driven Architecture (EDA), Multi-tenant SaaS, High-Load MVPs, System Design, Scalability, High Availability &amp; Reliability Engineering.
-            <br>
-            <strong>&#x2022; Backend Ecosystem:</strong> Node.js (Express, Fastify, NestJS), JavaScript/TypeScript, Java (Spring Boot), PHP, Python (FastAPI), NX Monorepos, RESTful APIs, GraphQL, Serverless Architecture.
-            <br>
-            <strong>&#x2022; High-Performance UI/UX:</strong> Web Components, EHTML (Founder), React, Next.js, React Server Components (RSC), React Context, React Query, Tailwind CSS, Material UI, Zustand, Angular, Real-time SVG/Canvas Rendering, Shadow DOM, Micro-frontends, HTML5/CSS3, Vite, Esbuild.
-            <br>
-            <strong>&#x2022; Data Engineering &amp; Storage:</strong> PostgreSQL, MySQL, MariaDB, Redis (Caching, Pub/Sub), ClickHouse (OLAP), Snowflake, Supabase, Drizzle ORM, DynamoDB, Prisma, Apache Kafka, RabbitMQ, MongoDB, ElasticSearch, Database Optimization.
-            <br>
-            <strong>&#x2022; Cloud Platforms &amp; DevOps (IaC):</strong> AWS (EC2, ECS, S3, RDS, Lambda, DynamoDB, CloudWatch), GCP (Cloud Run, App Engine, BigQuery, VPC), Azure, DigitalOcean, Docker, Kubernetes (K8s), Terraform, GitHub Actions, GitLab CI/CD, Infrastructure as Code (IaC).
-            <br>
-            <strong>&#x2022; Observability &amp; Telemetry:</strong> OpenTelemetry, Prometheus, Grafana, New Relic, Graylog, Datadog, Distributed Tracing, Log Aggregation, Full-Stack Monitoring.
-            <br>
-            <strong>&#x2022; Protocols &amp; Integrations:</strong> WebRTC (Xirsys), WebSockets, Stripe API (Payment Infrastructure), Postmark (Email Delivery), Azure AD (OAuth2/OIDC), Secure Identity Management.
-            <br>
-            <strong>&#x2022; Testing &amp; Quality Assurance:</strong> Rigorous model &amp; system evaluation, pytest, Testcontainers, A/B and shadow-mode validation, Jest/Vitest, Playwright, CI test gates, Allure reporting, load/performance testing.
-            <br>
-            <strong>&#x2022; AI Integration &amp; Tools:</strong> Claude Code, OpenAI Codex, Cursor IDE, GitHub Copilot, Gemini, LLM-assisted research prototyping, n8n.
-            </p>
-          </section>
+          <div is="e-panel" data-cv-sidebar data-background="primary-transparent" data-padding="md" data-border-radius="md" data-width="full">
+            <div is="e-stack" data-gap="md" data-width="full">
+              <section is="e-stack" data-gap="xs" data-width="full">
+                <h2 is="e-h" data-color="primary" data-font-size="lg">Skills</h2>
+                <p data-font-size="sm">
+                  <strong>Deep Learning &amp; ML Research (Primary):</strong> PyTorch, self-supervised learning on discrete event sequences, transformer architectures (BERT4Rec, SASRec, CoLES-style sequence encoders), embedding &amp; ranking models, credit risk / fraud / LTV downstream tasks, rigorous offline evaluation (AUC, PR-AUC, calibration, uplift), NLP &amp; representation learning for fintech, hyperparameter search, mixed-precision training.
+            <br><br><strong>MLOps &amp; Experimentation:</strong> MLFlow (tracking, registry, reproducible runs), dataset versioning &amp; data mixing strategies, feature stores on Snowflake, AWS (S3, EC2/GPU, Lambda, SageMaker-compatible workflows), Docker, GitLab CI/CD, parallel experiment sweeps, inference latency &amp; cost optimization.
+            <br><br><strong>Python &amp; Data:</strong> Python (FastAPI, pandas, NumPy, scikit-learn), multimodal datasets — tabular, behavioral, transactional, device/network signals, text, time series, graph-like entity relationships; ClickHouse, Snowflake, PostgreSQL, DynamoDB, S3, Kafka, AWS SQS.
+            <br><br><strong>System Architecture:</strong> Distributed Systems, Microservices, Event-Driven Architecture (EDA), Multi-tenant SaaS, High-Load MVPs, System Design, Scalability, High Availability &amp; Reliability Engineering.
+            <br><br><strong>Backend Ecosystem:</strong> Node.js (Express, Fastify, NestJS), JavaScript/TypeScript, Java (Spring Boot), PHP, Python (FastAPI), NX Monorepos, RESTful APIs, GraphQL, Serverless Architecture.
+            <br><br><strong>High-Performance UI/UX:</strong> Web Components, EHTML (Founder), React, Next.js, React Server Components (RSC), React Context, React Query, Tailwind CSS, Material UI, Zustand, Angular, Real-time SVG/Canvas Rendering, Shadow DOM, Micro-frontends, HTML5/CSS3, Vite, Esbuild.
+            <br><br><strong>Data Engineering &amp; Storage:</strong> PostgreSQL, MySQL, MariaDB, Redis (Caching, Pub/Sub), ClickHouse (OLAP), Snowflake, Supabase, Drizzle ORM, DynamoDB, Prisma, Apache Kafka, RabbitMQ, MongoDB, ElasticSearch, Database Optimization.
+            <br><br><strong>Cloud Platforms &amp; DevOps (IaC):</strong> AWS (EC2, ECS, S3, RDS, Lambda, DynamoDB, CloudWatch), GCP (Cloud Run, App Engine, BigQuery, VPC), Azure, DigitalOcean, Docker, Kubernetes (K8s), Terraform, GitHub Actions, GitLab CI/CD, Infrastructure as Code (IaC).
+            <br><br><strong>Observability &amp; Telemetry:</strong> OpenTelemetry, Prometheus, Grafana, New Relic, Graylog, Datadog, Distributed Tracing, Log Aggregation, Full-Stack Monitoring.
+            <br><br><strong>Protocols &amp; Integrations:</strong> WebRTC (Xirsys), WebSockets, Stripe API (Payment Infrastructure), Postmark (Email Delivery), Azure AD (OAuth2/OIDC), Secure Identity Management.
+            <br><br><strong>Testing &amp; Quality Assurance:</strong> Rigorous model &amp; system evaluation, pytest, Testcontainers, A/B and shadow-mode validation, Jest/Vitest, Playwright, CI test gates, Allure reporting, load/performance testing.
+            <br><br><strong>AI &amp; Developer Tools:</strong> Cursor (Composer — Claude, GPT, Gemini, Grok models), Google Gemini, Claude Code, GitHub Copilot, Codex, n8n; LLM-assisted research prototyping, code exploration, and experiment scripting.
+                </p>
+              </section>
 
-        <hr is="e-divider">
-
-        <section is="e-stack" data-gap="md" data-width="full">
-          <h2 is="e-h" data-color="primary" data-font-size="lg">Work Experience</h2>
-          <div is="e-stack" data-gap="xs" data-width="full">
-            <div is="e-row" data-gap="sm" data-flex-wrap="wrap" data-justify-content="space-between" data-keep-flex-direction-row-in-mobile data-width="full">
-              <span is="e-bold">InstruxMusic — Senior Full-Stack Developer, Tech Lead</span>
-              <span is="e-caption" data-color="muted">Nov 2024 – Present · Remote · USA</span>
-              </div>
-            <em>Stack: Python · FastAPI · PostgreSQL · Stripe · Docker</em>
-            <ul data-font-size="sm">
-              <li>• Built behavioral feature pipelines from scheduling, billing, and engagement events — foundation for downstream <strong>LTV and churn</strong> experiments on ed-tech user sequences.</li>
-              <li>• Designed dataset schemas and idempotent Stripe webhook ingestion for clean, label-ready transactional timelines.</li>
-              <li>• Shipped production MVP in under 3 months while maintaining reproducible data exports for offline model prototyping.</li>
-              </ul>
-            <a is="e-link" data-underlined data-font-size="sm" href="https://guseyn.com/image/rev3.png">View Recommendations</a>
-            </div>
-          <div is="e-stack" data-gap="xs" data-width="full">
-            <div is="e-row" data-gap="sm" data-flex-wrap="wrap" data-justify-content="space-between" data-keep-flex-direction-row-in-mobile data-width="full">
-              <span is="e-bold">Congrify — Applied ML Engineer / Tech Lead</span>
-              <span is="e-caption" data-color="muted">Oct 2023 – Oct 2024 · Remote · Germany/Italy</span>
-              </div>
-            <em>Stack: Python · PyTorch · MLFlow · AWS · Snowflake · ClickHouse</em>
-            <ul data-font-size="sm">
-              <li>• Led applied research on a <strong>payment-intelligence platform</strong> — self-supervised sequence encoders on discrete transaction events for <strong>anti-fraud anomaly detection</strong> and merchant risk scoring; tracked experiments in <strong>MLFlow</strong>, deployed winning checkpoints to AWS inference paths.</li>
-              <li>• Worked with multimodal fintech data — tabular merchant profiles, behavioral clickstreams, transactional timelines, device/network metadata — unified in Snowflake and ClickHouse for training and offline evaluation.</li>
-              <li>• Prototyped transformer-style sequence models (SASRec/BERT4Rec-inspired) on high-cardinality event vocabularies; iterated on data mixing ratios and negative sampling to improve downstream PR-AUC on held-out fraud labels.</li>
-              <li>• Optimized GPU/CPU utilization for training and batch inference on AWS — mixed precision, dataloader tuning, and Lambda cost reduction (20% overall cloud savings on ML-adjacent runtimes).</li>
-              <li>• Owned end-to-end delivery: hypothesis → dataset curation → training runs → shadow-mode evaluation → Grafana/CloudWatch monitoring of model drift in production.</li>
-              <li>• Partnered with product and analysts on rigorous evaluation frameworks — baseline comparisons, segment-level metrics, and business-readable impact summaries for credit-risk-adjacent merchant analytics.</li>
-              </ul>
-            </div>
-          <div is="e-stack" data-gap="xs" data-width="full">
-            <div is="e-row" data-gap="sm" data-flex-wrap="wrap" data-justify-content="space-between" data-keep-flex-direction-row-in-mobile data-width="full">
-              <span is="e-bold">FxPro — Senior Software Engineer (Fintech Platform)</span>
-              <span is="e-caption" data-color="muted">Nov 2022 – Oct 2023 · Limassol, Cyprus</span>
-              </div>
-            <em>Stack: Python · Java · Node.js · PostgreSQL · Redis · AWS</em>
-            <ul data-font-size="sm">
-              <li>• Operated inside <strong>60+ microservices</strong> across global trading and payments — deep exposure to transactional, behavioral, and cross-border financial data used for auth, limits, and payment routing.</li>
-              <li>• Built data extraction and feature-prep pipelines for internal analytics on payment configurations across <strong>50+ countries</strong> — clean entity graphs linking users, accounts, and provider rules.</li>
-              <li>• Supported offline evaluation of rules-based and early ML risk heuristics on staging replicas; documented label definitions with compliance-aware stakeholders.</li>
-              <li>• Improved observability (New Relic, Graylog, Grafana) on high-throughput payment paths — same telemetry used to validate model-serving latency budgets.</li>
-              </ul>
-            <a is="e-link" data-underlined data-font-size="sm" href="https://guseyn.com/image/rev1.png">View Recommendations</a>
-            </div>
-          <div is="e-stack" data-gap="xs" data-width="full">
-            <div is="e-row" data-gap="sm" data-flex-wrap="wrap" data-justify-content="space-between" data-keep-flex-direction-row-in-mobile data-width="full">
-              <span is="e-bold">Cognitran — Senior Software Engineer</span>
-              <span is="e-caption" data-color="muted">Mar 2021 – Oct 2022 · Krakow, Poland</span>
-              </div>
-            <p data-font-size="sm">• Developed high-throughput data translation and ETL pipelines for automotive enterprise clients — experience directly applicable to large-scale tabular + time-series dataset design for DL training.</p>
-            </div>
-          <div is="e-stack" data-gap="xs" data-width="full">
-            <div is="e-row" data-gap="sm" data-flex-wrap="wrap" data-justify-content="space-between" data-keep-flex-direction-row-in-mobile data-width="full">
-              <span is="e-bold">Huawei — Senior Software Engineer</span>
-              <span is="e-caption" data-color="muted">Jan 2020 – Mar 2021 · Moscow, Russia</span>
-              </div>
-            <p data-font-size="sm">• Built high-throughput custom data parsers and automation tooling across 50+ codebases — early work on structured dataset extraction and reproducible batch processing at scale.</p>
-            </div>
-          <div is="e-stack" data-gap="xs" data-width="full">
-            <div is="e-row" data-gap="sm" data-flex-wrap="wrap" data-justify-content="space-between" data-keep-flex-direction-row-in-mobile data-width="full">
-              <span is="e-bold">US Mobile — Senior Software Engineer</span>
-              <span is="e-caption" data-color="muted">Feb 2019 – Jan 2020 · Remote · USA</span>
-              </div>
-            <em>Stack: Python · GCP · BigQuery</em>
-            <ul data-font-size="sm">
-              <li>• Designed GCP migration roadmap and automated third-party report ingestion — large batch datasets into BigQuery for downstream analytics and modeling-ready tables.</li>
-              <li>• Oversaw replatforming cutover with validation checkpoints on data completeness and schema consistency.</li>
-              </ul>
-            </div>
-          <div is="e-stack" data-gap="xs" data-width="full">
-            <div is="e-row" data-gap="sm" data-flex-wrap="wrap" data-justify-content="space-between" data-keep-flex-direction-row-in-mobile data-width="full">
-              <span is="e-bold">Grid Dynamics — Intern to Senior Software Engineer</span>
-              <span is="e-caption" data-color="muted">Dec 2015 – Jan 2019</span>
-              </div>
-            <p data-font-size="sm">• Delivered microservices and data pipelines for <strong>Raymond James</strong> (financial advisor systems) and Google — first exposure to regulated financial data, entity relationships, and enterprise-scale ETL.</p>
-            </div>
-          </section>
-
-        <hr is="e-divider">
-
-        <section is="e-stack" data-gap="xs" data-width="full">
-          <h2 is="e-h" data-color="primary" data-font-size="lg">Research & Open Source</h2>
-          <p data-font-size="sm">
+              <section is="e-stack" data-gap="xs" data-width="full">
+                <h2 is="e-h" data-color="primary" data-font-size="lg">Research & Open Source</h2>
+                <p data-font-size="sm">
             <a is="e-link" data-underlined href="https://guseyn.github.io/nn-math-web/">Mathematics of Neural Networks</a> — interactive research notes on backprop, architectures, and optimization (Applied Math background),
             <a is="e-link" data-underlined href="https://e-html.org">EHTML</a>,
             <a is="e-link" data-underlined href="https://github.com/Guseyn/nodes.js">Nodes.js</a>,
@@ -197,22 +135,11 @@
           <p data-font-size="sm">
             Writing on ML and systems at <a is="e-link" data-underlined href="https://guseyn.com">guseyn.com</a> — technical articles on neural networks, backend architecture, and applied engineering.
             </p>
-          </section>
+              </section>
 
-        <hr is="e-divider">
-
-        <section is="e-stack" data-gap="xs" data-width="full">
-          <h2 is="e-h" data-color="primary" data-font-size="lg">Certifications</h2>
-          <p data-font-size="sm">
-            <a is="e-link" data-underlined href="https://youracclaim.com/badges/402c6cb4-d066-4f85-95b6-cd955d4a446f/public_url">Oracle Certified Associate Java SE 8 Programmer</a>
-            </p>
-          </section>
-
-        <hr is="e-divider">
-
-        <section is="e-stack" data-gap="xs" data-width="full">
-          <h2 is="e-h" data-color="primary" data-font-size="lg">Education &amp; Languages</h2>
-          <p data-font-size="sm">Applied Mathematics and Computer Science — <i>Saratov State University, 2012 - 2016</i>
+              <section is="e-stack" data-gap="xs" data-width="full">
+                <h2 is="e-h" data-color="primary" data-font-size="lg">Education &amp; Languages</h2>
+                <p data-font-size="sm">Applied Mathematics and Computer Science — <i>Saratov State University, 2012 - 2016</i>
           </p>
         <p data-font-size="sm">
           <a is="e-link" data-underlined href="https://guseyn.com/pdf/diploma.pdf">Bachelor's Thesis: Cost Minimization of Energy on the Control of Satellite's Angular Motion (in Russian)</a> — optimization &amp; control theory; strong mathematical foundation for ML research.
@@ -220,6 +147,100 @@
         <p data-font-size="sm">
           <strong>Languages:</strong> English — C1 (10+ years in international remote teams). Russian — native.
           </p>
+              </section>
+
+              <section is="e-stack" data-gap="xs" data-width="full">
+                <h2 is="e-h" data-color="primary" data-font-size="lg">Certifications</h2>
+                <p data-font-size="sm">
+            <a is="e-link" data-underlined href="https://youracclaim.com/badges/402c6cb4-d066-4f85-95b6-cd955d4a446f/public_url">Oracle Certified Associate Java SE 8 Programmer</a>
+            </p>
+              </section>
+            </div>
+          </div>
+
+          <div is="e-panel" data-cv-main data-background="muted" data-padding="md" data-border-radius="md" data-width="full">
+            <div is="e-stack" data-gap="md" data-width="full">
+              <h2 is="e-h" data-color="primary" data-font-size="lg">Work Experience</h2>
+
+              <div is="e-stack" data-gap="xs" data-width="full">
+              <div is="e-row" data-gap="sm" data-flex-wrap="wrap" data-justify-content="space-between" data-keep-flex-direction-row-in-mobile data-width="full">
+              <span is="e-bold">InstruxMusic — Senior Full-Stack Developer, Tech Lead</span>
+              <span is="e-caption" data-color="muted">Nov 2024 – Present · Remote · USA</span>
+              </div>
+              <em>Stack: Python · FastAPI · PostgreSQL · Stripe · Docker</em>
+              <ul data-font-size="sm">
+              <li>• Built behavioral feature pipelines from scheduling, billing, and engagement events — foundation for downstream <strong>LTV and churn</strong> experiments on ed-tech user sequences.</li>
+              <li>• Designed dataset schemas and idempotent Stripe webhook ingestion for clean, label-ready transactional timelines.</li>
+              <li>• Shipped production MVP in under 3 months while maintaining reproducible data exports for offline model prototyping.</li>
+              </ul>
+              <a is="e-link" data-underlined data-font-size="sm" href="https://guseyn.com/image/rev3.png">View Recommendations</a>
+              </div>
+              <div is="e-stack" data-gap="xs" data-width="full">
+              <div is="e-row" data-gap="sm" data-flex-wrap="wrap" data-justify-content="space-between" data-keep-flex-direction-row-in-mobile data-width="full">
+              <span is="e-bold">Congrify — Applied ML Engineer / Tech Lead</span>
+              <span is="e-caption" data-color="muted">Oct 2023 – Oct 2024 · Remote · Germany/Italy</span>
+              </div>
+              <em>Stack: Python · PyTorch · MLFlow · AWS · Snowflake · ClickHouse</em>
+              <ul data-font-size="sm">
+              <li>• Led applied research on a <strong>payment-intelligence platform</strong> — self-supervised sequence encoders on discrete transaction events for <strong>anti-fraud anomaly detection</strong> and merchant risk scoring; tracked experiments in <strong>MLFlow</strong>, deployed winning checkpoints to AWS inference paths.</li>
+              <li>• Worked with multimodal fintech data — tabular merchant profiles, behavioral clickstreams, transactional timelines, device/network metadata — unified in Snowflake and ClickHouse for training and offline evaluation.</li>
+              <li>• Prototyped transformer-style sequence models (SASRec/BERT4Rec-inspired) on high-cardinality event vocabularies; iterated on data mixing ratios and negative sampling to improve downstream PR-AUC on held-out fraud labels.</li>
+              <li>• Optimized GPU/CPU utilization for training and batch inference on AWS — mixed precision, dataloader tuning, and Lambda cost reduction (20% overall cloud savings on ML-adjacent runtimes).</li>
+              <li>• Owned end-to-end delivery: hypothesis → dataset curation → training runs → shadow-mode evaluation → Grafana/CloudWatch monitoring of model drift in production.</li>
+              <li>• Partnered with product and analysts on rigorous evaluation frameworks — baseline comparisons, segment-level metrics, and business-readable impact summaries for credit-risk-adjacent merchant analytics.</li>
+              </ul>
+              </div>
+              <div is="e-stack" data-gap="xs" data-width="full">
+              <div is="e-row" data-gap="sm" data-flex-wrap="wrap" data-justify-content="space-between" data-keep-flex-direction-row-in-mobile data-width="full">
+              <span is="e-bold">FxPro — Senior Software Engineer (Fintech Platform)</span>
+              <span is="e-caption" data-color="muted">Nov 2022 – Oct 2023 · Limassol, Cyprus</span>
+              </div>
+              <em>Stack: Python · Java · Node.js · PostgreSQL · Redis · AWS</em>
+              <ul data-font-size="sm">
+              <li>• Operated inside <strong>60+ microservices</strong> across global trading and payments — deep exposure to transactional, behavioral, and cross-border financial data used for auth, limits, and payment routing.</li>
+              <li>• Built data extraction and feature-prep pipelines for internal analytics on payment configurations across <strong>50+ countries</strong> — clean entity graphs linking users, accounts, and provider rules.</li>
+              <li>• Supported offline evaluation of rules-based and early ML risk heuristics on staging replicas; documented label definitions with compliance-aware stakeholders.</li>
+              <li>• Improved observability (New Relic, Graylog, Grafana) on high-throughput payment paths — same telemetry used to validate model-serving latency budgets.</li>
+              </ul>
+              <a is="e-link" data-underlined data-font-size="sm" href="https://guseyn.com/image/rev1.png">View Recommendations</a>
+              </div>
+              <div is="e-stack" data-gap="xs" data-width="full">
+              <div is="e-row" data-gap="sm" data-flex-wrap="wrap" data-justify-content="space-between" data-keep-flex-direction-row-in-mobile data-width="full">
+              <span is="e-bold">Cognitran — Senior Software Engineer</span>
+              <span is="e-caption" data-color="muted">Mar 2021 – Oct 2022 · Krakow, Poland</span>
+              </div>
+              <p data-font-size="sm">• Developed high-throughput data translation and ETL pipelines for automotive enterprise clients — experience directly applicable to large-scale tabular + time-series dataset design for DL training.</p>
+              </div>
+              <div is="e-stack" data-gap="xs" data-width="full">
+              <div is="e-row" data-gap="sm" data-flex-wrap="wrap" data-justify-content="space-between" data-keep-flex-direction-row-in-mobile data-width="full">
+              <span is="e-bold">Huawei — Senior Software Engineer</span>
+              <span is="e-caption" data-color="muted">Jan 2020 – Mar 2021 · Moscow, Russia</span>
+              </div>
+              <p data-font-size="sm">• Built high-throughput custom data parsers and automation tooling across 50+ codebases — early work on structured dataset extraction and reproducible batch processing at scale.</p>
+              </div>
+              <div is="e-stack" data-gap="xs" data-width="full">
+              <div is="e-row" data-gap="sm" data-flex-wrap="wrap" data-justify-content="space-between" data-keep-flex-direction-row-in-mobile data-width="full">
+              <span is="e-bold">US Mobile — Senior Software Engineer</span>
+              <span is="e-caption" data-color="muted">Feb 2019 – Jan 2020 · Remote · USA</span>
+              </div>
+              <em>Stack: Python · GCP · BigQuery</em>
+              <ul data-font-size="sm">
+              <li>• Designed GCP migration roadmap and automated third-party report ingestion — large batch datasets into BigQuery for downstream analytics and modeling-ready tables.</li>
+              <li>• Oversaw replatforming cutover with validation checkpoints on data completeness and schema consistency.</li>
+              </ul>
+              </div>
+              <div is="e-stack" data-gap="xs" data-width="full">
+              <div is="e-row" data-gap="sm" data-flex-wrap="wrap" data-justify-content="space-between" data-keep-flex-direction-row-in-mobile data-width="full">
+              <span is="e-bold">Grid Dynamics — Intern to Senior Software Engineer</span>
+              <span is="e-caption" data-color="muted">Dec 2015 – Jan 2019</span>
+              </div>
+              <p data-font-size="sm">• Delivered microservices and data pipelines for <strong>Raymond James</strong> (financial advisor systems) and Google — first exposure to regulated financial data, entity relationships, and enterprise-scale ETL.</p>
+              </div>
+              </div>
+              </div>
+            </div>
+          </div>
+
         </div>
 
       </div>

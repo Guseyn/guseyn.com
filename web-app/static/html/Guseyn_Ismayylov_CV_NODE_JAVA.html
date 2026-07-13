@@ -14,116 +14,165 @@
       :root {
         --e-primary: #b33939;
         --e-primary-fg: #ffffff;
+        --e-border: #555555;
+        --e-divider: #666666;
+      }
+      main[data-cv-page] div[is="e-panel"],
+      main[data-cv-page] div[is="e-info"] {
+        border: 1px solid var(--e-border);
+        box-shadow: none;
+      }
+      main[data-cv-page] hr[is="e-divider"] {
+        border-top-color: var(--e-divider);
+      }
+      main[data-cv-page] img[data-border-radius] {
+        border: 1px solid var(--e-border);
+      }
+      [data-cv-sidebar] {
+        flex: 0 0 14rem;
+        max-width: 14rem;
+      }
+      [data-cv-main] {
+        flex: 1;
+        min-width: 0;
       }
       @media print {
         main[is="e-main"] {
           max-width: none;
           padding: 0;
         }
-      }
-      hr[is="e-divider"] {
-        margin: var(--e-spacing-xs) 0;
+        * {
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
       }
     </style>
   </head>
   <body data-background="surface">
-    <main is="e-main" data-centralized data-padding-top="md" data-padding-bottom="lg">
+    <main is="e-main" data-cv-page data-centralized data-padding-top="md" data-padding-bottom="lg">
       <div is="e-stack" data-gap="md" data-width="full">
 
-        <div is="e-stack" data-gap="md" data-align-items="center" data-text-align="center" data-width="full">
-          <img
-            src="/image/4T7A8796-2-compressed.jpg?v=46765fb5"
-            data-height="xl"
-            data-border-radius="md"
-            data-block-center
-            data-shrink="0"
-            alt="Guseyn Ismayylov"
-          >
+        <div is="e-panel" data-background="primary-transparent" data-padding="lg" data-border-radius="md" data-width="full">
+          <div is="e-stack" data-gap="md" data-align-items="center" data-text-align="center" data-width="full">
+            <img
+              src="/image/4T7A8796-2-compressed.jpg?v=46765fb5"
+              data-height="xl"
+              data-border-radius="md"
+              data-block-center
+              data-shrink="0"
+              alt="Guseyn Ismayylov"
+            >
 
-          <div is="e-stack" data-gap="2xs" data-align-items="center" data-text-align="center">
-            <h2 is="e-h" data-color="primary">Guseyn Ismayylov</h2>
-            <span is="e-caption" data-color="muted">Senior Full-Stack Software Engineer · Technical Leader</span>
-            <span is="e-caption" data-color="muted">Legal name: Gusein Ismaiylov · Remote · Georgia 🇬🇪</span>
-          </div>
-
-          <div is="e-stack" data-gap="2xs" data-font-size="sm" data-align-items="center" data-text-align="center">
-            <div is="e-row" data-gap="md" data-flex-wrap="wrap" data-justify-content="center" data-keep-flex-direction-row-in-mobile>
-              <span><a is="e-link" data-underlined href="mailto:guseyn@guseyn.com">guseyn@guseyn.com</a></span>
-              <span><a is="e-link" data-underlined href="tel:+995511458167">+995 511 458 167</a></span>
-              <span><a is="e-link" data-underlined href="https://t.me/guseyn">Telegram @guseyn</a></span>
-              <span><a is="e-link" data-underlined href="https://guseyn.com">guseyn.com</a></span>
+            <div is="e-stack" data-gap="2xs" data-align-items="center" data-text-align="center">
+              <h2 is="e-h" data-color="primary">Guseyn Ismayylov</h2>
+              <span is="e-caption" data-color="muted">Senior Full-Stack Software Engineer · Technical Leader</span>
+              <span is="e-caption" data-color="muted">Legal name: Gusein Ismaiylov · Remote · Georgia 🇬🇪</span>
             </div>
-            <div is="e-row" data-gap="xs" data-flex-wrap="wrap" data-justify-content="center" data-keep-flex-direction-row-in-mobile>
-              <a is="e-link" data-underlined href="https://github.com/Guseyn">GitHub</a>
-              <span data-color="muted">·</span>
-              <a is="e-link" data-underlined href="https://stackoverflow.com/users/8568641/guseyn-ismayylov">StackOverflow</a>
-              <span data-color="muted">·</span>
-              <a is="e-link" data-underlined href="https://linkedin.com/in/gusein-ismaiylov-111bb1179">LinkedIn</a>
-              <span data-color="muted">·</span>
-              <a is="e-link" data-underlined href="https://instagram.com/guseyn_dot_com">Instagram</a>
+
+            <div is="e-stack" data-gap="2xs" data-font-size="sm" data-align-items="center" data-text-align="center">
+              <div is="e-row" data-gap="md" data-flex-wrap="wrap" data-justify-content="center" data-keep-flex-direction-row-in-mobile>
+                <span><a is="e-link" data-underlined href="mailto:guseyn@guseyn.com">guseyn@guseyn.com</a></span>
+                <span><a is="e-link" data-underlined href="tel:+995511458167">+995 511 458 167</a></span>
+                <span><a is="e-link" data-underlined href="https://t.me/guseyn">Telegram @guseyn</a></span>
+                <span><a is="e-link" data-underlined href="https://guseyn.com">guseyn.com</a></span>
+              </div>
+              <div is="e-row" data-gap="xs" data-flex-wrap="wrap" data-justify-content="center" data-keep-flex-direction-row-in-mobile>
+                <a is="e-link" data-underlined href="https://github.com/Guseyn">GitHub</a>
+                <span data-color="muted">·</span>
+                <a is="e-link" data-underlined href="https://stackoverflow.com/users/8568641/guseyn-ismayylov">StackOverflow</a>
+                <span data-color="muted">·</span>
+                <a is="e-link" data-underlined href="https://linkedin.com/in/gusein-ismaiylov-111bb1179">LinkedIn</a>
+                <span data-color="muted">·</span>
+                <a is="e-link" data-underlined href="https://instagram.com/guseyn_dot_com">Instagram</a>
+              </div>
             </div>
           </div>
         </div>
 
-        <hr is="e-divider">
-
-        <section is="e-stack" data-gap="xs" data-width="full">
+        <div is="e-info" data-padding="md" data-width="full">
           <p data-font-size="md">
             <strong>Senior Full-Stack Engineer</strong> and <strong>Technical Lead</strong> with <strong>10 years</strong> shipping production systems in <strong>Node.js and Java</strong> at equal depth — microservices, event-driven pipelines, and cloud-native platforms in fintech, ed-tech, and enterprise SaaS. Comfortable owning features end to end in either stack and integrating both in the same estate. <strong>Oracle Certified Java SE 8 Programmer.</strong> Tech lead at <a is="e-link" data-underlined href="https://instruxmusic.com">InstruxMusic</a>. Author of <a is="e-link" data-underlined href="https://github.com/Guseyn/nodes.js">nodes.js</a> and <a is="e-link" data-underlined href="https://e-html.org/">EHTML</a>.
+          </p>
+        </div>
+
+        <div
+          is="e-row"
+          data-cv-body
+          data-gap="md"
+          data-align-items="start"
+          data-keep-flex-direction-row-in-mobile
+          data-width="full"
+        >
+
+          <div is="e-panel" data-cv-sidebar data-background="primary-transparent" data-padding="md" data-border-radius="md" data-width="full">
+            <div is="e-stack" data-gap="md" data-width="full">
+              <section is="e-stack" data-gap="xs" data-width="full">
+                <h2 is="e-h" data-color="primary" data-font-size="lg">Skills</h2>
+                <p data-font-size="sm">
+                  <strong>Node.js:</strong> Express, Fastify, NestJS, TypeScript/JavaScript, async/event-loop, streams, worker threads &amp; cluster, HTTP/2, REST/GraphQL APIs, microservices, BFF patterns, idempotent webhooks, custom framework design (<a is="e-link" data-underlined href="https://github.com/Guseyn/nodes.js">nodes.js</a>).
+            <br><br><strong>Java:</strong> Java 8–21, Spring Boot, Vert.x, Spring Cloud, Spring Security, Hibernate/JPA, multithreading &amp; concurrency, gRPC, JUnit 5, Testcontainers, Maven/Gradle, REST/OpenAPI.
+            <br><br><strong>System Architecture:</strong> Distributed Systems, Microservices, Event-Driven Architecture (EDA), Multi-tenant SaaS, High-Load MVPs, System Design, Scalability, High Availability &amp; Reliability Engineering.
+            <br><br><strong>High-Performance UI/UX:</strong> Web Components, EHTML (Founder), React, Next.js, React Server Components (RSC), React Context, React Query, Tailwind CSS, Material UI, Zustand, Angular, Real-time SVG/Canvas Rendering, Shadow DOM, Micro-frontends, HTML5/CSS3, Vite, Esbuild.
+            <br><br><strong>Data Engineering &amp; Storage:</strong> PostgreSQL, MySQL, MariaDB, Redis (Caching, Pub/Sub), ClickHouse (OLAP), Snowflake, Supabase, Drizzle ORM, DynamoDB, Prisma, Apache Kafka, RabbitMQ, MongoDB, ElasticSearch, Database Optimization.
+            <br><br><strong>Cloud Platforms &amp; DevOps (IaC):</strong> AWS (EC2, ECS, S3, RDS, Lambda, DynamoDB, CloudWatch), GCP (Cloud Run, App Engine, BigQuery, VPC), Azure, DigitalOcean, Docker, Kubernetes (K8s), Terraform, GitHub Actions, GitLab CI/CD, Infrastructure as Code (IaC).
+            <br><br><strong>Observability &amp; Telemetry:</strong> OpenTelemetry, Prometheus, Grafana, New Relic, Graylog, Datadog, Distributed Tracing, Log Aggregation, Full-Stack Monitoring.
+            <br><br><strong>Protocols &amp; Integrations:</strong> WebRTC (Xirsys), WebSockets, Stripe API (Payment Infrastructure), Postmark (Email Delivery), Azure AD (OAuth2/OIDC), Secure Identity Management.
+            <br><br><strong>Testing &amp; Quality Assurance:</strong> Jest, Vitest, Supertest, JUnit 5, Mockito, Testcontainers, Playwright, Cypress, REST Assured, Postman/Newman, TDD/BDD, coverage &amp; reporting (Allure, Istanbul), CI test gates, parallel test runs, load/performance testing.
+            <br><br><strong>AI &amp; Developer Tools:</strong> Cursor (Composer — Claude, GPT, Gemini, Grok models), Google Gemini, Claude Code, GitHub Copilot, Codex, n8n; LLM-assisted coding, review, and refactoring.
+                </p>
+              </section>
+
+              <section is="e-stack" data-gap="xs" data-width="full">
+                <h2 is="e-h" data-color="primary" data-font-size="lg">Open Source</h2>
+                <p data-font-size="sm">
+            <a is="e-link" data-underlined href="https://e-html.org">EHTML</a>,
+            <a is="e-link" data-underlined href="https://github.com/Guseyn/nodes.js">Nodes.js</a>,
+            <a is="e-link" data-underlined href="https://github.com/Guseyn/e-ui">e-ui</a>,
+            <a is="e-link" data-underlined href="https://guseyn.github.io/nn-math-web/">Mathematics of Neural Networks</a>
             </p>
-          </section>
+              </section>
 
-        <hr is="e-divider">
-
-        <section is="e-stack" data-gap="xs" data-width="full">
-          <h2 is="e-h" data-color="primary" data-font-size="lg">Skills</h2>
+              <section is="e-stack" data-gap="xs" data-width="full">
+                <h2 is="e-h" data-color="primary" data-font-size="lg">Education</h2>
+                <p data-font-size="sm">Applied Mathematics and Computer Science — <i>Saratov State University, 2012 - 2016</i></p>
           <p data-font-size="sm">
-            <strong>&#x2022; Node.js:</strong> Express, Fastify, NestJS, TypeScript/JavaScript, async/event-loop, streams, worker threads &amp; cluster, HTTP/2, REST/GraphQL APIs, microservices, BFF patterns, idempotent webhooks, custom framework design (<a is="e-link" data-underlined href="https://github.com/Guseyn/nodes.js">nodes.js</a>).
-            <br>
-            <strong>&#x2022; Java:</strong> Java 8–21, Spring Boot, Vert.x, Spring Cloud, Spring Security, Hibernate/JPA, multithreading &amp; concurrency, gRPC, JUnit 5, Testcontainers, Maven/Gradle, REST/OpenAPI.
-            <br>
-            <strong>&#x2022; System Architecture:</strong> Distributed Systems, Microservices, Event-Driven Architecture (EDA), Multi-tenant SaaS, High-Load MVPs, System Design, Scalability, High Availability &amp; Reliability Engineering.
-            <br>
-            <strong>&#x2022; High-Performance UI/UX:</strong> Web Components, EHTML (Founder), React, Next.js, React Server Components (RSC), React Context, React Query, Tailwind CSS, Material UI, Zustand, Angular, Real-time SVG/Canvas Rendering, Shadow DOM, Micro-frontends, HTML5/CSS3, Vite, Esbuild.
-            <br>
-            <strong>&#x2022; Data Engineering &amp; Storage:</strong> PostgreSQL, MySQL, MariaDB, Redis (Caching, Pub/Sub), ClickHouse (OLAP), Snowflake, Supabase, Drizzle ORM, DynamoDB, Prisma, Apache Kafka, RabbitMQ, MongoDB, ElasticSearch, Database Optimization.
-            <br>
-            <strong>&#x2022; Cloud Platforms &amp; DevOps (IaC):</strong> AWS (EC2, ECS, S3, RDS, Lambda, DynamoDB, CloudWatch), GCP (Cloud Run, App Engine, BigQuery, VPC), Azure, DigitalOcean, Docker, Kubernetes (K8s), Terraform, GitHub Actions, GitLab CI/CD, Infrastructure as Code (IaC).
-            <br>
-            <strong>&#x2022; Observability &amp; Telemetry:</strong> OpenTelemetry, Prometheus, Grafana, New Relic, Graylog, Datadog, Distributed Tracing, Log Aggregation, Full-Stack Monitoring.
-            <br>
-            <strong>&#x2022; Protocols &amp; Integrations:</strong> WebRTC (Xirsys), WebSockets, Stripe API (Payment Infrastructure), Postmark (Email Delivery), Azure AD (OAuth2/OIDC), Secure Identity Management.
-            <br>
-            <strong>&#x2022; Testing &amp; Quality Assurance:</strong> Jest, Vitest, Supertest, JUnit 5, Mockito, Testcontainers, Playwright, Cypress, REST Assured, Postman/Newman, TDD/BDD, coverage &amp; reporting (Allure, Istanbul), CI test gates, parallel test runs, load/performance testing.
-            <br>
-            <strong>&#x2022; AI Integration &amp; Tools:</strong> LLM Middleware, AI Developer Tools (Claude Code, Codex, Cursor IDE, GitHub Copilot, Gemini), n8n.
+            <a is="e-link" data-underlined href="https://guseyn.com/pdf/diploma.pdf">Bachelor's Thesis: Cost Minimization of Energy on the Control of Satellite's Angular Motion (in Russian)</a>
+          </p>
+              </section>
+
+              <section is="e-stack" data-gap="xs" data-width="full">
+                <h2 is="e-h" data-color="primary" data-font-size="lg">Certifications</h2>
+                <p data-font-size="sm">
+            <a is="e-link" data-underlined href="https://youracclaim.com/badges/402c6cb4-d066-4f85-95b6-cd955d4a446f/public_url">Oracle Certified Associate Java SE 8 Programmer</a>
             </p>
-          </section>
+              </section>
+            </div>
+          </div>
 
-        <hr is="e-divider">
+          <div is="e-panel" data-cv-main data-background="muted" data-padding="md" data-border-radius="md" data-width="full">
+            <div is="e-stack" data-gap="md" data-width="full">
+              <h2 is="e-h" data-color="primary" data-font-size="lg">Work Experience</h2>
 
-        <section is="e-stack" data-gap="md" data-width="full">
-          <h2 is="e-h" data-color="primary" data-font-size="lg">Work Experience</h2>
-          <div is="e-stack" data-gap="xs" data-width="full">
-            <div is="e-row" data-gap="sm" data-flex-wrap="wrap" data-justify-content="space-between" data-keep-flex-direction-row-in-mobile data-width="full">
+              <div is="e-stack" data-gap="xs" data-width="full">
+              <div is="e-row" data-gap="sm" data-flex-wrap="wrap" data-justify-content="space-between" data-keep-flex-direction-row-in-mobile data-width="full">
               <span is="e-bold">InstruxMusic — Senior Full-Stack Developer, Tech Lead</span>
               <span is="e-caption" data-color="muted">Nov 2024 – Present · Remote · USA</span>
               </div>
-            <ul data-font-size="sm">
+              <ul data-font-size="sm">
               <li>• Architected backend for a high-load ed-tech platform — production MVP in under 3 months on <strong>PostgreSQL, Redis, Docker</strong>, and DigitalOcean.</li>
               <li>• Built scalable multi-tenant scheduling engine and automated invoicing with <strong>Stripe webhooks</strong> — idempotent payment flows, retry-safe async processing.</li>
               <li>• Designed REST APIs and notification pipelines (Postmark) for transactional email; event-driven billing and scheduling workflows.</li>
               <li>• Implemented real-time signalling and data channels for video lessons (WebRTC backend integration with Xirsys STUN/TURN).</li>
               <li>• Drive backend architecture and API design aligned with product scaling across a polyglot service estate.</li>
               </ul>
-            <a is="e-link" data-underlined data-font-size="sm" href="https://guseyn.com/image/rev3.png">View Recommendations</a>
-            </div>
-          <div is="e-stack" data-gap="xs" data-width="full">
-            <div is="e-row" data-gap="sm" data-flex-wrap="wrap" data-justify-content="space-between" data-keep-flex-direction-row-in-mobile data-width="full">
+              <a is="e-link" data-underlined data-font-size="sm" href="https://guseyn.com/image/rev3.png">View Recommendations</a>
+              </div>
+              <div is="e-stack" data-gap="xs" data-width="full">
+              <div is="e-row" data-gap="sm" data-flex-wrap="wrap" data-justify-content="space-between" data-keep-flex-direction-row-in-mobile data-width="full">
               <span is="e-bold">Congrify — Senior Backend Engineer, Tech Lead</span>
               <span is="e-caption" data-color="muted">Oct 2023 – Oct 2024 · Remote · Germany/Italy</span>
               </div>
-            <ul data-font-size="sm">
+              <ul data-font-size="sm">
               <li>• Directed backend strategy for a payment-intelligence platform — observability with Grafana and CloudWatch, real-time detection of transaction anomalies.</li>
               <li>• Optimized <strong>AWS Lambda</strong> runtimes across a polyglot microservice estate — 20% cost reduction via memory tuning, concurrency fixes, and improved async data-processing.</li>
               <li>• Modernized legacy microservices: improved concurrency, query execution, and stability; migrated analytical workloads to ClickHouse and Snowflake.</li>
@@ -131,85 +180,61 @@
               <li>• Engineered streaming analytics layer on DynamoDB and S3 for real-time payment data processing and dashboard APIs.</li>
               <li>• Defined REST API contracts and BFF endpoints for frontend redesign; integrated AWS SES for transactional mailings.</li>
               </ul>
-            </div>
-          <div is="e-stack" data-gap="xs" data-width="full">
-            <div is="e-row" data-gap="sm" data-flex-wrap="wrap" data-justify-content="space-between" data-keep-flex-direction-row-in-mobile data-width="full">
+              </div>
+              <div is="e-stack" data-gap="xs" data-width="full">
+              <div is="e-row" data-gap="sm" data-flex-wrap="wrap" data-justify-content="space-between" data-keep-flex-direction-row-in-mobile data-width="full">
               <span is="e-bold">FxPro — Senior Software Engineer</span>
               <span is="e-caption" data-color="muted">Nov 2022 – Oct 2023 · Limassol, Cyprus</span>
               </div>
-            <ul data-font-size="sm">
+              <ul data-font-size="sm">
               <li>• Orchestrated infrastructure for <strong>60+ microservices</strong> in global trading/payments — 20% reliability improvement, 15% downtime reduction.</li>
               <li>• Built centralized Authentication Service (Azure AD, OAuth2/OIDC); migrated payment configurations for 20+ systems across 50+ countries.</li>
               <li>• Optimized PostgreSQL and Redis for high-throughput financial data — caching strategies, connection pooling, query tuning across distributed services.</li>
               <li>• Streamlined GitLab CI/CD and Artifactory pipelines — 25% faster release cycles with blue-green rollouts.</li>
               <li>• Rolled out observability (New Relic, Graylog, Grafana) across 25+ services; authored API docs and runbooks for 40+ backend services.</li>
               </ul>
-            <a is="e-link" data-underlined data-font-size="sm" href="https://guseyn.com/image/rev1.png">View Recommendations</a>
-            </div>
-          <div is="e-stack" data-gap="xs" data-width="full">
-            <div is="e-row" data-gap="sm" data-flex-wrap="wrap" data-justify-content="space-between" data-keep-flex-direction-row-in-mobile data-width="full">
+              <a is="e-link" data-underlined data-font-size="sm" href="https://guseyn.com/image/rev1.png">View Recommendations</a>
+              </div>
+              <div is="e-stack" data-gap="xs" data-width="full">
+              <div is="e-row" data-gap="sm" data-flex-wrap="wrap" data-justify-content="space-between" data-keep-flex-direction-row-in-mobile data-width="full">
               <span is="e-bold">Cognitran — Senior Software Engineer</span>
               <span is="e-caption" data-color="muted">Mar 2021 – Oct 2022 · Krakow, Poland</span>
               </div>
-            <p data-font-size="sm">• Developed backend services and automated data pipelines for offline-first automotive diagnostics (Ford, Jaguar) — AWS Lambda, EC2, RDS integrations.</p>
-            </div>
-          <div is="e-stack" data-gap="xs" data-width="full">
-            <div is="e-row" data-gap="sm" data-flex-wrap="wrap" data-justify-content="space-between" data-keep-flex-direction-row-in-mobile data-width="full">
+              <p data-font-size="sm">• Developed backend services and automated data pipelines for offline-first automotive diagnostics (Ford, Jaguar) — AWS Lambda, EC2, RDS integrations.</p>
+              </div>
+              <div is="e-stack" data-gap="xs" data-width="full">
+              <div is="e-row" data-gap="sm" data-flex-wrap="wrap" data-justify-content="space-between" data-keep-flex-direction-row-in-mobile data-width="full">
               <span is="e-bold">Huawei — Senior Software Engineer</span>
               <span is="e-caption" data-color="muted">Jan 2020 – Mar 2021 · Moscow, Russia</span>
               </div>
-            <p data-font-size="sm">• Built high-throughput data parsers, cloud infrastructure components, and CI/CD standards across 50+ projects; automation tooling for API migration and batch processing.</p>
-            </div>
-          <div is="e-stack" data-gap="xs" data-width="full">
-            <div is="e-row" data-gap="sm" data-flex-wrap="wrap" data-justify-content="space-between" data-keep-flex-direction-row-in-mobile data-width="full">
+              <p data-font-size="sm">• Built high-throughput data parsers, cloud infrastructure components, and CI/CD standards across 50+ projects; automation tooling for API migration and batch processing.</p>
+              </div>
+              <div is="e-stack" data-gap="xs" data-width="full">
+              <div is="e-row" data-gap="sm" data-flex-wrap="wrap" data-justify-content="space-between" data-keep-flex-direction-row-in-mobile data-width="full">
               <span is="e-bold">US Mobile — Senior Software Engineer</span>
               <span is="e-caption" data-color="muted">Feb 2019 – Jan 2020 · Remote · USA</span>
               </div>
-            <ul data-font-size="sm">
+              <ul data-font-size="sm">
               <li>• Helped design technical solutions and created a roadmap for migrating infrastructure to Google Cloud Platform (GCP).</li>
               <li>• Successfully oversaw the implementation of this replatforming, ensuring a smooth and efficient transition.</li>
               <li>• Spearheaded the full automation of report processing from third-party sources, utilizing GCP services to significantly improve data processing and operational efficiency.</li>
               </ul>
-            </div>
-          <div is="e-stack" data-gap="xs" data-width="full">
-            <div is="e-row" data-gap="sm" data-flex-wrap="wrap" data-justify-content="space-between" data-keep-flex-direction-row-in-mobile data-width="full">
+              </div>
+              <div is="e-stack" data-gap="xs" data-width="full">
+              <div is="e-row" data-gap="sm" data-flex-wrap="wrap" data-justify-content="space-between" data-keep-flex-direction-row-in-mobile data-width="full">
               <span is="e-bold">Grid Dynamics — Intern to Senior Software Engineer</span>
               <span is="e-caption" data-color="muted">Dec 2015 – Jan 2019</span>
               </div>
-            <p data-font-size="sm">• Progressed from Intern to Senior Engineer; delivered microservices and cloud-native tooling for Google, Raymond James, and Home Depot.</p>
+              <p data-font-size="sm">• Progressed from Intern to Senior Engineer; delivered microservices and cloud-native tooling for Google, Raymond James, and Home Depot.</p>
+              </div>
+              </div>
+              </div>
+              </div>
+              </div>
             </div>
-          </section>
+          </div>
 
-        <hr is="e-divider">
-
-        <section is="e-stack" data-gap="xs" data-width="full">
-          <h2 is="e-h" data-color="primary" data-font-size="lg">Open Source</h2>
-          <p data-font-size="sm">
-            <a is="e-link" data-underlined href="https://e-html.org">EHTML</a>,
-            <a is="e-link" data-underlined href="https://github.com/Guseyn/nodes.js">Nodes.js</a>,
-            <a is="e-link" data-underlined href="https://github.com/Guseyn/e-ui">e-ui</a>,
-            <a is="e-link" data-underlined href="https://guseyn.github.io/nn-math-web/">Mathematics of Neural Networks</a>
-            </p>
-          </section>
-
-        <hr is="e-divider">
-
-        <section is="e-stack" data-gap="xs" data-width="full">
-          <h2 is="e-h" data-color="primary" data-font-size="lg">Certifications</h2>
-          <p data-font-size="sm">
-            <a is="e-link" data-underlined href="https://youracclaim.com/badges/402c6cb4-d066-4f85-95b6-cd955d4a446f/public_url">Oracle Certified Associate Java SE 8 Programmer</a>
-            </p>
-          </section>
-
-        <hr is="e-divider">
-
-        <section is="e-stack" data-gap="xs" data-width="full">
-          <h2 is="e-h" data-color="primary" data-font-size="lg">Education</h2>
-          <p data-font-size="sm">Applied Mathematics and Computer Science — <i>Saratov State University, 2012 - 2016</i></p>
-          <p data-font-size="sm">
-            <a is="e-link" data-underlined href="https://guseyn.com/pdf/diploma.pdf">Bachelor's Thesis: Cost Minimization of Energy on the Control of Satellite's Angular Motion (in Russian)</a>
-          </p>
-        </section>
+        </div>
 
       </div>
     </main>

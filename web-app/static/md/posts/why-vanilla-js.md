@@ -13,7 +13,7 @@ There is also a brand page builder that allows music studios to build their pres
 
 And of course, there is a dashboard with stats and organization management tools, a music school administrator can easily invite instructors and students. All members of the studio have access to the message board and they can write emails to each other to share news and just communicate.
 
-The reason why I list all those features is just to show you that this is rather a complex web application. It's not super duper complex, but it still requires tons of effort and dedication to build. You can watch the [demo here](/mp4/desktop.mp4) and judge for yourself. And this whole application I decided to build entirely in vanilla JavaScript using **Web Components** (or how they say, custom HTML elements). And to explain my motivation and reasoning, I would like to discuss a few things that really bother me and things that I hate.
+The reason why I list all those features is just to show you that this is rather a complex web application. It's not super duper complex, but it still requires tons of effort and dedication to build. You can watch the [demo here](https://guseyn.com/mp4/desktop.mp4) and judge for yourself. And this whole application I decided to build entirely in vanilla JavaScript using **Web Components** (or how they say, custom HTML elements). And to explain my motivation and reasoning, I would like to discuss a few things that really bother me and things that I hate.
 
 ## Framework Market
 
