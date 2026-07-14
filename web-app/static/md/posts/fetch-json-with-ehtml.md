@@ -69,7 +69,7 @@ As an example, consider an open API like `restcountries.com`. If we make a reque
 Imagine if we could do something like this:
 
 ```html
-<template is="e-json" data-src="https://restcountries.com/v3.1/name/cyprus" data-object-name="response">
+<template is="e-json-map" data-src="https://restcountries.com/v3.1/name/cyprus" data-object-name="response">
   <h3>Information about <span data-text="${response.body[0].name.official}:"></span></h3>
   <p>
     <span>Capital is </span><b data-text="${response.body[0].capital[0]}"></b><br>
