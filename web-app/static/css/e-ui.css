@@ -1566,7 +1566,7 @@ div[is="e-card"] {
 div[is="e-panel"] {
   background-color: var(--e-muted-bg);
   border: 1px solid var(--e-primary);
-  border-radius: var(--e-radius-3xl) var(--e-radius-sm) var(--e-radius-xl) var(--e-radius-md);
+  border-radius: var(--e-radius-md);
   box-shadow: var(--e-shadow-lg);
   width: 100%;
   min-height: 1rem;
@@ -1578,17 +1578,6 @@ div[is="e-panel"][data-background] {
   background-color: var(--e-muted-bg);
 }
 
-div[is="e-panel"]:nth-of-type(even) {
-  border-radius: var(--e-radius-sm) var(--e-radius-2xl) var(--e-radius-md) var(--e-radius-xl);
-}
-
-div[is="e-panel"][data-border-radius] {
-  border-radius: var(--e-radius-3xl) var(--e-radius-sm) var(--e-radius-xl) var(--e-radius-md);
-}
-
-div[is="e-panel"][data-border-radius]:nth-of-type(even) {
-  border-radius: var(--e-radius-sm) var(--e-radius-2xl) var(--e-radius-md) var(--e-radius-xl);
-}
 div[is="e-info"] {
   background-color: var(--e-muted-bg);
   border: 1px solid var(--e-border);

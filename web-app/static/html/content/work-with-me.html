@@ -10,25 +10,30 @@
       data-flex-wrap="wrap"
       data-justify-content="center"
     >
-      <img
-        src="/image/4T7A8796-2.jpg?v=46765fb5"
-        data-height="2xl"
+      <div
+        is="e-panel"
+        data-padding="2xs"
+        data-border=""
+        data-border-color="primary"
         data-border-radius="md"
+        data-box-shadow="lg"
         data-shrink="0"
-        alt="Guseyn Ismayylov"
+        data-width="max-content"
       >
+        <img
+          src="/image/4T7A8796-2.jpg?v=46765fb5"
+          data-height="2xl"
+          data-border-radius="sm"
+          data-shrink="0"
+          alt="Guseyn Ismayylov"
+        >
+      </div>
 
       <div is="e-stack" data-gap="md" data-width="full">
-        <div is="e-row" data-hero-tags data-gap="xs" data-flex-wrap="wrap" data-justify-content="center" data-keep-flex-direction-row-in-mobile>
-          <span is="e-tag">Solo full-stack developer</span>
-          <span is="e-tag">Framework author</span>
-          <span is="e-tag">0→1 builder</span>
-          <span is="e-tag">Boring software</span>
-          <span is="e-tag">One client at a time</span>
+        <div is="e-stack" data-gap="xs" data-align-items="center" data-text-align="center" data-width="full">
+          <h1 is="e-h" data-color="primary">Guseyn Ismayylov</h1>
+          <span is="e-caption" data-color="muted">Solo full-stack developer</span>
         </div>
-
-        <h1 is="e-h" data-color="primary">Guseyn Ismayylov</h1>
-        <span is="e-caption" data-color="muted">Senior full-stack engineer · Technical leader · Remote contractor</span>
 
         <p data-font-size="lg">
           Ten years inside enterprise teams — fintech, ed-tech, automotive diagnostics, dev tools — taught me how real products move through an organization: what breaks in production, what meetings never fix, and what actually earns trust with users. I took those lessons and built my own stack — <span is="e-bold">robust, boring, and meant to last</span> — without clever abstractions that look impressive on a CV and fall apart in year three.
@@ -42,9 +47,28 @@
           I work solo by default, one exclusive client at a time, remote from Georgia. I deploy on plain servers — not managed cloud — so you skip the AWS bill that grows with every feature and keep hosting predictable and cheap. AI is a tool in the box — not a substitute for engineering judgment.
         </p>
 
-        <div is="e-row" data-hero-status-row data-gap="md" data-align-items="center" data-flex-wrap="wrap" data-justify-content="center" data-keep-flex-direction-row-in-mobile>
-          <span data-status-open>Open for new projects</span>
-          <div is="e-row" data-gap="sm" data-align-items="center" data-location-row>
+        <div is="e-row" data-gap="md" data-align-items="center" data-flex-wrap="wrap" data-justify-content="center" data-width="full" data-keep-flex-direction-row-in-mobile>
+          <div
+            is="e-row"
+            data-gap="xs"
+            data-align-items="center"
+            data-keep-flex-direction-row-in-mobile
+            data-padding="xs"
+            data-padding-left="sm"
+            data-padding-right="sm"
+            data-border-radius="lg"
+            data-background="success-transparent"
+            data-color="success"
+            data-border=""
+            data-border-color="success"
+            data-font-size="sm"
+            data-font-weight="bold"
+            data-width="max-content"
+          >
+            <span is="e-badge" data-variant="dot" data-background="success" data-animate="pulse" aria-hidden="true"></span>
+            Open for new projects
+          </div>
+          <div is="e-row" data-gap="sm" data-align-items="center" data-color="muted" data-keep-flex-direction-row-in-mobile>
             <e-svg
               data-src="/image/georgia.svg?v=safari2026"
             ></e-svg>
@@ -54,13 +78,13 @@
       </div>
     </div>
 
-    <nav is="e-row" data-section-nav data-margin-top="2xl" data-width="full" data-justify-content="center" data-keep-flex-direction-row-in-mobile>
+    <div is="e-row" role="navigation" data-margin-top="2xl" data-width="full" data-justify-content="center" data-flex-wrap="wrap" data-gap="sm" data-keep-flex-direction-row-in-mobile>
       <a is="e-link-button" data-variant="outline" href="#stack">My stack</a>
       <a is="e-link-button" data-variant="outline" href="#projects">Projects I built solo</a>
       <a is="e-link-button" data-variant="outline" href="#how">How I work</a>
       <a is="e-link-button" data-variant="outline" href="#pricing">Pricing</a>
       <a is="e-link-button" data-variant="outline" href="#contact">Contact</a>
-    </nav>
+    </div>
   </div>
 </section>
 
@@ -72,6 +96,7 @@
   </div>
 
   <div is="e-stack" data-gap="lg" data-margin-top="md" data-width="full">
+
     <div is="e-panel" data-background="primary-transparent" data-padding="xl" data-border-radius="lg" data-width="full">
       <div is="e-stack" data-gap="sm">
         <a href="https://e-html.org/"><img src="/image/ehtml-logo.svg" data-height="sm" data-shrink="0" alt="EHTML"></a>
@@ -293,18 +318,18 @@
   </div>
 
   <div is="e-grid" data-columns="3" data-gap="lg" data-margin-top="md" data-width="full">
-    <div is="e-card" data-pricing-tier data-padding="xl" data-width="full">
+    <div is="e-card" data-padding="xl" data-width="full">
       <h3 is="e-h" data-font-size="md" data-color="primary">Discovery &amp; audit</h3>
-      <p data-price-tag data-margin-top="sm">Free</p>
+      <p data-font-size="xl" data-color="primary" data-font-weight="bold" data-margin-top="sm">Free</p>
       <p data-font-size="md" data-margin-top="md">
         A conversation about your project — I listen, ask questions, and share honest suggestions on approach, stack, and scope. No sales pitch; just a straight technical opinion.
       </p>
       <a is="e-link-button" data-variant="outline" data-margin-top="md" href="#contact">Book a call</a>
     </div>
 
-    <div is="e-card" data-pricing-tier data-featured data-padding="xl" data-width="full">
+    <div is="e-card" data-padding="xl" data-width="full" data-border="" data-border-color="primary" data-background="primary-transparent">
       <h3 is="e-h" data-font-size="md" data-color="primary">Create MPV (+ Full Production Release)</h3>
-      <p data-price-tag data-margin-top="sm">$10,000 / month</p>
+      <p data-font-size="xl" data-color="primary" data-font-weight="bold" data-margin-top="sm">$10,000 / month</p>
       <p is="e-caption" data-color="muted" data-margin-top="xs">then $5,000 / month to maintain + additional features</p>
       <p data-font-size="md" data-margin-top="md">
         I build your product solo — design, implementation, deployment, and launch. Production-ready software, not a throwaway prototype. After launch, ongoing maintenance at the lower rate keeps it healthy and evolving.
@@ -312,9 +337,9 @@
       <a is="e-link-button" data-margin-top="md" href="#contact">Start a project</a>
     </div>
 
-    <div is="e-card" data-pricing-tier data-padding="xl" data-width="full">
+    <div is="e-card" data-padding="xl" data-width="full">
       <h3 is="e-h" data-font-size="md" data-color="primary">Save your existing legacy</h3>
-      <p data-price-tag data-margin-top="sm">$5,000 / week</p>
+      <p data-font-size="xl" data-color="primary" data-font-weight="bold" data-margin-top="sm">$5,000 / week</p>
       <p data-font-size="md" data-margin-top="md">
         Stabilize, simplify, and extend what you already have — without a rip-and-replace rewrite. Fix what's broken, remove what's unnecessary, ship improvements weekly.
       </p>
