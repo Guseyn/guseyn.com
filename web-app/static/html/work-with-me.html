@@ -14,6 +14,7 @@
     <style>
       :root {
         --e-primary: #701213;
+        --e-primary-color: var(--e-primary);
         --e-primary-fg: #ffffff;
         --e-border: #555555;
       }
@@ -54,23 +55,15 @@
       [data-location-row] {
         color: var(--e-muted, #36454f);
       }
-      [data-location-row] e-svg {
-        display: inline-flex;
-        align-items: center;
+      [data-location-row] svg[data-georgia-map],
+      [data-location-row] e-svg svg[data-georgia-map] {
+        display: inline-block;
+        vertical-align: middle;
         width: 1.5rem;
         height: 0.85rem;
         flex-shrink: 0;
-        color: var(--e-primary);
         overflow: hidden;
-      }
-      [data-location-row] e-svg svg {
-        width: 100%;
-        height: 100%;
-        display: block;
-      }
-      [data-location-row] e-svg #points,
-      [data-location-row] e-svg #label_points {
-        display: none;
+        color: var(--e-primary-color);
       }
       [data-hero-tags],
       [data-hero-status-row] {
@@ -120,7 +113,7 @@
   <body data-background="surface">
     <main is="e-main" data-landing data-centralized data-padding-top="lg" data-padding-bottom="3xl">
       <e-html
-        data-src="/html/content/work-with-me.html?v=w17maint2026"
+        data-src="/html/content/work-with-me.html?v=w18georgia2026"
         data-actions-on-progress-start="
           document.body.classList.toggle('progress-opacity')
         "
