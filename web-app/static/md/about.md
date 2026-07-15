@@ -4,7 +4,7 @@
 <img src="/image/4T7A8796.jpg?v=46765fb5" class="photo bigger">
 <p></p>
 
-I am a founder of [Unison](#founder-of-unison), author of [Nodes.js Backend Framework](#author-of-nodesjs-backend-framework), creator of [EHTML](#creator-of-ehtml), [writer](#writer), [tech leader and business partner at InstruxMusic](#tech-leader-and-business-partner-at-instruxmusic), [open source enthusiast](#open-source-enthusiast), [tech blogger](#tech-blogger), [entrepreneur](#entrepreneur), [programmer](#programmer), [chess&music lover](#chessmusic-lover).
+I am a founder of [Unison](#founder-of-unison), author of [Nodes.js Backend Framework](#author-of-nodesjs-backend-framework), creator of [EHTML](#creator-of-ehtml), [writer](#writer), [tech leader and business partner at InstruxMusic](#tech-leader-and-business-partner-at-instruxmusic), [open source enthusiast](#open-source-enthusiast), [tech blogger](#tech-blogger), [entrepreneur](#entrepreneur), [solo full-stack developer](#solo-full-stack-developer), [chess&music lover](#chessmusic-lover).
 
 You can find me on [Instagram](https://www.instagram.com/guseyn_dot_com/), [LinkedIn](https://www.linkedin.com/in/gusein-ismaiylov-111bb1179/), [GitHub](https://github.com/Guseyn/), [Reddit](https://www.reddit.com/user/gyen) and write an [email](mailto:guseynism@gmail.com). Also I have a Telegram [channel](https://t.me/guseyncom) where I write about what's new on my blog. I don't use other social networks.
 
@@ -42,10 +42,12 @@ TODO: replace with my future youtube channel
 ## Streamer
 You can find [my streams here](https://www.twitch.tv/unisonofficial) on how I test, develop and use my programs, like for example [Unison](https://unisonofficial.com). Also I talk on general subjects in software development. -->
 
-## Programmer
-I am a full-time full-stack software developer with more than 7 years of diverse experience: I was working as a software engineer at outsource company, at small startup with fully distributed international team, and as a researcher at international tech corporation. More information about my work experience you can find in my [LinkedIn profile](https://www.linkedin.com/in/gusein-ismaiylov-111bb1179/) and [resume](https://guseyn.com/html/resume.html).
+## Solo full-stack developer
+After ten years in enterprise teams — fintech, ed-tech, automotive diagnostics, dev tools — I work solo as a 0→1 builder and framework author, one exclusive client at a time, remote from Georgia. 
 
-In my work, I appreciate clarity of the information in the documentation and the code.
+I use my own stack — EHTML, e-ui, nodes.js — built for longevity: readable code, standard web technology, plain servers instead of managed cloud, and tools I control end to end. I don't overcomplicate software to seem smart; with the right stack and no coordination tax, one developer can ship what a bloated ten-person team is still debating on slides.
+
+More about how I work and what I offer: [work with me](/html/work-with-me.html) · [LinkedIn profile](https://www.linkedin.com/in/gusein-ismaiylov-111bb1179/)
 
 ## Chess&Music lover
 I like playing chess (you can challenge me on [liches](https://lichess.org/@/guseyn1245)). Also, I like music and making covers of popular songs on guitar and ukelele. [Here](https://guseyn.com/html/covers.html) is some of them. More over, I am trying to make life of many musicians and composers much easier by creating Unison project.
