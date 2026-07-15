@@ -783,13 +783,16 @@ img[data-loading] {
 *[data-border="none"], [is^="e-"][data-border="none"] { border: none; }
 
 *[data-box-shadow="sm"], [is^="e-"][data-box-shadow="sm"] {
-  box-shadow: var(--e-shadow-sm);
+  box-shadow: var(--e-shadow-sm) !important;
 }
 *[data-box-shadow="md"], [is^="e-"][data-box-shadow="md"] {
-  box-shadow: var(--e-shadow-md);
+  box-shadow: var(--e-shadow-md) !important;
 }
 *[data-box-shadow="lg"], [is^="e-"][data-box-shadow="lg"] {
-  box-shadow: var(--e-shadow-lg);
+  box-shadow: var(--e-shadow-lg) !important;
+}
+*[data-box-shadow="none"], [is^="e-"][data-box-shadow="none"] {
+  box-shadow: none !important;
 }
 
 *[data-text-wrap], [is^="e-"][data-text-wrap] {
