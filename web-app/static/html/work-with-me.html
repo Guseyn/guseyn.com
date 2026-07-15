@@ -5,16 +5,96 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Guseyn">
-    <meta name="description" content="Work with Guseyn Ismayylov — senior full-stack engineer, solo MVP delivery, zero-bloat architecture. One client at a time, remote from Georgia.">
+    <meta name="description" content="Work with Guseyn Ismayylov — solo full-stack developer, boring software for longevity, remote from Georgia.">
     <title>Work with me — Guseyn Ismayylov</title>
     <link rel="shortcut icon" type="image/png" href="/image/favicon.png?v=f80d70da">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i">
     <link rel="stylesheet" href="/css/normalize.css?v=54740e0a">
-    <link rel="stylesheet" href="/css/e-ui.css?v=58508652">
+    <link rel="stylesheet" href="/css/e-ui.css?v=701213panel2">
     <style>
       :root {
-        --e-primary: #b33939;
+        --e-primary: #701213;
         --e-primary-fg: #ffffff;
+        --e-border: #555555;
+      }
+      main[data-landing] div[is="e-info"] {
+        border: 1px solid var(--e-border);
+        box-shadow: none;
+      }
+      main[data-landing] div[is="e-card"] {
+        width: 100%;
+        box-sizing: border-box;
+      }
+      [data-landing-section] {
+        scroll-margin-top: 1.5rem;
+      }
+      [data-pricing-tier][data-featured] {
+        border: 2px solid var(--e-primary);
+        background: color-mix(in srgb, var(--e-primary), transparent 94%);
+      }
+      [data-status-open] {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.25rem 0.75rem;
+        border-radius: 999px;
+        font-size: var(--e-font-size-sm, 0.875rem);
+        font-weight: 600;
+        background: color-mix(in srgb, var(--e-success), transparent 85%);
+        color: var(--e-success);
+        border: 1px solid color-mix(in srgb, var(--e-success), transparent 50%);
+      }
+      [data-status-open]::before {
+        content: "";
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 50%;
+        background: var(--e-success);
+      }
+      [data-location-row] {
+        color: var(--e-muted, #36454f);
+      }
+      [data-location-row] e-svg {
+        display: inline-flex;
+        align-items: center;
+        width: 1.5rem;
+        height: 0.85rem;
+        flex-shrink: 0;
+        color: var(--e-primary);
+        overflow: hidden;
+      }
+      [data-location-row] e-svg svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+      [data-location-row] e-svg #points,
+      [data-location-row] e-svg #label_points {
+        display: none;
+      }
+      [data-hero-tags],
+      [data-hero-status-row] {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 100%;
+      }
+      [data-section-nav] {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 100%;
+        gap: var(--e-spacing-sm, 0.75rem);
+      }
+      [data-section-nav] a[is="e-link-button"][data-variant="outline"] {
+        font-size: var(--e-font-size-sm, 0.875rem);
+      }
+      [data-price-tag] {
+        font-size: var(--e-font-size-xl, 1.25rem);
+        font-weight: 700;
+        color: var(--e-primary);
       }
       .progress-opacity {
         opacity: 0.35;
@@ -38,9 +118,9 @@
     <script type="module">import '#ehtml/main'</script>
   </head>
   <body data-background="surface">
-    <main is="e-main" data-centralized data-padding-top="xl" data-padding-bottom="3xl">
+    <main is="e-main" data-landing data-centralized data-padding-top="lg" data-padding-bottom="3xl">
       <e-html
-        data-src="/html/content/work-with-me.html?v=l8m1p345"
+        data-src="/html/content/work-with-me.html?v=w17maint2026"
         data-actions-on-progress-start="
           document.body.classList.toggle('progress-opacity')
         "

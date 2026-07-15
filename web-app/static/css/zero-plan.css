@@ -192,16 +192,16 @@ span.buttonText {
 }
 
 #go-button {
-  background: #34495e;
+  background: #1e272e;
   color: white;
 }
 
 #go-button:hover {
-  background: #34495e;
+  background: #1e272e;
 }
 
 #go-button:active {
-  background: #34495e;
+  background: #1e272e;
 }
 
 .customSignIn {
@@ -224,7 +224,7 @@ span.buttonText {
 }
 
 .apply {
-  background: #34495e;
+  background: #1e272e;
   color: #ffffff;
   font-weight: bold;
   border-radius: 0.5em;
