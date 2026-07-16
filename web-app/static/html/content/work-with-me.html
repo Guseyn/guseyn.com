@@ -36,15 +36,15 @@
         </div>
 
         <p data-font-size="lg">
-          Ten years inside enterprise teams — fintech, ed-tech, automotive diagnostics, dev tools — taught me how real products move through an organization: what breaks in production, what meetings never fix, and what actually earns trust with users. I took those lessons and built my own stack — <span is="e-bold">robust, boring, and meant to last</span> — without clever abstractions that look impressive on a CV and fall apart in year three.
+          For about ten years I worked inside enterprise teams — fintech, ed-tech, automotive diagnostics, dev tools. You learn pretty quickly what actually breaks in production, what no amount of meetings will fix, and what users quietly stop trusting you for. I took that and built my own stack on purpose: plain HTML, plain servers, tools I wrote myself because I got tired of the alternatives.
         </p>
 
         <p data-font-size="lg" data-margin-top="sm">
-          I don't overcomplicate software to seem smart. I build for <mark is="e-mark">longevity</mark>: readable code, standard web technology, tools I control end to end. A solo developer with the right stack and no coordination tax is often more effective than a ten-person team buried in an overengineered toolchain — I've shipped full products alone while teams twice the size were still arguing about architecture slides.
+          I don't try to look smart by overcomplicating architecture — splitting everything into microservices with complex communication between them, pulling in dependencies you don't need from day one. I build things that still work in a few years. Most of my code is HTML and a handful of JavaScript files. I've shipped whole products alone while a team of 10 was still redrawing boxes on slides, fighting build issues, sorting out CI pipelines, updating dependencies, fixing backward compatibility when a new framework version drops, and going through constant refactorings and rewrites.
         </p>
 
         <p data-font-size="lg" data-margin-top="sm">
-          I work solo by default, one exclusive client at a time, remote from Georgia. I deploy on plain servers — not managed cloud — so you skip the AWS bill that grows with every feature and keep hosting predictable and cheap. AI is a tool in the box — not a substitute for engineering judgment.
+          I work solo by default — one developer on the whole stack means fewer hand-offs and faster decisions. I take one client at a time, from Georgia. I deploy on a normal VPS, not managed cloud — so your hosting bill doesn't creep up every time you ship a feature. I use AI sometimes, like any other tool. It doesn't replace thinking.
         </p>
 
         <div is="e-row" data-gap="md" data-align-items="center" data-flex-wrap="wrap" data-justify-content="center" data-width="full">
@@ -92,7 +92,7 @@
 <section is="e-section" data-landing-section id="stack" data-padding-bottom="2xl">
   <div is="e-stack" data-gap="xs" data-width="full">
     <h2 is="e-h" data-color="primary">My stack as a solo developer</h2>
-    <span is="e-caption" data-color="muted">What I use every day — explained without jargon</span>
+    <span is="e-caption" data-color="muted">What I actually use — in plain language</span>
   </div>
 
   <div is="e-stack" data-gap="lg" data-margin-top="md" data-width="full">
@@ -100,39 +100,39 @@
     <div is="e-panel" data-background="primary-transparent" data-box-shadow="none" data-padding="xl" data-border-radius="lg" data-width="full">
       <div is="e-stack" data-gap="sm">
         <a href="https://e-html.org/"><img src="/image/ehtml-logo.svg" data-height="sm" data-shrink="0" alt="EHTML"></a>
-        <h3 is="e-h" data-font-size="md" data-color="primary">EHTML — pages that stay simple</h3>
+        <h3 is="e-h" data-font-size="md" data-color="primary">EHTML — HTML that does more</h3>
       </div>
       <p data-font-size="md" data-margin-top="md">
-        I extend ordinary web pages — I don't invent something trendy that expires in two months. With EHTML, a page can show live information, handle forms, update one section without reloading the whole screen, and pull in content from other pages — the everyday things most sites need, written as simple page markup instead of a heavy "modern frontend" stack. <span is="e-bold">No compile step, no fragile toolchain</span> — the browser does the work, so pages stay fast, accessible, and cheap to maintain, even for complex products.
+        I extend HTML. I didn't invent a new file format that will be dead in two years. EHTML extends what pages already have and adds more: repeat bits of markup for lists, handle complex forms without wiring up JavaScript, update part of a page without a full reload, pull in shared HTML from elsewhere. Most of what you'd normally solve with a pile of JavaScript — here it's just markup. No build step. No bundling, transpiling, or any of that shit.
       </p>
     </div>
 
     <div is="e-panel" data-background="primary-transparent" data-box-shadow="none" data-padding="xl" data-border-radius="lg" data-width="full">
       <div is="e-stack" data-gap="sm">
         <a href="https://github.com/Guseyn/e-ui"><img src="/image/e-ui-logo.svg" data-height="sm" data-shrink="0" alt="e-ui"></a>
-        <h3 is="e-h" data-font-size="md" data-color="primary">e-ui — consistent, professional UI</h3>
+        <h3 is="e-h" data-font-size="md" data-color="primary">e-ui — design system on top of the web</h3>
       </div>
       <p data-font-size="md" data-margin-top="md">
-        Buttons, forms, panels, and dialogs that look and behave the same across the product — professional, consistent, easy to use. I don't reinvent design from scratch every year; I polish what the web already provides so everything feels like one product, not a patchwork of plugins. This page uses it; so do my products.
+        Buttons, forms, panels, dialogs — same look and behaviour everywhere, so the product doesn't feel patched together. I didn't invent a new design language. I just extended what browsers already give you. I build with it because pages come out looking designed without reinventing CSS from scratch.
       </p>
     </div>
 
     <div is="e-panel" data-background="primary-transparent" data-box-shadow="none" data-padding="xl" data-border-radius="lg" data-width="full">
       <div is="e-stack" data-gap="sm">
         <a href="https://github.com/Guseyn/nodes.js"><img src="/image/nodes.js.svg" data-height="sm" data-shrink="0" alt="nodes.js"></a>
-        <h3 is="e-h" data-font-size="md" data-color="primary">nodes.js — the server side, under control</h3>
+        <h3 is="e-h" data-font-size="md" data-color="primary">nodes.js — the server side</h3>
       </div>
       <p data-font-size="md" data-margin-top="md">
-        The same idea behind the scenes: the server that handles logins, billing, scheduling, and the logic your product depends on. Straightforward and built to last — not buried under enterprise framework weight. It runs efficiently on ordinary servers, grows when traffic grows, and when something breaks at 2 a.m. the path from problem to fix is short.
+        Same idea on the server. Logins, billing, scheduling, APIs — Node.js, without burying it under ten frameworks. It has a built-in Cluster API: when traffic grows, the app uses all the cores on the machine instead of one; if something crashes, it comes back on its own; you can restart for a deploy without taking the whole site offline. It runs on an ordinary machine, you can scale it when you need to, and when something breaks at 2 a.m. you're not grep-ing through six abstraction layers to find the bug.
       </p>
     </div>
 
     <div is="e-info" data-padding="lg" data-width="full">
       <p data-font-size="md">
-        <span is="e-bold">Plus the boring reliable parts:</span> careful database changes, deploying the app the same way every time, and outside services only when you truly need them — taking payments, sending email, things that are foolish to rebuild from scratch. I keep everything <span is="e-bold">consistent and reliable</span> end to end, and I don't plug in a pile of tools when a simple solution already does the job.
+        <span is="e-bold">And the boring parts:</span> database migrations done carefully. Same deploy process every time. Stripe for payments, Postmark for email — third-party stuff only where rebuilding it would be stupid. I don't wire in fifteen SaaS tools when thirty lines of code does the job.
       </p>
       <p data-font-size="md" data-margin-top="sm">
-        I wrote these tools because I got tired of stacks that optimize for conference talks instead of products still running a decade later. <a is="e-link" data-underlined href="https://guseyn.com/html/posts/why-vanilla-js.html">Why I build this way →</a>
+        I wrote EHTML and e-ui because I got tired of stacks that look great in a conference talk and fall apart when you try to change them six months later. <a is="e-link" data-underlined href="https://guseyn.com/html/posts/why-vanilla-js.html">Why I build this way →</a>
       </p>
     </div>
   </div>
@@ -142,15 +142,15 @@
 <section is="e-section" data-landing-section id="projects" data-padding-bottom="2xl">
   <div is="e-stack" data-gap="xs" data-width="full">
     <h2 is="e-h" data-color="primary">Projects I built solo</h2>
-    <span is="e-caption" data-color="muted">End to end — product, code, infra, and delivery</span>
+    <span is="e-caption" data-color="muted">Product, code, servers — all of it, by myself</span>
   </div>
 
   <div is="e-info" data-padding="lg" data-margin-top="md" data-width="full">
     <p data-font-size="md">
-      <span is="e-bold">Disclaimer:</span> Music is my passion — that's why InstruxMusic and Unison exist. But I'm a curious engineer first: the same decade that produced these products also includes payment platforms, trading systems, automotive diagnostics for Ford and Jaguar, and internal tools for Google-scale clients. <mark is="e-mark">I'm happy to dive into any domain</mark> where the problem is real and you're serious about shipping.
+      My passion is music — that's why I got involved in InstruxMusic and Unison. But I'm an engineer first. The same ten years also includes payment platforms, trading systems, Ford and Jaguar diagnostics, internal tools for Google-scale clients. If the problem is real and you want to ship, I'm happy to work in any domain.
     </p>
     <p data-font-size="sm" data-margin-top="sm" data-color="muted">
-      Everything below was built with <span is="e-bold">EHTML, e-ui, and nodes.js</span> — my stack, not a patchwork of third-party frameworks I don't control.
+      Both products below are built with EHTML, e-ui, and nodes.js — my stack, not a pile of frameworks I don't control.
     </p>
   </div>
 
@@ -164,7 +164,7 @@
         </div>
       </div>
       <p data-font-size="md" data-margin-top="md">
-        All-in-one platform for music schools and independent instructors — scheduling, teaching, getting paid, and running the business without juggling five different apps.
+        A tool for music schools and independent instructors — schedule lessons, bill students, teach online, run the business without five different apps open at once.
       </p>
       <ul data-font-size="sm" data-margin-top="sm">
         <li>• Production MVP in under three months — product and pricing decisions included, not just code.</li>
@@ -194,7 +194,7 @@
         </div>
       </div>
       <p data-font-size="md" data-margin-top="md">
-        Turn plain-text descriptions into professional sheet music — language design, engraving, editor, and publishing in one product.
+        You describe music in plain words; you get professional sheet music. Language design, engraving engine, editor, publishing — I built all of it.
       </p>
       <ul data-font-size="sm" data-margin-top="sm">
         <li>• Entire platform solo — editor, rendering engine, accounts, billing, and infrastructure.</li>
@@ -215,7 +215,7 @@
 <!-- 4. How I work -->
 <section is="e-section" data-landing-section id="how" data-padding-bottom="2xl">
   <h2 is="e-h" data-color="primary">How I work</h2>
-  <span is="e-caption" data-color="muted">What you get when we collaborate — and a few principles I won't bend on</span>
+  <span is="e-caption" data-color="muted">How I actually work — a few things I won't bend on</span>
 
   <div is="e-grid" data-columns="3" data-gap="lg" data-margin-top="md" data-width="full">
     <div is="e-card" data-font-size="md" data-width="full" data-padding="lg">
@@ -224,7 +224,7 @@
         <b data-font-size="lg">Zero bloat</b>
       </div>
       <p data-margin-top="sm">
-        Frameworks with zero dependencies, aligned with native platforms without artificial complexity. Fast, cheap shipping. Every technical choice serves the product.
+        No dependencies for the sake of dependencies. If the browser or Node already does it, I use that. Less stuff to break, less stuff to pay for.
       </p>
     </div>
 
@@ -234,7 +234,7 @@
         <b data-font-size="lg">Solo execution</b>
       </div>
       <p data-margin-top="sm">
-        Design, architect, implement, and deploy — all by myself. Full-stack development, end to end. First visible results in two weeks. Production-ready MVPs in months, not quarters or years.
+        I design it, I write it, I deploy it. No hand-offs between frontend guy, backend guy, and DevOps guy — because that's me. You can usually see something working in about two weeks.
       </p>
     </div>
 
@@ -244,7 +244,7 @@
         <b data-font-size="lg">One Focus</b>
       </div>
       <p data-margin-top="sm">
-        One exclusive engagement at a time. Direct communication, zero-fluff discovery, then working software.
+        One client at a time. When I'm on your project, I'm not splitting attention across three Slack workspaces. We talk directly, figure out scope, then I write code.
       </p>
     </div>
 
@@ -254,7 +254,7 @@
         <b data-font-size="lg">If it works, don't rewrite it</b>
       </div>
       <p data-margin-top="sm">
-        When performance and security are fine, we don't rebuild because a new language or library version came out. Upgrades happen when there's a real payoff — not on autopilot. The frameworks I use are built for longevity and don't have breaking changes over the years.
+        If it works and it's fast enough, we don't rewrite it because a new framework version dropped. Upgrades happen when there's a real reason — not because a blog post told us to.
       </p>
     </div>
 
@@ -264,7 +264,7 @@
         <b data-font-size="lg">No microservices. No SaaS sprawl. No cloud</b>
       </div>
       <p data-margin-top="sm">
-        One coherent system beats twenty services that multiply cost and ops. No managed cloud when a VPS does the job — same uptime, a fraction of the bill. And if something takes thirty lines of code, we don't add another monthly subscription.
+        One system, not twenty microservices. No managed cloud when a VPS does the job. And if something takes thirty lines of code, we don't buy a SaaS subscription for it.
       </p>
     </div>
 
@@ -274,7 +274,7 @@
         <b data-font-size="lg">Test what users actually do</b>
       </div>
       <p data-margin-top="sm">
-        End-to-end tests on real product flows — not mock-heavy unit tests that pass while production breaks. We verify features work, not that fake data behaved.
+        End-to-end tests on real flows — login, pay, book a lesson, whatever your users actually do. Not unit tests on mocked data that pass while the site is broken.
       </p>
     </div>
 
@@ -284,7 +284,7 @@
         <b data-font-size="lg">Real problems only</b>
       </div>
       <p data-margin-top="sm">
-        We don't invent complexity because it's fashionable — replacing a straightforward solution with layers of abstraction, hooks, and ceremony that slow delivery and burn budget.
+        We don't add layers because everyone else is adding layers. If a simple solution works, we keep it simple. Fashion passes; your codebase stays.
       </p>
     </div>
 
@@ -294,7 +294,7 @@
         <b data-font-size="lg">Ship fast, change fast</b>
       </div>
       <p data-margin-top="sm">
-        I prefer stacks where iteration stays quick as the codebase grows — no hour-long builds between a fix and seeing it live. Speed of change is a business feature.
+        No hour-long builds between a fix and seeing it live — deploys take a couple of seconds, not hours. If changing the product is slow, the product stops improving — that's a business problem, not just a dev problem.
       </p>
     </div>
 
@@ -304,7 +304,7 @@
         <b data-font-size="lg">Explicit over clever</b>
       </div>
       <p data-margin-top="sm">
-        Code should say what the program does — direct, readable, no magic. Easier to maintain, easier to trust, cheaper to hand off or extend later.
+        Code should read like code. No magic, no clever one-liners that need a comment to explain. You or someone else should be able to open a file and know what it does.
       </p>
     </div>
   </div>
@@ -314,7 +314,7 @@
 <section is="e-section" data-landing-section id="pricing" data-padding-bottom="2xl">
   <div is="e-stack" data-gap="xs" data-width="full">
     <h2 is="e-h" data-color="primary">Pricing</h2>
-    <span is="e-caption" data-color="muted">Simple models — we agree scope before work starts</span>
+    <span is="e-caption" data-color="muted">We agree scope first, then I tell you what it costs</span>
   </div>
 
   <div is="e-grid" data-columns="3" data-gap="lg" data-margin-top="md" data-width="full">
@@ -322,7 +322,7 @@
       <h3 is="e-h" data-font-size="md" data-color="primary">Discovery &amp; audit</h3>
       <p data-font-size="xl" data-color="primary" data-font-weight="bold" data-margin-top="sm">Free</p>
       <p data-font-size="md" data-margin-top="md">
-        A conversation about your project — I listen, ask questions, and share honest suggestions on approach, stack, and scope. No sales pitch; just a straight technical opinion.
+        Tell me what you're building. I'll ask questions, push back if something doesn't make sense, and give you an honest opinion on approach and scope. No sales pitch.
       </p>
       <a is="e-link-button" data-variant="outline" data-margin-top="md" href="#contact">Book a call</a>
     </div>
@@ -332,7 +332,7 @@
       <p data-font-size="xl" data-color="primary" data-font-weight="bold" data-margin-top="sm">$10,000 / month</p>
       <p is="e-caption" data-color="muted" data-margin-top="xs">then $5,000 / month to maintain + additional features</p>
       <p data-font-size="md" data-margin-top="md">
-        I build your product solo — design, implementation, deployment, and launch. Production-ready software, not a throwaway prototype. After launch, ongoing maintenance at the lower rate keeps it healthy and evolving.
+        I build the whole thing — design, code, servers, launch. Not a throwaway prototype you rewrite in a year. After launch, the lower monthly rate keeps it running and lets us add features when you need them.
       </p>
       <a is="e-link-button" data-margin-top="md" href="#contact">Start a project</a>
     </div>
@@ -341,7 +341,7 @@
       <h3 is="e-h" data-font-size="md" data-color="primary">Save your existing legacy</h3>
       <p data-font-size="xl" data-color="primary" data-font-weight="bold" data-margin-top="sm">$5,000 / week</p>
       <p data-font-size="md" data-margin-top="md">
-        Stabilize, simplify, and extend what you already have — without a rip-and-replace rewrite. Fix what's broken, remove what's unnecessary, ship improvements weekly.
+        Your codebase already exists and it's a mess. I don't rip it out and start over unless there's no choice. I fix what's broken, delete what's useless, ship something useful every week.
       </p>
       <a is="e-link-button" data-variant="outline" data-margin-top="md" href="#contact">Rescue my codebase</a>
     </div>
@@ -354,7 +354,7 @@
     <div is="e-stack" data-gap="lg" data-align-items="center" data-width="full">
       <div is="e-stack" data-gap="xs" data-align-items="center" data-text-align="center">
         <h2 is="e-h" data-color="primary">Contact</h2>
-        <span is="e-caption" data-color="muted">Tell me what you're building — I'll reply within a couple of days</span>
+        <span is="e-caption" data-color="muted">Write me what you're building — I'll get back to you in a couple of days</span>
       </div>
 
       <div is="e-grid" data-columns="2" data-gap="lg" data-width="full">
