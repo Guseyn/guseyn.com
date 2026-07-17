@@ -47,7 +47,7 @@ After ten years in enterprise teams — fintech, ed-tech, automotive diagnostics
 
 I use my own stack — EHTML, e-ui, nodes.js — built for longevity: readable code, standard web technology, plain servers instead of managed cloud, and tools I control end to end. I don't overcomplicate software to seem smart; with the right stack and no coordination tax, one developer can ship what a bloated ten-person team is still debating on slides.
 
-More about how I work and what I offer: [work with me](/html/work-with-me.html) · [LinkedIn profile](https://www.linkedin.com/in/gusein-ismaiylov-111bb1179/)
+More about how I work and what I offer: [work with me](https://guseyn.com/html/work-with-me.html) · [LinkedIn profile](https://www.linkedin.com/in/gusein-ismaiylov-111bb1179/)
 
 ## Chess&Music lover
 I like playing chess (you can challenge me on [liches](https://lichess.org/@/guseyn1245)). Also, I like music and making covers of popular songs on guitar and ukelele. [Here](https://guseyn.com/html/covers.html) is some of them. More over, I am trying to make life of many musicians and composers much easier by creating Unison project.
