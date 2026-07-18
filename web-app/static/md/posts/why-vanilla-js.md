@@ -94,6 +94,62 @@ And you know what? It scales. It scales beautifully. I managed to organize my co
 
 And honestly, you don't need AI to build with this approach or at very least you definitely don't have to spend so much tokens.
  
+Here is some stats
+
+```md
+JavaScript - 47.4% 
+
+HTML - 38.7% 
+
+CSS - 10.5% 
+
+Shell - 2.9% 
+
+Other - 0.5%
+```
+
+And here is even more stats
+
+```md
+-------------------------------------------------------------------------------
+Language                     files          blank        comment           code
+-------------------------------------------------------------------------------
+JavaScript                     221           2947           1122          24316
+HTML                            54            342            141          17641
+CSS                             14           1231            472           7935
+SQL                            144            161            145           1283
+SVG                            147             24              2            346
+JSON                             4              0              0            233
+XML                              1              0              0             29
+Text                             1              1              0              8
+-------------------------------------------------------------------------------
+SUM:                           586           4706           1882          51791
+-------------------------------------------------------------------------------
+```
+
+HTML is almost 40%, considering the fact that my backend code is also vanilla js.
+
+Amout of js code is really really not that big. Considering again it's ALL the code: Backend + Frontend + Frameworks (!!).
+Just think about it. How much you can achieve with so little.
+
+And if specifically talk about frontend:
+
+```md
+-------------------------------------------------------------------------------
+Language                     files          blank        comment           code
+-------------------------------------------------------------------------------
+HTML                            54            342            141          17709
+JavaScript                      95           1329            782           9120
+CSS                             14           1236            472           7986
+-------------------------------------------------------------------------------
+SUM:                           163           2907           1395          34815
+-------------------------------------------------------------------------------
+```
+
+HTML is **50%**. Half of my code is HTML. CSS is **20%**. And JavaScript is around **30%**. Can you imagine that the amount of CSS and JavaScript is almost the same? And can you imagine that with just **9k** lines of JavaSctipt (frameworks included!!!) you can build whole SaaS product.
+
+So, please don't tell Vanilla JavaScript does not scale.
+
 ## Conclusion 
 
 If you have read till this moment, I would like to thank you for reading. I hope that this article gave something to think about and maybe even reconsider how you build your applications.
