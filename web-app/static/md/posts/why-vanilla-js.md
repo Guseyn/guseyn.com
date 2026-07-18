@@ -146,7 +146,7 @@ SUM:                           163           2907           1395          34815
 -------------------------------------------------------------------------------
 ```
 
-HTML is **50%**. Half of my code is HTML. CSS is **20%**. And JavaScript is around **30%**. Can you imagine that the amount of CSS and JavaScript is almost the same? And can you imagine that with just **9k** lines of JavaSctipt (frameworks included!!!) you can build whole SaaS product.
+HTML is **50%**. Half of my code is HTML. CSS is **20%**. And JavaScript is around **30%**. Can you imagine that the amount of CSS and JavaScript is almost the same? And can you imagine that with just **9k** lines of JavaSctipt (frameworks included!!!) you can build whole SaaS product?
 
 So, please don't tell Vanilla JavaScript does not scale.
 
