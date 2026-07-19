@@ -34,6 +34,12 @@ server(
     indexFile: './web-app/static/html/all-posts.html', 
     api: [],
     static: [
+      src(/^\/(sitemap\.xml|robots\.txt)$/, {
+        baseFolder,
+        useGzip: true,
+        useCors,
+        ...corsOptions
+      }),
       src(/^\/((html\/main-page-template\.html)|(html\/frammento-main-page-template\.html)|(html\/content)|css|js|json|svg|image|md|pdf|font|ttf|yml|magenta-soundfonts)/, {
         baseFolder,
         useGzip: true,
