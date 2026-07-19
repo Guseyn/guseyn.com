@@ -6,22 +6,20 @@
   "type": "module",
   "scripts": {
     "lint": "npx eslint",
-    "guseyn:start": "node web-app/main.js",
-    "guseyn:restart": "node web-app/restart.js",
-    "guseyn:local:start": "ENV=local npm run guseyn:start",
-    "guseyn:prod:start": "ENV=prod npm run guseyn:start",
-    "guseyn:local:restart": "ENV=local npm run guseyn:restart",
-    "guseyn:prod:restart": "ENV=prod npm run guseyn:restart",
-    "guseyn:docker:local:start": "docker-compose -f docker-compose.yml up --build --force-recreate --remove-orphans",
-    "guseyn:docker:prod:start": "DOMAIN=guseyn.com,www.guseyn.com DOMAIN_EMAIL=guseyn@guseyn.com CERTBOT_MODE=generate docker-compose -f docker-compose.prod.yml up --build --force-recreate --remove-orphans",
-    "guseyn:docker:local:restart": "docker exec -it guseyn.com npm run guseyn:local:restart",
-    "guseyn:docker:prod:restart": "docker exec -it guseyn.com npm run guseyn:prod:restart",
-    "guseyn:pull": "node web-app/pull.js",
-    "guseyn:prod:pull": "ENV=prod node web-app/pull.js",
-    "ehtml:update": "yes | cp -rf ../../my-projects/EHTML/src/ web-app/static/js/ehtml",
-    "nodes:update": "yes | cp -rf ../../my-projects/nodes.js/nodes/ nodes/",
-    "ehtml:update:reverse": "yes | cp -rf web-app/static/js/ehtml/ ../../my-projects/EHTML/src/",
-    "nodes:update:reverse": "yes | cp -rf nodes/ ../../my-projects/nodes.js/nodes/"
+    "start": "node web-app/main.js",
+    "restart": "node web-app/restart.js",
+    "start:local": "ENV=local npm run start",
+    "start:prod": "ENV=prod npm run start",
+    "restart:local": "ENV=local npm run restart",
+    "restart:prod": "ENV=prod npm run restart",
+    "start:docker:local": "docker-compose -f docker-compose.yml up --build --force-recreate --remove-orphans",
+    "start:docker:prod": "DOMAIN=guseyn.com,www.guseyn.com DOMAIN_EMAIL=guseyn@guseyn.com CERTBOT_MODE=generate docker-compose -f docker-compose.prod.yml up --build --force-recreate --remove-orphans",
+    "restart:docker:local": "docker exec -it guseyn.com npm run local:restart",
+    "restart:docker:prod": "docker exec -it guseyn.com npm run prod:restart",
+    "pull": "node web-app/pull.js",
+    "ehtml:update": "rsync -a --delete ../../my-projects/EHTML/src/ web-app/static/js/ehtml",
+    "nodes:update": "rsync -a --delete ../../my-projects/nodes.js/nodes/ nodes/",
+    "eui:update": "rsync -a --delete ../../my-projects/e-ui/static/js/e-ui/ web-app/static/js/e-ui/ && cp -rf ../../my-projects/e-ui/static/css/e-ui.css web-app/static/css/e-ui.css"
   },
   "author": "guseyn",
   "license": "MIT",
@@ -32,9 +30,7 @@
     "#nodes/*": "./nodes/*"
   },
   "dependencies": {
-    "cross-port-killer": "^1.4.0",
-    "find-process": "^1.4.7",
-    "log-timestamp": "^0.3.0"
+
   },
   "devDependencies": {
     "eslint": "^8.30.0",
