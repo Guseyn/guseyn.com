@@ -138,15 +138,15 @@ And if specifically talk about frontend:
 -------------------------------------------------------------------------------
 Language                     files          blank        comment           code
 -------------------------------------------------------------------------------
-HTML                            54            342            141          17709
-JavaScript                      95           1329            782           9120
-CSS                             14           1236            472           7986
+HTML                            54            338            141          17687
+JavaScript                     102           1341            782           9252
+CSS                              6            800            328           5437
 -------------------------------------------------------------------------------
-SUM:                           163           2907           1395          34815
+SUM:                           162           2479           1251          32376
 -------------------------------------------------------------------------------
 ```
 
-HTML is **50%**. Half of my code is HTML. CSS is **20%**. And JavaScript is around **30%**. Can you imagine that the amount of CSS and JavaScript is almost the same? And can you imagine that with just **9k** lines of JavaSctipt (frameworks included!!!) you can build whole SaaS product?
+HTML is over **50%**. Half of my code is HTML. CSS is **15%**. And JavaScript is around **35%**. Can you imagine that with just **9k** lines of JavaSctipt (frameworks included!!!) you can build whole SaaS product?
 
 So, please don't tell me Vanilla JavaScript does not scale.
 
