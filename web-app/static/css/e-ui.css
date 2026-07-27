@@ -780,7 +780,7 @@ img[data-loading] {
 *[data-border="right"], [is^="e-"][data-border="right"] { border-right: 1px solid var(--e-border); }
 *[data-border="bottom"], [is^="e-"][data-border="bottom"] { border-bottom: 1px solid var(--e-border); }
 *[data-border="left"], [is^="e-"][data-border="left"] { border-left: 1px solid var(--e-border); }
-*[data-border="none"], [is^="e-"][data-border="none"] { border: none; }
+*[data-border="none"], [is^="e-"][data-border="none"] { border: none !important; }
 
 *[data-box-shadow="sm"], [is^="e-"][data-box-shadow="sm"] {
   box-shadow: var(--e-shadow-sm) !important;
