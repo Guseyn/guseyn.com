@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Guseyn Ismayylov">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Invoice #19 — Gusein Ismaiylov</title>
+    <link rel="shortcut icon" type="image/png" href="/image/favicon.png?v=f80d70da">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Great+Vibes&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <script type="importmap">
+      {
+        "imports": {
+          "#ehtml/": "/js/ehtml/",
+          "#ehtml/main": "/js/ehtml/main.js?v=1a6f54c9"
+        }
+      }
+    </script>
+    <script type="module">import '#ehtml/main'</script>
+    <style>
+      :root {
+        --ink: #1a1a1a;
+        --navy: #1e3a5f;
+        --accent: #b85c5c;
+        --muted: #4a4a4a;
+        --line: #c9a0a0;
+        --paper: #ffffff;
+        --page: #e8e6e1;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html, body {
+        margin: 0;
+        padding: 0;
+        background: var(--page);
+        color: var(--ink);
+        font-family: "Source Sans 3", "Source Sans Pro", sans-serif;
+        font-size: 15px;
+        line-height: 1.45;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .page {
+        width: 210mm;
+        min-height: 297mm;
+        margin: 24px auto;
+        padding: 22mm 20mm 18mm;
+        background: var(--paper);
+        box-shadow: 0 8px 40px rgba(30, 58, 95, 0.12);
+        display: flex;
+        flex-direction: column;
+      }
+
+      .heading {
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 700;
+        color: var(--navy);
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        margin: 0;
+      }
+
+      .invoice-title {
+        font-size: 64px;
+        line-height: 0.9;
+        letter-spacing: 0.06em;
+        margin-bottom: 14px;
+      }
+
+      .issuer {
+        max-width: 78%;
+        color: var(--ink);
+        font-size: 14.5px;
+        line-height: 1.5;
+      }
+
+      .issuer strong {
+        font-weight: 700;
+      }
+
+      .meta {
+        display: grid;
+        grid-template-columns: 1fr 220px;
+        gap: 32px;
+        margin-top: 36px;
+        align-items: start;
+      }
+
+      .bill-to .label {
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 700;
+        font-size: 18px;
+        color: var(--navy);
+        letter-spacing: 0.06em;
+        margin-bottom: 6px;
+      }
+
+      .bill-to .name {
+        font-size: 15px;
+        color: var(--ink);
+      }
+
+      .invoice-meta {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        column-gap: 28px;
+        row-gap: 8px;
+        align-items: baseline;
+      }
+
+      .invoice-meta .label {
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 700;
+        font-size: 16px;
+        color: var(--navy);
+        letter-spacing: 0.05em;
+        white-space: nowrap;
+      }
+
+      .invoice-meta .value {
+        text-align: right;
+        font-size: 15px;
+        color: var(--ink);
+      }
+
+      .items {
+        margin-top: 42px;
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .items thead th {
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 700;
+        font-size: 16px;
+        color: var(--navy);
+        letter-spacing: 0.06em;
+        text-align: left;
+        padding: 10px 0;
+        border-top: 2px solid var(--accent);
+        border-bottom: 2px solid var(--accent);
+      }
+
+      .items thead th:last-child,
+      .items tbody td:last-child {
+        text-align: right;
+      }
+
+      .items tbody td {
+        padding: 14px 0 6px;
+        vertical-align: top;
+        color: var(--ink);
+        font-size: 15px;
+      }
+
+      .items tbody tr + tr td {
+        padding-top: 8px;
+      }
+
+      .totals {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 28px;
+      }
+
+      .totals-box {
+        min-width: 220px;
+        display: grid;
+        grid-template-columns: auto auto;
+        column-gap: 36px;
+        align-items: baseline;
+      }
+
+      .totals-box .label {
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 700;
+        font-size: 22px;
+        color: var(--navy);
+        letter-spacing: 0.05em;
+      }
+
+      .totals-box .amount {
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 700;
+        font-size: 28px;
+        color: var(--navy);
+        letter-spacing: 0.02em;
+        text-align: right;
+      }
+
+      .signature-block {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 36px;
+      }
+
+      .signature {
+        width: 180px;
+        height: 70px;
+        object-fit: contain;
+        object-position: right bottom;
+      }
+
+      .signature-placeholder {
+        width: 180px;
+        height: 70px;
+        border-bottom: 1px solid var(--muted);
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        color: #9a9a9a;
+        font-size: 12px;
+        font-style: italic;
+        padding-bottom: 6px;
+      }
+
+      .footer {
+        margin-top: auto;
+        padding-top: 48px;
+        display: grid;
+        grid-template-columns: 1fr 1.15fr;
+        gap: 28px;
+        align-items: start;
+      }
+
+      .thank-you {
+        font-family: "Great Vibes", cursive;
+        font-size: 64px;
+        color: var(--navy);
+        line-height: 1;
+        padding-top: 8px;
+      }
+
+      .terms {
+        border-left: 2px solid var(--accent);
+        padding-left: 22px;
+      }
+
+      .terms h2 {
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 700;
+        font-size: 16px;
+        color: var(--accent);
+        letter-spacing: 0.06em;
+        margin: 0 0 10px;
+        text-transform: uppercase;
+      }
+
+      .terms p {
+        margin: 0 0 4px;
+        font-size: 13px;
+        line-height: 1.45;
+        color: var(--ink);
+      }
+
+      .terms .lead {
+        margin-bottom: 10px;
+      }
+
+      .terms .bank-title {
+        margin-top: 2px;
+        margin-bottom: 6px;
+        font-weight: 600;
+      }
+
+      @media screen and (max-width: 860px) {
+        body {
+          background: var(--paper);
+        }
+
+        .page {
+          width: 100%;
+          min-height: auto;
+          margin: 0;
+          padding: 28px 20px 36px;
+          box-shadow: none;
+        }
+
+        .invoice-title {
+          font-size: 48px;
+        }
+
+        .issuer {
+          max-width: 100%;
+        }
+
+        .meta {
+          grid-template-columns: 1fr;
+          gap: 24px;
+        }
+
+        .invoice-meta {
+          max-width: 280px;
+        }
+
+        .footer {
+          grid-template-columns: 1fr;
+          gap: 20px;
+          padding-top: 40px;
+        }
+
+        .thank-you {
+          font-size: 48px;
+        }
+
+        .terms {
+          border-left: none;
+          border-top: 2px solid var(--accent);
+          padding-left: 0;
+          padding-top: 16px;
+        }
+      }
+
+      @media print {
+        @page {
+          size: A4;
+          margin: 0;
+        }
+
+        html, body {
+          background: white;
+        }
+
+        .page {
+          width: auto;
+          min-height: auto;
+          margin: 0;
+          padding: 18mm 16mm 14mm;
+          box-shadow: none;
+        }
+
+        * {
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <article class="page">
+      <header>
+        <h1 class="heading invoice-title">Invoice</h1>
+        <p class="issuer">
+          Individual Entrepreneur <strong>GUSEIN ISMAIYLOV</strong>,<br>
+          Georgia, Tbilisi, Krtsanisi district, Nino and Ilia Nakashidze Street, N 1, (former Avlevi), flat N3, building N3;<br>
+          Company Identification Number: 304711541
+        </p>
+      </header>
+
+      <section class="meta">
+        <div class="bill-to">
+          <div class="label">Bill To</div>
+          <div class="name">Rivo, Inc., an Indiana corporation</div>
+        </div>
+        <div class="invoice-meta">
+          <div class="label">Invoice #</div>
+          <div class="value">19</div>
+          <div class="label">Invoice Date</div>
+          <div class="value">
+            <span data-text="${new Date().toLocaleDateString('en-GB')}"></span>
+          </div>
+        </div>
+      </section>
+
+      <table class="items">
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Payment period: August 1st to August 31st</td>
+            <td>1,500.00</td>
+          </tr>
+          <tr>
+            <td>LinkedIn Premium for Sales</td>
+            <td>50.00</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="totals">
+        <div class="totals-box">
+          <div class="label">Total</div>
+          <div class="amount">$1,550.00</div>
+        </div>
+      </div>
+
+      <div class="signature-block">
+        <!-- Replace /image/signature.png with your signature image -->
+        <!-- Replace with your real signature image (e.g. /image/signature.png) -->
+        <img
+          class="signature"
+          src="/image/signature.svg"
+          alt="Signature of Gusein Ismaiylov"
+        >
+      </div>
+
+      <footer class="footer">
+        <div class="thank-you">Thank you</div>
+        <div class="terms">
+          <h2>Terms &amp; Conditions</h2>
+          <p class="lead">Payment is due within 5 days.</p>
+          <p class="bank-title">USD account</p>
+          <p>Intermediary bank Citibank N.A., New York, USA; SWIFT: CITIUS33</p>
+          <p>Account with institution Bank of Georgia, SWIFT: BAGAGE22</p>
+          <p>Beneficiary ISMAIYLOV GUSEIN</p>
+          <p>Account GE03BG0000000589149850</p>
+          <p>Phone (+995 32) 2 444 444</p>
+          <p>Email welcome@bog.ge</p>
+          <p>Address 29a Gagarin street, Tbilisi 0160, Georgia</p>
+        </div>
+      </footer>
+    </article>
+  </body>
+</html>
