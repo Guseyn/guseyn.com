@@ -3,7 +3,7 @@
   <div is="e-panel" data-box-shadow="none" data-background="primary-transparent" data-padding="2xl" data-border-radius="2xl" data-width="full">
     <div
       is="e-row"
-      data-gap="2xl"
+      data-gap="md"
       data-align-items="center"
       data-keep-flex-direction-row-in-mobile
       data-width="full"
@@ -15,7 +15,7 @@
         data-padding="2xs"
         data-border=""
         data-border-color="primary"
-        data-border-radius="md"
+        data-border-radius="lg"
         data-box-shadow="none"
         data-shrink="0"
         data-width="max-content"
@@ -23,7 +23,7 @@
         <img
           src="/image/4T7A8796-2.jpg?v=46765fb5"
           data-height="2xl"
-          data-border-radius="sm"
+          data-border-radius="lg"
           data-shrink="0"
           alt="Guseyn Ismayylov"
         >
@@ -82,74 +82,18 @@
       </div>
     </div>
 
-    <div is="e-row" role="navigation" data-margin-top="2xl" data-width="full" data-justify-content="center" data-flex-wrap="wrap" data-gap="sm" data-keep-flex-direction-row-in-mobile>
-      <a is="e-link-button" data-variant="outline" href="#stack">My stack</a>
+    <div is="e-row" role="navigation" data-margin-top="md" data-width="full" data-justify-content="center" data-flex-wrap="wrap" data-gap="sm" data-keep-flex-direction-row-in-mobile>
       <a is="e-link-button" data-variant="outline" href="#projects">Projects I built solo</a>
-      <a is="e-link-button" data-variant="outline" href="#how">How I work</a>
-      <a is="e-link-button" data-variant="outline" href="#faq">FAQ</a>
       <a is="e-link-button" data-variant="outline" href="#pricing">Pricing</a>
+      <a is="e-link-button" data-variant="outline" href="#how">How I work</a>
+      <a is="e-link-button" data-variant="outline" href="#stack">My stack</a>
+      <a is="e-link-button" data-variant="outline" href="#faq">FAQ</a>
       <a is="e-link-button" data-variant="outline" href="#contact">Contact</a>
     </div>
   </div>
 </section>
 
-<!-- 2. My stack -->
-<section is="e-section" data-landing-section id="stack" data-padding-bottom="2xl">
-  <div is="e-stack" data-gap="xs" data-width="full">
-    <h2 is="e-h" data-color="primary">My stack</h2>
-    <span is="e-caption" data-color="muted">Small on purpose — built for real products, not demos</span>
-  </div>
-
-  <div is="e-info" data-padding="lg" data-margin-top="md" data-width="full">
-    <p data-font-size="md">
-      People hear “HTML and vanilla JS” and assume brochure websites. Look at the projects below before you decide that. The stack is simple so the product can be complicated — payments, scheduling, realtime video, domain-specific engines — without turning every feature into a framework migration.
-    </p>
-  </div>
-
-  <div is="e-stack" data-gap="lg" data-margin-top="md" data-width="full">
-
-    <div is="e-panel" data-background="primary-transparent" data-box-shadow="none" data-padding="xl" data-border-radius="lg" data-width="full">
-      <div is="e-stack" data-gap="sm">
-        <a href="https://e-html.org/"><img src="/image/ehtml-logo.svg" data-height="sm" data-shrink="0" alt="EHTML"></a>
-        <h3 is="e-h" data-font-size="md" data-color="primary">EHTML — HTML that does more</h3>
-      </div>
-      <p data-font-size="md" data-margin-top="md">
-        I didn't invent a new file format. I extended HTML. Lists, heavy forms, partial page updates, shared markup — a lot of what people reach for a SPA for can stay in the page. No build step. No bundler. No transpile circus.
-      </p>
-    </div>
-
-    <div is="e-panel" data-background="primary-transparent" data-box-shadow="none" data-padding="xl" data-border-radius="lg" data-width="full">
-      <div is="e-stack" data-gap="sm">
-        <a href="https://github.com/Guseyn/e-ui"><img src="/image/e-ui-logo.svg" data-height="sm" data-shrink="0" alt="e-ui"></a>
-        <h3 is="e-h" data-font-size="md" data-color="primary">e-ui — UI on top of the browser</h3>
-      </div>
-      <p data-font-size="md" data-margin-top="md">
-        Buttons, forms, panels, dialogs — same behaviour across the product, built on what the browser already gives you. I use it so pages look designed without rewriting CSS from scratch for every screen.
-      </p>
-    </div>
-
-    <div is="e-panel" data-background="primary-transparent" data-box-shadow="none" data-padding="xl" data-border-radius="lg" data-width="full">
-      <div is="e-stack" data-gap="sm">
-        <a href="https://github.com/Guseyn/nodes.js"><img src="/image/nodes.js.svg" data-height="sm" data-shrink="0" alt="nodes.js"></a>
-        <h3 is="e-h" data-font-size="md" data-color="primary">nodes.js — the server side</h3>
-      </div>
-      <p data-font-size="md" data-margin-top="md">
-        Same idea on the server: Node.js without ten frameworks on top. Logins, billing, scheduling, APIs. Cluster support so the app uses the whole machine, comes back if a worker dies, and can restart for a deploy without taking everything offline. Ordinary VPS. When something breaks at 2 a.m., you're not hunting through six layers of abstraction.
-      </p>
-    </div>
-
-    <div is="e-info" data-padding="lg" data-width="full">
-      <p data-font-size="md">
-        <span is="e-bold">Boring infrastructure still matters:</span> careful migrations, the same deploy every time, Stripe for money, Postmark for email.  I don't wire in fifteen SaaS tools when thirty lines of code does the job.
-      </p>
-      <p data-font-size="md" data-margin-top="sm">
-        I wrote this stack because I got tired of tools that look great in a talk and fight you six months later. <a is="e-link" data-underlined href="https://guseyn.com/html/posts/why-vanilla-js.html">Why I build this way →</a>
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- 3. Solo projects -->
+<!-- 2. Solo projects -->
 <section is="e-section" data-landing-section id="projects" data-padding-bottom="2xl">
   <div is="e-stack" data-gap="xs" data-width="full">
     <h2 is="e-h" data-color="primary">Projects I built solo</h2>
@@ -165,7 +109,7 @@
     </p>
   </div>
 
-  <div is="e-stack" data-gap="xl" data-margin-top="lg" data-width="full">
+  <div is="e-stack" data-gap="md" data-margin-top="md" data-width="full">
     <div is="e-panel" data-box-shadow="none" data-background="primary-transparent" data-padding="xl" data-border-radius="lg" data-width="full">
       <div is="e-row" data-gap="md" data-align-items="center" data-keep-flex-direction-row-in-mobile>
         <img src="/image/instrux-music-logo.svg" data-height="md" data-shrink="0" alt="InstruxMusic">
@@ -223,12 +167,50 @@
   </div>
 </section>
 
+<!-- 3. Pricing -->
+<section is="e-section" data-landing-section id="pricing" data-padding-bottom="2xl">
+  <div is="e-stack" data-gap="xs" data-width="full">
+    <h2 is="e-h" data-color="primary">Pricing</h2>
+    <span is="e-caption" data-color="muted">Scope first, then the number</span>
+  </div>
+
+  <div is="e-grid" data-columns="3" data-gap="md" data-margin-top="md" data-width="full">
+    <div is="e-card" data-padding="xl" data-width="full">
+      <h3 is="e-h" data-font-size="md" data-color="primary">Discovery &amp; audit</h3>
+      <p data-font-size="xl" data-color="primary" data-font-weight="bold" data-margin-top="sm">Free</p>
+      <p data-font-size="md" data-margin-top="md">
+        Tell me what you're building. I'll ask questions, push back if something doesn't add up, and tell you what I actually think. Not a sales pitch dressed as a call.
+      </p>
+      <a is="e-link-button" data-variant="outline" data-margin-top="md" href="#contact">Book a call</a>
+    </div>
+
+    <div is="e-card" data-padding="xl" data-width="full" data-border="" data-border-color="primary" data-background="primary-transparent">
+      <h3 is="e-h" data-font-size="md" data-color="primary">MVP to production</h3>
+      <p data-font-size="xl" data-color="primary" data-font-weight="bold" data-margin-top="sm">$10,000 / month</p>
+      <p is="e-caption" data-color="muted" data-margin-top="xs">then $5,000 / month to maintain and add features</p>
+      <p data-font-size="md" data-margin-top="md">
+        I build the product — design, code, servers, launch. Meant to run, not to impress investors for a week. After launch, the lower rate covers keeping it alive and adding features when you need them.
+      </p>
+      <a is="e-link-button" data-margin-top="md" href="#contact">Start a project</a>
+    </div>
+
+    <div is="e-card" data-padding="xl" data-width="full">
+      <h3 is="e-h" data-font-size="md" data-color="primary">Legacy rescue</h3>
+      <p data-font-size="xl" data-color="primary" data-font-weight="bold" data-margin-top="sm">$5,000 / week</p>
+      <p data-font-size="md" data-margin-top="md">
+        The code already exists and it's rough. I don't throw it away unless I have to. Fix, delete dead weight, ship something useful every week.
+      </p>
+      <a is="e-link-button" data-variant="outline" data-margin-top="md" href="#contact">Rescue my codebase</a>
+    </div>
+  </div>
+</section>
+
 <!-- 4. How I work -->
 <section is="e-section" data-landing-section id="how" data-padding-bottom="2xl">
   <h2 is="e-h" data-color="primary">How I work</h2>
   <span is="e-caption" data-color="muted">Habits I picked up the hard way</span>
 
-  <div is="e-grid" data-columns="3" data-gap="lg" data-margin-top="md" data-width="full">
+  <div is="e-grid" data-columns="3" data-gap="md" data-margin-top="md" data-width="full">
     <div is="e-card" data-font-size="md" data-width="full" data-padding="lg">
       <div is="e-row" data-gap="sm" data-align-items="center" data-keep-flex-direction-row-in-mobile>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="var(--e-primary)" data-height="sm" data-shrink="0" aria-hidden="true"><path d="M440-520h80v-280q0-17-11.5-28.5T480-840q-17 0-28.5 11.5T440-800v280ZM200-360h560v-80H200v80Zm-58 240h98v-80q0-17 11.5-28.5T280-240q17 0 28.5 11.5T320-200v80h120v-80q0-17 11.5-28.5T480-240q17 0 28.5 11.5T520-200v80h120v-80q0-17 11.5-28.5T680-240q17 0 28.5 11.5T720-200v80h98l-40-160H182l-40 160Zm676 80H142q-39 0-63-31t-14-69l55-220v-80q0-33 23.5-56.5T200-520h160v-280q0-50 35-85t85-35q50 0 85 35t35 85v280h160q33 0 56.5 23.5T840-440v80l55 220q13 38-11.5 69T818-40Zm-58-400H200h560Zm-240-80h-80 80Z"/></svg>
@@ -321,7 +303,63 @@
   </div>
 </section>
 
-<!-- 5. FAQ -->
+<!-- 5. My stack -->
+<section is="e-section" data-landing-section id="stack" data-padding-bottom="2xl">
+  <div is="e-stack" data-gap="xs" data-width="full">
+    <h2 is="e-h" data-color="primary">My stack</h2>
+    <span is="e-caption" data-color="muted">Small on purpose — built for real products, not demos</span>
+  </div>
+
+  <div is="e-info" data-padding="lg" data-margin-top="md" data-width="full">
+    <p data-font-size="md">
+      People hear “HTML and vanilla JS” and assume brochure websites. Look at the projects above before you decide that. The stack is simple so the product can be complicated — payments, scheduling, realtime video, domain-specific engines — without turning every feature into a framework migration.
+    </p>
+  </div>
+
+  <div is="e-stack" data-gap="md" data-margin-top="md" data-width="full">
+
+    <div is="e-panel" data-background="primary-transparent" data-box-shadow="none" data-padding="xl" data-border-radius="lg" data-width="full">
+      <div is="e-stack" data-gap="sm">
+        <a href="https://e-html.org/"><img src="/image/ehtml-logo.svg" data-height="sm" data-shrink="0" alt="EHTML"></a>
+        <h3 is="e-h" data-font-size="md" data-color="primary">EHTML — HTML that does more</h3>
+      </div>
+      <p data-font-size="md" data-margin-top="md">
+        I didn't invent a new file format. I extended HTML. Lists, heavy forms, partial page updates, shared markup — a lot of what people reach for a SPA for can stay in the page. No build step. No bundler. No transpile circus.
+      </p>
+    </div>
+
+    <div is="e-panel" data-background="primary-transparent" data-box-shadow="none" data-padding="xl" data-border-radius="lg" data-width="full">
+      <div is="e-stack" data-gap="sm">
+        <a href="https://github.com/Guseyn/e-ui"><img src="/image/e-ui-logo.svg" data-height="sm" data-shrink="0" alt="e-ui"></a>
+        <h3 is="e-h" data-font-size="md" data-color="primary">e-ui — UI on top of the browser</h3>
+      </div>
+      <p data-font-size="md" data-margin-top="md">
+        Buttons, forms, panels, dialogs — same behaviour across the product, built on what the browser already gives you. I use it so pages look designed without rewriting CSS from scratch for every screen.
+      </p>
+    </div>
+
+    <div is="e-panel" data-background="primary-transparent" data-box-shadow="none" data-padding="xl" data-border-radius="lg" data-width="full">
+      <div is="e-stack" data-gap="sm">
+        <a href="https://github.com/Guseyn/nodes.js"><img src="/image/nodes.js.svg" data-height="sm" data-shrink="0" alt="nodes.js"></a>
+        <h3 is="e-h" data-font-size="md" data-color="primary">nodes.js — the server side</h3>
+      </div>
+      <p data-font-size="md" data-margin-top="md">
+        Same idea on the server: Node.js without ten frameworks on top. Logins, billing, scheduling, APIs. Cluster support so the app uses the whole machine, comes back if a worker dies, and can restart for a deploy without taking everything offline. Ordinary VPS. When something breaks at 2 a.m., you're not hunting through six layers of abstraction.
+      </p>
+    </div>
+
+    <div is="e-info" data-padding="lg" data-width="full">
+      <p data-font-size="md">
+        <span is="e-bold">Boring infrastructure still matters:</span> careful migrations, the same deploy every time, Stripe for money, Postmark for email.  I don't wire in fifteen SaaS tools when thirty lines of code does the job.
+      </p>
+      <p data-font-size="md" data-margin-top="sm">
+        I wrote this stack because I got tired of tools that look great in a talk and fight you six months later. <a is="e-link" data-underlined href="https://guseyn.com/html/posts/why-vanilla-js.html">Why I build this way →</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 6. FAQ -->
 <section is="e-section" data-landing-section id="faq" data-padding-bottom="2xl">
   <div is="e-stack" data-gap="xs" data-width="full">
     <h2 is="e-h" data-color="primary">FAQ</h2>
@@ -403,54 +441,16 @@
   </div>
 </section>
 
-<!-- 6. Pricing -->
-<section is="e-section" data-landing-section id="pricing" data-padding-bottom="2xl">
-  <div is="e-stack" data-gap="xs" data-width="full">
-    <h2 is="e-h" data-color="primary">Pricing</h2>
-    <span is="e-caption" data-color="muted">Scope first, then the number</span>
-  </div>
-
-  <div is="e-grid" data-columns="3" data-gap="lg" data-margin-top="md" data-width="full">
-    <div is="e-card" data-padding="xl" data-width="full">
-      <h3 is="e-h" data-font-size="md" data-color="primary">Discovery &amp; audit</h3>
-      <p data-font-size="xl" data-color="primary" data-font-weight="bold" data-margin-top="sm">Free</p>
-      <p data-font-size="md" data-margin-top="md">
-        Tell me what you're building. I'll ask questions, push back if something doesn't add up, and tell you what I actually think. Not a sales pitch dressed as a call.
-      </p>
-      <a is="e-link-button" data-variant="outline" data-margin-top="md" href="#contact">Book a call</a>
-    </div>
-
-    <div is="e-card" data-padding="xl" data-width="full" data-border="" data-border-color="primary" data-background="primary-transparent">
-      <h3 is="e-h" data-font-size="md" data-color="primary">MVP to production</h3>
-      <p data-font-size="xl" data-color="primary" data-font-weight="bold" data-margin-top="sm">$10,000 / month</p>
-      <p is="e-caption" data-color="muted" data-margin-top="xs">then $5,000 / month to maintain and add features</p>
-      <p data-font-size="md" data-margin-top="md">
-        I build the product — design, code, servers, launch. Meant to run, not to impress investors for a week. After launch, the lower rate covers keeping it alive and adding features when you need them.
-      </p>
-      <a is="e-link-button" data-margin-top="md" href="#contact">Start a project</a>
-    </div>
-
-    <div is="e-card" data-padding="xl" data-width="full">
-      <h3 is="e-h" data-font-size="md" data-color="primary">Legacy rescue</h3>
-      <p data-font-size="xl" data-color="primary" data-font-weight="bold" data-margin-top="sm">$5,000 / week</p>
-      <p data-font-size="md" data-margin-top="md">
-        The code already exists and it's rough. I don't throw it away unless I have to. Fix, delete dead weight, ship something useful every week.
-      </p>
-      <a is="e-link-button" data-variant="outline" data-margin-top="md" href="#contact">Rescue my codebase</a>
-    </div>
-  </div>
-</section>
-
 <!-- 7. Contact -->
 <section is="e-section" data-landing-section id="contact" data-padding-bottom="2xl">
   <div is="e-panel" data-background="primary-transparent" data-box-shadow="none" data-padding="2xl" data-border-radius="2xl" data-width="full">
-    <div is="e-stack" data-gap="lg" data-align-items="center" data-width="full">
+    <div is="e-stack" data-gap="md" data-align-items="center" data-width="full">
       <div is="e-stack" data-gap="xs" data-align-items="center" data-text-align="center">
         <h2 is="e-h" data-color="primary">Contact</h2>
         <span is="e-caption" data-color="muted">Write me what you're building. I'll reply in a couple of days.</span>
       </div>
 
-      <div is="e-grid" data-columns="2" data-gap="lg" data-width="full">
+      <div is="e-grid" data-columns="2" data-gap="md" data-width="full">
         <div is="e-stack" data-gap="sm" data-font-size="md">
           <p><span is="e-bold" data-color="primary">Email</span><br><a is="e-link" data-underlined href="mailto:guseyn@guseyn.com">guseyn@guseyn.com</a></p>
           <p><span is="e-bold" data-color="primary">Telegram</span><br><a is="e-link" data-underlined href="https://t.me/guseyn">@guseyn</a></p>

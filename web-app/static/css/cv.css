@@ -5,7 +5,6 @@
   --cv-muted: #5c5c5c;
   --cv-line: #d8d4cf;
   --cv-accent: #6b1d1f;
-  --cv-accent-soft: #f4ecec;
   --cv-paper: #ffffff;
   --cv-page: #eceae6;
   --cv-max: 820px;
@@ -45,21 +44,21 @@ a {
 /* —— Header —— */
 .cv-header {
   display: grid;
-  grid-template-columns: 132px 1fr;
+  grid-template-columns: 156px 1fr;
   grid-template-areas:
     "photo identity"
-    "socials socials";
+    "photo socials";
   column-gap: 24px;
-  row-gap: 14px;
-  align-items: center;
+  row-gap: 8px;
+  align-items: start;
   padding-bottom: 28px;
-  border-bottom: 2px solid var(--cv-accent);
+  border-bottom: 1px solid var(--cv-accent);
 }
 
 .cv-photo {
   grid-area: photo;
-  width: 132px;
-  height: 132px;
+  width: 156px;
+  height: 156px;
   object-fit: cover;
   border-radius: 6px;
   border: 1px solid var(--cv-line);
@@ -96,38 +95,47 @@ a {
   color: var(--cv-muted);
 }
 
-.cv-contacts {
+.cv-contacts,
+.cv-socials {
   display: flex;
   flex-wrap: wrap;
-  gap: 4px 14px;
+  align-items: baseline;
+  gap: 0;
   margin: 0;
   padding: 0;
   list-style: none;
-  font-size: 14.5px;
+  font-size: 13.5px;
+  line-height: 1.35;
+}
+
+.cv-contacts {
+  margin-top: 6px;
+}
+
+.cv-contacts a {
+  color: var(--cv-accent);
+}
+
+.cv-contacts li + li::before {
+  content: "·";
+  display: inline-block;
+  margin: 0 0.4em;
+  color: var(--cv-line);
 }
 
 .cv-socials {
   grid-area: socials;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 4px 14px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  font-size: 14.5px;
   color: var(--cv-muted);
+  padding-top: 2px;
 }
 
 .cv-socials a {
   color: var(--cv-muted);
 }
 
-.cv-socials a:hover {
-  color: var(--cv-accent);
-}
-
 .cv-sep {
+  display: inline-block;
+  margin: 0 0.4em;
   color: var(--cv-line);
   user-select: none;
 }
@@ -151,9 +159,6 @@ a {
 
 .cv-summary {
   margin-top: 22px;
-  padding: 14px 16px;
-  background: var(--cv-accent-soft);
-  border-left: 3px solid var(--cv-accent);
 }
 
 .cv-summary p {
@@ -301,17 +306,17 @@ a {
   }
 
   .cv-header {
-    grid-template-columns: 112px 1fr;
+    grid-template-columns: 120px 1fr;
     grid-template-areas:
       "photo identity"
-      "socials socials";
+      "photo socials";
     justify-items: start;
     text-align: left;
   }
 
   .cv-photo {
-    width: 112px;
-    height: 112px;
+    width: 120px;
+    height: 120px;
   }
 
   .cv-name {
@@ -351,12 +356,6 @@ a {
   a {
     color: var(--cv-ink);
     text-decoration: underline;
-  }
-
-  .cv-summary {
-    background: transparent;
-    border-left-color: var(--cv-accent);
-    padding-left: 12px;
   }
 
   .cv-footer {

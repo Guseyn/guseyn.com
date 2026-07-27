@@ -207,12 +207,23 @@
         --e-primary: #701213;
         --e-primary-color: var(--e-primary);
         --e-primary-fg: #ffffff;
+        --wwm-ink: #1f1a1a;
+        --wwm-muted: #5c5555;
+        --wwm-line: rgba(112, 18, 19, 0.14);
+        --wwm-soft: rgba(112, 18, 19, 0.05);
       }
+
+      body[data-background="surface"] {
+        color: var(--wwm-ink);
+        background: #ffffff;
+      }
+
       .progress-opacity {
         opacity: 0.35;
         pointer-events: none;
         transition: opacity 0.2s ease;
       }
+
       *[data-animate="pulse"], [is^="e-"][data-animate="pulse"] {
         animation: e-pulse 2s ease-in-out infinite;
       }
@@ -256,6 +267,90 @@
         width: auto;
         flex-shrink: 0;
       }
+
+      /* —— Work-with-me polish —— */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      main[data-landing] {
+        max-width: 52rem;
+        position: relative;
+      }
+
+      main[data-landing] p,
+      main[data-landing] li {
+        line-height: 1.65;
+        color: var(--wwm-ink);
+      }
+
+      main[data-landing] span[is="e-caption"] {
+        color: var(--wwm-muted);
+        letter-spacing: 0.01em;
+      }
+
+      main[data-landing] section[data-landing-section] {
+        scroll-margin-top: 1.25rem;
+      }
+
+      main[data-landing] #top img[alt="Guseyn Ismayylov"] {
+        box-shadow: 0 8px 22px rgba(31, 26, 26, 0.1);
+      }
+
+      main[data-landing] #top a[is="e-link-button"] {
+        transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+      }
+
+      main[data-landing] #top a[is="e-link-button"]:hover {
+        transform: translateY(-1px);
+      }
+
+      /* Static symmetric primary borders on e-info, e-panel, e-card */
+      main[data-landing] div[is="e-info"],
+      main[data-landing] div[is="e-panel"],
+      main[data-landing] div[is="e-card"] {
+        border: 1.5px solid var(--e-primary) !important;
+        border-radius: 1rem !important;
+        box-shadow: none !important;
+      }
+
+      main[data-landing] #top > div[is="e-panel"] {
+        border-radius: 1.5rem !important;
+      }
+
+      main[data-landing] #top div[is="e-panel"]:has(> img[alt="Guseyn Ismayylov"]) {
+        border-radius: var(--e-radius-lg) !important;
+      }
+
+      main[data-landing] #how div[is="e-card"] b {
+        color: var(--e-primary);
+      }
+
+      main[data-landing] ul {
+        padding-left: 1.15rem;
+      }
+
+      main[data-landing] ul li {
+        margin-bottom: 0.35rem;
+      }
+
+      main[data-landing] a[is="e-link"] {
+        text-underline-offset: 0.15em;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        main[data-landing] #top a[is="e-link-button"] {
+          transition: none;
+        }
+
+        main[data-landing] #top a[is="e-link-button"]:hover {
+          transform: none;
+        }
+      }
     </style>
     <script type="importmap">
       {
@@ -283,7 +378,7 @@
     </noscript>
     <main is="e-main" data-landing data-centralized data-padding-top="lg" data-padding-bottom="3xl">
       <e-html
-        data-src="/html/content/work-with-me.html?v=collab2026"
+        data-src="/html/content/work-with-me.html?v=collab2026p"
         data-actions-on-progress-start="
           document.body.classList.toggle('progress-opacity')
         "
