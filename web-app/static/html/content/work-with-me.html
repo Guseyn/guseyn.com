@@ -1,100 +1,118 @@
 <!-- 1. Hero -->
 <section is="e-section" data-landing-section id="top" data-padding-bottom="2xl">
   <div is="e-panel" data-box-shadow="none" data-background="primary-transparent" data-padding="2xl" data-border-radius="2xl" data-width="full">
-    <div
-      is="e-row"
-      data-gap="md"
-      data-align-items="center"
-      data-keep-flex-direction-row-in-mobile
-      data-width="full"
-      data-flex-wrap="wrap"
-      data-justify-content="center"
-    >
+    <div is="e-stack" data-gap="lg" data-align-items="center" data-width="full">
       <div
-        is="e-panel"
-        data-padding="2xs"
-        data-border=""
-        data-border-color="primary"
-        data-border-radius="lg"
-        data-box-shadow="none"
-        data-shrink="0"
-        data-width="max-content"
+        is="e-stack"
+        data-gap="md"
+        data-align-items="center"
+        data-width="full"
+        data-justify-content="center"
       >
-        <img
-          src="/image/4T7A8796-2.jpg?v=46765fb5"
-          data-height="2xl"
+        <div
+          is="e-panel"
+          data-padding="2xs"
+          data-border=""
+          data-border-color="primary"
           data-border-radius="lg"
+          data-box-shadow="none"
           data-shrink="0"
-          alt="Guseyn Ismayylov"
+          data-width="max-content"
         >
-      </div>
-
-      <div is="e-stack" data-gap="md" data-width="full">
-        <div is="e-stack" data-gap="xs" data-align-items="center" data-text-align="center" data-width="full">
-          <h1 is="e-h" data-color="primary">Guseyn Ismayylov</h1>
+          <img
+            src="/image/4T7A8796-2.jpg?v=46765fb5"
+            data-height="2xl"
+            data-border-radius="lg"
+            data-shrink="0"
+            alt="Guseyn Ismayylov"
+          >
+        </div>
+        <div is="e-stack" data-gap="xs" data-align-items="center" data-text-align="center">
+          <h1 is="e-h" data-font-size="md" data-color="muted">Guseyn Ismayylov</h1>
           <span is="e-caption" data-color="muted">Solo full-stack developer</span>
         </div>
+      </div>
 
+      <div is="e-stack" data-gap="sm" data-align-items="center" data-text-align="center" data-width="full">
+        <p data-font-size="2xl" data-font-weight="bold" data-color="primary">
+          Native web that lasts — not a stack you'll rewrite next year.
+        </p>
         <p data-font-size="lg">
-          I spent about ten years inside enterprise teams — fintech, ed-tech, car diagnostics, developer tools. After a while you notice what actually matters: what breaks in production, what meetings never fix, and what makes users stop trusting you.
+          I extend HTML, CSS, JavaScript, and ordinary servers — complex products on foundations that stay stable.
         </p>
+      </div>
 
-        <p data-font-size="lg" data-margin-top="sm">
-          That's why I build my own tools — but on native web tech, by extending it, not by reinventing solutions the browser and Node already give you. HTML, CSS, JavaScript, ordinary servers. If something already works, I use it. If it's missing a piece I need every day, I extend it. I don't replace the platform with a second platform that needs its own build step, lifecycle, and rewrite every two years.
-        </p>
-
-        <p data-font-size="lg" data-margin-top="sm">
-          That does <span is="e-bold">not</span> mean I only build simple products. Extending native tech is how I ship complex ones without drowning in architecture theatre.
-        </p>
-
-        <p data-font-size="lg" data-margin-top="sm">
-          I work as a solo developer by default, one client at a time, from Tbilisi. You talk to the person writing the code. If the project needs a designer or a business partner, I can work with them — I've done that before. Hosting stays on a normal VPS. I use AI when it saves time — it doesn't decide anything for me.
-        </p>
-
-        <div is="e-row" data-gap="md" data-align-items="center" data-flex-wrap="wrap" data-justify-content="center" data-width="full">
-          <div
-            is="e-row"
-            data-gap="xs"
-            data-align-items="center"
-            data-keep-flex-direction-row-in-mobile
-            data-padding="xs"
-            data-padding-left="sm"
-            data-padding-right="sm"
-            data-border-radius="lg"
-            data-background="success-transparent"
-            data-color="success"
-            data-border=""
-            data-border-color="success"
-            data-font-size="sm"
-            data-font-weight="bold"
-            data-width="max-content"
-          >
-            <span is="e-badge" data-variant="dot" data-background="success" data-animate="pulse" aria-hidden="true"></span>
-            Open for new projects
-          </div>
-          <div is="e-row" data-gap="sm" data-align-items="center" data-color="muted">
-            <e-svg
-              data-src="/image/georgia.svg?v=safari2026"
-            ></e-svg>
-            <span is="e-caption">Tbilisi, Georgia · Remote worldwide</span>
-          </div>
+      <div is="e-row" data-gap="md" data-align-items="center" data-flex-wrap="wrap" data-justify-content="center" data-width="full">
+        <div
+          is="e-row"
+          data-gap="xs"
+          data-align-items="center"
+          data-keep-flex-direction-row-in-mobile
+          data-padding="xs"
+          data-padding-left="sm"
+          data-padding-right="sm"
+          data-border-radius="lg"
+          data-background="success-transparent"
+          data-color="success"
+          data-border=""
+          data-border-color="success"
+          data-font-size="sm"
+          data-font-weight="bold"
+          data-width="max-content"
+        >
+          <span is="e-badge" data-variant="dot" data-background="success" data-animate="pulse" aria-hidden="true"></span>
+          Open for new projects
         </div>
+        <div is="e-row" data-gap="sm" data-align-items="center" data-color="muted">
+          <e-svg
+            data-src="/image/georgia.svg?v=safari2026"
+          ></e-svg>
+          <span is="e-caption">Tbilisi, Georgia · Remote worldwide</span>
+        </div>
+      </div>
+
+      <div is="e-row" data-gap="sm" data-justify-content="center" data-flex-wrap="wrap" data-keep-flex-direction-row-in-mobile>
+        <a is="e-link-button" href="https://calendly.com/guseyn-guseyn/first-call">Book a call</a>
+        <a is="e-link-button" data-variant="outline" href="#contact">Contact</a>
       </div>
     </div>
 
     <div is="e-row" role="navigation" data-margin-top="md" data-width="full" data-justify-content="center" data-flex-wrap="wrap" data-gap="sm" data-keep-flex-direction-row-in-mobile>
+      <a is="e-link-button" data-variant="outline" href="#about">About</a>
       <a is="e-link-button" data-variant="outline" href="#projects">Projects I built solo</a>
       <a is="e-link-button" data-variant="outline" href="#testimonials">Testimonials</a>
       <a is="e-link-button" data-variant="outline" href="#pricing">Pricing</a>
       <a is="e-link-button" data-variant="outline" href="#how">How I work</a>
       <a is="e-link-button" data-variant="outline" href="#stack">My stack</a>
       <a is="e-link-button" data-variant="outline" href="#faq">FAQ</a>
-      <a is="e-link-button" data-variant="outline" href="#contact">Contact</a>
     </div>
   </div>
 </section>
 
-<!-- 2. Solo projects -->
+<!-- 2. About -->
+<section is="e-section" data-landing-section id="about" data-padding-bottom="2xl">
+  <div is="e-stack" data-gap="xs" data-width="full">
+    <h2 is="e-h" data-color="primary">About</h2>
+    <span is="e-caption" data-color="muted">Why I build this way</span>
+  </div>
+
+  <div is="e-info" data-padding="lg" data-margin-top="md" data-width="full">
+    <p data-font-size="md">
+      I spent about ten years inside enterprise teams — fintech, ed-tech, car diagnostics, developer tools. After a while you notice what actually matters: what breaks in production, what meetings never fix, and what makes users stop trusting you.
+    </p>
+    <p data-font-size="md" data-margin-top="sm">
+      That's why I build my own tools — but on native web tech, by extending it, not by reinventing solutions the browser and Node already give you. HTML, CSS, JavaScript, ordinary servers. If something already works, I use it. If it's missing a piece I need every day, I extend it. I don't replace the platform with a second platform that needs its own build step, lifecycle, and rewrite every two years.
+    </p>
+    <p data-font-size="md" data-margin-top="sm">
+      That does <span is="e-bold">not</span> mean I only build simple products. Extending native tech is how I ship complex ones without drowning in architecture theatre.
+    </p>
+    <p data-font-size="md" data-margin-top="sm">
+      I work as a solo developer by default, one client at a time, from Tbilisi. You talk to the person writing the code. If the project needs a designer or a business partner, I can work with them — I've done that before. Hosting stays on a normal VPS. I use AI when it saves time — it doesn't decide anything for me.
+    </p>
+  </div>
+</section>
+
+<!-- 3. Solo projects -->
 <section is="e-section" data-landing-section id="projects" data-padding-bottom="2xl">
   <div is="e-stack" data-gap="xs" data-width="full">
     <h2 is="e-h" data-color="primary">Projects I built solo</h2>
@@ -168,7 +186,7 @@
   </div>
 </section>
 
-<!-- 3. Testimonials -->
+<!-- 4. Testimonials -->
 <section is="e-section" data-landing-section id="testimonials" data-padding-bottom="2xl">
   <div is="e-stack" data-gap="xs" data-width="full">
     <h2 is="e-h" data-color="primary">Testimonials</h2>
@@ -201,7 +219,7 @@
   </div>
 </section>
 
-<!-- 4. Pricing -->
+<!-- 5. Pricing -->
 <section is="e-section" data-landing-section id="pricing" data-padding-bottom="2xl">
   <div is="e-stack" data-gap="xs" data-width="full">
     <h2 is="e-h" data-color="primary">Pricing</h2>
@@ -239,7 +257,7 @@
   </div>
 </section>
 
-<!-- 5. How I work -->
+<!-- 6. How I work -->
 <section is="e-section" data-landing-section id="how" data-padding-bottom="2xl">
   <h2 is="e-h" data-color="primary">How I work</h2>
   <span is="e-caption" data-color="muted">Habits I picked up the hard way</span>
@@ -337,7 +355,7 @@
   </div>
 </section>
 
-<!-- 6. My stack -->
+<!-- 7. My stack -->
 <section is="e-section" data-landing-section id="stack" data-padding-bottom="2xl">
   <div is="e-stack" data-gap="xs" data-width="full">
     <h2 is="e-h" data-color="primary">My stack</h2>
@@ -393,7 +411,7 @@
   </div>
 </section>
 
-<!-- 7. FAQ -->
+<!-- 8. FAQ -->
 <section is="e-section" data-landing-section id="faq" data-padding-bottom="2xl">
   <div is="e-stack" data-gap="xs" data-width="full">
     <h2 is="e-h" data-color="primary">FAQ</h2>
@@ -475,7 +493,7 @@
   </div>
 </section>
 
-<!-- 8. Contact -->
+<!-- 9. Contact -->
 <section is="e-section" data-landing-section id="contact" data-padding-bottom="2xl">
   <div is="e-panel" data-background="primary-transparent" data-box-shadow="none" data-padding="2xl" data-border-radius="2xl" data-width="full">
     <div is="e-stack" data-gap="md" data-align-items="center" data-width="full">
